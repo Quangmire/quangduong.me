@@ -7,7 +7,7 @@ permalink:        pretty
 relative_permalinks: true
 
 # Setup
-title:            "<p>Quangmire's</p><p>Dev Blog</p>"
+title:            "Quangmire's Dev Blog"
 tagline:          "Quang's Portfolio"
 description:      "Quang(mire) Duong's Portfolio and Musings"
 url:              http://hyde.getpoole.com

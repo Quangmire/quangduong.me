@@ -3,7 +3,6 @@ Salutations! This is the repository holding my github pages website. Fancy meeti
 ## Hyde
 
 > Quite the beautiful theme.
-
->              - Quangmire
+>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Quangmire
 
 Hyde is a [Jekyll](http://jekyllrb.com) theme used. It's based on [Poole](http://getpoole.com) and is made by [Mark Otto](https://github.com/mdo). It's under the [MIT License](LICENSE.md).

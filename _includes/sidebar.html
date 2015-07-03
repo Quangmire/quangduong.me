@@ -1,8 +1,8 @@
 <div class="sidebar">
 	<div class="sidebar-content">
-		<h1>
+		<h2>
 			<a href="{{ site.baseurl }}">{{ site.title }}</a>
-		</h1>
+		</h2>
 		<ul>
 			<li><a href="{{ site.baseurl }}">Home</a></li>
 			{% assign pages_list = site.pages %}
@@ -15,7 +15,7 @@
 				{% endfor %}
 			<li><a href="{{ site.baseurl }}/about.html">About</a></li>
 			<li><a href="{{ site.github.repo }}">GitHub</a></li>
+			<li>&copy; {{ site.time | date: '%Y' }}. All rights reserved.</li>
 		</ul>
 	</div>
-	<p>&copy; {{ site.time | date: '%Y' }}. All rights reserved.</p>
 </div>

@@ -49,12 +49,12 @@ body {
 	padding-left: 20px;
 }
 
-post a {
+.post a {
 	text-decoration: none;
 	color: black;
 }
 
-post a:hover {
+.post a:hover {
 	text-decoration: underline;
 }
 

@@ -6,10 +6,46 @@ html {
 body {
 	background-color: #4F4F53;
 }
+a {
+	text-decoration: none;
+}
+
+.related {
+	position: absolute;
+	left: 400px;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+.pagination {
+	margin: 30px 0px 30px 372px;
+	width: 800px;
+	padding-left: 300px;
+}
+
+.pagination-item {
+	width: 120px;
+	padding: 20px;
+	position: absolute;
+	color: #CCCCCC;
+	margin-bottom: 30px;
+	text-align: center;
+	border: 1px #CCCCCC solid;
+}
+
+.older {
+	left: 400px;
+}
+
+.newer {
+	left: 1130px;
+}
 
 .post {
 	margin: 30px 0px 30px 372px;
-	max-width: 800px;
+	width: 800px;
 	padding: 30px 100px 30px 30px;
 	background-color: #ECE9E4;
 	border-radius: 0px 4px 4px 0px;
@@ -20,14 +56,13 @@ body {
 .post-date {
 	display: inline;
 	position: absolute;
-	/*background-color: #2F2F32;*/
 	width: 200px;
 	height: 40px;
-	margin-left: 740px;
-	margin-top: 5px;
+	margin-left: 730px;
+	margin-top: -65px;
 	color: white;
 	text-align: center;
-	background-image: url("{{ site.baseurl }}public/ribbon.png");
+	background-image: url("/public/ribbon.png");
 	box-shadow: 3px 3px 3px #1F1F21;
 }
 
@@ -50,22 +85,23 @@ body {
 }
 
 .post a {
-	text-decoration: none;
-	color: black;
-}
-
-.post a:hover {
-	text-decoration: underline;
+	color: #268BD2;
 }
 
 .post-title {
 	font-weight: bold;
 	font-size: 36px;
 	line-height: 20px;
+	color: black;
+}
+
+.post-title a {
+	color: black;
 }
 
 .sidebar {
 	position: fixed;
+	display:inline;
 	width: 320px;
 	background-color: #1F1F22;
 	top: 0px;
@@ -84,13 +120,14 @@ body {
 	left: 20px;
 }
 
-.sidebar a {
-	text-decoration: none;
-	color: white;
+.sidebar h4 {
+	font-size: 20px;
+	font-weight: normal;
+	color: #CCCCCC;
 }
 
-.sidebar a:hover {
-	text-decoration: underline;
+.sidebar a {
+	color: white;
 }
 
 .sidebar ul {

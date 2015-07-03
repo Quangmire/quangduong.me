@@ -1,30 +1,20 @@
 ---
 layout: page
-title: About
+title: About Me
 ---
+Hiya! I am currently an incoming student into the UT Austin, entering their infamous Computer Science 
+program (best put as the best computer science department for 1,000 miles). This sets me at 18 years 
+of age right now. I've decided to use this github pages site to host all of my musings and developmental
+progress. Enjoy your stay here intrepid stranger! (And if you haven't caught it yet, my name's Quang Duong).
 
-<p class="message">
-  Hey there! This page is included as an example. Feel free to customize it for your own use upon downloading. Carry on!
-</p>
+#Current Projects
+* This website. Just look at it. It's atrocious.
+* TBD
 
-In the novel, *The Strange Case of Dr. Jeykll and Mr. Hyde*, Mr. Poole is Dr. Jekyll's virtuous and loyal butler. Similarly, Poole is an upstanding and effective butler that helps you build Jekyll themes. It's made by [@mdo](https://twitter.com/mdo).
-
-There are currently two themes built on Poole:
-
-* [Hyde](http://hyde.getpoole.com)
-* [Lanyon](http://lanyon.getpoole.com)
-
-Learn more and contribute on [GitHub](https://github.com/poole).
-
-## Setup
-
-Some fun facts about the setup of this project include:
-
-* Built for [Jekyll](http://jekyllrb.com)
-* Developed on GitHub and hosted for free on [GitHub Pages](https://pages.github.com)
-* Coded with [Sublime Text 2](http://sublimetext.com), an amazing code editor
-* Designed and developed while listening to music like [Blood Bros Trilogy](https://soundcloud.com/maddecent/sets/blood-bros-series)
-
-Have questions or suggestions? Feel free to [open an issue on GitHub](https://github.com/poole/issues/new) or [ask me on Twitter](https://twitter.com/mdo).
-
-Thanks for reading!
+#Random Facts
+* I absolutely enjoy reading fantasy, science fiction (steam punk :D), with a smidgeon of adventure, and
+  a tad of romance.
+* Self-Acclaimed League Player (ARAM mostly...a lot of ARAM) with an IGN of (wait for it...) Quangmire.
+* A bit too much of an Otaku (even trying to learn Japanese)
+* Also attempting to double major in Mathematics. Note the "attempting" part. It's a key word.
+* Of average height (in malnourished oriental countries of course)

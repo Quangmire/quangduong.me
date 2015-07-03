@@ -10,7 +10,7 @@ relative_permalinks: true
 title:            "Quangmire's Dev Blog"
 tagline:          "Quang's Portfolio"
 description:      "Quang(mire) Duong's Portfolio and Musings"
-url:              http://hyde.getpoole.com
+url:              "quangmire.github.io"
 baseurl:          /
 
 author:
@@ -18,9 +18,3 @@ author:
   url:            https://github.com/Quangmire
 
 paginate:         5
-
-# Custom vars
-version:          2.1.0
-
-github:
-  repo:           https://github.com/poole/hyde

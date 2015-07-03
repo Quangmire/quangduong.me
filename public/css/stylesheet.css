@@ -27,7 +27,7 @@ body {
 	margin-top: 5px;
 	color: white;
 	text-align: center;
-	background-image: url("ribbon.png");
+	background-image: url("{{ site.baseurl }}public/ribbon.png");
 	box-shadow: 3px 3px 3px #1F1F21;
 }
 

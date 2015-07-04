@@ -4,6 +4,32 @@ layout: default
 
 <div class="post">
   <h1 class="post-title">{{ page.title }}</h1>
-  <span class="post-date"><span>{{ page.date | date: "%b %-d %Y" }}</span></span>
+  <span class="post-date"><span>{{ page.date | date: "%b" }}. {{ page.date | date: "%-d" }}, {{ page.date | date: " %Y" }}</span></span>
   {{ content }}
+</div>
+
+<div class="pagination">
+  {% if page.next != nil %}
+    <a class="pagination-item older" href="{{ page.next.url }}" title="Older">&lt;</a>
+	<a class="pagination-item oldest" href="{{ site.posts.first.url }}" title="Oldest">&lt;&lt;</a>
+  {% else %}
+    <span class="pagination-item older" title="Older">&lt;</span>
+	<span class="pagination-item oldest" title="Oldest">&lt;&lt;</span>
+  {% endif %}
+  
+  {% if page.previous != nil %}
+    {% if page.previous.previous == nil %}
+      <a class="pagination-item newer" href="{{ site.posts.last.url }}" title="Newer">&gt;</a>
+	  <a class="pagination-item newest" href="{{ site.posts.last.url }}" title="Newest">&gt;&gt;</a>
+    {% else %}
+      <a class="pagination-item newer" href="{{ page.previous.url }}" title="Newer">&gt;</a>
+      <a class="pagination-item newest" href="{{ site.posts.last.url }}" title="Newest">&gt;&gt;</a>
+	{% endif %}
+  {% else %}
+    <span class="pagination-item newer" title="Newer">&gt;</span>
+	<span class="pagination-item newest" title="Newest">&gt;&gt;</span>
+  {% endif %}
+</div>
+<div class="pagination-number">
+	Post {{ page.index }} of {{ site.posts | size }}
 </div>

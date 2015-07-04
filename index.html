@@ -11,7 +11,7 @@ title: Home
       </a>
     </h1>
 
-    <span class="post-date"><span>{{ post.date | date: "%b %-d %Y" }}</span></span>
+    <span class="post-date"><span>{{ page.date | date: "%b" }}. {{ page.date | date: "%-d" }}, {{ page.date | date: " %Y" }}</span></span>
 
     {{ post.content }}
   </div>

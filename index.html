@@ -6,7 +6,7 @@ title: Home
   {% for post in paginator.posts %}
   <div class="post">
     <h1 class="post-title">
-      <a href="{{ post.url }}">
+      <a href="{{ post.url }}" title="{{ post.title }}">
         {{ post.title }}
       </a>
     </h1>
@@ -18,17 +18,26 @@ title: Home
   {% endfor %}
 <div class="pagination">
   {% if paginator.next_page %}
-    <a class="pagination-item older" href="{{ site.baseurl }}page{{paginator.next_page}}">Older</a>
+    <a class="pagination-item older" href="{{ site.baseurl }}page{{paginator.next_page}}" title="Older">&lt;</a>
+	<a class="pagination-item oldest" href="{{ site.baseurl }}page{{paginator.total_pages}}" title="Oldest">&lt;&lt;</a>
   {% else %}
-    <span class="pagination-item older">Older</span>
+    <span class="pagination-item older" title="Older">&lt;</span>
+	<span class="pagination-item oldest" title="Oldest">&lt;&lt;</span>
   {% endif %}
+  
   {% if paginator.previous_page %}
     {% if paginator.page == 2 %}
-      <a class="pagination-item newer" href="{{ site.baseurl }}">Newer</a>
+      <a class="pagination-item newer" href="{{ site.baseurl }}" title="Newer">&gt;</a>
+	  <a class="pagination-item newest" href="{{ site.baseurl }}" title="Newest">&gt;&gt;</a>
     {% else %}
-      <a class="pagination-item newer" href="{{ site.baseurl }}page{{paginator.previous_page}}">Newer</a>
-    {% endif %}
+      <a class="pagination-item newer" href="{{ site.baseurl }}page{{paginator.previous_page}}" title="Newer">&gt;</a>
+      <a class="pagination-item newest" href="{{ site.baseurl }}" title="Newest">&gt;&gt;</a>
+	{% endif %}
   {% else %}
-    <span class="pagination-item newer">Newer</span>
+    <span class="pagination-item newer" title="Newer">&gt;</span>
+	<span class="pagination-item newest" title="Newest">&gt;&gt;</span>
   {% endif %}
+</div>
+<div class="pagination-number">
+	Post {{ paginator.page }} of {{ paginator.total_pages }}
 </div>

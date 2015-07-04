@@ -6,13 +6,9 @@ html {
 body {
 	background-color: #4F4F53;
 }
+
 a {
 	text-decoration: none;
-}
-
-.related {
-	position: absolute;
-	left: 400px;
 }
 
 a:hover {
@@ -26,21 +22,51 @@ a:hover {
 }
 
 .pagination-item {
-	width: 120px;
+	width: 100px;
 	padding: 20px;
 	position: absolute;
-	color: #CCCCCC;
+	background-color: #3F3F43;
+	color: #EEEEEE;
 	margin-bottom: 30px;
 	text-align: center;
-	border: 1px #CCCCCC solid;
+	border: 1px #EEEEEE solid;
+	box-shadow: 3px 3px 3px #3F3F43;
 }
 
-.older {
+.pagination a:hover {
+	background-color: #6F6F74;
+	text-decoration: none;
+}
+
+.pagination span {
+	color: #888888;
+	border-color: #888888;
+}
+
+.pagination-number {
+	color: #EEEEEE;
+	position: absolute;
+	left: 382px;
+	width: 930px;
+	margin-top: 20px;
+	text-align: center;
+	z-index: -1;
+}
+
+.oldest {
 	left: 400px;
 }
 
+.older {
+	left: 550px;
+}
+
 .newer {
-	left: 1130px;
+	left: 1000px;
+}
+
+.newest {
+	left: 1150px;
 }
 
 .post {
@@ -50,7 +76,8 @@ a:hover {
 	background-color: #ECE9E4;
 	border-radius: 0px 4px 4px 0px;
 	border: 1px #1F1F21 solid;
-	box-shadow: 3px 3px 2px #1F1F21
+	box-shadow: 3px 3px 2px #1F1F21;
+	line-height: 32px;
 }
 
 .post-date {
@@ -90,7 +117,6 @@ a:hover {
 
 .post-title {
 	font-weight: bold;
-	font-size: 36px;
 	line-height: 20px;
 	color: black;
 }
@@ -116,8 +142,20 @@ a:hover {
 .sidebar-content {
 	font-size: 28px;
 	position: absolute;
+	right: 20px;
 	bottom: 20px;
 	left: 20px;
+}
+
+.sidebar-profile {
+	width: 200px;
+	height: 200px;
+	text-align: center;
+	margin: auto;
+	font-size: 20px;
+	border-radius: 100px;
+	border: 4px solid white;
+	background-image: url("/public/profile.png");
 }
 
 .sidebar h4 {

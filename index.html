@@ -1,45 +1,153 @@
----
-layout: default
-title: Home
----
+<!DOCTYPE html>
+<html lang="en-us">
 
-  {% for post in paginator.posts %}
+  <head>
+  <title>
+    
+      Quangmire's Dev Blog &middot; Home
+    
+  </title>
+
+  <link rel="stylesheet" href="/public/css/stylesheet.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link href='http://fonts.googleapis.com/css?family=Vollkorn:400italic,700italic,400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="icon" href="/public/profile.ico"> 
+</head>
+
+
+  <body>
+
+    <div class="sidebar">
+	<div class="sidebar-content">
+		<div class="sidebar-profile"> </div>
+		<h2>
+			<a href="/" title="Home">Quangmire's Dev Blog</a>
+		</h2>
+		<ul>
+			<li><a href="/" title="Home">Home</a></li>
+			
+				
+					
+						
+					
+				
+					
+						
+							<li><a href="/about/" title="About Me">About Me</a></li>
+						
+					
+				
+					
+						
+							<li><a href="/archives/" title="Archives">Archives</a></li>
+						
+					
+				
+					
+				
+					
+						
+					
+				
+					
+						
+					
+				
+					
+						
+					
+				
+					
+						
+					
+				
+					
+						
+					
+				
+			<li><a href="" title="GitHub">GitHub</a></li>
+			<li><h4>&copy; 2015. All rights reserved.</h4></li>
+		</ul>
+	</div>
+</div>
+
+
+        
   <div class="post">
     <h1 class="post-title">
-      <a href="{{ post.url }}" title="{{ post.title }}">
-        {{ post.title }}
+      <a href="/2015/07/04/Website-is-Shaping-Up/" title="Website is Shaping Up">
+        Website is Shaping Up
       </a>
     </h1>
 
-    <span class="post-date"><span>{{ post.date | date: "%b" }}. {{ post.date | date: "%-d" }}, {{ post.date | date: " %Y" }}</span></span>
+    <span class="post-date"><span>Jul. 4,  2015</span></span>
 
-    {{ post.content }}
+    <p>After browsing the Internet (recommended way for people as inexperienced as yours truly to learn) for some time,
+I decided to implement tags and an archive to hold all my posts. After toiling endlessly, witness the fruit of my
+labor.</p>
+
+<p>-takes a deep breath-</p>
+
+<h2>Tag System</h2>
+
+<p>The tagging system is taken straight from this <a href="http://charliepark.org/tags-in-jekyll/">blog post</a> and is very simple
+to install. All you have to do is create a <code>_plugins</code> folder in the root of your <a href="http://jekyllrb.com">Jekyll</a>
+directory. Inside it place a ruby file with the source code provided in the blog post. In addition, you have to create
+a file inside the <code>_layouts</code> directory called <code>tag_index.html</code>.</p>
+
+<h2>Archives</h2>
+
+<p>Using Jekyll&#39;s built in loops, I looped through all the posts and embedded them all on the page.
+<div class="code"></p>
+
+<div class="highlight"><pre><code class="language-liquid" data-lang="liquid"><span class="p">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span>post<span class="w"> </span>in<span class="w"> </span>site.posts<span class="w"> </span><span class="p">%}</span>  
+    // Insert content here. Mainly the &#39;post.title&#39;, &#39;post.content&#39;,  
+    // and &#39;post.summary&#39; variables.  
+<span class="p">{%</span><span class="w"> </span><span class="nt">endfor</span><span class="w"> </span><span class="p">%}</span></code></pre></div>
+
+</div>
+
+<p>For the <code>tag_index.html</code> file, I used the same format except I additionally checked if the tag matched for every post.
+<div class="code"></p>
+
+<div class="highlight"><pre><code class="language-liquid" data-lang="liquid"><span class="p">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span>tag<span class="w"> </span>in<span class="w"> </span>post.tags<span class="w"> </span><span class="p">%}</span>  
+    <span class="p">{%</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="nv">tag</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nv">page</span><span class="p">.</span><span class="nv">tag</span><span class="w"> </span><span class="p">%}</span>
+    // Insert content here. Mainly the &#39;post.title&#39;, &#39;post.content&#39;,  
+    // and &#39;post.summary&#39; variables.  
+    <span class="p">{%</span><span class="w"> </span><span class="kr">endif</span><span class="w"> </span><span class="p">%}</span>
+<span class="p">{%</span><span class="w"> </span><span class="nt">endfor</span><span class="w"> </span><span class="p">%}</span></code></pre></div>
+
+</div>
+
 	<hr>
-	{% include tag.html tagPost=post %}
+	<span class="archive-tags">
+	Tags: 
+	
+	
+		<a href="/tag/blog" title="blog">blog</a>
+	
+		<a href="/tag/website" title="website">website</a>
+	
+		<a href="/tag/jekyll" title="jekyll">jekyll</a>
+	
+</span>
   </div>
-  {% endfor %}
-<div class="pagination">
-  {% if paginator.next_page %}
-    <a class="pagination-item older" href="{{ site.baseurl }}page{{paginator.next_page}}" title="Older">&gt;</a>
-	<a class="pagination-item oldest" href="{{ site.baseurl }}page{{paginator.total_pages}}" title="Oldest">&gt;&gt;</a>
-  {% else %}
-    <span class="pagination-item older" title="Older">&gt;</span>
-	<span class="pagination-item oldest" title="Oldest">&gt;&gt;</span>
-  {% endif %}
   
-  {% if paginator.previous_page %}
-    {% if paginator.page == 2 %}
-      <a class="pagination-item newer" href="{{ site.baseurl }}" title="Newer">&lt;</a>
-	  <a class="pagination-item newest" href="{{ site.baseurl }}" title="Newest">&lt;&lt;</a>
-    {% else %}
-      <a class="pagination-item newer" href="{{ site.baseurl }}page{{paginator.previous_page}}" title="Newer">&lt;</a>
-      <a class="pagination-item newest" href="{{ site.baseurl }}" title="Newest">&lt;&lt;</a>
-	{% endif %}
-  {% else %}
+<div class="pagination">
+  
+    <a class="pagination-item older" href="/page2" title="Older">&gt;</a>
+	<a class="pagination-item oldest" href="/page2" title="Oldest">&gt;&gt;</a>
+  
+  
+  
     <span class="pagination-item newer" title="Newer">&lt;</span>
 	<span class="pagination-item newest" title="Newest">&lt;&lt;</span>
-  {% endif %}
+  
 </div>
 <div class="pagination-number">
-	Post {{ paginator.page }} of {{ paginator.total_pages }}
+	Post 1 of 2
 </div>
+
+  </body>
+</html>

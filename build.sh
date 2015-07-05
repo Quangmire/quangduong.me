@@ -1,6 +1,6 @@
 cd C:/Users/Quang/repos/quangmire.github.io/build
 jekyll build
-cp -rp "C:/Users/Quang/repos/quangmire.github.io/build/_site" "C:/Users/Quang/repos/quangmire.github.io"
+cp -rp "C:/Users/Quang/repos/quangmire.github.io/build/_site/" "C:/Users/Quang/repos/quangmire.github.io/"
 cd C:/Users/Quang/repos/quangmire.github.io
 eval $(ssh-agent -s)
 git checkout

@@ -11,31 +11,33 @@ title: Home
       </a>
     </h1>
 
-    <span class="post-date"><span>{{ page.date | date: "%b" }}. {{ page.date | date: "%-d" }}, {{ page.date | date: " %Y" }}</span></span>
+    <span class="post-date"><span>{{ post.date | date: "%b" }}. {{ post.date | date: "%-d" }}, {{ post.date | date: " %Y" }}</span></span>
 
     {{ post.content }}
+	<hr>
+	{% include tag.html tagPost=post %}
   </div>
   {% endfor %}
 <div class="pagination">
   {% if paginator.next_page %}
-    <a class="pagination-item older" href="{{ site.baseurl }}page{{paginator.next_page}}" title="Older">&lt;</a>
-	<a class="pagination-item oldest" href="{{ site.baseurl }}page{{paginator.total_pages}}" title="Oldest">&lt;&lt;</a>
+    <a class="pagination-item older" href="{{ site.baseurl }}page{{paginator.next_page}}" title="Older">&gt;</a>
+	<a class="pagination-item oldest" href="{{ site.baseurl }}page{{paginator.total_pages}}" title="Oldest">&gt;&gt;</a>
   {% else %}
-    <span class="pagination-item older" title="Older">&lt;</span>
-	<span class="pagination-item oldest" title="Oldest">&lt;&lt;</span>
+    <span class="pagination-item older" title="Older">&gt;</span>
+	<span class="pagination-item oldest" title="Oldest">&gt;&gt;</span>
   {% endif %}
   
   {% if paginator.previous_page %}
     {% if paginator.page == 2 %}
-      <a class="pagination-item newer" href="{{ site.baseurl }}" title="Newer">&gt;</a>
-	  <a class="pagination-item newest" href="{{ site.baseurl }}" title="Newest">&gt;&gt;</a>
+      <a class="pagination-item newer" href="{{ site.baseurl }}" title="Newer">&lt;</a>
+	  <a class="pagination-item newest" href="{{ site.baseurl }}" title="Newest">&lt;&lt;</a>
     {% else %}
-      <a class="pagination-item newer" href="{{ site.baseurl }}page{{paginator.previous_page}}" title="Newer">&gt;</a>
-      <a class="pagination-item newest" href="{{ site.baseurl }}" title="Newest">&gt;&gt;</a>
+      <a class="pagination-item newer" href="{{ site.baseurl }}page{{paginator.previous_page}}" title="Newer">&lt;</a>
+      <a class="pagination-item newest" href="{{ site.baseurl }}" title="Newest">&lt;&lt;</a>
 	{% endif %}
   {% else %}
-    <span class="pagination-item newer" title="Newer">&gt;</span>
-	<span class="pagination-item newest" title="Newest">&gt;&gt;</span>
+    <span class="pagination-item newer" title="Newer">&lt;</span>
+	<span class="pagination-item newest" title="Newest">&lt;&lt;</span>
   {% endif %}
 </div>
 <div class="pagination-number">

@@ -1,0 +1,9 @@
+<span class="archive-tags">
+	Tags: 
+	{% if include.tagPost.tags.size == 0 %}
+		None
+	{% endif %}
+	{% for tag in include.tagPost.tags %}
+		<a href="{{ site.baseurl }}tag/{{ tag }}" title="{{ tag }}">{{ tag }}</a>
+	{% endfor %}
+</span>

@@ -4,7 +4,7 @@ title: About Me
 ---
 Hiya! I am currently an incoming student into the UT Austin, entering their infamous Computer Science 
 program (humbly described as the best computer science department for 1,000 miles). This sets me at 18 years 
-of age right now. I've decided to use this GitHub pages site to host all of my musings and developmental
+of age right now. I've decided to use this GitHub Pages site to host all of my musings and developmental
 progress. Enjoy your stay here intrepid stranger! (And if you haven't caught it yet, my name's Quang Duong).
 
 ***

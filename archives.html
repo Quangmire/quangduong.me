@@ -1,0 +1,25 @@
+---
+layout: page
+title: Archives
+---
+<div class="archive">
+{% for post in site.posts %}
+	<p>
+		<span class="archive-date">
+			{{ post.date | date: "%b" }}. {{ post.date | date: "%-d" }}, {{ post.date | date: "%Y" }}
+		</span>
+		<span class="archive-content">
+			<span class="archive-title"><a class="archive-title-link" href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></span><br>
+			{% if post.summary.size %}
+				{{ post.summary }}
+			{% else %}
+				Oops. I forgot to write a summary for this post. Sorry :P.
+			{% endif %}
+			<br>
+			{% include tag.html tagPost=post %}
+		</span>
+	</p>
+	<br style="line-height=10px;">
+	<hr>
+{% endfor %}
+</div>

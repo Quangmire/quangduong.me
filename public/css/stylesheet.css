@@ -1,3 +1,14 @@
+/*
+Colors: 
+bg : 4F4F53
+blue link : 268BD2
+ribbon : 1F1F22
+
+Locations: 
+right edge of ribbon : 372px
+width of post : 930px;
+*/
+
 html {
 	font-family: Vollkorn, Arial;
 	font-size: 24px;
@@ -13,6 +24,62 @@ a {
 
 a:hover {
 	text-decoration: underline;
+}
+
+.code {
+	background-color: #DDDDDD;
+	border: 1px black solid;
+	border-radius: 4px;
+	padding: 8px;
+}
+
+code {
+	background-color: #DDDDDD;
+	border: 1px black solid;
+	border-radius: 4px;
+	padding: 2px;
+	font-size: 20px;
+	line-height: 20px;
+}
+
+.code code {
+	background: 0;
+	border: 0;
+	font-family: monospace;
+	font-size: 20px;
+	line-height: 20px;
+}
+
+.archive-date {
+	font-size: 16px;
+	line-height: 20px;
+	color: #666666;
+	vertical-align: middle;
+}
+
+.archive-title {
+	font-size: 24px;
+	line-height: 24px;
+	vertical-align: middle;
+	font-weight: bold;
+}
+
+.archive-content .archive-title > a {
+	color: black;
+}
+
+.archive-content {
+	font-size: 16px;
+	position: absolute;
+	left: 500px;
+}
+
+.archive-tags {
+	color: #666666;
+}
+
+.archive-content a {
+	color: #268BD2;
 }
 
 .pagination {
@@ -53,19 +120,19 @@ a:hover {
 	z-index: -1;
 }
 
-.oldest {
+.newest {
 	left: 400px;
 }
 
-.older {
+.newer {
 	left: 550px;
 }
 
-.newer {
+.older {
 	left: 1000px;
 }
 
-.newest {
+.oldest {
 	left: 1150px;
 }
 

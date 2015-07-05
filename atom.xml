@@ -4,7 +4,7 @@
  <title>Quangmire's Dev Blog</title>
  <link href="quangmire.github.io/atom.xml" rel="self"/>
  <link href="quangmire.github.io/"/>
- <updated>2015-07-05T16:49:13-05:00</updated>
+ <updated>2015-07-05T16:49:59-05:00</updated>
  <id>quangmire.github.io</id>
  <author>
    <name>Quang Duong</name>
@@ -29,7 +29,7 @@ labor.&lt;/p&gt;
 to install. All you have to do is create a &lt;code&gt;_plugins&lt;/code&gt; folder in the root of your &lt;a href=&quot;http://jekyllrb.com&quot;&gt;Jekyll&lt;/a&gt;
 directory. Inside it place a ruby file with the source code provided in the blog post. In addition, you have to create
 a file inside the &lt;code&gt;_layouts&lt;/code&gt; directory called &lt;code&gt;tag_index.html&lt;/code&gt; and fill it with the html and css necessary to correctly
-render a page that will hold all the posts of a certain tag. AAAAAAAAAAA&lt;/p&gt;
+render a page that will hold all the posts of a certain tag.&lt;/p&gt;
 
 &lt;h2&gt;Archives&lt;/h2&gt;
 

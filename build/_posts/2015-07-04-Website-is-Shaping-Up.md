@@ -14,7 +14,8 @@ labor.
 The tagging system is taken straight from this [blog post](http://charliepark.org/tags-in-jekyll/) and is very simple
 to install. All you have to do is create a `_plugins` folder in the root of your [Jekyll](http://jekyllrb.com)
 directory. Inside it place a ruby file with the source code provided in the blog post. In addition, you have to create
-a file inside the `_layouts` directory called `tag_index.html`.
+a file inside the `_layouts` directory called `tag_index.html` and fill it with the html and css necessary to correctly
+render a page that will hold all the posts of a certain tag.
 
 ##Archives
 Using Jekyll's built in loops, I looped through all the posts and embedded them all on the page.

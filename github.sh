@@ -7,4 +7,4 @@ git checkout
 git add -A
 git commit -am "Build blog."
 git push origin
-pause
+read -p "Press [Enter] key to start backup..."

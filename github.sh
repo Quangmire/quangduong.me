@@ -7,3 +7,4 @@ git checkout
 git add -A
 git commit -am "Build blog."
 git push origin
+pause

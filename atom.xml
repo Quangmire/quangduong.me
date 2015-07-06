@@ -2,9 +2,9 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
  <title>Quangmire's Dev Blog</title>
- <link href="quangmire.github.io/atom.xml" rel="self"/>
- <link href="quangmire.github.io/"/>
- <updated>2015-07-05T21:28:08-05:00</updated>
+ <link href="http://quangmire.github.io/atom.xml" rel="self"/>
+ <link href="http://quangmire.github.io/"/>
+ <updated>2015-07-05T22:00:28-05:00</updated>
  <id>quangmire.github.io</id>
  <author>
    <name>Quang Duong</name>
@@ -14,7 +14,7 @@
  
  <entry>
    <title>Website is Shaping Up</title>
-   <link href="quangmire.github.io/2015/07/04/Website-is-Shaping-Up/"/>
+   <link href="http://quangmire.github.io/2015/07/04/Website-is-Shaping-Up/"/>
    <updated>2015-07-04T00:00:00-05:00</updated>
    <id>quangmire.github.io/2015/07/04/Website-is-Shaping-Up</id>
    <content type="html">&lt;p&gt;After browsing the Internet (recommended way for people as inexperienced as yours truly to learn) for some time,
@@ -59,7 +59,7 @@ render a page that will hold all the posts of a certain tag.&lt;/p&gt;
  
  <entry>
    <title>Salutations!</title>
-   <link href="quangmire.github.io/2015/07/04/Saluations!/"/>
+   <link href="http://quangmire.github.io/2015/07/04/Saluations!/"/>
    <updated>2015-07-04T00:00:00-05:00</updated>
    <id>quangmire.github.io/2015/07/04/Saluations!</id>
    <content type="html">&lt;p&gt;&lt;em&gt;-shakes hand with mysterious reader while wearing a hearty smile-&lt;/em&gt;&lt;br&gt;

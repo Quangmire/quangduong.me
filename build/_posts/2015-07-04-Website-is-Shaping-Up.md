@@ -8,7 +8,7 @@ After browsing the Internet (recommended way for people as inexperienced as your
 I decided to implement tags and an archive to hold all my posts. After toiling endlessly, witness the fruit of my
 labor.
 
--takes a deep breath-
+*-takes a deep breath-*
 
 ##Tag System
 The tagging system is taken straight from this [blog post](http://charliepark.org/tags-in-jekyll/) and is very simple

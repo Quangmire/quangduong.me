@@ -4,7 +4,7 @@
  <title>Quangmire's Dev Blog</title>
  <link href="http://quangmire.github.io/atom.xml" rel="self"/>
  <link href="http://quangmire.github.io/"/>
- <updated>2015-07-05T22:00:28-05:00</updated>
+ <updated>2015-07-05T22:07:18-05:00</updated>
  <id>quangmire.github.io</id>
  <author>
    <name>Quang Duong</name>
@@ -21,7 +21,7 @@
 I decided to implement tags and an archive to hold all my posts. After toiling endlessly, witness the fruit of my
 labor.&lt;/p&gt;
 
-&lt;p&gt;-takes a deep breath-&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;-takes a deep breath-&lt;/em&gt;&lt;/p&gt;
 
 &lt;h2&gt;Tag System&lt;/h2&gt;
 

@@ -18,6 +18,3 @@ author:
   url:            https://github.com/Quangmire
 
 paginate:         1
-
-gems:
-  - jekyll-sitemap

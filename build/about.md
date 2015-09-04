@@ -1,6 +1,7 @@
 ---
 layout: page
 title: About Me
+summary: I'm a young computer fanatic and rookie game developer with a penchant for searching for the most optimal solution to every problem.
 ---
 Hiya! I am currently an incoming student into the UT Austin, entering their infamous Computer Science 
 program (humbly described as the best computer science department for 1,000 miles). This sets me at 18 years 

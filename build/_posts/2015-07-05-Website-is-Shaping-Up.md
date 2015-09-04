@@ -1,8 +1,9 @@
 ---
 layout: post
 title: Website is Shaping Up
+date: 2015-07-05 22:03:00
 summary: Archives and Tag system up and running.
-tags: blog website jekyll
+tags: tutorial website jekyll
 ---
 After browsing the Internet (recommended way for people as inexperienced as yours truly to learn) for some time,
 I decided to implement tags and an archive to hold all my posts. After toiling endlessly, witness the fruit of my
@@ -20,7 +21,7 @@ render a page that will hold all the posts of a certain tag.
 ##Archives
 Using Jekyll's built in loops, I looped through all the posts and embedded them all on the page.
 <div class="code">
-{% highlight liquid %}
+{% highlight jinja %}
 {% raw %}
 	{% for post in site.posts %}  
 	// Insert content here. Mainly the 'post.title', 'post.content',  
@@ -31,7 +32,7 @@ Using Jekyll's built in loops, I looped through all the posts and embedded them 
 </div>
 For the `tag_index.html` file, I used the same format except I additionally checked if the tag matched for every post.
 <div class="code">
-{% highlight liquid %}
+{% highlight jinja %}
 {% raw %}
 	{% for tag in post.tags %}  
 	{% if tag == page.tag %}

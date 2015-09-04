@@ -4,7 +4,7 @@
  <title>Quangmire's Dev Blog</title>
  <link href="http://quangmire.github.io/atom.xml" rel="self"/>
  <link href="http://quangmire.github.io/"/>
- <updated>2015-07-05T22:29:12-05:00</updated>
+ <updated>2015-09-04T16:20:49-05:00</updated>
  <id>quangmire.github.io</id>
  <author>
    <name>Quang Duong</name>
@@ -13,10 +13,25 @@
 
  
  <entry>
+   <title>CS314H prog1 Images</title>
+   <link href="http://quangmire.github.io/cs314hprog1"/>
+   <updated>2015-09-04T10:15:00-05:00</updated>
+   <id>quangmire.github.io/CS314H-prog1-Images</id>
+   <content type="html">&lt;p&gt;From left to right, the original image, 16 bit, and 8 bit editions of the great Calvin Lin.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/public/images/cs314h/prog1/lin.jpg&quot; alt=&quot;The Great Calvin Lin&quot;&gt;
+&lt;img src=&quot;/public/images/cs314h/prog1/lin16.jpg&quot; alt=&quot;16 bit Calvin Lin&quot;&gt;
+&lt;img src=&quot;/public/images/cs314h/prog1/lin8.jpg&quot; alt=&quot;8 bit Calvin Lin&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;More images will be uploaded at a later time.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
    <title>Website is Shaping Up</title>
-   <link href="http://quangmire.github.io/2015/07/04/Website-is-Shaping-Up/"/>
-   <updated>2015-07-04T00:00:00-05:00</updated>
-   <id>quangmire.github.io/2015/07/04/Website-is-Shaping-Up</id>
+   <link href="http://quangmire.github.io/Website-is-Shaping-Up.html"/>
+   <updated>2015-07-05T17:03:00-05:00</updated>
+   <id>quangmire.github.io/Website-is-Shaping-Up</id>
    <content type="html">&lt;p&gt;After browsing the Internet (recommended way for people as inexperienced as yours truly to learn) for some time,
 I decided to implement tags and an archive to hold all my posts. After toiling endlessly, witness the fruit of my
 labor.&lt;/p&gt;
@@ -36,22 +51,22 @@ render a page that will hold all the posts of a certain tag.&lt;/p&gt;
 &lt;p&gt;Using Jekyll&amp;#39;s built in loops, I looped through all the posts and embedded them all on the page.
 &lt;div class=&quot;code&quot;&gt;&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-liquid&quot; data-lang=&quot;liquid&quot;&gt;&lt;span class=&quot;p&quot;&gt;{%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;post&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;in&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;site.posts&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;%}&lt;/span&gt;  
-    // Insert content here. Mainly the &amp;#39;post.title&amp;#39;, &amp;#39;post.content&amp;#39;,  
-    // and &amp;#39;post.summary&amp;#39; variables.  
-&lt;span class=&quot;p&quot;&gt;{%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;endfor&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;%}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-jinja&quot; data-lang=&quot;jinja&quot;&gt;&lt;span class=&quot;cp&quot;&gt;{%&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;post&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;site.posts&lt;/span&gt; &lt;span class=&quot;cp&quot;&gt;%}&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;  &lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;    // Insert content here. Mainly the &amp;#39;post.title&amp;#39;, &amp;#39;post.content&amp;#39;,  &lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;    // and &amp;#39;post.summary&amp;#39; variables.  &lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;{%&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;endfor&lt;/span&gt; &lt;span class=&quot;cp&quot;&gt;%}&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;/div&gt;
 
 &lt;p&gt;For the &lt;code&gt;tag_index.html&lt;/code&gt; file, I used the same format except I additionally checked if the tag matched for every post.
 &lt;div class=&quot;code&quot;&gt;&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-liquid&quot; data-lang=&quot;liquid&quot;&gt;&lt;span class=&quot;p&quot;&gt;{%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;tag&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;in&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;post.tags&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;%}&lt;/span&gt;  
-    &lt;span class=&quot;p&quot;&gt;{%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kr&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;tag&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;page&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;tag&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;%}&lt;/span&gt;
-    // Insert content here. Mainly the &amp;#39;post.title&amp;#39;, &amp;#39;post.content&amp;#39;,  
-    // and &amp;#39;post.summary&amp;#39; variables.  
-    &lt;span class=&quot;p&quot;&gt;{%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kr&quot;&gt;endif&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;%}&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;{%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;endfor&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;%}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-jinja&quot; data-lang=&quot;jinja&quot;&gt;&lt;span class=&quot;cp&quot;&gt;{%&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;tag&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;post.tags&lt;/span&gt; &lt;span class=&quot;cp&quot;&gt;%}&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;  &lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;    &lt;/span&gt;&lt;span class=&quot;cp&quot;&gt;{%&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;tag&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;page.tag&lt;/span&gt; &lt;span class=&quot;cp&quot;&gt;%}&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;    // Insert content here. Mainly the &amp;#39;post.title&amp;#39;, &amp;#39;post.content&amp;#39;,  &lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;    // and &amp;#39;post.summary&amp;#39; variables.  &lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;    &lt;/span&gt;&lt;span class=&quot;cp&quot;&gt;{%&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;endif&lt;/span&gt; &lt;span class=&quot;cp&quot;&gt;%}&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;{%&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;endfor&lt;/span&gt; &lt;span class=&quot;cp&quot;&gt;%}&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;/div&gt;
 </content>
@@ -59,9 +74,9 @@ render a page that will hold all the posts of a certain tag.&lt;/p&gt;
  
  <entry>
    <title>Salutations!</title>
-   <link href="http://quangmire.github.io/2015/07/04/Saluations!/"/>
-   <updated>2015-07-04T00:00:00-05:00</updated>
-   <id>quangmire.github.io/2015/07/04/Saluations!</id>
+   <link href="http://quangmire.github.io/Saluations!.html"/>
+   <updated>2015-07-04T16:11:00-05:00</updated>
+   <id>quangmire.github.io/Saluations!</id>
    <content type="html">&lt;p&gt;&lt;em&gt;-shakes hand with mysterious reader while wearing a hearty smile-&lt;/em&gt;&lt;br&gt;
 This marks the beginning of my dev blog. I&amp;#39;ll try to consistently post updates to all the
 projects I&amp;#39;m working on here with screenshots and some (likely flawed) technical explanations.

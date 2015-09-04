@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Salutations!
+date: 2015-07-04 21:11:00
 summary: First time greeting with much warmth. :)
 tags: blog
 ---

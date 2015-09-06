@@ -4,7 +4,7 @@
  <title>Quangmire's Dev Blog</title>
  <link href="http://quangmire.github.io/atom.xml" rel="self"/>
  <link href="http://quangmire.github.io/"/>
- <updated>2015-09-04T16:20:49-05:00</updated>
+ <updated>2015-09-05T20:24:04-05:00</updated>
  <id>quangmire.github.io</id>
  <author>
    <name>Quang Duong</name>
@@ -17,21 +17,42 @@
    <link href="http://quangmire.github.io/cs314hprog1"/>
    <updated>2015-09-04T10:15:00-05:00</updated>
    <id>quangmire.github.io/CS314H-prog1-Images</id>
-   <content type="html">&lt;p&gt;From left to right, the original image, 16 bit, and 8 bit editions of the great Calvin Lin.&lt;/p&gt;
+   <content type="html">&lt;p&gt;From left to right, the original image, 16 bit, and 8 bit editions of the great Calvin Lin and
+some with a whole bunch of filters on it.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/public/images/cs314h/prog1/lin.jpg&quot; alt=&quot;The Great Calvin Lin&quot;&gt;
 &lt;img src=&quot;/public/images/cs314h/prog1/lin16.jpg&quot; alt=&quot;16 bit Calvin Lin&quot;&gt;
-&lt;img src=&quot;/public/images/cs314h/prog1/lin8.jpg&quot; alt=&quot;8 bit Calvin Lin&quot;&gt;&lt;/p&gt;
+&lt;img src=&quot;/public/images/cs314h/prog1/lin8.jpg&quot; alt=&quot;8 bit Calvin Lin&quot;&gt;
+&lt;img src=&quot;/public/images/cs314h/prog1/lin8-1.jpg&quot; alt=&quot;8 bit Calvin Lin #2&quot;&gt;
+&lt;img src=&quot;/public/images/cs314h/prog1/lin16-1.jpg&quot; alt=&quot;16 bit Calvin Lin #2&quot;&gt;
+&lt;img src=&quot;/public/images/cs314h/prog1/lin16-2.jpg&quot; alt=&quot;16 bit Calvin Lin #3&quot;&gt;&lt;/p&gt;
 
-&lt;p&gt;More images will be uploaded at a later time.&lt;/p&gt;
+&lt;p&gt;Who doesn&amp;#39;t love bacon?&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/public/images/cs314h/prog1/bacon.jpg&quot; alt=&quot;BACONNN&quot;&gt;
+&lt;img src=&quot;/public/images/cs314h/prog1/bacon16.jpg&quot; alt=&quot;16 bit BACONNN&quot;&gt;
+&lt;img src=&quot;/public/images/cs314h/prog1/bacon8.jpg&quot; alt=&quot;8 bit BACONNN&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;Mountain ranges rearranged.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/public/images/cs314h/prog1/mountain.jpg&quot; alt=&quot;Original Range&quot;&gt;
+&lt;img src=&quot;/public/images/cs314h/prog1/mountain16.jpg&quot; alt=&quot;16 bit Range&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/public/images/cs314h/prog1/mountain8.jpg&quot; alt=&quot;8 bit Range&quot;&gt;
+&lt;img src=&quot;/public/images/cs314h/prog1/mountain8-1.jpg&quot; alt=&quot;Second 8 bit Range&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;Skylines undefined.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/public/images/cs314h/prog1/skyline.jpg&quot; alt=&quot;Original Skyline&quot;&gt;
+&lt;img src=&quot;/public/images/cs314h/prog1/skyline16.jpg&quot; alt=&quot;Plagiarized Skyline&quot;&gt;&lt;/p&gt;
 </content>
  </entry>
  
  <entry>
    <title>Website is Shaping Up</title>
-   <link href="http://quangmire.github.io/Website-is-Shaping-Up.html"/>
+   <link href="http://quangmire.github.io/blog/Website-is-Shaping-Up"/>
    <updated>2015-07-05T17:03:00-05:00</updated>
-   <id>quangmire.github.io/Website-is-Shaping-Up</id>
+   <id>quangmire.github.io/blog/Website-is-Shaping-Up</id>
    <content type="html">&lt;p&gt;After browsing the Internet (recommended way for people as inexperienced as yours truly to learn) for some time,
 I decided to implement tags and an archive to hold all my posts. After toiling endlessly, witness the fruit of my
 labor.&lt;/p&gt;
@@ -74,9 +95,9 @@ render a page that will hold all the posts of a certain tag.&lt;/p&gt;
  
  <entry>
    <title>Salutations!</title>
-   <link href="http://quangmire.github.io/Saluations!.html"/>
+   <link href="http://quangmire.github.io/blog/Saluations!"/>
    <updated>2015-07-04T16:11:00-05:00</updated>
-   <id>quangmire.github.io/Saluations!</id>
+   <id>quangmire.github.io/blog/Saluations!</id>
    <content type="html">&lt;p&gt;&lt;em&gt;-shakes hand with mysterious reader while wearing a hearty smile-&lt;/em&gt;&lt;br&gt;
 This marks the beginning of my dev blog. I&amp;#39;ll try to consistently post updates to all the
 projects I&amp;#39;m working on here with screenshots and some (likely flawed) technical explanations.

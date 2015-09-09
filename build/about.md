@@ -4,9 +4,12 @@ title: About Me
 summary: I'm a young computer fanatic and rookie game developer with a penchant for searching for the most optimal solution to every problem.
 ---
 Hiya! I am currently an incoming student into the UT Austin, entering their infamous Computer Science 
-program (humbly described as the best computer science department for 1,000 miles). This sets me at 18 years 
-of age right now. I've decided to use this GitHub Pages site to host all of my musings and developmental
-progress. Enjoy your stay here intrepid stranger! (And if you haven't caught it yet, my name's Quang Duong).
+program (humbly described as the best computer science department for 1,000 miles) as a Turing Scholar. This
+sets me at 18 years of age right now. I've decided to use this GitHub Pages site to host all of my musings 
+and developmental progress. Enjoy your stay here intrepid stranger! (And if you haven't caught it yet, my 
+name's Quang Duong).
+
+You can find my resume [here](resume.pdf).
 
 ***
 

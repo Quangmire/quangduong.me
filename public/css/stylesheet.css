@@ -150,32 +150,22 @@ code {
 .post-date {
 	display: inline;
 	position: absolute;
-	width: 200px;
-	height: 40px;
+	width: 204px;
+	height: 54px;
 	margin-left: 730px;
 	margin-top: -65px;
 	color: white;
 	text-align: center;
 	background-image: url("/public/ribbon.png");
-	box-shadow: 3px 3px 3px #1F1F21;
-}
-
-.post-date:before {
-	position: absolute;
-	left: 170px;
-	top: -10px;
-	border-right: 15px solid transparent;
-	border-top: 5px solid transparent;
-	border-bottom: 5px solid black;
-	border-left: 15px solid black;
-	content: "";
+	/*box-shadow: 3px 3px 3px #1F1F21;*/
 }
 
 .post-date span {
 	display: inline-block;
 	vertical-align: middle;
-	line-height: 42px;
+	line-height: 52px;
 	padding-left: 20px;
+	padding-top: 8px;
 }
 
 .post a {

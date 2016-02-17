@@ -26,6 +26,16 @@ a:hover {
 	text-decoration: underline;
 }
 
+.hover-pic {
+    position: absolute;
+    border-image-source: url(/public/image-bubble.png);
+    border-image-slice: 8 11 13 8;
+    border-image-repeat: repeat;
+    border-image-width: 4 6 8 4;
+    border-image-outset: 4px 9px 14px 4px;
+    padding: 8 11 13 8;
+}
+
 .code {
 	background-color: #DDDDDD;
 	border: 1px black solid;

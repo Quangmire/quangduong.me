@@ -33,6 +33,7 @@ a:hover {
     border-image-repeat: repeat;
     border-image-width: 4 6 8 4;
     border-image-outset: 4px 9px 14px 4px;
+    border-style: solid;
     padding: 8 11 13 8;
 }
 

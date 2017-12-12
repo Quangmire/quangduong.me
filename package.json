@@ -1,0 +1,37 @@
+{
+  "name": "quangmire.github.io",
+  "version": "1.0.0",
+  "description": "Personal website",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Quangmire/quangmire.github.io.git"
+  },
+  "keywords": [
+    "blog"
+  ],
+  "author": "Quang Duong",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Quangmire/quangmire.github.io/issues"
+  },
+  "homepage": "https://github.com/Quangmire/quangmire.github.io#readme",
+  "dependencies": {
+    "jquery": "^3.2.1",
+    "marked": "^0.3.7",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2",
+    "reactstrap": "^5.0.0-alpha.4"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "babelify": "^8.0.0"
+  }
+}

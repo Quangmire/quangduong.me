@@ -1,0 +1,126 @@
+:root {
+    /* Sidebar Variables */
+    --sidebar-content-width: 270px;
+    --sidebar-padding: 15px;
+    --sidebar-width: calc(var(--sidebar-content-width));
+
+    /* Colors */
+    --color-primary: #343a40;
+    --color-font-dark: #212529;
+}
+
+html, body, #root, #wrapper {
+    height: 100%;
+    box-sizing: border-box;
+}
+
+#wrapper {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    padding: 0px;
+}
+
+/* Main Content */
+#content {
+    flex: 1;
+    padding: 0 15px 0px 15px;
+}
+
+/* Sidebar */
+#sidebar {
+    padding: 0;
+    margin-left: calc(-1 * var(--sidebar-width));
+    transition: margin 0.3s ease;
+    flex: 0 0 var(--sidebar-width);
+}
+
+#sidebar.active {
+    margin-left: var(--sidebar-padding);
+}
+
+#sidebar-content-container {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: var(--sidebar-content-width);
+    background-color: var(--color-primary);
+}
+
+#sidebar-content {
+    margin-top: auto;
+    bottom: 0;
+    width: var(--sidebar-content-width);
+    position: fixed;
+    padding-bottom: 1rem;
+    list-style: none;
+}
+
+@media (max-width: 768px) {
+    #sidebar-content {
+        top: 0;
+    }
+}
+
+#sidebar-content {
+    color: white;
+}
+
+#sidebar-content > .nav-item > a {
+    padding: 0.5rem 0 0.5rem 2rem;
+    color: white;
+}
+
+#sidebar-content > .nav-item > * {
+    padding: 0.5rem 0 0.5rem 2rem;
+}
+
+#sidebar-content > .nav-item > a.sidebar-active-tab {
+    color: var(--color-font-dark);
+    background-color: white;
+}
+
+/* Titlebar */
+#titlebar {
+    width: 100%;
+    max-width: 800px;
+    padding-right: 56px; /* Same size as toggle button */
+}
+
+/* Projects */
+.project {
+    width: 100%;
+    max-width: 800px;
+    padding: 0 15px 0 15px;
+}
+
+.project > .card {
+    word-wrap: normal;
+}
+
+/* 404 Content */
+.not-found {
+    width: 100%;
+    max-width: 800px;
+    padding: 0 15px 0 15px;
+}
+
+.not-found > .card {
+    word-wrap: normal;
+}
+
+/* About */
+.about {
+    width: 100%;
+    max-width: 800px;
+    padding: 0 15px 0 15px;
+}
+
+.about > .card {
+    word-wrap: normal;
+}
+
+.about-img {
+    float: left;
+    padding: 15px;
+}

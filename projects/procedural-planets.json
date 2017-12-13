@@ -1,7 +1,116 @@
-{
-    "title": "Procedural Planets",
-    "text": [
-        "### Hello",
-        "#### There"
-    ]
-}
+[
+    {
+        "title": "Background Information",
+        "text": [
+            "#### Perlin Noise",
+            "##### > History",
+            "Perlin noise is a form of gradient noise that was developed by",
+            "Ken Perlin. He later goes on to develop Simplex noise which",
+            "solves some of the problems that arise in Perlin noise, which was",
+            "released under copyright. Several implementations of Simplex",
+            "noise that sidestep the copyright can be found such as",
+            "[OpenSimplex](https://github.com/lmas/opensimplex).",
+
+            "##### > Noise Generation Overview",
+            "Ken Perlin defines a 256 long array `p` filled with a permutation",
+            "of all the numbers from 0 to 255. Changing the permutation of",
+            "this array is one way to seed the noise function to produce a",
+            "different set of deterministic outputs.\n",
+
+            "For each input point, the point is normalized to a unit grid cell",
+            "modded to a 256<sup>n</sup> grid. This 256 corresponds with the",
+            "length of the array `p` and the `n` is the dimensionality of the",
+            "Perlin noise generated. As a result, Perlin noise wraps every 256",
+            "units in any direction. Each of the corners of the grid cell is",
+            "assigned a gradient vector with are later linearly interpolated",
+            "based on the position of the point in the grid cell to calculate",
+            "the final noise value.\n",
+
+            "##### > Calculation of Gradient Vectors",
+            "These gradient vectors are calculated by first accessing the",
+            "array `p` to compute a hash `h` using the each of the",
+            "coordinates:\n",
+            "```python",
+            "def hash(x):",
+            "    return p[x[n] + p[x[n-1] + p[ ... + p[x[0]]]]]",
+            "```\n",
+
+            "This can be easily extended into higher dimensions by adding",
+            "indexing additional times for each dimension.\n",
+
+            "Next, each of the coordinates `x[i]` are smoothed out with",
+            "Perlin's fade function defined as:\n",
+            "```python",
+            "def fade(t):",
+            "    return t * t * t * (t * (t * 6 - 15) + 10)",
+            "```\n",
+            "which is just equivalent to ",
+            "fade(t) = 6t<sup>5</sup> - 15t<sup>4</sup> + 10t<sup>3</sup>.\n",
+
+            "The hash `h` and smoothed coordinates are then used to generate",
+            "the gradient vector by mapping to the 12 diagonal vectors aligned",
+            "to a plane.\n",
+
+            "Perlin mapped the lower 4 bits (16 total values) to these 12",
+            "vectors, which does result in 4 of the vectors being twice as",
+            "likely to be selected.\n",
+
+            "Perlin's gradient function is as follows:\n",
+            "```python",
+            "def grad(h, x, y, z):",
+            "    # Grab the lower 4 bits",
+            "    h = h & 15",
+            "    # Choose 2 directions",
+            "    u = x if h < 8 else y",
+            "    v = x if h == 12 or h == 14 else z",
+            "    # Change sign of directions with lower 2 bits",
+            "    return (u if h & 1 else -u) + (v if h & 2 else -v)",
+            "```\n",
+
+            "A different hash function would have to be used for dimensions",
+            "other greater than or less than 3. An equal distribution of",
+            "gradient vectors would be ideal.\n",
+
+            "##### > The Final Noise Value",
+            "The contribution of the each of the corner is the sum of the",
+            "components of the gradient vector at that corner. This value is",
+            "then combined by linearly interpolating over each of the axes to",
+            "compute the final noise value. A common additional step is to",
+            "normalize from [-1,1] to [0,1]."
+        ]
+    }, 
+    {   
+        "title": "What I Accomplished",
+        "text": [
+            "#### Features",
+            "- Implement 3D Perlin Noise\n",
+            "- Generate an icosphere by subdividing an icosahedron\n",
+            "- Generate heightmaps with 3D Perlin Noise\n",
+            "- Generate clouds\n",
+            "- Generate heatmap and moisture map to recolor based on",
+            "'biomes'\n",
+
+            "#### Implementation Details",
+            "##### > 3D Perlin Noise",
+            "The 3D Perlin Noise is implemented as described above, with a",
+            "minor change to the gradient function that increases human",
+            "comprehension of the function by unrolling all the bit operations",
+            "into a single switch statement that maps the hash value to the",
+            "gradient vector sum.",
+
+            "##### > Generate an Icosphere",
+            "##### > Generate Heightmap",
+            "##### > Generate Heat and Moisture Maps",
+            "##### > Color Based on Height, Heat, and Moisture",
+            "##### > Generate Clouds"
+        ]
+    },
+    {
+        "title": "Artifacts",
+        "text": []
+    },
+    {
+        "title": "References",
+        "text": []
+    }
+]

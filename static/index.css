@@ -5,8 +5,10 @@
     --sidebar-width: calc(var(--sidebar-content-width));
 
     /* Colors */
-    --color-primary: #343a40;
+    --color-primary: #282a36;
+    --color-secondary: #f3f4f6;
     --color-font-dark: #212529;
+    --color-font-light: #f8f8f2;
 }
 
 html, body, #root, #wrapper {
@@ -24,14 +26,18 @@ html, body, #root, #wrapper {
 /* Main Content */
 #content {
     flex: 1;
-    padding: 0 15px 0px 15px;
+}
+
+.row {
+    margin-left: 0px;
 }
 
 /* Sidebar */
 #sidebar {
+    overflow: hidden;
     padding: 0;
     margin-left: calc(-1 * var(--sidebar-width));
-    transition: margin 0.3s ease;
+    transition: margin 0.5s ease;
     flex: 0 0 var(--sidebar-width);
 }
 
@@ -84,6 +90,7 @@ html, body, #root, #wrapper {
 #titlebar {
     width: 100%;
     max-width: 800px;
+    padding-left: 0px;
     padding-right: 56px; /* Same size as toggle button */
 }
 
@@ -91,18 +98,30 @@ html, body, #root, #wrapper {
 .project {
     width: 100%;
     max-width: 800px;
-    padding: 0 15px 0 15px;
 }
 
 .project > .card {
     word-wrap: normal;
+    margin-bottom: 15px;
+}
+
+.card-header {
+    background-color: var(--color-secondary);
+    color: var(--color-font-dark);
+}
+
+.md > ul {
+    list-style-type: square;
+}
+
+.md > ul > li > p {
+    margin-bottom: 0;
 }
 
 /* 404 Content */
 .not-found {
     width: 100%;
     max-width: 800px;
-    padding: 0 15px 0 15px;
 }
 
 .not-found > .card {
@@ -113,7 +132,6 @@ html, body, #root, #wrapper {
 .about {
     width: 100%;
     max-width: 800px;
-    padding: 0 15px 0 15px;
 }
 
 .about > .card {

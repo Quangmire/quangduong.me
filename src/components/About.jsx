@@ -5,25 +5,16 @@ import {
     Link
 } from 'react-router-dom'
 import {
-    Row,
-    Col,
     Card,
     CardTitle,
-    CardText,
     CardHeader,
-    CardBody,
-    CardFooter,
-    CardImg,
-    CardSubtitle,
-    Button,
-    ButtonGroup
+    CardBody
 } from 'reactstrap';
 
 class About extends React.Component {
 
     constructor(props) {
         super(props);
-        document.title = 'About';
     }
 
     render() {

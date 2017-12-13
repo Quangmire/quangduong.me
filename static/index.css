@@ -141,6 +141,11 @@ html, body, #root, #wrapper {
     color: var(--color-font-dark);
 }
 
+.project > .card img {
+    margin: auto;
+    display: block;
+}
+
 .md > ul {
     list-style-type: square;
 }

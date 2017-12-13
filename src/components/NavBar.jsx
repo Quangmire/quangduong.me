@@ -18,6 +18,37 @@ import {
 } from 'reactstrap';
 import $ from 'jquery'
 
+export class NavBar extends React.Component {
+
+    render() {
+        return (
+            <Navbar dark className='nav-stacked bg-dark' id='navbar'>
+                <Nav id='navbar-content' vertical>
+                        <NavItem>
+                            <NavLink id='nav-home' tag={Link} to='/'>Home</NavLink>
+                        </NavItem>
+                        <NavItem>
+                            <NavLink id='nav-projects' tag={Link} to='/projects'>Projects</NavLink>
+                        </NavItem>
+                        <NavItem>
+                            <NavLink id='nav-chronocides' tag={Link} to='/chronocides'>Chronocides</NavLink>
+                        </NavItem>
+                        <NavItem>
+                            <NavLink id='nav-archives' tag={Link} to='/archives'>Archives</NavLink>
+                        </NavItem>
+                        <NavItem>
+                            <NavLink id='nav-about' tag={Link} to='/about'>About Me</NavLink>
+                        </NavItem>
+                        <NavItem>
+                            <NavLink id='nav-contact' tag={Link} to='/contact'>Contact</NavLink>
+                        </NavItem>
+                </Nav>
+            </Navbar>
+        );
+    }
+}
+
+
 export class SideBar extends React.Component {
 
     constructor(props) {
@@ -25,7 +56,7 @@ export class SideBar extends React.Component {
         this.width = 0;
         // Default enable sidebar on larger screens
         $(document).ready(function() {
-            if($(window).width() > 768 && !$('#sidebar').hasClass('active')) {
+            if($(window).width() > 800 && !$('#sidebar').hasClass('active')) {
                 $('#sidebar').addClass('active');
             }
             this.width = $(window).width();
@@ -33,10 +64,17 @@ export class SideBar extends React.Component {
         // Drop sidebar if screen gets too small and restore afterwards
         $(window).resize(function() {
             if($(window).width() !== this.width) {
-                if($(window).width() <= 768 && $('#sidebar').hasClass('active')) {
-                    $('#sidebar').removeClass('active');
-                } else if($(window).width() > 768 && !$('#sidebar').hasClass('active')) {
-                    $('#sidebar').addClass('active');
+                if($(window).width() <= 800) {
+                    if($('#sidebar').hasClass('active')) {
+                        $('#sidebar').removeClass('active');
+                    }
+                } else if($(window).width() > 800) {
+                    if(!$('#sidebar').hasClass('active')) {
+                        $('#sidebar').addClass('active');
+                    }
+                    if($('#navbar').hasClass('active')) {
+                        $('#navbar').removeClass('active');
+                    }
                 }
             }
             this.width = $(window).width();
@@ -70,25 +108,25 @@ export class SideBar extends React.Component {
                 <div id='sidebar-content-container'>
                     <nav id='sidebar-content'>
                         <NavItem>
-                            <NavbarBrand id='nav-logo' href='/'>Quangmire's Musings</NavbarBrand>
+                            <NavbarBrand id='side-logo' href='/'>Quangmire's Musings</NavbarBrand>
                         </NavItem>
                         <NavItem>
-                            <NavLink id='nav-home' tag={Link} className={home} to='/'>Home</NavLink>
+                            <NavLink id='side-home' tag={Link} className={home} to='/'>Home</NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink id='nav-projects' tag={Link} className={links['/projects']} to='/projects'>Projects</NavLink>
+                            <NavLink id='side-projects' tag={Link} className={links['/projects']} to='/projects'>Projects</NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink id='nav-chronocides' tag={Link} className={links['/chronocides']} to='/chronocides'>Chronocides</NavLink>
+                            <NavLink id='side-chronocides' tag={Link} className={links['/chronocides']} to='/chronocides'>Chronocides</NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink id='nav-archives' tag={Link} className={links['/archives']} to='/archives'>Archives</NavLink>
+                            <NavLink id='side-archives' tag={Link} className={links['/archives']} to='/archives'>Archives</NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink id='nav-about' tag={Link} className={links['/about']} to='/about'>About Me</NavLink>
+                            <NavLink id='side-about' tag={Link} className={links['/about']} to='/about'>About Me</NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink id='nav-contact' tag={Link} className={links['/contact']} to='/contact'>Contact</NavLink>
+                            <NavLink id='side-contact' tag={Link} className={links['/contact']} to='/contact'>Contact</NavLink>
                         </NavItem>
                     </nav>
                 </div>

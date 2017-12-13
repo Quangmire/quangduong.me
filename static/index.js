@@ -59057,7 +59057,17 @@ var App = function (_React$Component) {
     _createClass(App, [{
         key: 'toggle',
         value: function toggle() {
-            (0, _jquery2.default)('#sidebar').toggleClass('active');
+            if ((0, _jquery2.default)(window).width() > 800) {
+                if ((0, _jquery2.default)('#navbar').hasClass('active')) {
+                    (0, _jquery2.default)('#navbar').removeClass('active');
+                }
+                (0, _jquery2.default)('#sidebar').toggleClass('active');
+            } else {
+                if ((0, _jquery2.default)('#sidebar').hasClass('active')) {
+                    (0, _jquery2.default)('#sidebar').removeClass('active');
+                }
+                (0, _jquery2.default)('#navbar').toggleClass('active');
+            }
             this.setState({
                 is_open: !this.state.is_open
             });
@@ -59075,6 +59085,11 @@ var App = function (_React$Component) {
                     _react2.default.createElement(
                         'div',
                         { id: 'content', className: 'container-fluid' },
+                        _react2.default.createElement(
+                            _reactstrap.Row,
+                            null,
+                            _react2.default.createElement(_NavBar.NavBar, null)
+                        ),
                         _react2.default.createElement(
                             _reactstrap.Row,
                             { className: 'mr-auto' },
@@ -59201,7 +59216,7 @@ exports.default = About;
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-exports.TitleBar = exports.SideBar = undefined;
+exports.TitleBar = exports.SideBar = exports.NavBar = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -59225,34 +59240,121 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var SideBar = exports.SideBar = function (_React$Component) {
-    _inherits(SideBar, _React$Component);
+var NavBar = exports.NavBar = function (_React$Component) {
+    _inherits(NavBar, _React$Component);
+
+    function NavBar() {
+        _classCallCheck(this, NavBar);
+
+        return _possibleConstructorReturn(this, (NavBar.__proto__ || Object.getPrototypeOf(NavBar)).apply(this, arguments));
+    }
+
+    _createClass(NavBar, [{
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                _reactstrap.Navbar,
+                { dark: true, className: 'nav-stacked bg-dark', id: 'navbar' },
+                _react2.default.createElement(
+                    _reactstrap.Nav,
+                    { id: 'navbar-content', vertical: true },
+                    _react2.default.createElement(
+                        _reactstrap.NavItem,
+                        null,
+                        _react2.default.createElement(
+                            _reactstrap.NavLink,
+                            { id: 'nav-home', tag: _reactRouterDom.Link, to: '/' },
+                            'Home'
+                        )
+                    ),
+                    _react2.default.createElement(
+                        _reactstrap.NavItem,
+                        null,
+                        _react2.default.createElement(
+                            _reactstrap.NavLink,
+                            { id: 'nav-projects', tag: _reactRouterDom.Link, to: '/projects' },
+                            'Projects'
+                        )
+                    ),
+                    _react2.default.createElement(
+                        _reactstrap.NavItem,
+                        null,
+                        _react2.default.createElement(
+                            _reactstrap.NavLink,
+                            { id: 'nav-chronocides', tag: _reactRouterDom.Link, to: '/chronocides' },
+                            'Chronocides'
+                        )
+                    ),
+                    _react2.default.createElement(
+                        _reactstrap.NavItem,
+                        null,
+                        _react2.default.createElement(
+                            _reactstrap.NavLink,
+                            { id: 'nav-archives', tag: _reactRouterDom.Link, to: '/archives' },
+                            'Archives'
+                        )
+                    ),
+                    _react2.default.createElement(
+                        _reactstrap.NavItem,
+                        null,
+                        _react2.default.createElement(
+                            _reactstrap.NavLink,
+                            { id: 'nav-about', tag: _reactRouterDom.Link, to: '/about' },
+                            'About Me'
+                        )
+                    ),
+                    _react2.default.createElement(
+                        _reactstrap.NavItem,
+                        null,
+                        _react2.default.createElement(
+                            _reactstrap.NavLink,
+                            { id: 'nav-contact', tag: _reactRouterDom.Link, to: '/contact' },
+                            'Contact'
+                        )
+                    )
+                )
+            );
+        }
+    }]);
+
+    return NavBar;
+}(_react2.default.Component);
+
+var SideBar = exports.SideBar = function (_React$Component2) {
+    _inherits(SideBar, _React$Component2);
 
     function SideBar(props) {
         _classCallCheck(this, SideBar);
 
-        var _this = _possibleConstructorReturn(this, (SideBar.__proto__ || Object.getPrototypeOf(SideBar)).call(this, props));
+        var _this2 = _possibleConstructorReturn(this, (SideBar.__proto__ || Object.getPrototypeOf(SideBar)).call(this, props));
 
-        _this.width = 0;
+        _this2.width = 0;
         // Default enable sidebar on larger screens
         (0, _jquery2.default)(document).ready(function () {
-            if ((0, _jquery2.default)(window).width() > 768 && !(0, _jquery2.default)('#sidebar').hasClass('active')) {
+            if ((0, _jquery2.default)(window).width() > 800 && !(0, _jquery2.default)('#sidebar').hasClass('active')) {
                 (0, _jquery2.default)('#sidebar').addClass('active');
             }
             this.width = (0, _jquery2.default)(window).width();
-        }.bind(_this));
+        }.bind(_this2));
         // Drop sidebar if screen gets too small and restore afterwards
         (0, _jquery2.default)(window).resize(function () {
             if ((0, _jquery2.default)(window).width() !== this.width) {
-                if ((0, _jquery2.default)(window).width() <= 768 && (0, _jquery2.default)('#sidebar').hasClass('active')) {
-                    (0, _jquery2.default)('#sidebar').removeClass('active');
-                } else if ((0, _jquery2.default)(window).width() > 768 && !(0, _jquery2.default)('#sidebar').hasClass('active')) {
-                    (0, _jquery2.default)('#sidebar').addClass('active');
+                if ((0, _jquery2.default)(window).width() <= 800) {
+                    if ((0, _jquery2.default)('#sidebar').hasClass('active')) {
+                        (0, _jquery2.default)('#sidebar').removeClass('active');
+                    }
+                } else if ((0, _jquery2.default)(window).width() > 800) {
+                    if (!(0, _jquery2.default)('#sidebar').hasClass('active')) {
+                        (0, _jquery2.default)('#sidebar').addClass('active');
+                    }
+                    if ((0, _jquery2.default)('#navbar').hasClass('active')) {
+                        (0, _jquery2.default)('#navbar').removeClass('active');
+                    }
                 }
             }
             this.width = (0, _jquery2.default)(window).width();
-        }.bind(_this));
-        return _this;
+        }.bind(_this2));
+        return _this2;
     }
 
     _createClass(SideBar, [{
@@ -59293,7 +59395,7 @@ var SideBar = exports.SideBar = function (_React$Component) {
                             null,
                             _react2.default.createElement(
                                 _reactstrap.NavbarBrand,
-                                { id: 'nav-logo', href: '/' },
+                                { id: 'side-logo', href: '/' },
                                 'Quangmire\'s Musings'
                             )
                         ),
@@ -59302,7 +59404,7 @@ var SideBar = exports.SideBar = function (_React$Component) {
                             null,
                             _react2.default.createElement(
                                 _reactstrap.NavLink,
-                                { id: 'nav-home', tag: _reactRouterDom.Link, className: home, to: '/' },
+                                { id: 'side-home', tag: _reactRouterDom.Link, className: home, to: '/' },
                                 'Home'
                             )
                         ),
@@ -59311,7 +59413,7 @@ var SideBar = exports.SideBar = function (_React$Component) {
                             null,
                             _react2.default.createElement(
                                 _reactstrap.NavLink,
-                                { id: 'nav-projects', tag: _reactRouterDom.Link, className: links['/projects'], to: '/projects' },
+                                { id: 'side-projects', tag: _reactRouterDom.Link, className: links['/projects'], to: '/projects' },
                                 'Projects'
                             )
                         ),
@@ -59320,7 +59422,7 @@ var SideBar = exports.SideBar = function (_React$Component) {
                             null,
                             _react2.default.createElement(
                                 _reactstrap.NavLink,
-                                { id: 'nav-chronocides', tag: _reactRouterDom.Link, className: links['/chronocides'], to: '/chronocides' },
+                                { id: 'side-chronocides', tag: _reactRouterDom.Link, className: links['/chronocides'], to: '/chronocides' },
                                 'Chronocides'
                             )
                         ),
@@ -59329,7 +59431,7 @@ var SideBar = exports.SideBar = function (_React$Component) {
                             null,
                             _react2.default.createElement(
                                 _reactstrap.NavLink,
-                                { id: 'nav-archives', tag: _reactRouterDom.Link, className: links['/archives'], to: '/archives' },
+                                { id: 'side-archives', tag: _reactRouterDom.Link, className: links['/archives'], to: '/archives' },
                                 'Archives'
                             )
                         ),
@@ -59338,7 +59440,7 @@ var SideBar = exports.SideBar = function (_React$Component) {
                             null,
                             _react2.default.createElement(
                                 _reactstrap.NavLink,
-                                { id: 'nav-about', tag: _reactRouterDom.Link, className: links['/about'], to: '/about' },
+                                { id: 'side-about', tag: _reactRouterDom.Link, className: links['/about'], to: '/about' },
                                 'About Me'
                             )
                         ),
@@ -59347,7 +59449,7 @@ var SideBar = exports.SideBar = function (_React$Component) {
                             null,
                             _react2.default.createElement(
                                 _reactstrap.NavLink,
-                                { id: 'nav-contact', tag: _reactRouterDom.Link, className: links['/contact'], to: '/contact' },
+                                { id: 'side-contact', tag: _reactRouterDom.Link, className: links['/contact'], to: '/contact' },
                                 'Contact'
                             )
                         )
@@ -59360,16 +59462,16 @@ var SideBar = exports.SideBar = function (_React$Component) {
     return SideBar;
 }(_react2.default.Component);
 
-var TitleBar = exports.TitleBar = function (_React$Component2) {
-    _inherits(TitleBar, _React$Component2);
+var TitleBar = exports.TitleBar = function (_React$Component3) {
+    _inherits(TitleBar, _React$Component3);
 
     function TitleBar(props) {
         _classCallCheck(this, TitleBar);
 
-        var _this2 = _possibleConstructorReturn(this, (TitleBar.__proto__ || Object.getPrototypeOf(TitleBar)).call(this, props));
+        var _this3 = _possibleConstructorReturn(this, (TitleBar.__proto__ || Object.getPrototypeOf(TitleBar)).call(this, props));
 
-        _this2.toggle = props.toggle;
-        return _this2;
+        _this3.toggle = props.toggle;
+        return _this3;
     }
 
     _createClass(TitleBar, [{
@@ -59558,6 +59660,7 @@ var Page = function (_React$Component) {
             json: [],
             404: false
         };
+        /* https://shuheikagawa.com/blog/2015/09/21/using-highlight-js-with-marked/ */
         var renderer = new _marked2.default.Renderer();
         renderer.code = function (code, language) {
             // Check whether the given language is valid for highlight.js.
@@ -59568,7 +59671,7 @@ var Page = function (_React$Component) {
             return '<pre><code class="hljs ' + language + '">' + highlighted + '</code></pre>';
         };
         _marked2.default.setOptions({
-            renderer: renderer, //new marked.Renderer(),
+            renderer: renderer,
             gfm: true,
             tables: true,
             breaks: false,
@@ -59576,11 +59679,6 @@ var Page = function (_React$Component) {
             sanitize: false,
             smartLists: true,
             smartypants: false
-            /*
-            highlight: function (code) {
-                return require('highlight.js').highlightAuto(code).value;
-            }
-            */
         });
         return _this;
     }

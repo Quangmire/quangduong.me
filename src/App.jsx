@@ -14,7 +14,8 @@ import $ from 'jquery';
 
 import {
     TitleBar,
-    SideBar
+    SideBar,
+    NavBar
 } from './components/NavBar.jsx';
 import About         from './components/About.jsx';
 import Page          from './components/Page.jsx';
@@ -32,7 +33,17 @@ class App extends React.Component {
     }
 
     toggle() {
-        $('#sidebar').toggleClass('active');
+        if($(window).width() > 800) {
+            if($('#navbar').hasClass('active')) {
+                $('#navbar').removeClass('active');
+            }
+            $('#sidebar').toggleClass('active');
+        } else {
+            if($('#sidebar').hasClass('active')) {
+                $('#sidebar').removeClass('active');
+            }
+            $('#navbar').toggleClass('active');
+        }
         this.setState({
             is_open: !this.state.is_open
         });
@@ -44,6 +55,9 @@ class App extends React.Component {
                 <div id='wrapper' className='container-fluid'>
                     <SideBar is_open={this.state.is_open} />
                     <div id='content' className='container-fluid'>
+                        <Row>
+                            <NavBar />
+                        </Row>
                         <Row className='mr-auto'>
                             <TitleBar toggle={this.toggle} />
                         </Row>

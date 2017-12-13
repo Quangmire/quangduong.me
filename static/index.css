@@ -144,6 +144,7 @@ html, body, #root, #wrapper {
 .project > .card img {
     margin: auto;
     display: block;
+    max-width: 100%;
 }
 
 .md > ul {

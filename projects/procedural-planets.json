@@ -89,6 +89,7 @@
             "- Generate clouds\n",
             "- Generate heatmap and moisture map to recolor based on",
             "'biomes'\n",
+            "- Keyboard Controls\n",
 
             "#### Implementation Details",
             "##### > 3D Perlin Noise",
@@ -149,7 +150,38 @@
             "planet. The points on this sphere are then sampled using the",
             "Perlin noise function and noise values above a certain threshold",
             "are clouds and the noise value itself is used as the opacity of",
-            "the clouds to make it more aesthetically pleasing."
+            "the clouds to make it more aesthetically pleasing.",
+
+            "##### > Keyboard Controls",
+            "Several different keyboard controls were added to allow for",
+            "fiddling with the generated planet. In particular, changing the",
+            "rotation axis and the water level provides the most immediate",
+            "results. The planet redesignates what is ocean with changes to",
+            "the sea level. The rotation axis defines the equator of the",
+            "planet, so the heat map changes freely with rotation axis. In",
+            "addition, since the ocean regions are now affecting moisture, the",
+            "moisture map does change now with the sea level; however, it only",
+            "changes the moisture of the ocean regions which does not affect",
+            "biomes in any way.\n",
+            
+            "The keyboard controls are as follows:\n",
+            "| Key   | Action                  |",
+            "| ----- | ----------------------- |",
+            "| 1     | Swap to Line Mode       |",
+            "| 2     | Swap to Fill Mode       |",
+            "| 3     | Render Planet Mode      |",
+            "| 4     | Render Heat Mode        |",
+            "| 5     | Render Moisture Mode    |",
+            "| Left  | Rotate Axis Left        |",
+            "| Right | Rotate Axis Right       |",
+            "| Up    | Increase # Subdivisions |",
+            "| Down  | Decrease # Subdivisions |",
+            "| R     | Generate New Seed       |",
+            "| W     | Increase Water Level    |",
+            "| S     | Decrease Water Level    |",
+            "| P     | Pause/Continue Rotation |",
+            "| Q     | Zoom Out                |",
+            "| E     | Zoom In                 |\n"
         ]
     },
     {

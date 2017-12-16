@@ -43,7 +43,11 @@ class Page extends React.Component {
     }
 
     componentDidMount() {
-        return fetch('/projects/' + this.props.match.params.name +'.json', {method: 'GET'})
+        var path = window.location.pathname;
+        if(path[path.length - 1] === '/') {
+            path = path.substring(0, path.length - 1);
+        }
+        return fetch(path + '.json', {method: 'GET'})
             .then(response => {
                 if(response.ok) {
                     return response.json();

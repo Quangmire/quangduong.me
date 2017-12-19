@@ -61988,7 +61988,7 @@ var SideBar = exports.SideBar = function (_React$Component2) {
         _this2.width = 0;
         // Default enable sidebar on larger screens
         (0, _jquery2.default)(document).ready(function () {
-            if ((0, _jquery2.default)(window).width() > 800 && !(0, _jquery2.default)('#sidebar').hasClass('active')) {
+            if ((0, _jquery2.default)(window).width() > 800) {
                 (0, _jquery2.default)('#sidebar').addClass('active');
             }
             this.width = (0, _jquery2.default)(window).width();
@@ -62039,11 +62039,12 @@ var SideBar = exports.SideBar = function (_React$Component2) {
                 }
             }
             return _react2.default.createElement(
-                _reactstrap.Navbar,
-                { dark: true, className: 'nav-stacked bg-dark', id: 'sidebar' },
+                'div',
+                { id: 'sidebar' },
+                _react2.default.createElement('div', { id: 'sidebar-flex' }),
                 _react2.default.createElement(
-                    'div',
-                    { id: 'sidebar-content-container' },
+                    _reactstrap.Navbar,
+                    { dark: true, className: 'nav-stacked', id: 'sidebar-container' },
                     _react2.default.createElement(
                         'nav',
                         { id: 'sidebar-content' },

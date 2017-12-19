@@ -56,7 +56,7 @@ export class SideBar extends React.Component {
         this.width = 0;
         // Default enable sidebar on larger screens
         $(document).ready(function() {
-            if($(window).width() > 800 && !$('#sidebar').hasClass('active')) {
+            if($(window).width() > 800) {
                 $('#sidebar').addClass('active');
             }
             this.width = $(window).width();
@@ -104,8 +104,9 @@ export class SideBar extends React.Component {
             }
         }
         return (
-            <Navbar dark className='nav-stacked bg-dark' id='sidebar'>
-                <div id='sidebar-content-container'>
+            <div id='sidebar'>
+                <div id='sidebar-flex'/>
+                <Navbar dark className='nav-stacked' id='sidebar-container'>
                     <nav id='sidebar-content'>
                         <NavItem>
                             <NavbarBrand id='side-logo' href='/'>Quangmire's Musings</NavbarBrand>
@@ -129,8 +130,8 @@ export class SideBar extends React.Component {
                             <NavLink id='side-contact' tag={Link} className={links['/contact']} to='/contact'>Contact</NavLink>
                         </NavItem>
                     </nav>
-                </div>
-            </Navbar>
+                </Navbar>
+            </div>
         );
     }
 }

@@ -149,6 +149,10 @@ html, body, #root, #wrapper {
     background-color: white;
 }
 
+.navbar-brand {
+    font-size: 22px !important;
+}
+
 /* Titlebar */
 #titlebar {
     width: 100%;

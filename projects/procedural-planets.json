@@ -2,8 +2,8 @@
     {
         "title": "Background Information",
         "text": [
-            "#### Perlin Noise",
-            "##### > History",
+            "### Perlin Noise",
+            "#### > History",
             "Perlin noise is a form of gradient noise that was developed by",
             "Ken Perlin. He later goes on to develop Simplex noise which",
             "solves some of the problems that arise in Perlin noise, which was",
@@ -11,7 +11,7 @@
             "noise that sidestep the copyright can be found such as",
             "[OpenSimplex](https://github.com/lmas/opensimplex).",
 
-            "##### > Noise Generation Overview",
+            "#### > Noise Generation Overview",
             "Ken Perlin defines a 256 long array `p` filled with a permutation",
             "of all the numbers from 0 to 255. Changing the permutation of",
             "this array is one way to seed the noise function to produce a",
@@ -26,7 +26,7 @@
             "based on the position of the point in the grid cell to calculate",
             "the final noise value.\n",
 
-            "##### > Calculation of Gradient Vectors",
+            "#### > Calculation of Gradient Vectors",
             "These gradient vectors are calculated by first accessing the",
             "array `p` to compute a hash `h` using the each of the",
             "coordinates:\n",
@@ -71,7 +71,7 @@
             "other greater than or less than 3. An equal distribution of",
             "gradient vectors would be ideal.\n",
 
-            "##### > The Final Noise Value",
+            "#### > The Final Noise Value",
             "The contribution of the each of the corner is the sum of the",
             "components of the gradient vector at that corner. This value is",
             "then combined by linearly interpolating over each of the axes to",
@@ -82,7 +82,7 @@
     {   
         "title": "What I Accomplished",
         "text": [
-            "#### Features",
+            "### Features",
             "- Implement 3D Perlin Noise\n",
             "- Generate an icosphere by subdividing an icosahedron\n",
             "- Generate heightmaps with 3D Perlin Noise\n",
@@ -91,15 +91,15 @@
             "'biomes'\n",
             "- Keyboard Controls\n",
 
-            "#### Implementation Details",
-            "##### > 3D Perlin Noise",
+            "### Implementation Details",
+            "#### > 3D Perlin Noise",
             "The 3D Perlin Noise is implemented as described above, with a",
             "minor change to the gradient function that increases human",
             "comprehension of the function by unrolling all the bit operations",
             "into a single switch statement that maps the hash value to the",
             "gradient vector sum.",
 
-            "##### > Generate an Icosphere",
+            "#### > Generate an Icosphere",
             "Rather than using a standard latitude/longitude discretization of",
             "the planet, a equidistant discretization was used instead. The",
             "former would result in a larger number of triangles present in",
@@ -112,7 +112,7 @@
             "are normalized to the unit sphere so as to incrementally produce",
             "the sphere.",
 
-            "##### > Generate Heightmap",
+            "#### > Generate Heightmap",
             "To generate the heightmap, each point on the icosphere is sampled",
             "using the Perlin noise function. 3D noise is necessary here",
             "because it allows for coherent wrapping around the sphere. 2D",
@@ -125,7 +125,7 @@
             "some chosen parameter a and the vertex is scaled to the radius",
             "plus this noise value.",
 
-            "##### > Generate Heat and Moisture Maps",
+            "#### > Generate Heat and Moisture Maps",
             "To generate the moisture map, each point on the icosphere is",
             "sampled using the Perlin noise function like the heightmap.\n",
             "To generate the heat map, each point is sampled and the resulting",
@@ -134,7 +134,7 @@
             "y-coordinate. This is done since areas near the equator are",
             "hotter than those towards the poles.",
 
-            "##### > Color Based on Height, Heat, and Moisture",
+            "#### > Color Based on Height, Heat, and Moisture",
             "Anything below the planet radius becomes ocean and all the other",
             "regions are up for consideration of a biome. The biomes used are",
             "borrowed from the planet generation article listed below. The",
@@ -145,14 +145,14 @@
             "![Biome Discretization](http://www.jgallant.com/wp-content/uploads/2016/01/biometable.jpg 'Biome Discretization')\n",
             "By default, each of the columns and rows are equally spaced.",
 
-            "##### > Generate Clouds",
+            "#### > Generate Clouds",
             "To generate clouds, a larger icosphere is generated around the",
             "planet. The points on this sphere are then sampled using the",
             "Perlin noise function and noise values above a certain threshold",
             "are clouds and the noise value itself is used as the opacity of",
             "the clouds to make it more aesthetically pleasing.",
 
-            "##### > Keyboard Controls",
+            "#### > Keyboard Controls",
             "Several different keyboard controls were added to allow for",
             "fiddling with the generated planet. In particular, changing the",
             "rotation axis and the water level provides the most immediate",
@@ -187,27 +187,27 @@
     {
         "title": "Artifacts",
         "text": [
-            "#### Generated Planets",
-            "##### > Default Planet",
+            "### Generated Planets",
+            "#### > Default Planet",
             "![Planet 1](/static/media/planet1.gif 'Planet 1')\n",
-            "##### > Mostly Water Planet",
+            "#### > Mostly Water Planet",
             "![Planet 2](/static/media/planet2.gif 'Planet 2')\n",
-            "##### > Mostly Land Planet",
+            "#### > Mostly Land Planet",
             "![Planet 3](/static/media/planet3.gif 'Planet 3')\n"
         ]
     },
     {
         "title": "References",
         "text": [
-            "#### Perlin Noise",
+            "### Perlin Noise",
             "- [Explanation/Implementation of Algorithm](http://flafla2.github.io/2014/08/09/perlinnoise.html)\n",
             "- [Ken Perlin's Reference Implementation](http://mrl.nyu.edu/~perlin/noise/)\n",
 			"- [Ken Perlin's Improved Noise Paper](http://mrl.nyu.edu/~perlin/paper445.pdf)\n",
 
-            "#### Planet Generation",
+            "### Planet Generation",
             "- [Biome Coloration](http://www.jgallant.com/procedurally-generating-wrapping-world-maps-in-unity-csharp-part-4/#biomes)\n",
 
-            "#### Icosphere Generation",
+            "### Icosphere Generation",
             "- [Baseline Icosahedron Vertices/Triangles](https://schneide.wordpress.com/2016/07/15/generating-an-icosphere-in-c/)\n"
         ]
     }

@@ -5,33 +5,26 @@ import {
     Link,
     Redirect
 } from 'react-router-dom'
-import {
-    Card,
-    CardBody,
-    CardTitle,
-    CardHeader,
-    CardText
-} from 'reactstrap';
 
 class WIP extends React.Component {
 
     render() {
         return (
             <div className='not-found'>
-                <Card>
-                    <CardHeader>
+                <div className='card'>
+                    <div className='card-header'>
                         <center>
-                            <h3>This page is under construction</h3>
+                            <h2>This page is under construction</h2>
                         </center>
-                    </CardHeader>
-                    <CardBody>
+                    </div>
+                    <div className='card-body'>
                         <center>
                             <p>
                                 This page does not exist yet.
                             </p>
                         </center>
-                    </CardBody>
-                </Card>
+                    </div>
+                </div>
             </div>
         );
     }

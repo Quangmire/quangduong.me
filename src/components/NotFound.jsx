@@ -5,26 +5,19 @@ import {
     Link,
     Redirect
 } from 'react-router-dom'
-import {
-    Card,
-    CardBody,
-    CardTitle,
-    CardHeader,
-    CardText
-} from 'reactstrap';
 
 class NotFound extends React.Component {
 
     render() {
         return (
             <div className='not-found'>
-                <Card>
-                    <CardHeader>
+                <div className='card'>
+                    <div className='card-header'>
                         <center>
-                            <h3>404 Page Not Found</h3>
+                            <h2>404 Page Not Found</h2>
                         </center>
-                    </CardHeader>
-                    <CardBody>
+                    </div>
+                    <div className='card-body'>
                         <center>
                             <p>
                                 This page does not exist or wandered to a new home.
@@ -33,8 +26,8 @@ class NotFound extends React.Component {
                                 If you think this is an error, <Link to='/contact'>let me know</Link> so I can fix it! :D
                             </p>
                         </center>
-                    </CardBody>
-                </Card>
+                    </div>
+                </div>
             </div>
         );
     }

@@ -5,13 +5,9 @@ import {
     Link,
     Redirect
 } from 'react-router-dom'
-import {
-    Card,
-    CardBody,
-    CardHeader
-} from 'reactstrap';
 import marked from 'marked';
 import highlightjs from 'highlight.js';
+import $ from 'jquery';
 
 class Page extends React.Component {
     constructor(props) {
@@ -40,14 +36,12 @@ class Page extends React.Component {
             smartLists: true,
             smartypants: false,
         });
-    }
 
-    componentDidMount() {
         var path = window.location.pathname;
         if(path[path.length - 1] === '/') {
             path = path.substring(0, path.length - 1);
         }
-        return fetch(path + '.json', {method: 'GET'})
+        fetch(path + '.json', {method: 'GET'})
             .then(response => {
                 if(response.ok) {
                     return response.json();
@@ -71,21 +65,23 @@ class Page extends React.Component {
         return (
             <div className='project'>
                 {this.state.json.map(function(card, i) {
-                    return (
-                        <Card key={i}>
-                            <CardHeader>
+                    var c = (
+                        <div className='card' key={i}>
+                            <div className='card-header'>
                                 <center>
-                                    <h3>{card.title}</h3>
+                                    <h2>{card.title}</h2>
                                 </center>
-                            </CardHeader>
-                            <CardBody className='md' dangerouslySetInnerHTML={{__html: marked(card.text.join('\n'))}} />
-                        </Card>
+                            </div>
+                            <div className='card-body md' dangerouslySetInnerHTML={{__html: marked(card.text.join('\n'))}} />
+                        </div>
                     );
-                })}
+                    card['active'] = '';
+                    return c;
+                }, this)}
             </div>
-                );
+        );
     }
 
-    };
+};
 
-    export default Page;
+export default Page;

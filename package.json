@@ -18,12 +18,12 @@
       "/404/"
     ],
     "exclude": [
-        "/projects",
-        "/about",
-        "/chronocides",
-        "/contact",
-        "/archives",
-        "/404"
+      "/projects",
+      "/about",
+      "/chronocides",
+      "/contact",
+      "/archives",
+      "/404"
     ],
     "snapshotDelay": 300
   },

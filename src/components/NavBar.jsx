@@ -3,47 +3,35 @@ import {
     BrowserRouter as Router,
     Route,
     Link,
-    Redirect
-} from 'react-router-dom'
-import {
-    Collapse,
-    NavbarToggler,
-    Navbar,
-    NavItem,
-    NavbarBrand,
-    Nav,
-    NavLink,
-    Col,
-    Row
-} from 'reactstrap';
+    Redirect } from 'react-router-dom'
 import $ from 'jquery'
 
 export class NavBar extends React.Component {
 
     render() {
         return (
-            <Navbar dark className='nav-stacked bg-dark' id='navbar'>
-                <Nav id='navbar-content' vertical>
-                        <NavItem>
-                            <NavLink id='nav-home' tag={Link} to='/'>Home</NavLink>
-                        </NavItem>
-                        <NavItem>
-                            <NavLink id='nav-projects' tag={Link} to='/projects'>Projects</NavLink>
-                        </NavItem>
-                        <NavItem>
-                            <NavLink id='nav-chronocides' tag={Link} to='/chronocides'>Chronocides</NavLink>
-                        </NavItem>
-                        <NavItem>
-                            <NavLink id='nav-archives' tag={Link} to='/archives'>Archives</NavLink>
-                        </NavItem>
-                        <NavItem>
-                            <NavLink id='nav-about' tag={Link} to='/about'>About Me</NavLink>
-                        </NavItem>
-                        <NavItem>
-                            <NavLink id='nav-contact' tag={Link} to='/contact'>Contact</NavLink>
-                        </NavItem>
-                </Nav>
-            </Navbar>
+            <nav id='navbar'>
+                <nav id='navbar-content'>
+                    <Link className='nav-link' to='/'>
+                        Home
+                    </Link>
+                    <Link className='nav-link' to='/projects'>
+                        Projects
+                    </Link>
+                    <Link className='nav-link' to='/chronocides'>
+                        Chronocides
+                    </Link>
+                    <Link className='nav-link' to='/archives'>
+                        Archives
+                    </Link>
+                    <Link className='nav-link' to='/about'>
+                        About Me
+                    </Link>
+                    <Link className='nav-link' to='/contact'>
+                        Contact
+                    </Link>
+                </nav>
+            </nav>
         );
     }
 }
@@ -106,31 +94,31 @@ export class SideBar extends React.Component {
         return (
             <div id='sidebar'>
                 <div id='sidebar-flex'/>
-                <Navbar dark className='nav-stacked' id='sidebar-container'>
+                <nav id='sidebar-container'>
                     <nav id='sidebar-content'>
-                        <NavItem>
-                            <NavbarBrand id='side-logo' href='/'>Quangmire's Musings</NavbarBrand>
-                        </NavItem>
-                        <NavItem>
-                            <NavLink id='side-home' tag={Link} className={home} to='/'>Home</NavLink>
-                        </NavItem>
-                        <NavItem>
-                            <NavLink id='side-projects' tag={Link} className={links['/projects']} to='/projects'>Projects</NavLink>
-                        </NavItem>
-                        <NavItem>
-                            <NavLink id='side-chronocides' tag={Link} className={links['/chronocides']} to='/chronocides'>Chronocides</NavLink>
-                        </NavItem>
-                        <NavItem>
-                            <NavLink id='side-archives' tag={Link} className={links['/archives']} to='/archives'>Archives</NavLink>
-                        </NavItem>
-                        <NavItem>
-                            <NavLink id='side-about' tag={Link} className={links['/about']} to='/about'>About Me</NavLink>
-                        </NavItem>
-                        <NavItem>
-                            <NavLink id='side-contact' tag={Link} className={links['/contact']} to='/contact'>Contact</NavLink>
-                        </NavItem>
+                        <Link className='nav-logo nav-link' to='/'>
+                            Quangmire&#39;s Musings
+                        </Link>
+                        <Link className={'nav-link ' + home} to='/'>
+                            Home
+                        </Link>
+                        <Link className={'nav-link ' + links['/projects']} to='/projects'>
+                            Projects
+                        </Link>
+                        <Link className={'nav-link ' + links['/chronocides']} to='/chronocides'>
+                            Chronocides
+                        </Link>
+                        <Link className={'nav-link ' + links['/archives']} to='/archives'>
+                            Archives
+                        </Link>
+                        <Link className={'nav-link ' + links['/about']} to='/about'>
+                            About Me
+                        </Link>
+                        <Link className={'nav-link ' + links['/contact']} to='/contact'>
+                            Contact
+                        </Link>
                     </nav>
-                </Navbar>
+                </nav>
             </div>
         );
     }
@@ -140,7 +128,20 @@ export class TitleBar extends React.Component {
 
     constructor(props) {
         super(props);
-        this.toggle = props.toggle;
+    }
+
+    toggle() {
+        if($(window).width() > 800) {
+            if($('#navbar').hasClass('active')) {
+                $('#navbar').removeClass('active');
+            }
+            $('#sidebar').toggleClass('active');
+        } else {
+            if($('#sidebar').hasClass('active')) {
+                $('#sidebar').removeClass('active');
+            }
+            $('#navbar').toggleClass('active');
+        }
     }
 
     render() {
@@ -167,14 +168,14 @@ export class TitleBar extends React.Component {
             }
         }
         return (
-            <Navbar light id='titlebar'>
-                <NavbarToggler id='sidebar-collapse' onClick={this.toggle} />
-                <Col>
-                    <center>
-                        <h3>{title}</h3>
-                    </center>
-                </Col>
-            </Navbar>
+            <div id='titlebar'>
+                <div id='titlebar-content'>
+                    <a id='nav-collapse' onClick={this.toggle}>
+                        <i className='fa fa-bars' aria-hidden='true'></i>
+                    </a>
+                    <div id='title'><h2>{title}</h2></div>
+                </div>
+            </div>
         );
     }
 

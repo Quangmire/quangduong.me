@@ -6,12 +6,7 @@ import {
     Redirect,
     Switch
 } from 'react-router-dom'
-import {
-    Col,
-    Row
-} from 'reactstrap';
 import $ from 'jquery';
-
 import {
     TitleBar,
     SideBar,
@@ -29,55 +24,31 @@ class App extends React.Component {
         this.state = {
             is_open: true
         };
-        this.toggle = this.toggle.bind(this);
-    }
-
-    toggle() {
-        if($(window).width() > 800) {
-            if($('#navbar').hasClass('active')) {
-                $('#navbar').removeClass('active');
-            }
-            $('#sidebar').toggleClass('active');
-        } else {
-            if($('#sidebar').hasClass('active')) {
-                $('#sidebar').removeClass('active');
-            }
-            $('#navbar').toggleClass('active');
-        }
-        this.setState({
-            is_open: !this.state.is_open
-        });
     }
 
     render() {
         return (
             <Router>
-                <div id='wrapper' className='container-fluid'>
-                    <SideBar is_open={this.state.is_open} />
-                    <div id='content' className='container-fluid'>
-                        <Row>
-                            <NavBar />
-                        </Row>
-                        <Row className='mr-auto'>
-                            <TitleBar toggle={this.toggle} />
-                        </Row>
-                        <Row className='mr-auto'>
-                            <Switch>
-                                <Route exact path='/about' component={About}/>
-                                <Route path='/projects/:name' component={(props) => (<Page {...props} />)}/>
-                                {/* These pages are not yet implemented */}
-                                <Route exact path='/' component={WIP}/>
-                                <Route exact path='/contact' component={WIP} />
-                                <Route exact path='/projects' component={WIP} />
-                                <Route exact path='/chronocides' component={WIP} />
-                                <Route path='/chronocides/:name' component={WIP}/>
-                                <Route exact path='/archives' component={WIP} />
-                                <Route path='/archives/:name' component={WIP}/>
-                                {/* 404 Page */}
-                                <Route exact path='/404' component={NotFound} />
-                                <Redirect to="/404" />
-                            </Switch>
-                        </Row>
+                <div id='wrapper'>
+                    <SideBar/>
+                    <div id='content'>
+                        <NavBar />
+                        <TitleBar toggle={this.toggle} />
+                        <Switch>
+                            <Route exact path='/about' component={About}/>
+                            <Route path='/projects/:name' component={(props) => (<Page {...props} />)}/>
+                            {/* These pages are not yet implemented */}
+                            <Route exact path='/' component={WIP}/>
+                            <Route exact path='/contact' component={WIP} />
+                            <Route exact path='/projects' component={WIP} />
+                            <Route exact path='/chronocides' component={WIP} />
+                            <Route path='/chronocides/:name' component={WIP}/>
+                            <Route exact path='/archives' component={WIP} />
+                            <Route path='/archives/:name' component={WIP}/>
+                            {/* 404 Page */}
+                            <Route exact path='/404' component={NotFound} />
+                            <Redirect to="/404" />
+                        </Switch>
                     </div>
                 </div>
             </Router>

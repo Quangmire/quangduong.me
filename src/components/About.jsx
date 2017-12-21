@@ -4,12 +4,6 @@ import {
     Route,
     Link
 } from 'react-router-dom'
-import {
-    Card,
-    CardTitle,
-    CardHeader,
-    CardBody
-} from 'reactstrap';
 
 class About extends React.Component {
 
@@ -20,13 +14,13 @@ class About extends React.Component {
     render() {
         return (
             <div className='about'>
-                <Card>
-                    <CardBody>
+                <div className='card'>
+                    <div className='card-body'>
                         <img className='about-img' src='/static/media/profile.png'/>
-                        <h3>Quang Duong</h3>
+                        <h2>Quang Duong</h2>
                         <p><strong>Bio:</strong> Quang is a third year CS/Math student with an addiction to reading anything from fantasy to romance.</p>
-                    </CardBody>
-                </Card>
+                    </div>
+                </div>
             </div>
         );
     }

@@ -1,13 +1,9 @@
 import React from 'react'
 import {
-    BrowserRouter as Router,
-    Route,
-    Link,
-    Redirect
+    Redirect,
+    Link
 } from 'react-router-dom'
-import marked from 'marked';
-import highlightjs from 'highlight.js';
-import $ from 'jquery';
+import Markdown from './Markdown.jsx';
 
 class Page extends React.Component {
     constructor(props) {
@@ -16,30 +12,13 @@ class Page extends React.Component {
             json: [],
             404: false
         };
-        /* https://shuheikagawa.com/blog/2015/09/21/using-highlight-js-with-marked/ */
-        const renderer = new marked.Renderer();
-        renderer.code = (code, language) => {
-            // Check whether the given language is valid for highlight.js.
-            const validLang = !!(language && highlightjs.getLanguage(language));
-            // Highlight only if the language is valid.
-            const highlighted = validLang ? highlightjs.highlight(language, code).value : code;
-            // Render the highlighted code with `hljs` class.
-            return `<pre><code class="hljs ${language}">${highlighted}</code></pre>`;
-        };
-        marked.setOptions({
-            renderer: renderer,
-            gfm: true,
-            tables: true,
-            breaks: false,
-            pedantic: false,
-            sanitize: false,
-            smartLists: true,
-            smartypants: false,
-        });
 
         var path = window.location.pathname;
         if(path[path.length - 1] === '/') {
             path = path.substring(0, path.length - 1);
+        }
+        if(props.type) {
+            path = '/' + props.type;
         }
         fetch(path + '.json', {method: 'GET'})
             .then(response => {
@@ -62,17 +41,47 @@ class Page extends React.Component {
             return <Redirect push to='/404' />
         }
 
+        function Title(props) {
+            if(props.date) {
+                return (
+                    <div className='card-header'>
+                        <h2 className='card-title'>{props.title}</h2>
+                        <h5 className='card-date'>{props.date}</h5>
+                    </div>
+                );
+            } else {
+                return (
+                    <div className='card-header'>
+                        <center>
+                            <h2>{props.title}</h2>
+                        </center>
+                    </div>
+                );
+            }
+        }
+
+        function Tags(props) {
+            return (
+                <div className='card-tags'>
+                    {props.tags.map(function(tag, i) {
+                        var tag_element = [<Link key={2 * i} className='card-tag' to={'/tag/' + tag}>{tag}</Link>];
+                        if(i < props.tags.length - 1) {
+                            tag_element.push(<span key={2 * i + 1} className='comma'>, </span>);
+                        }
+                        return tag_element;
+                    })}
+                </div>
+            );
+        }
+
         return (
-            <div className='project'>
+            <div className='page'>
                 {this.state.json.map(function(card, i) {
                     var c = (
                         <div className='card' key={i}>
-                            <div className='card-header'>
-                                <center>
-                                    <h2>{card.title}</h2>
-                                </center>
-                            </div>
-                            <div className='card-body md' dangerouslySetInnerHTML={{__html: marked(card.text.join('\n'))}} />
+                            <Title title={card.title} date={card.date} />
+                            <Markdown className='card-body' markdown={card.text.join('\n')}/>
+                            <Tags tags={card.tags} />
                         </div>
                     );
                     card['active'] = '';

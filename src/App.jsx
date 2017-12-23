@@ -16,6 +16,7 @@ import About         from './components/About.jsx';
 import Page          from './components/Page.jsx';
 import NotFound      from './components/NotFound.jsx';
 import WIP           from './components/WIP.jsx';
+import Listing       from './components/Listing.jsx';
 
 class App extends React.Component {
 
@@ -35,16 +36,22 @@ class App extends React.Component {
                         <NavBar />
                         <TitleBar toggle={this.toggle} />
                         <Switch>
+                            <Route exact path='/' component={(props) => <Page type='frontpage' />} />
+                            {/* Listings */}
+                            <Route exact path='/posts' component={(props) => <Listing type='posts' />}/>
+                            <Route exact path='/projects' component={(props) => <Listing type='projects' />}/>
+                            <Route exact path='/chronocides' component={(props) => <Listing type='chronocides' />}/>
+                            <Route exact path='/notes' component={(props) => <Listing type='notes' />}/>
+                            <Route path='/tag/:tag' component={(props) => <Listing tag={props.match.tag} />}/>
+                            {/* Pages */}
+                            <Route path='/posts/:name' component={Page}/>
+                            <Route path='/projects/:name' component={Page}/>
+                            <Route path='/chronocides/:name' component={Page}/>
+                            <Route path='/notes/:name' component={Page}/>
+                            {/* Other Pages */}
                             <Route exact path='/about' component={About}/>
-                            <Route path='/projects/:name' component={(props) => (<Page {...props} />)}/>
                             {/* These pages are not yet implemented */}
-                            <Route exact path='/' component={WIP}/>
-                            <Route exact path='/contact' component={WIP} />
-                            <Route exact path='/projects' component={WIP} />
-                            <Route exact path='/chronocides' component={WIP} />
-                            <Route path='/chronocides/:name' component={WIP}/>
-                            <Route exact path='/archives' component={WIP} />
-                            <Route path='/archives/:name' component={WIP}/>
+                            <Route exact path='/contact' component={WIP}/>
                             {/* 404 Page */}
                             <Route exact path='/404' component={NotFound} />
                             <Redirect to="/404" />
@@ -55,15 +62,5 @@ class App extends React.Component {
         );
     }
 }
-
-/*
- *  URLs left to implement:
- <Route path='/contact' component={Contact} />
- <Route path='/projects' component={Projects} />
- <Route path='/chronocides' component={Chronocides} />
- <Route path='/chronocides/:name' component={(props) => (<Page {...props} />)}/>
- <Route path='/archives' component={Archives} />
- <Route path='/archives/:name' component={(props) => (<Page {...props} />)}/>
- */
 
 export default App;

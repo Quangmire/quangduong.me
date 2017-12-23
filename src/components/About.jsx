@@ -17,8 +17,10 @@ class About extends React.Component {
                 <div className='card'>
                     <div className='card-body'>
                         <img className='about-img' src='/static/media/profile.png'/>
-                        <h2>Quang Duong</h2>
-                        <p><strong>Bio:</strong> Quang is a third year CS/Math student with an addiction to reading anything from fantasy to romance.</p>
+                        <div className='about-desc'>
+                            <h2>Quang Duong</h2>
+                            <p><strong>Bio:</strong> Quang is a third year CS/Math student with an addiction to reading anything from fantasy to romance.</p>
+                        </div>
                     </div>
                 </div>
             </div>

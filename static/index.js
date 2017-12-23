@@ -75,7 +75,7 @@ var EventListener = {
 
 module.exports = EventListener;
 }).call(this,require('_process'))
-},{"./emptyFunction":6,"_process":259}],2:[function(require,module,exports){
+},{"./emptyFunction":6,"_process":261}],2:[function(require,module,exports){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -272,7 +272,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 module.exports = emptyObject;
 }).call(this,require('_process'))
-},{"_process":259}],8:[function(require,module,exports){
+},{"_process":261}],8:[function(require,module,exports){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -458,7 +458,7 @@ function invariant(condition, format, a, b, c, d, e, f) {
 
 module.exports = invariant;
 }).call(this,require('_process'))
-},{"_process":259}],13:[function(require,module,exports){
+},{"_process":261}],13:[function(require,module,exports){
 'use strict';
 
 /**
@@ -663,7 +663,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 module.exports = warning;
 }).call(this,require('_process'))
-},{"./emptyFunction":6,"_process":259}],18:[function(require,module,exports){
+},{"./emptyFunction":6,"_process":261}],18:[function(require,module,exports){
 /*
 Syntax highlighting with language autodetection.
 https://highlightjs.org/
@@ -18757,7 +18757,7 @@ var invariant = function(condition, format, a, b, c, d, e, f) {
 module.exports = invariant;
 
 }).call(this,require('_process'))
-},{"_process":259}],206:[function(require,module,exports){
+},{"_process":261}],206:[function(require,module,exports){
 module.exports = Array.isArray || function (arr) {
   return Object.prototype.toString.call(arr) == '[object Array]';
 };
@@ -30890,7 +30890,7 @@ function checkPropTypes(typeSpecs, values, location, componentName, getStack) {
 module.exports = checkPropTypes;
 
 }).call(this,require('_process'))
-},{"./lib/ReactPropTypesSecret":215,"_process":259,"fbjs/lib/invariant":12,"fbjs/lib/warning":17}],212:[function(require,module,exports){
+},{"./lib/ReactPropTypesSecret":215,"_process":261,"fbjs/lib/invariant":12,"fbjs/lib/warning":17}],212:[function(require,module,exports){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -31496,7 +31496,7 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
 };
 
 }).call(this,require('_process'))
-},{"./checkPropTypes":211,"./lib/ReactPropTypesSecret":215,"_process":259,"fbjs/lib/emptyFunction":6,"fbjs/lib/invariant":12,"fbjs/lib/warning":17,"object-assign":209}],214:[function(require,module,exports){
+},{"./checkPropTypes":211,"./lib/ReactPropTypesSecret":215,"_process":261,"fbjs/lib/emptyFunction":6,"fbjs/lib/invariant":12,"fbjs/lib/warning":17,"object-assign":209}],214:[function(require,module,exports){
 (function (process){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
@@ -31528,7 +31528,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 }).call(this,require('_process'))
-},{"./factoryWithThrowingShims":212,"./factoryWithTypeCheckers":213,"_process":259}],215:[function(require,module,exports){
+},{"./factoryWithThrowingShims":212,"./factoryWithTypeCheckers":213,"_process":261}],215:[function(require,module,exports){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -34090,7 +34090,7 @@ module.exports = server_browser;
 }
 
 }).call(this,require('_process'))
-},{"_process":259,"fbjs/lib/camelizeStyleName":4,"fbjs/lib/emptyFunction":6,"fbjs/lib/emptyObject":7,"fbjs/lib/hyphenateStyleName":11,"fbjs/lib/invariant":12,"fbjs/lib/memoizeStringOnly":15,"fbjs/lib/warning":17,"object-assign":209,"prop-types/checkPropTypes":211,"react":248}],217:[function(require,module,exports){
+},{"_process":261,"fbjs/lib/camelizeStyleName":4,"fbjs/lib/emptyFunction":6,"fbjs/lib/emptyObject":7,"fbjs/lib/hyphenateStyleName":11,"fbjs/lib/invariant":12,"fbjs/lib/memoizeStringOnly":15,"fbjs/lib/warning":17,"object-assign":209,"prop-types/checkPropTypes":211,"react":248}],217:[function(require,module,exports){
 /** @license React v16.2.0
  * react-dom-server.browser.production.min.js
  *
@@ -49532,7 +49532,7 @@ module.exports = reactDom;
 }
 
 }).call(this,require('_process'))
-},{"_process":259,"fbjs/lib/EventListener":1,"fbjs/lib/ExecutionEnvironment":2,"fbjs/lib/camelizeStyleName":4,"fbjs/lib/containsNode":5,"fbjs/lib/emptyFunction":6,"fbjs/lib/emptyObject":7,"fbjs/lib/focusNode":8,"fbjs/lib/getActiveElement":9,"fbjs/lib/hyphenateStyleName":11,"fbjs/lib/invariant":12,"fbjs/lib/shallowEqual":16,"fbjs/lib/warning":17,"object-assign":209,"prop-types/checkPropTypes":211,"react":248}],219:[function(require,module,exports){
+},{"_process":261,"fbjs/lib/EventListener":1,"fbjs/lib/ExecutionEnvironment":2,"fbjs/lib/camelizeStyleName":4,"fbjs/lib/containsNode":5,"fbjs/lib/emptyFunction":6,"fbjs/lib/emptyObject":7,"fbjs/lib/focusNode":8,"fbjs/lib/getActiveElement":9,"fbjs/lib/hyphenateStyleName":11,"fbjs/lib/invariant":12,"fbjs/lib/shallowEqual":16,"fbjs/lib/warning":17,"object-assign":209,"prop-types/checkPropTypes":211,"react":248}],219:[function(require,module,exports){
 /** @license React v16.2.0
  * react-dom.production.min.js
  *
@@ -49805,7 +49805,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 }).call(this,require('_process'))
-},{"./cjs/react-dom.development.js":218,"./cjs/react-dom.production.min.js":219,"_process":259}],221:[function(require,module,exports){
+},{"./cjs/react-dom.development.js":218,"./cjs/react-dom.production.min.js":219,"_process":261}],221:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -49816,7 +49816,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 }).call(this,require('_process'))
-},{"./cjs/react-dom-server.browser.development.js":216,"./cjs/react-dom-server.browser.production.min.js":217,"_process":259}],222:[function(require,module,exports){
+},{"./cjs/react-dom-server.browser.development.js":216,"./cjs/react-dom-server.browser.production.min.js":217,"_process":261}],222:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -52675,7 +52675,7 @@ module.exports = react;
 }
 
 }).call(this,require('_process'))
-},{"_process":259,"fbjs/lib/emptyFunction":6,"fbjs/lib/emptyObject":7,"fbjs/lib/invariant":12,"fbjs/lib/warning":17,"object-assign":209,"prop-types/checkPropTypes":211}],247:[function(require,module,exports){
+},{"_process":261,"fbjs/lib/emptyFunction":6,"fbjs/lib/emptyObject":7,"fbjs/lib/invariant":12,"fbjs/lib/warning":17,"object-assign":209,"prop-types/checkPropTypes":211}],247:[function(require,module,exports){
 /** @license React v16.2.0
  * react.production.min.js
  *
@@ -52709,7 +52709,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 }).call(this,require('_process'))
-},{"./cjs/react.development.js":246,"./cjs/react.production.min.js":247,"_process":259}],249:[function(require,module,exports){
+},{"./cjs/react.development.js":246,"./cjs/react.production.min.js":247,"_process":261}],249:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -52892,7 +52892,7 @@ if (process.env.NODE_ENV !== 'production') {
 module.exports = warning;
 
 }).call(this,require('_process'))
-},{"_process":259}],252:[function(require,module,exports){
+},{"_process":261}],252:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -52928,6 +52928,10 @@ var _NotFound2 = _interopRequireDefault(_NotFound);
 var _WIP = require('./components/WIP.jsx');
 
 var _WIP2 = _interopRequireDefault(_WIP);
+
+var _Listing = require('./components/Listing.jsx');
+
+var _Listing2 = _interopRequireDefault(_Listing);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -52969,17 +52973,30 @@ var App = function (_React$Component) {
                         _react2.default.createElement(
                             _reactRouterDom.Switch,
                             null,
-                            _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/about', component: _About2.default }),
-                            _react2.default.createElement(_reactRouterDom.Route, { path: '/projects/:name', component: function component(props) {
-                                    return _react2.default.createElement(_Page2.default, props);
+                            _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/', component: function component(props) {
+                                    return _react2.default.createElement(_Page2.default, { type: 'frontpage' });
                                 } }),
-                            _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/', component: _WIP2.default }),
+                            _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/posts', component: function component(props) {
+                                    return _react2.default.createElement(_Listing2.default, { type: 'posts' });
+                                } }),
+                            _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/projects', component: function component(props) {
+                                    return _react2.default.createElement(_Listing2.default, { type: 'projects' });
+                                } }),
+                            _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/chronocides', component: function component(props) {
+                                    return _react2.default.createElement(_Listing2.default, { type: 'chronocides' });
+                                } }),
+                            _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/notes', component: function component(props) {
+                                    return _react2.default.createElement(_Listing2.default, { type: 'notes' });
+                                } }),
+                            _react2.default.createElement(_reactRouterDom.Route, { path: '/tag/:tag', component: function component(props) {
+                                    return _react2.default.createElement(_Listing2.default, { tag: props.match.tag });
+                                } }),
+                            _react2.default.createElement(_reactRouterDom.Route, { path: '/posts/:name', component: _Page2.default }),
+                            _react2.default.createElement(_reactRouterDom.Route, { path: '/projects/:name', component: _Page2.default }),
+                            _react2.default.createElement(_reactRouterDom.Route, { path: '/chronocides/:name', component: _Page2.default }),
+                            _react2.default.createElement(_reactRouterDom.Route, { path: '/notes/:name', component: _Page2.default }),
+                            _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/about', component: _About2.default }),
                             _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/contact', component: _WIP2.default }),
-                            _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/projects', component: _WIP2.default }),
-                            _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/chronocides', component: _WIP2.default }),
-                            _react2.default.createElement(_reactRouterDom.Route, { path: '/chronocides/:name', component: _WIP2.default }),
-                            _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/archives', component: _WIP2.default }),
-                            _react2.default.createElement(_reactRouterDom.Route, { path: '/archives/:name', component: _WIP2.default }),
                             _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/404', component: _NotFound2.default }),
                             _react2.default.createElement(_reactRouterDom.Redirect, { to: '/404' })
                         )
@@ -52992,19 +53009,9 @@ var App = function (_React$Component) {
     return App;
 }(_react2.default.Component);
 
-/*
- *  URLs left to implement:
- <Route path='/contact' component={Contact} />
- <Route path='/projects' component={Projects} />
- <Route path='/chronocides' component={Chronocides} />
- <Route path='/chronocides/:name' component={(props) => (<Page {...props} />)}/>
- <Route path='/archives' component={Archives} />
- <Route path='/archives/:name' component={(props) => (<Page {...props} />)}/>
- */
-
 exports.default = App;
 
-},{"./components/About.jsx":253,"./components/NavBar.jsx":254,"./components/NotFound.jsx":255,"./components/Page.jsx":256,"./components/WIP.jsx":257,"jquery":207,"react":248,"react-router-dom":233}],253:[function(require,module,exports){
+},{"./components/About.jsx":253,"./components/Listing.jsx":254,"./components/NavBar.jsx":256,"./components/NotFound.jsx":257,"./components/Page.jsx":258,"./components/WIP.jsx":259,"jquery":207,"react":248,"react-router-dom":233}],253:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -53050,19 +53057,23 @@ var About = function (_React$Component) {
                         { className: 'card-body' },
                         _react2.default.createElement('img', { className: 'about-img', src: '/static/media/profile.png' }),
                         _react2.default.createElement(
-                            'h2',
-                            null,
-                            'Quang Duong'
-                        ),
-                        _react2.default.createElement(
-                            'p',
-                            null,
+                            'div',
+                            { className: 'about-desc' },
                             _react2.default.createElement(
-                                'strong',
+                                'h2',
                                 null,
-                                'Bio:'
+                                'Quang Duong'
                             ),
-                            ' Quang is a third year CS/Math student with an addiction to reading anything from fantasy to romance.'
+                            _react2.default.createElement(
+                                'p',
+                                null,
+                                _react2.default.createElement(
+                                    'strong',
+                                    null,
+                                    'Bio:'
+                                ),
+                                ' Quang is a third year CS/Math student with an addiction to reading anything from fantasy to romance.'
+                            )
                         )
                     )
                 )
@@ -53076,6 +53087,307 @@ var About = function (_React$Component) {
 exports.default = About;
 
 },{"react":248,"react-router-dom":233}],254:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRouterDom = require('react-router-dom');
+
+var _Markdown = require('./Markdown.jsx');
+
+var _Markdown2 = _interopRequireDefault(_Markdown);
+
+var _jquery = require('jquery');
+
+var _jquery2 = _interopRequireDefault(_jquery);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Listing = function (_React$Component) {
+    _inherits(Listing, _React$Component);
+
+    function Listing(props) {
+        _classCallCheck(this, Listing);
+
+        var _this = _possibleConstructorReturn(this, (Listing.__proto__ || Object.getPrototypeOf(Listing)).call(this, props));
+
+        _this.state = {
+            json: [],
+            jsons: 0
+        };
+
+        if ('type' in _this.props) {
+            fetch('/' + _this.props.type + '.json', { method: 'GET' }).then(function (response) {
+                return response.json();
+            }).then(function (json) {
+                _this.setState({
+                    json: json
+                });
+            });
+        } else {
+            var tags = window.location.pathname.split('/tag/');
+            if (tags.length > 1) {
+                var tag = tags[1];
+                var jsons = ['/posts.json', '/notes.json', '/chronocides.json', '/projects.json'];
+                for (var i = 0; i < jsons.length; i++) {
+                    fetch(jsons[i], { method: 'GET' }).then(function (response) {
+                        return response.json();
+                    }).then(function (json) {
+                        json = json.filter(function (post) {
+                            return post.tags.includes(tag);
+                        });
+                        Array.prototype.push.apply(_this.state.json, json);
+                        _this.state.jsons += 1;
+                        console.log(_this.state.json);
+                        if (_this.state.jsons == jsons.length) {
+                            console.log('final ', _this.state.json);
+                            _this.setState(_this.state);
+                        }
+                    });
+                }
+            }
+        }
+        return _this;
+    }
+
+    _createClass(Listing, [{
+        key: 'render',
+        value: function render() {
+
+            function Github(props) {
+                if (props.github) {
+                    return _react2.default.createElement(
+                        'div',
+                        { className: 'github' },
+                        _react2.default.createElement(
+                            _reactRouterDom.Link,
+                            { to: props.github },
+                            _react2.default.createElement('i', { className: 'fa fa-github', 'aria-hidden': 'true' })
+                        )
+                    );
+                }
+                return _react2.default.createElement('div', { className: 'github' });
+            }
+
+            function ReadMore(props) {
+                return _react2.default.createElement(
+                    'div',
+                    { className: 'read-more' },
+                    _react2.default.createElement(
+                        _reactRouterDom.Link,
+                        { to: props.link },
+                        'Read More'
+                    )
+                );
+            }
+
+            function Tags(props) {
+                if (props.tags) {
+                    return _react2.default.createElement(
+                        'div',
+                        { className: 'card-tags' },
+                        props.tags.map(function (tag, i) {
+                            var tag_element = [_react2.default.createElement(
+                                _reactRouterDom.Link,
+                                { key: 2 * i, className: 'card-tag', to: '/tag/' + tag },
+                                tag
+                            )];
+                            if (i < props.tags.length - 1) {
+                                tag_element.push(_react2.default.createElement(
+                                    'span',
+                                    { key: 2 * i + 1, className: 'comma' },
+                                    ', '
+                                ));
+                            }
+                            return tag_element;
+                        })
+                    );
+                }
+                return '';
+            }
+
+            function Card(props) {
+                return _react2.default.createElement(
+                    'div',
+                    { className: 'card' },
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'card-header' },
+                        _react2.default.createElement(
+                            'center',
+                            null,
+                            _react2.default.createElement(
+                                'h4',
+                                null,
+                                _react2.default.createElement(
+                                    _reactRouterDom.Link,
+                                    { className: 'page-link', to: props.link },
+                                    props.title
+                                )
+                            )
+                        ),
+                        _react2.default.createElement(Github, { github: props.github })
+                    ),
+                    _react2.default.createElement(_Markdown2.default, { className: 'card-body', markdown: props.text.join('\n') }),
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'row' },
+                        _react2.default.createElement(Tags, { tags: props.tags }),
+                        _react2.default.createElement(ReadMore, { link: props.link })
+                    )
+                );
+            }
+
+            var json = this.state.json;
+            if (json.length === 0 && window.location.pathname.startsWith('/tag/')) {
+                return _react2.default.createElement(
+                    'div',
+                    { className: 'card' },
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'card-header' },
+                        _react2.default.createElement(
+                            'center',
+                            null,
+                            _react2.default.createElement(
+                                'h4',
+                                null,
+                                'No Posts Match'
+                            )
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'card-body' },
+                        _react2.default.createElement(
+                            'center',
+                            null,
+                            'No posts matching the tag could be found.'
+                        )
+                    )
+                );
+            }
+            var listing = [];
+            for (var i = 0; i < json.length; i += 2) {
+                if (i + 1 < json.length) {
+                    listing.push(_react2.default.createElement(
+                        'div',
+                        { className: 'row', key: i / 2 },
+                        _react2.default.createElement(Card, json[i]),
+                        _react2.default.createElement(Card, json[i + 1])
+                    ));
+                } else {
+                    listing.push(_react2.default.createElement(
+                        'div',
+                        { className: 'row', key: i / 2 },
+                        _react2.default.createElement(Card, json[i])
+                    ));
+                }
+            }
+            return _react2.default.createElement(
+                'div',
+                { className: 'listing' },
+                listing
+            );
+        }
+    }]);
+
+    return Listing;
+}(_react2.default.Component);
+
+;
+
+exports.default = Listing;
+
+},{"./Markdown.jsx":255,"jquery":207,"react":248,"react-router-dom":233}],255:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _marked = require('marked');
+
+var _marked2 = _interopRequireDefault(_marked);
+
+var _highlight = require('highlight.js');
+
+var _highlight2 = _interopRequireDefault(_highlight);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Markdown = function (_React$Component) {
+    _inherits(Markdown, _React$Component);
+
+    function Markdown(props) {
+        _classCallCheck(this, Markdown);
+
+        /* https://shuheikagawa.com/blog/2015/09/21/using-highlight-js-with-marked/ */
+        var _this = _possibleConstructorReturn(this, (Markdown.__proto__ || Object.getPrototypeOf(Markdown)).call(this, props));
+
+        var renderer = new _marked2.default.Renderer();
+        renderer.code = function (code, language) {
+            // Check whether the given language is valid for highlight.js.
+            var validLang = !!(language && _highlight2.default.getLanguage(language));
+            // Highlight only if the language is valid.
+            var highlighted = validLang ? _highlight2.default.highlight(language, code).value : code;
+            // Render the highlighted code with `hljs` class.
+            return '<pre><code class="hljs ' + language + '">' + highlighted + '</code></pre>';
+        };
+        _marked2.default.setOptions({
+            renderer: renderer,
+            gfm: true,
+            tables: true,
+            breaks: false,
+            pedantic: false,
+            sanitize: false,
+            smartLists: true,
+            smartypants: false
+        });
+        return _this;
+    }
+
+    _createClass(Markdown, [{
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement('div', { className: 'md ' + this.props.className, dangerouslySetInnerHTML: { __html: (0, _marked2.default)(this.props.markdown) } });
+        }
+    }]);
+
+    return Markdown;
+}(_react2.default.Component);
+
+;
+
+exports.default = Markdown;
+
+},{"highlight.js":19,"marked":208,"react":248}],256:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -53128,6 +53440,11 @@ var NavBar = exports.NavBar = function (_React$Component) {
                     ),
                     _react2.default.createElement(
                         _reactRouterDom.Link,
+                        { className: 'nav-link', to: '/posts' },
+                        'Archives'
+                    ),
+                    _react2.default.createElement(
+                        _reactRouterDom.Link,
                         { className: 'nav-link', to: '/projects' },
                         'Projects'
                     ),
@@ -53138,8 +53455,8 @@ var NavBar = exports.NavBar = function (_React$Component) {
                     ),
                     _react2.default.createElement(
                         _reactRouterDom.Link,
-                        { className: 'nav-link', to: '/archives' },
-                        'Archives'
+                        { className: 'nav-link', to: '/notes' },
+                        'Notes'
                     ),
                     _react2.default.createElement(
                         _reactRouterDom.Link,
@@ -53200,9 +53517,10 @@ var SideBar = exports.SideBar = function (_React$Component2) {
         key: 'render',
         value: function render() {
             var links = {
+                '/posts': '',
                 '/projects': '',
                 '/chronocides': '',
-                '/archives': '',
+                '/notes': '',
                 '/about': '',
                 '/contact': ''
             };
@@ -53232,13 +53550,13 @@ var SideBar = exports.SideBar = function (_React$Component2) {
                         { id: 'sidebar-content' },
                         _react2.default.createElement(
                             _reactRouterDom.Link,
-                            { className: 'nav-logo nav-link', to: '/' },
+                            { className: 'nav-logo nav-link ' + home, to: '/' },
                             'Quangmire\'s Musings'
                         ),
                         _react2.default.createElement(
                             _reactRouterDom.Link,
-                            { className: 'nav-link ' + home, to: '/' },
-                            'Home'
+                            { className: 'nav-link ' + links['/posts'], to: '/posts' },
+                            'Archives'
                         ),
                         _react2.default.createElement(
                             _reactRouterDom.Link,
@@ -53252,8 +53570,8 @@ var SideBar = exports.SideBar = function (_React$Component2) {
                         ),
                         _react2.default.createElement(
                             _reactRouterDom.Link,
-                            { className: 'nav-link ' + links['/archives'], to: '/archives' },
-                            'Archives'
+                            { className: 'nav-link ' + links['/notes'], to: '/notes' },
+                            'Notes'
                         ),
                         _react2.default.createElement(
                             _reactRouterDom.Link,
@@ -53301,12 +53619,18 @@ var TitleBar = exports.TitleBar = function (_React$Component3) {
     }, {
         key: 'render',
         value: function render() {
+            var tag = window.location.pathname.split('/tag/');
+            if (tag.length > 1) {
+                tag = tag[1];
+            }
             var titles = {
+                '/posts': 'Archives',
                 '/projects': 'Projects',
                 '/chronocides': 'Chronocides',
-                '/archives': 'Archives',
+                '/notes': 'Notes',
                 '/about': 'About Me',
-                '/contact': 'Contact'
+                '/contact': 'Contact',
+                '/tag': 'Tagged: ' + tag
             };
             var title = 'Error';
             var path = window.location.pathname;
@@ -53351,7 +53675,7 @@ var TitleBar = exports.TitleBar = function (_React$Component3) {
     return TitleBar;
 }(_react2.default.Component);
 
-},{"jquery":207,"react":248,"react-router-dom":233}],255:[function(require,module,exports){
+},{"jquery":207,"react":248,"react-router-dom":233}],257:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -53441,7 +53765,7 @@ var NotFound = function (_React$Component) {
 
 exports.default = NotFound;
 
-},{"react":248,"react-router-dom":233}],256:[function(require,module,exports){
+},{"react":248,"react-router-dom":233}],258:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -53456,17 +53780,9 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRouterDom = require('react-router-dom');
 
-var _marked = require('marked');
+var _Markdown = require('./Markdown.jsx');
 
-var _marked2 = _interopRequireDefault(_marked);
-
-var _highlight = require('highlight.js');
-
-var _highlight2 = _interopRequireDefault(_highlight);
-
-var _jquery = require('jquery');
-
-var _jquery2 = _interopRequireDefault(_jquery);
+var _Markdown2 = _interopRequireDefault(_Markdown);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -53488,30 +53804,13 @@ var Page = function (_React$Component) {
             json: [],
             404: false
         };
-        /* https://shuheikagawa.com/blog/2015/09/21/using-highlight-js-with-marked/ */
-        var renderer = new _marked2.default.Renderer();
-        renderer.code = function (code, language) {
-            // Check whether the given language is valid for highlight.js.
-            var validLang = !!(language && _highlight2.default.getLanguage(language));
-            // Highlight only if the language is valid.
-            var highlighted = validLang ? _highlight2.default.highlight(language, code).value : code;
-            // Render the highlighted code with `hljs` class.
-            return '<pre><code class="hljs ' + language + '">' + highlighted + '</code></pre>';
-        };
-        _marked2.default.setOptions({
-            renderer: renderer,
-            gfm: true,
-            tables: true,
-            breaks: false,
-            pedantic: false,
-            sanitize: false,
-            smartLists: true,
-            smartypants: false
-        });
 
         var path = window.location.pathname;
         if (path[path.length - 1] === '/') {
             path = path.substring(0, path.length - 1);
+        }
+        if (props.type) {
+            path = '/' + props.type;
         }
         fetch(path + '.json', { method: 'GET' }).then(function (response) {
             if (response.ok) {
@@ -53535,27 +53834,71 @@ var Page = function (_React$Component) {
                 return _react2.default.createElement(_reactRouterDom.Redirect, { push: true, to: '/404' });
             }
 
+            function Title(props) {
+                if (props.date) {
+                    return _react2.default.createElement(
+                        'div',
+                        { className: 'card-header' },
+                        _react2.default.createElement(
+                            'h2',
+                            { className: 'card-title' },
+                            props.title
+                        ),
+                        _react2.default.createElement(
+                            'h5',
+                            { className: 'card-date' },
+                            props.date
+                        )
+                    );
+                } else {
+                    return _react2.default.createElement(
+                        'div',
+                        { className: 'card-header' },
+                        _react2.default.createElement(
+                            'center',
+                            null,
+                            _react2.default.createElement(
+                                'h2',
+                                null,
+                                props.title
+                            )
+                        )
+                    );
+                }
+            }
+
+            function Tags(props) {
+                return _react2.default.createElement(
+                    'div',
+                    { className: 'card-tags' },
+                    props.tags.map(function (tag, i) {
+                        var tag_element = [_react2.default.createElement(
+                            _reactRouterDom.Link,
+                            { key: 2 * i, className: 'card-tag', to: '/tag/' + tag },
+                            tag
+                        )];
+                        if (i < props.tags.length - 1) {
+                            tag_element.push(_react2.default.createElement(
+                                'span',
+                                { key: 2 * i + 1, className: 'comma' },
+                                ', '
+                            ));
+                        }
+                        return tag_element;
+                    })
+                );
+            }
+
             return _react2.default.createElement(
                 'div',
-                { className: 'project' },
+                { className: 'page' },
                 this.state.json.map(function (card, i) {
                     var c = _react2.default.createElement(
                         'div',
                         { className: 'card', key: i },
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'card-header' },
-                            _react2.default.createElement(
-                                'center',
-                                null,
-                                _react2.default.createElement(
-                                    'h2',
-                                    null,
-                                    card.title
-                                )
-                            )
-                        ),
-                        _react2.default.createElement('div', { className: 'card-body md', dangerouslySetInnerHTML: { __html: (0, _marked2.default)(card.text.join('\n')) } })
+                        _react2.default.createElement(Title, { title: card.title, date: card.date }),
+                        _react2.default.createElement(_Markdown2.default, { className: 'card-body', markdown: card.text.join('\n') }),
+                        _react2.default.createElement(Tags, { tags: card.tags })
                     );
                     card['active'] = '';
                     return c;
@@ -53571,7 +53914,7 @@ var Page = function (_React$Component) {
 
 exports.default = Page;
 
-},{"highlight.js":19,"jquery":207,"marked":208,"react":248,"react-router-dom":233}],257:[function(require,module,exports){
+},{"./Markdown.jsx":255,"react":248,"react-router-dom":233}],259:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -53608,7 +53951,7 @@ var WIP = function (_React$Component) {
         value: function render() {
             return _react2.default.createElement(
                 'div',
-                { className: 'not-found' },
+                { className: 'wip' },
                 _react2.default.createElement(
                     'div',
                     { className: 'card' },
@@ -53650,7 +53993,7 @@ var WIP = function (_React$Component) {
 
 exports.default = WIP;
 
-},{"react":248,"react-router-dom":233}],258:[function(require,module,exports){
+},{"react":248,"react-router-dom":233}],260:[function(require,module,exports){
 'use strict';
 
 var _App = require('./App.jsx');
@@ -53672,7 +54015,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //ReactDOM.render(
 (0, _reactSnapshot.render)(_react2.default.createElement(_App2.default, null), document.getElementById('root'));
 
-},{"./App.jsx":252,"react":248,"react-dom":220,"react-snapshot":245}],259:[function(require,module,exports){
+},{"./App.jsx":252,"react":248,"react-dom":220,"react-snapshot":245}],261:[function(require,module,exports){
 // shim for using process in browser
 var process = module.exports = {};
 
@@ -53858,4 +54201,4 @@ process.chdir = function (dir) {
 };
 process.umask = function() { return 0; };
 
-},{}]},{},[258]);
+},{}]},{},[260]);

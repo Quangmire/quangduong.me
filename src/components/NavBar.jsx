@@ -15,14 +15,17 @@ export class NavBar extends React.Component {
                     <Link className='nav-link' to='/'>
                         Home
                     </Link>
+                    <Link className='nav-link' to='/posts'>
+                        Archives
+                    </Link>
                     <Link className='nav-link' to='/projects'>
                         Projects
                     </Link>
                     <Link className='nav-link' to='/chronocides'>
                         Chronocides
                     </Link>
-                    <Link className='nav-link' to='/archives'>
-                        Archives
+                    <Link className='nav-link' to='/notes'>
+                        Notes
                     </Link>
                     <Link className='nav-link' to='/about'>
                         About Me
@@ -71,9 +74,10 @@ export class SideBar extends React.Component {
 
     render() {
         var links = {
+            '/posts': '',
             '/projects': '',
             '/chronocides': '',
-            '/archives': '',
+            '/notes': '',
             '/about': '',
             '/contact': ''
         };
@@ -96,11 +100,11 @@ export class SideBar extends React.Component {
                 <div id='sidebar-flex'/>
                 <nav id='sidebar-container'>
                     <nav id='sidebar-content'>
-                        <Link className='nav-logo nav-link' to='/'>
+                        <Link className={'nav-logo nav-link ' + home} to='/'>
                             Quangmire&#39;s Musings
                         </Link>
-                        <Link className={'nav-link ' + home} to='/'>
-                            Home
+                        <Link className={'nav-link ' + links['/posts']} to='/posts'>
+                            Archives
                         </Link>
                         <Link className={'nav-link ' + links['/projects']} to='/projects'>
                             Projects
@@ -108,8 +112,8 @@ export class SideBar extends React.Component {
                         <Link className={'nav-link ' + links['/chronocides']} to='/chronocides'>
                             Chronocides
                         </Link>
-                        <Link className={'nav-link ' + links['/archives']} to='/archives'>
-                            Archives
+                        <Link className={'nav-link ' + links['/notes']} to='/notes'>
+                            Notes
                         </Link>
                         <Link className={'nav-link ' + links['/about']} to='/about'>
                             About Me
@@ -145,12 +149,18 @@ export class TitleBar extends React.Component {
     }
 
     render() {
+        var tag = window.location.pathname.split('/tag/')
+        if(tag.length > 1) {
+            tag = tag[1];
+        }
         var titles = {
+            '/posts': 'Archives',
             '/projects': 'Projects',
             '/chronocides': 'Chronocides',
-            '/archives': 'Archives',
+            '/notes': 'Notes',
             '/about': 'About Me',
-            '/contact': 'Contact'
+            '/contact': 'Contact',
+            '/tag': 'Tagged: ' + tag
         };
         var title = 'Error';
         var path = window.location.pathname;

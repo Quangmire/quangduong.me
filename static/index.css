@@ -10,6 +10,8 @@
     --color-secondary-border: #d3d4d6;
     --color-font-dark: #212529;
     --color-font-light: #f8f8f2;
+    --color-font-link: #4ba9cd;
+    --color-font-secondary: #48f;
 }
 
 html, body, #root, #wrapper, #content {
@@ -28,11 +30,40 @@ html, body, #root, #wrapper, #content {
     padding: 0px;
 }
 
+h2 {
+    font-size: 1.75rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+h4 {
+    font-size: 1.25rem;
+}
+
+h5 {
+    font-size: 1.1rem;
+}
+
+a {
+    font-weight: 700;
+    text-decoration: none;
+    color: var(--color-font-link);
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Card */
 .card {
     border: 1px solid var(--color-secondary-border);
     border-radius: 0.25em;
     width: 100%;
     max-width: 800px;
+    word-wrap: normal;
+    animation: 0.5s ease-out 0s 1 slideInFromBottom;
 }
 
 .card img {
@@ -47,31 +78,59 @@ html, body, #root, #wrapper, #content {
     border-bottom: 1px solid var(--color-secondary-border);
     color: var(--color-font-dark);
     border-radius: 0.2em 0.2em 0 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.card-header * {
+.card-header > * {
     margin: 0px;
-    padding: 5px;
+    padding: 5px 15px;
+    flex: 1;
+}
+
+.card-header .card-date {
+    text-align: right;
+}
+
+.card-header a {
+    text-decoration: none;
+    color: var(--color-font-dark);
+}
+
+.card-header a:hover {
+    text-decoration: underline;
+    color: var(--color-font-link);
 }
 
 .card-body {
     margin: 15px;
+    height: auto;
+}
+
+.card-body a {
+    text-decoration: none;
+    color: var(--color-font-link);
+}
+
+.card-body a:hover {
+    text-decoration: underline;
 }
 
 .card-body h1, h2, h3, h4, h5, h6, p {
     margin: 5px;
 }
 
-h2 {
-    font-size: 1.75rem;
+.card-tags {
+    padding: 0px 0px 10px 10px;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--color-font-secondary);
 }
 
-h3 {
-    font-size: 1.5rem;
-}
-
-h4 {
-    font-size: 1.25rem;
+.card-tags .comma {
+    padding-right: 2px;
 }
 
 /* Title Bar */
@@ -135,8 +194,8 @@ h4 {
     max-width: 800px;
     transition: margin 0.5s ease;
     padding: 0;
-    margin-top: -240px;
-    height: 240px;
+    margin-top: -280px;
+    height: 280px;
 }
 
 #navbar-content {
@@ -189,7 +248,7 @@ h4 {
 
 @keyframes slideInFromBottom {
   0% {
-    transform: translateY(100%);
+    transform: translateY(100vh);
   }
   100% {
     transform: translateY(0);
@@ -208,14 +267,8 @@ h4 {
     color: white;
 }
 
-@media (max-width: 800px) {
-    #sidebar-content {
-        top: 0;
-    }
-}
-
-#sidebar-content > .nav-logo {
-    font-size: 20px;
+#sidebar-content .nav-logo {
+    font-size: 18px;
 }
 
 .nav-link {
@@ -225,21 +278,19 @@ h4 {
     text-decoration: none;
 }
 
-#sidebar-content > .nav-link.sidebar-active-tab {
+#sidebar-content .nav-link.sidebar-active-tab {
     color: var(--color-font-dark);
     background-color: white;
 }
 
-/* Projects */
-.project {
+/* Pages */
+.page {
     width: 100%;
     max-width: 800px;
 }
 
-.project > .card {
-    word-wrap: normal;
+.page > .card {
     margin-bottom: 15px;
-    animation: 0.5s ease-out 0s 1 slideInFromBottom;
 }
 
 .md > ul {
@@ -250,18 +301,83 @@ h4 {
     margin-bottom: 0;
 }
 
+/* Listings */
+.listing {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 800px;
+    flex: 1;
+}
+
+.listing .row {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    max-width: 800px;
+    margin-bottom: 15px;
+    justify-content: space-between;
+    height: auto;
+}
+
+.listing div .card {
+    /* 2 cards per row + 15px padding + 4px border */
+    max-width: calc(50% - 10px);
+    height: 400px;
+    flex: 1;
+}
+
+.listing .card > .card-body {
+    max-width: 100%;
+    height: calc(319px - 1.5em); /* 400 - 51 (header) - 30 (padding) */
+    overflow: hidden;
+}
+
+.listing .card > .card-header {
+    position: relative;
+}
+
+.read-more {
+    padding-right: 10px;
+    margin-top: -5px;
+}
+
+.github {
+    position: absolute;
+    top: 0;
+    padding: 0;
+    height: 100%;
+}
+
+.github a i {
+    padding: 9px 15px;
+    font-size: 32px;
+}
+
+.github a:hover i {
+    color: var(--color-font-link);
+}
+
 /* 404 Content */
 .not-found {
     width: 100%;
 }
 
-.about > .card {
-    word-wrap: normal;
+.wip {
+    width: 100%;
 }
 
-.about-img {
+/* About Page */
+.about .card-body:after { /* Fix Size with Floating */
+    content: '';
+    display: block;
+    height: 0;
+    clear: both;
+}
+
+.about .about-img {
     float: left;
-    padding: 15px;
+    padding-right: 15px;
 }
 
 /* Tables */

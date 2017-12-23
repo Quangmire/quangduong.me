@@ -10,7 +10,7 @@ class WIP extends React.Component {
 
     render() {
         return (
-            <div className='not-found'>
+            <div className='wip'>
                 <div className='card'>
                     <div className='card-header'>
                         <center>

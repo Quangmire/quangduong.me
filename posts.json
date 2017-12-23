@@ -1,0 +1,20 @@
+[
+    {
+        "title": "Title",
+        "link": "/posts/title",
+        "date": "December 22, 2017",
+        "tags": ["blog", "first-post"],
+        "text": [
+            "Text"
+        ]
+    },
+    {
+        "title": "Title2",
+        "link": "/posts/title2",
+        "date": "December 23, 2017",
+        "tags": ["blog", "second-post", "procgen"],
+        "text": [
+            "Text"
+        ]
+    }
+]

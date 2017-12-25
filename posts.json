@@ -3,6 +3,7 @@
         "title": "Procedural Planets",
         "link": "/projects/procedural-planets",
         "github": "https://github.com/Quangmire/procedural-planets",
+        "date": "Dec 22, 2017",
         "tags": ["project", "graphics", "procgen"],
         "text": ["Text",
                  "1\n",
@@ -22,25 +23,28 @@
     {
         "title": "Procedural Planets",
         "link": "/projects/procedural-planets",
+        "date": "Dec 22, 2017",
         "tags": ["project", "graphics"],
         "text": ["Text","","","","","","","","","","","","","","","",""]
     },
     {
         "title": "Procedural Planets",
         "link": "/projects/procedural-planets",
+        "date": "Dec 22, 2017",
         "tags": ["project", "graphics"],
         "text": ["Text","","","","","","","","","","","","","","","",""]
     },
     {
         "title": "Procedural Planets",
         "link": "/projects/procedural-planets",
+        "date": "Dec. 22, 2017",
         "tags": ["project", "graphics"],
         "text": ["Text"]
     },
     {
         "title": "Title",
         "link": "/posts/title",
-        "date": "December 22, 2017",
+        "date": "Dec 22, 2017",
         "tags": ["blog", "first-post", "graphics"],
         "text": [
             "Text"
@@ -49,7 +53,7 @@
     {
         "title": "Title2",
         "link": "/posts/title2",
-        "date": "December 23, 2017",
+        "date": "Dec 22, 2017",
         "tags": ["blog", "second-post", "procgen"],
         "text": [
             "Text"

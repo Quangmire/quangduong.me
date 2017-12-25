@@ -47,22 +47,12 @@ export class SideBar extends React.Component {
         this.width = 0;
         // Default enable sidebar on larger screens
         $(document).ready(function() {
-            if($(window).width() > 800) {
-                $('#sidebar').addClass('active');
-            }
             this.width = $(window).width();
         }.bind(this));
         // Drop sidebar if screen gets too small and restore afterwards
         $(window).resize(function() {
             if($(window).width() !== this.width) {
-                if($(window).width() <= 800) {
-                    if($('#sidebar').hasClass('active')) {
-                        $('#sidebar').removeClass('active');
-                    }
-                } else if($(window).width() > 800) {
-                    if(!$('#sidebar').hasClass('active')) {
-                        $('#sidebar').addClass('active');
-                    }
+                if($(window).width() > 1100) {
                     if($('#navbar').hasClass('active')) {
                         $('#navbar').removeClass('active');
                     }
@@ -132,20 +122,25 @@ export class TitleBar extends React.Component {
 
     constructor(props) {
         super(props);
+        this.width = 0;
+        // Default enable sidebar on larger screens
+        $(document).ready(function() {
+            this.width = $(window).width();
+        }.bind(this));
+        // Drop sidebar if screen gets too small and restore afterwards
+        $(window).resize(function() {
+            if($(window).width() !== this.width) {
+                if(($(window).width() <= 1100 && this.width > 1100) ||
+                   ($(window).width() > 1100 && this.width <= 1100)) {
+                    this.forceUpdate();
+                }
+            }
+            this.width = $(window).width();
+        }.bind(this));
     }
 
     toggle() {
-        if($(window).width() > 800) {
-            if($('#navbar').hasClass('active')) {
-                $('#navbar').removeClass('active');
-            }
-            $('#sidebar').toggleClass('active');
-        } else {
-            if($('#sidebar').hasClass('active')) {
-                $('#sidebar').removeClass('active');
-            }
-            $('#navbar').toggleClass('active');
-        }
+        $('#navbar').toggleClass('active');
     }
 
     render() {
@@ -153,6 +148,7 @@ export class TitleBar extends React.Component {
         if(tag.length > 1) {
             tag = tag[1];
         }
+
         var titles = {
             '/posts': 'Archives',
             '/projects': 'Projects',
@@ -176,6 +172,15 @@ export class TitleBar extends React.Component {
                     break;
                 }
             }
+        }
+        if($(window).width() > 1100) {
+            return (
+                <div id='titlebar'>
+                    <div id='titlebar-content'>
+                        <div id='title'><h2>{title}</h2></div>
+                    </div>
+                </div>
+            );
         }
         return (
             <div id='titlebar'>

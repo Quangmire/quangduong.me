@@ -46,25 +46,6 @@ h5 {
     font-size: 1.1rem;
 }
 
-@media (max-width: 800px) {
-    h2 {
-        font-size: 1.25rem;
-    }
-
-    h3 {
-        font-size: 1.2rem;
-    }
-
-    h4 {
-        font-size: 1.15rem;
-    }
-
-    h5 {
-        font-size: 1.1rem;
-    }
-}
-
-
 a {
     font-weight: 700;
     text-decoration: none; color: var(--color-font-link);
@@ -180,7 +161,6 @@ a:hover {
 }
 
 #title {
-    margin-right: 71px;
     height: auto;
     flex: 1;
     display: flex;
@@ -239,14 +219,10 @@ a:hover {
 #sidebar-flex {
     padding: 0;
     width: var(--sidebar-width);
-    margin-left: calc(-1 * var(--sidebar-width));
+    margin-left: var(--sidebar-padding);
     transition: margin 0.5s ease-out;
     flex: 0 0 var(--sidebar-width);
     visibility: hidden;
-}
-
-#sidebar.active #sidebar-flex {
-    margin-left: var(--sidebar-padding);
 }
 
 #sidebar-container {
@@ -261,7 +237,7 @@ a:hover {
     transform: translateZ(0);
 }
 
-#sidebar.active #sidebar-container {
+#sidebar #sidebar-container {
     margin-left: var(--sidebar-padding);
     transform: translateZ(0);
 }
@@ -344,8 +320,13 @@ a:hover {
     flex-shrink: 0;
 }
 
-.listing > .card, .row {
+.listing > .row, .card {
     margin-bottom: 15px;
+}
+
+.card-header > .row {
+    margin-bottom: 0;
+    vertical-align: middle;
 }
 
 .listing .row .card {
@@ -357,30 +338,34 @@ a:hover {
 
 .listing .card > .card-body {
     max-width: 100%;
-    height: calc(319px - 2rem); /* 400 - 51 (header) - 30 (padding) */
+    height: calc(319px); /* 400 - 51 (header) - 30 (padding) */
     overflow: hidden;
     position: relative;
 }
 
-.listing .card > .card-header {
-    position: relative;
+.listing .card-tags {
+    margin-top: -1.25em;
 }
 
 .read-more {
     padding-right: 10px;
-    margin-top: -5px;
+    margin-top: -1.25em;
+}
+
+.card-date {
+    padding-right: 10px;
+    font-size: 12px;
+    font-weight: 700;
+    flex: 0.4;
 }
 
 .github {
-    position: absolute;
-    top: 0;
-    padding: 0;
-    height: 100%;
+    padding: 0 0 0 10px;
+    flex: 0;
 }
 
 .github a i {
-    padding: 9px 15px;
-    font-size: 32px;
+    font-size: 24px;
 }
 
 .github a:hover i {
@@ -424,4 +409,46 @@ table, th, td {
 
 th {
     text-align: center;
+}
+
+@media (max-width: 1100px) {
+    h2 {
+        font-size: 1.25rem;
+    }
+
+    h3 {
+        font-size: 1.2rem;
+    }
+
+    h4 {
+        font-size: 1.15rem;
+    }
+
+    h5 {
+        font-size: 1.1rem;
+    }
+
+    .card-date {
+        font-size: 10px;
+    }
+    
+    .listing, .page, .row, .card, #navbar, #titlebar {
+        max-width: 1100px;
+    }
+
+    #sidebar {
+        margin-left: calc(-1 * (var(--sidebar-width) + var(--sidebar-padding)));
+        transition: margin 0.5s ease-out;
+    }
+
+    #title {
+        margin-right: 62px;
+    }
+}
+
+@media not all and (max-width: 1100px) {
+    #sidebar {
+        margin-left: var(--sidebar-padding));
+        transition: margin 0.5s ease-in;
+    }
 }

@@ -88,19 +88,46 @@ class Listing extends React.Component {
             return '';
         }
 
+        function Date(props) {
+            if(props.date) {
+                return (
+                    <div className='card-date'>
+                        {props.date}
+                    </div>
+                );
+            }
+        }
+
+        function Header(props) {
+            if(props.github) {
+                return (
+                    <div className='card-header'>
+                        <Github github={props.github} />
+                        <h4>
+                            <Link className='page-link' to={props.link}>
+                                {props.title}
+                            </Link>
+                        </h4>
+                        <Date date={props.date} />
+                    </div>
+                );
+            }
+            return (
+                <div className='card-header'>
+                    <h4>
+                        <Link className='page-link' to={props.link}>
+                            {props.title}
+                        </Link>
+                    </h4>
+                    <Date date={props.date} />
+                </div>
+            );
+        }
+
         function Card(props) {
             return (
                 <div className='card'>
-                    <div className='card-header'>
-                        <center>
-                            <h4>
-                                <Link className='page-link' to={props.link}>
-                                    {props.title}
-                                </Link>
-                            </h4>
-                        </center>
-                        <Github github={props.github} />
-                    </div>
+                    <Header {...props} />
                     <Markdown className='card-body' markdown={props.text.join('\n')}/>
                     <div className='row'>
                         <Tags tags={props.tags} />
@@ -171,9 +198,7 @@ class Listing extends React.Component {
                 </div>
             );
         }
-
     }
-
 };
 
 export default Listing;

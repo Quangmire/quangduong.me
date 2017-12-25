@@ -53221,28 +53221,55 @@ var Listing = function (_React$Component) {
                 return '';
             }
 
+            function Date(props) {
+                if (props.date) {
+                    return _react2.default.createElement(
+                        'div',
+                        { className: 'card-date' },
+                        props.date
+                    );
+                }
+            }
+
+            function Header(props) {
+                if (props.github) {
+                    return _react2.default.createElement(
+                        'div',
+                        { className: 'card-header' },
+                        _react2.default.createElement(Github, { github: props.github }),
+                        _react2.default.createElement(
+                            'h4',
+                            null,
+                            _react2.default.createElement(
+                                _reactRouterDom.Link,
+                                { className: 'page-link', to: props.link },
+                                props.title
+                            )
+                        ),
+                        _react2.default.createElement(Date, { date: props.date })
+                    );
+                }
+                return _react2.default.createElement(
+                    'div',
+                    { className: 'card-header' },
+                    _react2.default.createElement(
+                        'h4',
+                        null,
+                        _react2.default.createElement(
+                            _reactRouterDom.Link,
+                            { className: 'page-link', to: props.link },
+                            props.title
+                        )
+                    ),
+                    _react2.default.createElement(Date, { date: props.date })
+                );
+            }
+
             function Card(props) {
                 return _react2.default.createElement(
                     'div',
                     { className: 'card' },
-                    _react2.default.createElement(
-                        'div',
-                        { className: 'card-header' },
-                        _react2.default.createElement(
-                            'center',
-                            null,
-                            _react2.default.createElement(
-                                'h4',
-                                null,
-                                _react2.default.createElement(
-                                    _reactRouterDom.Link,
-                                    { className: 'page-link', to: props.link },
-                                    props.title
-                                )
-                            )
-                        ),
-                        _react2.default.createElement(Github, { github: props.github })
-                    ),
+                    _react2.default.createElement(Header, props),
                     _react2.default.createElement(_Markdown2.default, { className: 'card-body', markdown: props.text.join('\n') }),
                     _react2.default.createElement(
                         'div',
@@ -53506,22 +53533,12 @@ var SideBar = exports.SideBar = function (_React$Component2) {
         _this2.width = 0;
         // Default enable sidebar on larger screens
         (0, _jquery2.default)(document).ready(function () {
-            if ((0, _jquery2.default)(window).width() > 800) {
-                (0, _jquery2.default)('#sidebar').addClass('active');
-            }
             this.width = (0, _jquery2.default)(window).width();
         }.bind(_this2));
         // Drop sidebar if screen gets too small and restore afterwards
         (0, _jquery2.default)(window).resize(function () {
             if ((0, _jquery2.default)(window).width() !== this.width) {
-                if ((0, _jquery2.default)(window).width() <= 800) {
-                    if ((0, _jquery2.default)('#sidebar').hasClass('active')) {
-                        (0, _jquery2.default)('#sidebar').removeClass('active');
-                    }
-                } else if ((0, _jquery2.default)(window).width() > 800) {
-                    if (!(0, _jquery2.default)('#sidebar').hasClass('active')) {
-                        (0, _jquery2.default)('#sidebar').addClass('active');
-                    }
+                if ((0, _jquery2.default)(window).width() > 1100) {
                     if ((0, _jquery2.default)('#navbar').hasClass('active')) {
                         (0, _jquery2.default)('#navbar').removeClass('active');
                     }
@@ -53617,23 +53634,29 @@ var TitleBar = exports.TitleBar = function (_React$Component3) {
     function TitleBar(props) {
         _classCallCheck(this, TitleBar);
 
-        return _possibleConstructorReturn(this, (TitleBar.__proto__ || Object.getPrototypeOf(TitleBar)).call(this, props));
+        var _this3 = _possibleConstructorReturn(this, (TitleBar.__proto__ || Object.getPrototypeOf(TitleBar)).call(this, props));
+
+        _this3.width = 0;
+        // Default enable sidebar on larger screens
+        (0, _jquery2.default)(document).ready(function () {
+            this.width = (0, _jquery2.default)(window).width();
+        }.bind(_this3));
+        // Drop sidebar if screen gets too small and restore afterwards
+        (0, _jquery2.default)(window).resize(function () {
+            if ((0, _jquery2.default)(window).width() !== this.width) {
+                if ((0, _jquery2.default)(window).width() <= 1100 && this.width > 1100 || (0, _jquery2.default)(window).width() > 1100 && this.width <= 1100) {
+                    this.forceUpdate();
+                }
+            }
+            this.width = (0, _jquery2.default)(window).width();
+        }.bind(_this3));
+        return _this3;
     }
 
     _createClass(TitleBar, [{
         key: 'toggle',
         value: function toggle() {
-            if ((0, _jquery2.default)(window).width() > 800) {
-                if ((0, _jquery2.default)('#navbar').hasClass('active')) {
-                    (0, _jquery2.default)('#navbar').removeClass('active');
-                }
-                (0, _jquery2.default)('#sidebar').toggleClass('active');
-            } else {
-                if ((0, _jquery2.default)('#sidebar').hasClass('active')) {
-                    (0, _jquery2.default)('#sidebar').removeClass('active');
-                }
-                (0, _jquery2.default)('#navbar').toggleClass('active');
-            }
+            (0, _jquery2.default)('#navbar').toggleClass('active');
         }
     }, {
         key: 'render',
@@ -53642,6 +53665,7 @@ var TitleBar = exports.TitleBar = function (_React$Component3) {
             if (tag.length > 1) {
                 tag = tag[1];
             }
+
             var titles = {
                 '/posts': 'Archives',
                 '/projects': 'Projects',
@@ -53665,6 +53689,25 @@ var TitleBar = exports.TitleBar = function (_React$Component3) {
                         break;
                     }
                 }
+            }
+            if ((0, _jquery2.default)(window).width() > 1100) {
+                return _react2.default.createElement(
+                    'div',
+                    { id: 'titlebar' },
+                    _react2.default.createElement(
+                        'div',
+                        { id: 'titlebar-content' },
+                        _react2.default.createElement(
+                            'div',
+                            { id: 'title' },
+                            _react2.default.createElement(
+                                'h2',
+                                null,
+                                title
+                            )
+                        )
+                    )
+                );
             }
             return _react2.default.createElement(
                 'div',

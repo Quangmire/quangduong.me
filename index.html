@@ -5,13 +5,13 @@
 
         <!-- https://dev.to/_evansalter/github-pages-and-single-page-apps -->
         <script>
-            (function(){
-                var redirect = sessionStorage.redirect;
-                    delete sessionStorage.redirect;
-                    if (redirect && redirect != location.href) {
-                        history.replaceState(null, null, redirect);
-                }
-            })();
+        (function(){
+            var redirect = sessionStorage.redirect;
+            delete sessionStorage.redirect;
+            if (redirect && redirect != location.href) {
+                history.replaceState(null, null, redirect);
+            }
+        })();
         </script>
 
         <meta charset='utf-8'>
@@ -27,12 +27,20 @@
         <!-- React Router -->
         <script src='https://unpkg.com/react-router/umd/react-router.min.js'></script>
 
+        <!-- Mathjax -->
+        <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+        </script>
+        <script type="text/javascript"
+                src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+        </script>
+
         <link rel="stylesheet" href="/static/highlight.css">
 
         <link href="https://fonts.googleapis.com/css?family=Noto+Serif" rel="stylesheet"> 
         <link rel='stylesheet' href='/static/index.css'>
     </head>
-    
+
     <body>
         <div id='root'></div>
         <script src='/static/index.js'></script>

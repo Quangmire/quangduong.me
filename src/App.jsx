@@ -38,11 +38,11 @@ class App extends React.Component {
                         <Switch>
                             <Route exact path='/' component={(props) => <Page type='frontpage' />} />
                             {/* Listings */}
-                            <Route exact path='/posts' component={(props) => <Listing type='posts' />}/>
-                            <Route exact path='/projects' component={(props) => <Listing type='projects' />}/>
-                            <Route exact path='/chronocides' component={(props) => <Listing type='chronocides' />}/>
-                            <Route exact path='/notes' component={(props) => <Listing type='notes' />}/>
-                            <Route path='/tag/:tag' component={(props) => <Listing tag={props.match.tag} />}/>
+                            <Route exact path='/posts' component={(props) => <Listing type='blog' />}/>
+                            <Route exact path='/projects' component={(props) => <Listing type='project' />}/>
+                            <Route exact path='/chronocides' component={(props) => <Listing type='chronocide' />}/>
+                            <Route exact path='/notes' component={(props) => <Listing type='note' />}/>
+                            <Route path='/tag/:tag' component={(props) => <Listing type='tag' />}/>
                             {/* Pages */}
                             <Route path='/posts/:name' component={Page}/>
                             <Route path='/projects/:name' component={Page}/>

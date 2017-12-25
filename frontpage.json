@@ -5,7 +5,8 @@
         "date": "December 22, 2017",
         "tags": ["blog", "first-post"],
         "text": [
-            "Text"
+            "Text\n",
+            "$a^2 + b^2 = c^2$"
         ]
     }
 ]

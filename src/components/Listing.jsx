@@ -12,43 +12,42 @@ class Listing extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            json: [],
-            jsons: 0
+            data: []
         };
-
-        if('type' in this.props) {
-            fetch('/' + this.props.type + '.json', {method: 'GET'})
-                .then(response => response.json())
-                .then(json => {
-                    this.setState({
-                        json: json
-                    });
-                });
-        } else {
-            var tags = window.location.pathname.split('/tag/')
-            if(tags.length > 1) {
-                var tag = tags[1];
-                var jsons = ['/posts.json', '/notes.json', '/chronocides.json', '/projects.json']
-                for(let i = 0; i < jsons.length; i++) {
-                    fetch(jsons[i], {method: 'GET'})
-                        .then(response => response.json())
-                        .then(json => {
-                            json = json.filter(post => {
-                                return post.tags.includes(tag);
-                            });
-                            Array.prototype.push.apply(this.state.json, json);
-                            this.state.jsons += 1;
-                            if(this.state.jsons == jsons.length) {
-                                this.setState(this.state);
-                            }
-                        });
+        this.get_posts();
+        this.width = 0;
+        // Default enable sidebar on larger screens
+        $(document).ready(function() {
+            this.width = $(window).width();
+        }.bind(this));
+        // Drop sidebar if screen gets too small and restore afterwards
+        $(window).resize(function() {
+            if($(window).width() !== this.width) {
+                if(($(window).width() <= 800 && this.width > 800) ||
+                    ($(window).width() > 800 && this.width <= 800)) {
+                    this.forceUpdate();
                 }
             }
-        }
+            this.width = $(window).width();
+        }.bind(this));
     }
 
-    render() {
+    get_posts() {
+        fetch('/posts.json', {method: 'GET'})
+            .then(response => response.json())
+            .then(json => {
+                this.setState({
+                    data: json
+                });
+            });
+    }
 
+    componentDidUpdate() {
+        MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+    }
+
+
+    render() {
         function Github(props) {
             if(props.github) {
                 return (
@@ -111,7 +110,14 @@ class Listing extends React.Component {
             );
         }
 
-        var json = this.state.json;
+        var tag = this.props.type;
+        if(tag === 'tag') {
+            tag = window.location.pathname.split('/tag/')[1];
+        }
+        var json = this.state.data.filter(function(datum) {
+            return datum.tags.includes(tag);
+        }, this);
+
         if(json.length === 0 && window.location.pathname.startsWith('/tag/')) {
             return (
                 <div className='card'>
@@ -130,28 +136,42 @@ class Listing extends React.Component {
                 </div>
             );
         }
-        var listing = [];
-        for(var i = 0; i < json.length; i += 2) {
-            if(i + 1 < json.length) {
-                listing.push(
-                    <div className='row' key={i/2}>
-                        <Card {...json[i]} />
-                        <Card {...json[i+1]} />
-                    </div>
-                );
-            } else {
-                listing.push(
-                    <div className='row' key={i/2}>
-                        <Card {...json[i]} />
-                    </div>
-                );
+
+        if($(window).width() > 800) {
+            var listing = [];
+            for(var i = 0; i < json.length; i += 2) {
+                if(i + 1 < json.length) {
+                    listing.push(
+                        <div className='row' key={i/2}>
+                            <Card {...json[i]} />
+                            <Card {...json[i+1]} />
+                        </div>
+                    );
+                } else {
+                    listing.push(
+                        <div className='row' key={i/2}>
+                            <Card {...json[i]} />
+                        </div>
+                    );
+                }
             }
+            return (
+                <div className='listing'>
+                    {listing}
+                </div>
+            );
+        } else {
+            return (
+                <div className='listing'>
+                    {json.map(function(card, i) {
+                        return (
+                            <Card {...card} key={i} />
+                        );
+                    })}
+                </div>
+            );
         }
-        return (
-            <div className='listing'>
-                {listing}
-            </div>
-        );
+
     }
 
 };

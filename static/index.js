@@ -52977,19 +52977,19 @@ var App = function (_React$Component) {
                                     return _react2.default.createElement(_Page2.default, { type: 'frontpage' });
                                 } }),
                             _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/posts', component: function component(props) {
-                                    return _react2.default.createElement(_Listing2.default, { type: 'posts' });
+                                    return _react2.default.createElement(_Listing2.default, { type: 'blog' });
                                 } }),
                             _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/projects', component: function component(props) {
-                                    return _react2.default.createElement(_Listing2.default, { type: 'projects' });
+                                    return _react2.default.createElement(_Listing2.default, { type: 'project' });
                                 } }),
                             _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/chronocides', component: function component(props) {
-                                    return _react2.default.createElement(_Listing2.default, { type: 'chronocides' });
+                                    return _react2.default.createElement(_Listing2.default, { type: 'chronocide' });
                                 } }),
                             _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/notes', component: function component(props) {
-                                    return _react2.default.createElement(_Listing2.default, { type: 'notes' });
+                                    return _react2.default.createElement(_Listing2.default, { type: 'note' });
                                 } }),
                             _react2.default.createElement(_reactRouterDom.Route, { path: '/tag/:tag', component: function component(props) {
-                                    return _react2.default.createElement(_Listing2.default, { tag: props.match.tag });
+                                    return _react2.default.createElement(_Listing2.default, { type: 'tag' });
                                 } }),
                             _react2.default.createElement(_reactRouterDom.Route, { path: '/posts/:name', component: _Page2.default }),
                             _react2.default.createElement(_reactRouterDom.Route, { path: '/projects/:name', component: _Page2.default }),
@@ -53093,6 +53093,8 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _react = require('react');
@@ -53126,48 +53128,47 @@ var Listing = function (_React$Component) {
         var _this = _possibleConstructorReturn(this, (Listing.__proto__ || Object.getPrototypeOf(Listing)).call(this, props));
 
         _this.state = {
-            json: [],
-            jsons: 0
+            data: []
         };
-
-        if ('type' in _this.props) {
-            fetch('/' + _this.props.type + '.json', { method: 'GET' }).then(function (response) {
-                return response.json();
-            }).then(function (json) {
-                _this.setState({
-                    json: json
-                });
-            });
-        } else {
-            var tags = window.location.pathname.split('/tag/');
-            if (tags.length > 1) {
-                var tag = tags[1];
-                var jsons = ['/posts.json', '/notes.json', '/chronocides.json', '/projects.json'];
-                for (var i = 0; i < jsons.length; i++) {
-                    fetch(jsons[i], { method: 'GET' }).then(function (response) {
-                        return response.json();
-                    }).then(function (json) {
-                        json = json.filter(function (post) {
-                            return post.tags.includes(tag);
-                        });
-                        Array.prototype.push.apply(_this.state.json, json);
-                        _this.state.jsons += 1;
-                        console.log(_this.state.json);
-                        if (_this.state.jsons == jsons.length) {
-                            console.log('final ', _this.state.json);
-                            _this.setState(_this.state);
-                        }
-                    });
+        _this.get_posts();
+        _this.width = 0;
+        // Default enable sidebar on larger screens
+        (0, _jquery2.default)(document).ready(function () {
+            this.width = (0, _jquery2.default)(window).width();
+        }.bind(_this));
+        // Drop sidebar if screen gets too small and restore afterwards
+        (0, _jquery2.default)(window).resize(function () {
+            if ((0, _jquery2.default)(window).width() !== this.width) {
+                if ((0, _jquery2.default)(window).width() <= 800 && this.width > 800 || (0, _jquery2.default)(window).width() > 800 && this.width <= 800) {
+                    this.forceUpdate();
                 }
             }
-        }
+            this.width = (0, _jquery2.default)(window).width();
+        }.bind(_this));
         return _this;
     }
 
     _createClass(Listing, [{
+        key: 'get_posts',
+        value: function get_posts() {
+            var _this2 = this;
+
+            fetch('/posts.json', { method: 'GET' }).then(function (response) {
+                return response.json();
+            }).then(function (json) {
+                _this2.setState({
+                    data: json
+                });
+            });
+        }
+    }, {
+        key: 'componentDidUpdate',
+        value: function componentDidUpdate() {
+            MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+        }
+    }, {
         key: 'render',
         value: function render() {
-
             function Github(props) {
                 if (props.github) {
                     return _react2.default.createElement(
@@ -53252,7 +53253,14 @@ var Listing = function (_React$Component) {
                 );
             }
 
-            var json = this.state.json;
+            var tag = this.props.type;
+            if (tag === 'tag') {
+                tag = window.location.pathname.split('/tag/')[1];
+            }
+            var json = this.state.data.filter(function (datum) {
+                return datum.tags.includes(tag);
+            }, this);
+
             if (json.length === 0 && window.location.pathname.startsWith('/tag/')) {
                 return _react2.default.createElement(
                     'div',
@@ -53281,28 +53289,39 @@ var Listing = function (_React$Component) {
                     )
                 );
             }
-            var listing = [];
-            for (var i = 0; i < json.length; i += 2) {
-                if (i + 1 < json.length) {
-                    listing.push(_react2.default.createElement(
-                        'div',
-                        { className: 'row', key: i / 2 },
-                        _react2.default.createElement(Card, json[i]),
-                        _react2.default.createElement(Card, json[i + 1])
-                    ));
-                } else {
-                    listing.push(_react2.default.createElement(
-                        'div',
-                        { className: 'row', key: i / 2 },
-                        _react2.default.createElement(Card, json[i])
-                    ));
+
+            if ((0, _jquery2.default)(window).width() > 800) {
+                var listing = [];
+                for (var i = 0; i < json.length; i += 2) {
+                    if (i + 1 < json.length) {
+                        listing.push(_react2.default.createElement(
+                            'div',
+                            { className: 'row', key: i / 2 },
+                            _react2.default.createElement(Card, json[i]),
+                            _react2.default.createElement(Card, json[i + 1])
+                        ));
+                    } else {
+                        listing.push(_react2.default.createElement(
+                            'div',
+                            { className: 'row', key: i / 2 },
+                            _react2.default.createElement(Card, json[i])
+                        ));
+                    }
                 }
+                return _react2.default.createElement(
+                    'div',
+                    { className: 'listing' },
+                    listing
+                );
+            } else {
+                return _react2.default.createElement(
+                    'div',
+                    { className: 'listing' },
+                    json.map(function (card, i) {
+                        return _react2.default.createElement(Card, _extends({}, card, { key: i }));
+                    })
+                );
             }
-            return _react2.default.createElement(
-                'div',
-                { className: 'listing' },
-                listing
-            );
         }
     }]);
 
@@ -53828,6 +53847,11 @@ var Page = function (_React$Component) {
     }
 
     _createClass(Page, [{
+        key: 'componentDidUpdate',
+        value: function componentDidUpdate() {
+            MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+        }
+    }, {
         key: 'render',
         value: function render() {
             if (this.state[404]) {
@@ -53868,40 +53892,41 @@ var Page = function (_React$Component) {
             }
 
             function Tags(props) {
-                return _react2.default.createElement(
-                    'div',
-                    { className: 'card-tags' },
-                    props.tags.map(function (tag, i) {
-                        var tag_element = [_react2.default.createElement(
-                            _reactRouterDom.Link,
-                            { key: 2 * i, className: 'card-tag', to: '/tag/' + tag },
-                            tag
-                        )];
-                        if (i < props.tags.length - 1) {
-                            tag_element.push(_react2.default.createElement(
-                                'span',
-                                { key: 2 * i + 1, className: 'comma' },
-                                ', '
-                            ));
-                        }
-                        return tag_element;
-                    })
-                );
+                if (props.tags && props.last) {
+                    return _react2.default.createElement(
+                        'div',
+                        { className: 'card-tags' },
+                        props.tags.map(function (tag, i) {
+                            var tag_element = [_react2.default.createElement(
+                                _reactRouterDom.Link,
+                                { key: 2 * i, className: 'card-tag', to: '/tag/' + tag },
+                                tag
+                            )];
+                            if (i < props.tags.length - 1) {
+                                tag_element.push(_react2.default.createElement(
+                                    'span',
+                                    { key: 2 * i + 1, className: 'comma' },
+                                    ', '
+                                ));
+                            }
+                            return tag_element;
+                        })
+                    );
+                }
+                return '';
             }
 
             return _react2.default.createElement(
                 'div',
                 { className: 'page' },
                 this.state.json.map(function (card, i) {
-                    var c = _react2.default.createElement(
+                    return _react2.default.createElement(
                         'div',
                         { className: 'card', key: i },
                         _react2.default.createElement(Title, { title: card.title, date: card.date }),
                         _react2.default.createElement(_Markdown2.default, { className: 'card-body', markdown: card.text.join('\n') }),
-                        _react2.default.createElement(Tags, { tags: card.tags })
+                        _react2.default.createElement(Tags, { tags: card.tags, last: i === this.state.json.length - 1 })
                     );
-                    card['active'] = '';
-                    return c;
                 }, this)
             );
         }

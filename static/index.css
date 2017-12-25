@@ -46,10 +46,28 @@ h5 {
     font-size: 1.1rem;
 }
 
+@media (max-width: 800px) {
+    h2 {
+        font-size: 1.25rem;
+    }
+
+    h3 {
+        font-size: 1.2rem;
+    }
+
+    h4 {
+        font-size: 1.15rem;
+    }
+
+    h5 {
+        font-size: 1.1rem;
+    }
+}
+
+
 a {
     font-weight: 700;
-    text-decoration: none;
-    color: var(--color-font-link);
+    text-decoration: none; color: var(--color-font-link);
 }
 
 a:hover {
@@ -123,7 +141,8 @@ a:hover {
 }
 
 .card-tags {
-    padding: 0px 0px 10px 10px;
+    padding-left: 10px;
+    padding-bottom: 10px;
     font-size: 12px;
     font-weight: 700;
     color: var(--color-font-secondary);
@@ -182,6 +201,7 @@ a:hover {
     flex: 1;
     min-width: 0;
     width: 100%;
+    height: 100%;
     transform: translateZ(0);
     display: flex;
     flex-direction: column;
@@ -307,20 +327,28 @@ a:hover {
     flex-direction: column;
     width: 100%;
     max-width: 800px;
-    flex: 1;
+    height: 100%;
+    flex: 10;
 }
 
-.listing .row {
+.row {
     display: flex;
     flex-direction: row;
     width: 100%;
     max-width: 800px;
-    margin-bottom: 15px;
     justify-content: space-between;
-    height: auto;
 }
 
-.listing div .card {
+.listing > .row {
+    height: 400px;
+    flex-shrink: 0;
+}
+
+.listing > .card, .row {
+    margin-bottom: 15px;
+}
+
+.listing .row .card {
     /* 2 cards per row + 15px padding + 4px border */
     max-width: calc(50% - 10px);
     height: 400px;
@@ -329,8 +357,9 @@ a:hover {
 
 .listing .card > .card-body {
     max-width: 100%;
-    height: calc(319px - 1.5em); /* 400 - 51 (header) - 30 (padding) */
+    height: calc(319px - 2rem); /* 400 - 51 (header) - 30 (padding) */
     overflow: hidden;
+    position: relative;
 }
 
 .listing .card > .card-header {

@@ -36,6 +36,11 @@ class Page extends React.Component {
             });
     }
 
+    componentDidUpdate() {
+        MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+    }
+
+
     render() {
         if(this.state[404]) {
             return <Redirect push to='/404' />
@@ -61,31 +66,32 @@ class Page extends React.Component {
         }
 
         function Tags(props) {
-            return (
-                <div className='card-tags'>
-                    {props.tags.map(function(tag, i) {
-                        var tag_element = [<Link key={2 * i} className='card-tag' to={'/tag/' + tag}>{tag}</Link>];
-                        if(i < props.tags.length - 1) {
-                            tag_element.push(<span key={2 * i + 1} className='comma'>, </span>);
-                        }
-                        return tag_element;
-                    })}
-                </div>
-            );
+            if(props.tags && props.last) {
+                return (
+                    <div className='card-tags'>
+                        {props.tags.map(function(tag, i) {
+                            var tag_element = [<Link key={2 * i} className='card-tag' to={'/tag/' + tag}>{tag}</Link>];
+                            if(i < props.tags.length - 1) {
+                                tag_element.push(<span key={2 * i + 1} className='comma'>, </span>);
+                            }
+                            return tag_element;
+                        })}
+                    </div>
+                );
+            }
+            return '';
         }
 
         return (
             <div className='page'>
                 {this.state.json.map(function(card, i) {
-                    var c = (
+                    return (
                         <div className='card' key={i}>
                             <Title title={card.title} date={card.date} />
-                            <Markdown className='card-body' markdown={card.text.join('\n')}/>
-                            <Tags tags={card.tags} />
+                            <Markdown className='card-body' markdown={card.text.join('\n')} />
+                            <Tags tags={card.tags} last={i === this.state.json.length - 1} />
                         </div>
                     );
-                    card['active'] = '';
-                    return c;
                 }, this)}
             </div>
         );

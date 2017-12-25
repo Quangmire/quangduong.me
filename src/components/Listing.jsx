@@ -91,9 +91,9 @@ class Listing extends React.Component {
         function Date(props) {
             if(props.date) {
                 return (
-                    <div className='card-date'>
+                    <h5 className='card-date'>
                         {props.date}
-                    </div>
+                    </h5>
                 );
             }
         }

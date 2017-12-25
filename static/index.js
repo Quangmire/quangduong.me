@@ -75,7 +75,7 @@ var EventListener = {
 
 module.exports = EventListener;
 }).call(this,require('_process'))
-},{"./emptyFunction":6,"_process":261}],2:[function(require,module,exports){
+},{"./emptyFunction":6,"_process":262}],2:[function(require,module,exports){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -272,7 +272,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 module.exports = emptyObject;
 }).call(this,require('_process'))
-},{"_process":261}],8:[function(require,module,exports){
+},{"_process":262}],8:[function(require,module,exports){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -458,7 +458,7 @@ function invariant(condition, format, a, b, c, d, e, f) {
 
 module.exports = invariant;
 }).call(this,require('_process'))
-},{"_process":261}],13:[function(require,module,exports){
+},{"_process":262}],13:[function(require,module,exports){
 'use strict';
 
 /**
@@ -663,7 +663,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 module.exports = warning;
 }).call(this,require('_process'))
-},{"./emptyFunction":6,"_process":261}],18:[function(require,module,exports){
+},{"./emptyFunction":6,"_process":262}],18:[function(require,module,exports){
 /*
 Syntax highlighting with language autodetection.
 https://highlightjs.org/
@@ -18757,7 +18757,7 @@ var invariant = function(condition, format, a, b, c, d, e, f) {
 module.exports = invariant;
 
 }).call(this,require('_process'))
-},{"_process":261}],206:[function(require,module,exports){
+},{"_process":262}],206:[function(require,module,exports){
 module.exports = Array.isArray || function (arr) {
   return Object.prototype.toString.call(arr) == '[object Array]';
 };
@@ -30890,7 +30890,7 @@ function checkPropTypes(typeSpecs, values, location, componentName, getStack) {
 module.exports = checkPropTypes;
 
 }).call(this,require('_process'))
-},{"./lib/ReactPropTypesSecret":215,"_process":261,"fbjs/lib/invariant":12,"fbjs/lib/warning":17}],212:[function(require,module,exports){
+},{"./lib/ReactPropTypesSecret":215,"_process":262,"fbjs/lib/invariant":12,"fbjs/lib/warning":17}],212:[function(require,module,exports){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -31496,7 +31496,7 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
 };
 
 }).call(this,require('_process'))
-},{"./checkPropTypes":211,"./lib/ReactPropTypesSecret":215,"_process":261,"fbjs/lib/emptyFunction":6,"fbjs/lib/invariant":12,"fbjs/lib/warning":17,"object-assign":209}],214:[function(require,module,exports){
+},{"./checkPropTypes":211,"./lib/ReactPropTypesSecret":215,"_process":262,"fbjs/lib/emptyFunction":6,"fbjs/lib/invariant":12,"fbjs/lib/warning":17,"object-assign":209}],214:[function(require,module,exports){
 (function (process){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
@@ -31528,7 +31528,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 }).call(this,require('_process'))
-},{"./factoryWithThrowingShims":212,"./factoryWithTypeCheckers":213,"_process":261}],215:[function(require,module,exports){
+},{"./factoryWithThrowingShims":212,"./factoryWithTypeCheckers":213,"_process":262}],215:[function(require,module,exports){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -34090,7 +34090,7 @@ module.exports = server_browser;
 }
 
 }).call(this,require('_process'))
-},{"_process":261,"fbjs/lib/camelizeStyleName":4,"fbjs/lib/emptyFunction":6,"fbjs/lib/emptyObject":7,"fbjs/lib/hyphenateStyleName":11,"fbjs/lib/invariant":12,"fbjs/lib/memoizeStringOnly":15,"fbjs/lib/warning":17,"object-assign":209,"prop-types/checkPropTypes":211,"react":248}],217:[function(require,module,exports){
+},{"_process":262,"fbjs/lib/camelizeStyleName":4,"fbjs/lib/emptyFunction":6,"fbjs/lib/emptyObject":7,"fbjs/lib/hyphenateStyleName":11,"fbjs/lib/invariant":12,"fbjs/lib/memoizeStringOnly":15,"fbjs/lib/warning":17,"object-assign":209,"prop-types/checkPropTypes":211,"react":248}],217:[function(require,module,exports){
 /** @license React v16.2.0
  * react-dom-server.browser.production.min.js
  *
@@ -49532,7 +49532,7 @@ module.exports = reactDom;
 }
 
 }).call(this,require('_process'))
-},{"_process":261,"fbjs/lib/EventListener":1,"fbjs/lib/ExecutionEnvironment":2,"fbjs/lib/camelizeStyleName":4,"fbjs/lib/containsNode":5,"fbjs/lib/emptyFunction":6,"fbjs/lib/emptyObject":7,"fbjs/lib/focusNode":8,"fbjs/lib/getActiveElement":9,"fbjs/lib/hyphenateStyleName":11,"fbjs/lib/invariant":12,"fbjs/lib/shallowEqual":16,"fbjs/lib/warning":17,"object-assign":209,"prop-types/checkPropTypes":211,"react":248}],219:[function(require,module,exports){
+},{"_process":262,"fbjs/lib/EventListener":1,"fbjs/lib/ExecutionEnvironment":2,"fbjs/lib/camelizeStyleName":4,"fbjs/lib/containsNode":5,"fbjs/lib/emptyFunction":6,"fbjs/lib/emptyObject":7,"fbjs/lib/focusNode":8,"fbjs/lib/getActiveElement":9,"fbjs/lib/hyphenateStyleName":11,"fbjs/lib/invariant":12,"fbjs/lib/shallowEqual":16,"fbjs/lib/warning":17,"object-assign":209,"prop-types/checkPropTypes":211,"react":248}],219:[function(require,module,exports){
 /** @license React v16.2.0
  * react-dom.production.min.js
  *
@@ -49805,7 +49805,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 }).call(this,require('_process'))
-},{"./cjs/react-dom.development.js":218,"./cjs/react-dom.production.min.js":219,"_process":261}],221:[function(require,module,exports){
+},{"./cjs/react-dom.development.js":218,"./cjs/react-dom.production.min.js":219,"_process":262}],221:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -49816,7 +49816,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 }).call(this,require('_process'))
-},{"./cjs/react-dom-server.browser.development.js":216,"./cjs/react-dom-server.browser.production.min.js":217,"_process":261}],222:[function(require,module,exports){
+},{"./cjs/react-dom-server.browser.development.js":216,"./cjs/react-dom-server.browser.production.min.js":217,"_process":262}],222:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -52675,7 +52675,7 @@ module.exports = react;
 }
 
 }).call(this,require('_process'))
-},{"_process":261,"fbjs/lib/emptyFunction":6,"fbjs/lib/emptyObject":7,"fbjs/lib/invariant":12,"fbjs/lib/warning":17,"object-assign":209,"prop-types/checkPropTypes":211}],247:[function(require,module,exports){
+},{"_process":262,"fbjs/lib/emptyFunction":6,"fbjs/lib/emptyObject":7,"fbjs/lib/invariant":12,"fbjs/lib/warning":17,"object-assign":209,"prop-types/checkPropTypes":211}],247:[function(require,module,exports){
 /** @license React v16.2.0
  * react.production.min.js
  *
@@ -52709,7 +52709,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 }).call(this,require('_process'))
-},{"./cjs/react.development.js":246,"./cjs/react.production.min.js":247,"_process":261}],249:[function(require,module,exports){
+},{"./cjs/react.development.js":246,"./cjs/react.production.min.js":247,"_process":262}],249:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -52892,7 +52892,7 @@ if (process.env.NODE_ENV !== 'production') {
 module.exports = warning;
 
 }).call(this,require('_process'))
-},{"_process":261}],252:[function(require,module,exports){
+},{"_process":262}],252:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -52916,6 +52916,10 @@ var _NavBar = require('./components/NavBar.jsx');
 var _About = require('./components/About.jsx');
 
 var _About2 = _interopRequireDefault(_About);
+
+var _Contact = require('./components/Contact.jsx');
+
+var _Contact2 = _interopRequireDefault(_Contact);
 
 var _Page = require('./components/Page.jsx');
 
@@ -52996,7 +53000,7 @@ var App = function (_React$Component) {
                             _react2.default.createElement(_reactRouterDom.Route, { path: '/chronocides/:name', component: _Page2.default }),
                             _react2.default.createElement(_reactRouterDom.Route, { path: '/notes/:name', component: _Page2.default }),
                             _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/about', component: _About2.default }),
-                            _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/contact', component: _WIP2.default }),
+                            _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/contact', component: _Contact2.default }),
                             _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/404', component: _NotFound2.default }),
                             _react2.default.createElement(_reactRouterDom.Redirect, { to: '/404' })
                         )
@@ -53011,7 +53015,7 @@ var App = function (_React$Component) {
 
 exports.default = App;
 
-},{"./components/About.jsx":253,"./components/Listing.jsx":254,"./components/NavBar.jsx":256,"./components/NotFound.jsx":257,"./components/Page.jsx":258,"./components/WIP.jsx":259,"jquery":207,"react":248,"react-router-dom":233}],253:[function(require,module,exports){
+},{"./components/About.jsx":253,"./components/Contact.jsx":254,"./components/Listing.jsx":255,"./components/NavBar.jsx":257,"./components/NotFound.jsx":258,"./components/Page.jsx":259,"./components/WIP.jsx":260,"jquery":207,"react":248,"react-router-dom":233}],253:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -53054,25 +53058,30 @@ var About = function (_React$Component) {
                     { className: 'card' },
                     _react2.default.createElement(
                         'div',
+                        { className: 'card-header' },
+                        _react2.default.createElement(
+                            'h2',
+                            null,
+                            'Quang Duong'
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'div',
                         { className: 'card-body' },
                         _react2.default.createElement('img', { className: 'about-img', src: '/static/media/profile.png' }),
                         _react2.default.createElement(
                             'div',
                             { className: 'about-desc' },
                             _react2.default.createElement(
-                                'h2',
-                                null,
-                                'Quang Duong'
-                            ),
-                            _react2.default.createElement(
                                 'p',
                                 null,
                                 _react2.default.createElement(
                                     'strong',
                                     null,
-                                    'Bio:'
+                                    'Bio'
                                 ),
-                                ' Quang is a third year CS/Math student with an addiction to reading anything from fantasy to romance.'
+                                _react2.default.createElement('br', null),
+                                'A third year Computer Science/Mathematics major at UT Austin that enjoys reading anything from high fantasy to romance.'
                             )
                         )
                     )
@@ -53087,6 +53096,117 @@ var About = function (_React$Component) {
 exports.default = About;
 
 },{"react":248,"react-router-dom":233}],254:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRouterDom = require('react-router-dom');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Contact = function (_React$Component) {
+    _inherits(Contact, _React$Component);
+
+    function Contact(props) {
+        _classCallCheck(this, Contact);
+
+        return _possibleConstructorReturn(this, (Contact.__proto__ || Object.getPrototypeOf(Contact)).call(this, props));
+    }
+
+    _createClass(Contact, [{
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                'div',
+                { className: 'contact' },
+                _react2.default.createElement(
+                    'div',
+                    { className: 'card' },
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'card-header' },
+                        _react2.default.createElement(
+                            'h2',
+                            null,
+                            'Contact Form'
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'card-body' },
+                        _react2.default.createElement(
+                            'p',
+                            null,
+                            'Send me any questions, comments, or complaints about anything. :D'
+                        ),
+                        _react2.default.createElement(
+                            'form',
+                            { action: 'mailto:duongquang1@gmail.com?subject=Blog%20Contact', method: 'post', encType: 'text/plain' },
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'row' },
+                                _react2.default.createElement(
+                                    'span',
+                                    null,
+                                    'Name:'
+                                ),
+                                _react2.default.createElement('input', { name: 'name', type: 'text' }),
+                                _react2.default.createElement('br', null)
+                            ),
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'row' },
+                                _react2.default.createElement(
+                                    'span',
+                                    null,
+                                    'Subject:'
+                                ),
+                                _react2.default.createElement('input', { name: 'subject', type: 'text' }),
+                                _react2.default.createElement('br', null)
+                            ),
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'row' },
+                                _react2.default.createElement(
+                                    'span',
+                                    null,
+                                    'Comments:'
+                                ),
+                                _react2.default.createElement('textarea', { name: 'comment' }),
+                                _react2.default.createElement('br', null)
+                            ),
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'row' },
+                                _react2.default.createElement('input', { type: 'submit', value: 'Send' })
+                            )
+                        )
+                    )
+                )
+            );
+        }
+    }]);
+
+    return Contact;
+}(_react2.default.Component);
+
+exports.default = Contact;
+
+},{"react":248,"react-router-dom":233}],255:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -53224,7 +53344,7 @@ var Listing = function (_React$Component) {
             function Date(props) {
                 if (props.date) {
                     return _react2.default.createElement(
-                        'div',
+                        'h5',
                         { className: 'card-date' },
                         props.date
                     );
@@ -53359,7 +53479,7 @@ var Listing = function (_React$Component) {
 
 exports.default = Listing;
 
-},{"./Markdown.jsx":255,"jquery":207,"react":248,"react-router-dom":233}],255:[function(require,module,exports){
+},{"./Markdown.jsx":256,"jquery":207,"react":248,"react-router-dom":233}],256:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -53433,7 +53553,7 @@ var Markdown = function (_React$Component) {
 
 exports.default = Markdown;
 
-},{"highlight.js":19,"marked":208,"react":248}],256:[function(require,module,exports){
+},{"highlight.js":19,"marked":208,"react":248}],257:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -53737,7 +53857,7 @@ var TitleBar = exports.TitleBar = function (_React$Component3) {
     return TitleBar;
 }(_react2.default.Component);
 
-},{"jquery":207,"react":248,"react-router-dom":233}],257:[function(require,module,exports){
+},{"jquery":207,"react":248,"react-router-dom":233}],258:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -53827,7 +53947,7 @@ var NotFound = function (_React$Component) {
 
 exports.default = NotFound;
 
-},{"react":248,"react-router-dom":233}],258:[function(require,module,exports){
+},{"react":248,"react-router-dom":233}],259:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -53982,7 +54102,7 @@ var Page = function (_React$Component) {
 
 exports.default = Page;
 
-},{"./Markdown.jsx":255,"react":248,"react-router-dom":233}],259:[function(require,module,exports){
+},{"./Markdown.jsx":256,"react":248,"react-router-dom":233}],260:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -54061,7 +54181,7 @@ var WIP = function (_React$Component) {
 
 exports.default = WIP;
 
-},{"react":248,"react-router-dom":233}],260:[function(require,module,exports){
+},{"react":248,"react-router-dom":233}],261:[function(require,module,exports){
 'use strict';
 
 var _App = require('./App.jsx');
@@ -54083,7 +54203,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //ReactDOM.render(
 (0, _reactSnapshot.render)(_react2.default.createElement(_App2.default, null), document.getElementById('root'));
 
-},{"./App.jsx":252,"react":248,"react-dom":220,"react-snapshot":245}],261:[function(require,module,exports){
+},{"./App.jsx":252,"react":248,"react-dom":220,"react-snapshot":245}],262:[function(require,module,exports){
 // shim for using process in browser
 var process = module.exports = {};
 
@@ -54269,4 +54389,4 @@ process.chdir = function (dir) {
 };
 process.umask = function() { return 0; };
 
-},{}]},{},[260]);
+},{}]},{},[261]);

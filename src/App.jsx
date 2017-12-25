@@ -13,6 +13,7 @@ import {
     NavBar
 } from './components/NavBar.jsx';
 import About         from './components/About.jsx';
+import Contact       from './components/Contact.jsx';
 import Page          from './components/Page.jsx';
 import NotFound      from './components/NotFound.jsx';
 import WIP           from './components/WIP.jsx';
@@ -50,11 +51,11 @@ class App extends React.Component {
                             <Route path='/notes/:name' component={Page}/>
                             {/* Other Pages */}
                             <Route exact path='/about' component={About}/>
-                            {/* These pages are not yet implemented */}
-                            <Route exact path='/contact' component={WIP}/>
+                            <Route exact path='/contact' component={Contact}/>
                             {/* 404 Page */}
                             <Route exact path='/404' component={NotFound} />
                             <Redirect to="/404" />
+                            {/* These pages are not yet implemented */}
                         </Switch>
                     </div>
                 </div>

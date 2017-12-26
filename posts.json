@@ -1,62 +1,30 @@
 [
     {
+        "title": "Welcome!",
+        "link": "/posts/welcome",
+        "date": "December 25, 2017",
+        "tags": ["blog", "first-post"],
+        "text": [
+            "##### Salutations Intrepid Explorer",
+            "I see you have found your way to my dusty corner of the Internet",
+            "and I humbly welcome you into my modest abode. Here is where I",
+            "compile my longer term personal projects with my shorter term",
+            "chronocides together with blog posts that detail interesting",
+            "topics that I have come across and notes I have taken for various",
+            "subjects that I am striving to understand. This website is moreso",
+            "to organize my thoughts, but is also intended to facilitate the",
+            "sharing of knowledge."
+        ]
+    },
+    {
         "title": "Procedural Planets",
         "link": "/projects/procedural-planets",
         "github": "https://github.com/Quangmire/procedural-planets",
-        "date": "Dec 22, 2017",
+        "date": "Dec 25, 2017",
         "tags": ["project", "graphics", "procgen"],
-        "text": ["Text",
-                 "1\n",
-                 "2\n",
-                 "3\n",
-                 "4\n",
-                 "5\n",
-                 "6\n",
-                 "7\n",
-                 "8\n",
-                 "9\n",
-                 "10 aaaaaaaajgpqyaaa a a a a a a a a a a a a a a a a a a a a b\n",
-                 "11\n",
-                 "12\n"
-        ]
-    },
-    {
-        "title": "Procedural Planets",
-        "link": "/projects/procedural-planets",
-        "date": "Dec 22, 2017",
-        "tags": ["project", "graphics"],
-        "text": ["Text","","","","","","","","","","","","","","","",""]
-    },
-    {
-        "title": "Procedural Planets",
-        "link": "/projects/procedural-planets",
-        "date": "Dec 22, 2017",
-        "tags": ["project", "graphics"],
-        "text": ["Text","","","","","","","","","","","","","","","",""]
-    },
-    {
-        "title": "Procedural Planets",
-        "link": "/projects/procedural-planets",
-        "date": "Dec. 22, 2017",
-        "tags": ["project", "graphics"],
-        "text": ["Text"]
-    },
-    {
-        "title": "Title",
-        "link": "/posts/title",
-        "date": "Dec 22, 2017",
-        "tags": ["blog", "first-post", "graphics"],
         "text": [
-            "Text"
-        ]
-    },
-    {
-        "title": "Title2",
-        "link": "/posts/title2",
-        "date": "Dec 22, 2017",
-        "tags": ["blog", "second-post", "procgen"],
-        "text": [
-            "Text"
+            "Generate planets using 3D Perlin noise",
+            "![Planet 1](/static/media/planet1.gif 'Planet 1')"
         ]
     }
 ]

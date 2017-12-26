@@ -1,0 +1,33 @@
+[
+    {
+        "title": "Welcome",
+        "link": "/posts/welcome",
+        "date": "December 25, 2017",
+        "tags": ["blog", "first-post"],
+        "text": [
+            "#### Salutations Intrepid Explorer",
+            "I see you have found your way to my dusty corner of the Internet",
+            "and I humbly welcome you into my modest abode. Here is where I",
+            "compile my longer term personal projects with my shorter term",
+            "chronocides together with blog posts that detail interesting",
+            "topics that I have come across and notes I have taken for various",
+            "subjects that I am striving to understand. This website is moreso",
+            "to organize my thoughts, but is also intended to facilitate the",
+            "sharing of knowledge.",
+
+            "#### In Regards to this Website",
+            "By no means is this website completed in terms of design. I have",
+            "only created one other 'fully-functional' website before as a",
+            "class project and that was my first real foray into front-end",
+            "development. I went back to refurbish this website afterwards to",
+            "resolve the lack of aesthetic appeal and to create something that",
+            "I am holding to a higher standard of compatibility among modern",
+            "browsers. Please do send any details of any rendering issues as",
+            "I am still but a novice in this realm of development.",
+
+            "#### Final Thoughts",
+            "I hope you enjoy your stay and I wish you the best over this",
+            "holiday season and all the days that come hence."
+        ]
+    }
+]

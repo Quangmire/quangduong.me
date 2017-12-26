@@ -53068,10 +53068,10 @@ var About = function (_React$Component) {
                     _react2.default.createElement(
                         'div',
                         { className: 'card-body' },
-                        _react2.default.createElement('img', { className: 'about-img', src: '/static/media/profile.png' }),
                         _react2.default.createElement(
                             'div',
                             { className: 'about-desc' },
+                            _react2.default.createElement('img', { className: 'about-img', src: '/static/media/profile.png' }),
                             _react2.default.createElement(
                                 'p',
                                 null,
@@ -53081,7 +53081,46 @@ var About = function (_React$Component) {
                                     'Bio'
                                 ),
                                 _react2.default.createElement('br', null),
-                                'A third year Computer Science/Mathematics major at UT Austin that enjoys reading anything from high fantasy to romance.'
+                                'A third year Computer Science and Mathematics (with a specialization in Scientific Computing) student at UT Austin that enjoys reading anything from high fantasy to romance, belting out songs in the shower whenever he is fully convinced there is no one around, and indulging in and subjecting others to the world\'s highest form of humor--puns. He can commonly be found ricing his Arch distro in procrastination of upcoming deadlines.'
+                            )
+                        ),
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'about-desc' },
+                            _react2.default.createElement(
+                                'strong',
+                                null,
+                                'Interests'
+                            ),
+                            _react2.default.createElement(
+                                'ul',
+                                null,
+                                _react2.default.createElement(
+                                    'li',
+                                    null,
+                                    'Research in Machine Learning/Data Science'
+                                ),
+                                _react2.default.createElement(
+                                    'li',
+                                    null,
+                                    'Procedural Generation/Graphics'
+                                ),
+                                _react2.default.createElement(
+                                    'li',
+                                    null,
+                                    'Security and Low-Level Hackery'
+                                )
+                            ),
+                            _react2.default.createElement(
+                                'p',
+                                null,
+                                _react2.default.createElement(
+                                    'strong',
+                                    null,
+                                    'Resume'
+                                ),
+                                _react2.default.createElement('br', null),
+                                'To be added at a later date.'
                             )
                         )
                     )
@@ -53408,33 +53447,62 @@ var Listing = function (_React$Component) {
                 return datum.tags.includes(tag);
             }, this);
 
-            if (json.length === 0 && window.location.pathname.startsWith('/tag/')) {
-                return _react2.default.createElement(
-                    'div',
-                    { className: 'card' },
-                    _react2.default.createElement(
+            if (json.length === 0) {
+                if (window.location.pathname.startsWith('/tag/')) {
+                    return _react2.default.createElement(
                         'div',
-                        { className: 'card-header' },
+                        { className: 'card' },
                         _react2.default.createElement(
-                            'center',
-                            null,
+                            'div',
+                            { className: 'card-header' },
                             _react2.default.createElement(
-                                'h4',
+                                'center',
                                 null,
-                                'No Posts Match'
+                                _react2.default.createElement(
+                                    'h4',
+                                    null,
+                                    'No Posts Match'
+                                )
+                            )
+                        ),
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'card-body' },
+                            _react2.default.createElement(
+                                'center',
+                                null,
+                                'No posts matching the tag could be found.'
                             )
                         )
-                    ),
-                    _react2.default.createElement(
+                    );
+                } else {
+                    return _react2.default.createElement(
                         'div',
-                        { className: 'card-body' },
+                        { className: 'card' },
                         _react2.default.createElement(
-                            'center',
-                            null,
-                            'No posts matching the tag could be found.'
+                            'div',
+                            { className: 'card-header' },
+                            _react2.default.createElement(
+                                'center',
+                                null,
+                                _react2.default.createElement(
+                                    'h4',
+                                    null,
+                                    'No Posts'
+                                )
+                            )
+                        ),
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'card-body' },
+                            _react2.default.createElement(
+                                'center',
+                                null,
+                                'No posts have been written for this category just yet. Come back in awhile!'
+                            )
                         )
-                    )
-                );
+                    );
+                }
             }
 
             if ((0, _jquery2.default)(window).width() > 800) {
@@ -53987,25 +54055,39 @@ var Page = function (_React$Component) {
             404: false
         };
 
-        var path = window.location.pathname;
-        if (path[path.length - 1] === '/') {
-            path = path.substring(0, path.length - 1);
-        }
-        if (props.type) {
-            path = '/' + props.type;
-        }
-        fetch(path + '.json', { method: 'GET' }).then(function (response) {
-            if (response.ok) {
+        if (props.type === 'frontpage') {
+            fetch('/posts.json', { method: 'GET' }).then(function (response) {
                 return response.json();
-            } else {
-                _this.state[404] = true;
-                return [];
-            }
-        }).then(function (json) {
-            _this.setState({
-                json: json
+            }).then(function (json) {
+                json = json.filter(function (item) {
+                    return item.tags.includes('blog');
+                })[0];
+                fetch(json.link + '.json', { method: 'GET' }).then(function (response) {
+                    return response.json();
+                }).then(function (json) {
+                    _this.setState({
+                        json: json
+                    });
+                });
             });
-        });
+        } else {
+            var path = window.location.pathname;
+            if (path[path.length - 1] === '/') {
+                path = path.substring(0, path.length - 1);
+            }
+            fetch(path + '.json', { method: 'GET' }).then(function (response) {
+                if (response.ok) {
+                    return response.json();
+                } else {
+                    _this.state[404] = true;
+                    return [];
+                }
+            }).then(function (json) {
+                _this.setState({
+                    json: json
+                });
+            });
+        }
         return _this;
     }
 

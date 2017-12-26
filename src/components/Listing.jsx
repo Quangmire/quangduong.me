@@ -145,23 +145,43 @@ class Listing extends React.Component {
             return datum.tags.includes(tag);
         }, this);
 
-        if(json.length === 0 && window.location.pathname.startsWith('/tag/')) {
-            return (
-                <div className='card'>
-                    <div className='card-header'>
-                        <center>
-                            <h4>
-                                No Posts Match
-                            </h4>
-                        </center>
+        if(json.length === 0) {
+            if(window.location.pathname.startsWith('/tag/')) {
+                return (
+                    <div className='card'>
+                        <div className='card-header'>
+                            <center>
+                                <h4>
+                                    No Posts Match
+                                </h4>
+                            </center>
+                        </div>
+                        <div className='card-body'>
+                            <center>
+                                No posts matching the tag could be found.
+                            </center>
+                        </div>
                     </div>
-                    <div className='card-body'>
-                        <center>
-                            No posts matching the tag could be found.
-                        </center>
+                );
+            } else {
+                return (
+                    <div className='card'>
+                        <div className='card-header'>
+                            <center>
+                                <h4>
+                                    No Posts
+                                </h4>
+                            </center>
+                        </div>
+                        <div className='card-body'>
+                            <center>
+                                No posts have been written for this category
+                                just yet. Come back in awhile!
+                            </center>
+                        </div>
                     </div>
-                </div>
-            );
+                );
+            }
         }
 
         if($(window).width() > 800) {

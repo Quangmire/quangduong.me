@@ -13,27 +13,41 @@ class Page extends React.Component {
             404: false
         };
 
-        var path = window.location.pathname;
-        if(path[path.length - 1] === '/') {
-            path = path.substring(0, path.length - 1);
-        }
-        if(props.type) {
-            path = '/' + props.type;
-        }
-        fetch(path + '.json', {method: 'GET'})
-            .then(response => {
-                if(response.ok) {
-                    return response.json();
-                } else {
-                    this.state[404] = true;
-                    return []
-                }
-            })
-            .then(json => {
-                this.setState({
-                    json: json
+        if(props.type === 'frontpage') {
+            fetch('/posts.json', {method: 'GET'})
+                .then(response => response.json())
+                .then(json => {
+                    json = json.filter(function(item) {
+                        return item.tags.includes('blog');
+                    })[0];
+                    fetch(json.link + '.json', {method: 'GET'})
+                        .then(response => response.json())
+                        .then(json => {
+                            this.setState({
+                                json: json
+                            });
+                        });
                 });
-            });
+        } else {
+            var path = window.location.pathname;
+            if(path[path.length - 1] === '/') {
+                path = path.substring(0, path.length - 1);
+            }
+            fetch(path + '.json', {method: 'GET'})
+                .then(response => {
+                    if(response.ok) {
+                        return response.json();
+                    } else {
+                        this.state[404] = true;
+                        return [];
+                    }
+                })
+                .then(json => {
+                    this.setState({
+                        json: json
+                    });
+                });
+        }
     }
 
     componentDidUpdate() {

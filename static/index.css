@@ -108,6 +108,13 @@ a:hover {
     height: auto;
 }
 
+.card-body:after { /* Fix Size with Floating */
+    content: '';
+    display: block;
+    height: 0;
+    clear: both;
+}
+
 .card-body a {
     text-decoration: none;
     color: var(--color-font-link);
@@ -288,11 +295,12 @@ a:hover {
     margin-bottom: 15px;
 }
 
-.md > ul {
+ul {
+    margin: 0;
     list-style-type: square;
 }
 
-.md > ul > li > p {
+ul > li > p {
     margin-bottom: 0;
 }
 
@@ -379,8 +387,18 @@ a:hover {
     width: 100%;
 }
 
+.img-left {
+    float: left;
+    padding-right: 15px;
+}
+
+.img-right {
+    float: right;
+    padding-left: 15px;
+}
+
 /* About Page */
-.about .card-body:after { /* Fix Size with Floating */
+.about-desc:after { /* Fix Size with Floating */
     content: '';
     display: block;
     height: 0;

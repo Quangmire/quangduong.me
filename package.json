@@ -4,28 +4,7 @@
   "description": "Personal website",
   "main": "index.js",
   "scripts": {
-    "test": "test",
-    "build": "react-snapshot --build-dir . --output-dir build"
-  },
-  "reactSnapshot": {
-    "include": [
-      "/projects/procedural-planets/",
-      "/projects/",
-      "/about/",
-      "/chronocides/",
-      "/contact/",
-      "/archives/",
-      "/404/"
-    ],
-    "exclude": [
-      "/projects",
-      "/about",
-      "/chronocides",
-      "/contact",
-      "/archives",
-      "/404"
-    ],
-    "snapshotDelay": 300
+    "test": "test"
   },
   "repository": {
     "type": "git",

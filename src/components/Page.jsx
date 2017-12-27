@@ -61,7 +61,7 @@ class Page extends React.Component {
         }
 
         function Title(props) {
-            if(props.date) {
+            if(props.date && props.first) {
                 return (
                     <div className='card-header'>
                         <h2 className='card-title'>{props.title}</h2>
@@ -101,7 +101,7 @@ class Page extends React.Component {
                 {this.state.json.map(function(card, i) {
                     return (
                         <div className='card' key={i}>
-                            <Title title={card.title} date={card.date} />
+                            <Title title={card.title} date={card.date} first={i === 0} />
                             <Markdown className='card-body' markdown={card.text.join('\n')} />
                             <Tags tags={card.tags} last={i === this.state.json.length - 1} />
                         </div>

@@ -1,0 +1,56 @@
+[
+    {
+        "title": "$\\mathbb{R}$ and $\\mathbb{C}$ Number Systems",
+        "link": "/notes/real_complex_number_systems",
+        "date": "Dec 26, 2017",
+        "tags": ["note", "math", "real-analysis", "baby-rudin"],
+        "text": [
+            "The rational number system $\\mathbb{Q}$ is not the preferred set",
+            "of numbers to perform analysis on in regards to convergence,",
+            "continuity, differentiation, and integration. This is because of",
+            "the inherent gaps found in between numbers irregardless of how",
+            "there exists a rational number in between any two other rational",
+            "numbers (by taking the average). We therefore use the set of real",
+            "numbers $\\mathbb{R}$ to bridge these gaps. Likewise, the set of",
+            "complex numbers $\\mathbb{C}$ can also be considered as they",
+            "contain the set of real numbers."
+        ]
+    },
+    {
+        "title": "Definitions",
+        "link": "/notes/real_complex_number_systems",
+        "date": "Dec 26, 2017",
+        "tags": ["note", "math", "real-analysis", "baby-rudin"],
+        "text": [
+            "#### Basic Set Notation",
+            "For any sets $A$, $B$ consisting of any variety of elements:",
+            "- $x \\in A$ denotes that $x$ is a member/element of $A$",
+            "- $x \\notin A$ denotes that $x$ is not a member/element of $A$",
+            "- A set containing no elements is an _empty set_ and is denoted as",
+            "  $\\emptyset$ otherwise for any set that contains at least",
+            "  element is called _nonempty_",
+            "- If all elements of $A$ are elements of $B$, then $A$ is a",
+            "  _subset_ of $B$ and this is denoted as $A \\subset B$ or ",
+            "  $B \\supset A$. $B$ is in turn called the _superset_ of $A$",
+            "  - Furthermore, if $B$ contains an element that is not in $A$,",
+            "    then $A$ is called a _proper subset_ of $B$",
+            "- If $A \\subset B$ and $B \\subset A$, then $A = B$, otherwise",
+            "  $A \\neq B$",
+            "",
+            "#### Ordered Sets",
+            "For a given set $S$, an _order_ on $S$ is a relation, denoted by",
+            "$<$, with the following properties:",
+            "1. If $x \\in S$ and $y \\in S$ then only one of the following",
+            "    statements is true:",
+            "  - $x < y$",
+            "  - $x = y$",
+            "  - $x > y$",
+            "2. If $x, y, z \\in S$, if $x < y$, and $y < z$, then $x < z$",
+            "  - For $x < y$, this is read as $x$ is less than $y$, $x$ is smaller",
+            "    than $y$, or $x$ precedes $y$.",
+            "An _ordered set_ is a set $S$ in which an _order_ is defined.",
+            "- For example, $\\mathbb{Q}$ is a set defined where $r < s$ means",
+            "  that $s - r \\in \\mathbb{Q}$ is positive."
+        ]
+    }
+]

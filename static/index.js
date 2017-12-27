@@ -54104,7 +54104,7 @@ var Page = function (_React$Component) {
             }
 
             function Title(props) {
-                if (props.date) {
+                if (props.date && props.first) {
                     return _react2.default.createElement(
                         'div',
                         { className: 'card-header' },
@@ -54168,7 +54168,7 @@ var Page = function (_React$Component) {
                     return _react2.default.createElement(
                         'div',
                         { className: 'card', key: i },
-                        _react2.default.createElement(Title, { title: card.title, date: card.date }),
+                        _react2.default.createElement(Title, { title: card.title, date: card.date, first: i === 0 }),
                         _react2.default.createElement(_Markdown2.default, { className: 'card-body', markdown: card.text.join('\n') }),
                         _react2.default.createElement(Tags, { tags: card.tags, last: i === this.state.json.length - 1 })
                     );

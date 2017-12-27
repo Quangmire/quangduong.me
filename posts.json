@@ -1,5 +1,22 @@
 [
     {
+        "title": "$\\mathbb{R}$ and $\\mathbb{C}$ Number Systems",
+        "link": "/notes/real_complex_number_systems",
+        "date": "Dec 26, 2017",
+        "tags": ["note", "math", "real-analysis", "baby-rudin"],
+        "text": [
+            "The rational number system $\\mathbb{Q}$ is not the preferred set",
+            "of numbers to perform analysis on in regards to convergence,",
+            "continuity, differentiation, and integration. This is because of",
+            "the inherent gaps found in between numbers irregardless of how",
+            "there exists a rational number in between any two other rational",
+            "numbers (by taking the average). We therefore use the set of real",
+            "numbers $\\mathbb{R}$ to bridge these gaps. Likewise, the set of",
+            "complex numbers $\\mathbb{C}$ can also be considered as they",
+            "contain the set of real numbers."
+        ]
+    },
+    {
         "title": "Welcome!",
         "link": "/posts/welcome",
         "date": "December 25, 2017",

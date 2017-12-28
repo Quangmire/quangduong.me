@@ -54109,7 +54109,7 @@ var Page = function (_React$Component) {
                         'div',
                         { className: 'card-header' },
                         _react2.default.createElement(
-                            'h2',
+                            'h4',
                             { className: 'card-title' },
                             props.title
                         ),
@@ -54127,7 +54127,7 @@ var Page = function (_React$Component) {
                             'center',
                             null,
                             _react2.default.createElement(
-                                'h2',
+                                'h4',
                                 null,
                                 props.title
                             )

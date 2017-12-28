@@ -64,7 +64,7 @@ class Page extends React.Component {
             if(props.date && props.first) {
                 return (
                     <div className='card-header'>
-                        <h2 className='card-title'>{props.title}</h2>
+                        <h4 className='card-title'>{props.title}</h4>
                         <h5 className='card-date'>{props.date}</h5>
                     </div>
                 );
@@ -72,7 +72,7 @@ class Page extends React.Component {
                 return (
                     <div className='card-header'>
                         <center>
-                            <h2>{props.title}</h2>
+                            <h4>{props.title}</h4>
                         </center>
                     </div>
                 );

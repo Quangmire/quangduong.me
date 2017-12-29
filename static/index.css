@@ -11,7 +11,7 @@
     --color-font-dark: #212529;
     --color-font-light: #f8f8f2;
     --color-font-link: #4ba9cd;
-    --color-font-secondary: #48f;
+    --color-font-secondary: #48f; 
 }
 
 html, body, #root, #wrapper, #content {
@@ -249,12 +249,12 @@ a:hover {
 }
 
 @keyframes slideInFromBottom {
-  0% {
-    transform: translateY(100vh);
-  }
-  100% {
-    transform: translateY(0);
-  }
+    0% {
+        transform: translateY(100vh);
+    }
+    100% {
+        transform: translateY(0);
+    }
 }
 
 #sidebar-content {
@@ -458,6 +458,47 @@ th {
     text-align: center;
 }
 
+a.spoiler {
+    cursor: pointer;
+    text-decoration: none;
+    padding: 2px 5px;
+    border-radius: 4px;
+    background: var(--color-primary);
+    color: var(--color-font-light);
+    /* Disable Highlighting */
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently supported by Chrome and Opera */
+}
+
+a.spoiler.active {
+    border-radius: 4px 4px 0 0;
+}
+
+.spoiler-content {
+    text-align: left;
+    overflow: hidden;
+    display: block;
+    height: 0;
+}
+
+.spoiler-content.active {
+    height: auto;
+    padding: 5px;
+    border-radius: 0px 4px 4px 4px;
+    border: 2px solid var(--color-primary);
+    background: var(--color-secondary);
+    color: var(--color-font-dark);
+}
+
+div.ralign {
+    text-align: right;
+    width: 100%;
+}
+
 @media (max-width: 400px) {
     .about-desc .about-img {
         float: none;
@@ -484,7 +525,7 @@ th {
     .card-date {
         font-size: 10px;
     }
-    
+
     .listing, .page, .row, .card, #navbar, #titlebar {
         max-width: 1100px;
     }

@@ -53568,6 +53568,10 @@ var _highlight = require('highlight.js');
 
 var _highlight2 = _interopRequireDefault(_highlight);
 
+var _jquery = require('jquery');
+
+var _jquery2 = _interopRequireDefault(_jquery);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -53604,13 +53608,39 @@ var Markdown = function (_React$Component) {
             smartLists: true,
             smartypants: false
         });
+        (0, _jquery2.default)(document).ready(function () {
+            (0, _jquery2.default)('a.spoiler').off('click').on('click', function () {
+                (0, _jquery2.default)(this).next().toggleClass('active');
+                (0, _jquery2.default)(this).toggleClass('active');
+            });
+        });
         return _this;
     }
 
     _createClass(Markdown, [{
+        key: 'spoiler',
+        value: function spoiler(text) {
+            var start_tag = new RegExp('<spoiler ?([^>]*)>', 'g');
+            var end_tag = new RegExp('</spoiler>', 'g');
+            return text.replace(start_tag, function (match, p, offset, string) {
+                if (p) {
+                    return '<a class="spoiler">' + p + '</a><span class="spoiler-content">';
+                } else {
+                    return '<a class="spoiler">Spoiler</a><span class="spoiler-content">';
+                }
+            }).replace(end_tag, '</span>');
+        }
+    }, {
+        key: 'align',
+        value: function align(text) {
+            var rstart_tag = new RegExp('<ralign>', 'g');
+            var rend_tag = new RegExp('</ralign>', 'g');
+            return text.replace(rstart_tag, '<div class="ralign">').replace(rend_tag, '</div>');
+        }
+    }, {
         key: 'render',
         value: function render() {
-            return _react2.default.createElement('div', { className: 'md ' + this.props.className, dangerouslySetInnerHTML: { __html: (0, _marked2.default)(this.props.markdown) } });
+            return _react2.default.createElement('div', { className: 'md ' + this.props.className, dangerouslySetInnerHTML: { __html: (0, _marked2.default)(this.align(this.spoiler(this.props.markdown))) } });
         }
     }]);
 
@@ -53621,7 +53651,7 @@ var Markdown = function (_React$Component) {
 
 exports.default = Markdown;
 
-},{"highlight.js":19,"marked":208,"react":248}],257:[function(require,module,exports){
+},{"highlight.js":19,"jquery":207,"marked":208,"react":248}],257:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {

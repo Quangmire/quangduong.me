@@ -1,6 +1,7 @@
-import React from 'react'
+import React from 'react';
 import marked from 'marked';
 import highlightjs from 'highlight.js';
+import $ from 'jquery';
 
 class Markdown extends React.Component {
     constructor(props) {
@@ -25,11 +26,36 @@ class Markdown extends React.Component {
             smartLists: true,
             smartypants: false,
         });
+        $(document).ready(function() {
+            $('a.spoiler').off('click').on('click',function() {
+                $(this).next().toggleClass('active');
+                $(this).toggleClass('active');
+            });
+        });
+    }
+
+    spoiler(text) {
+        var start_tag = new RegExp('<spoiler ?([^>]*)>', 'g');
+        var end_tag = new RegExp('</spoiler>', 'g');
+        return text.replace(start_tag, function(match, p, offset, string) {
+            if(p) {
+                return '<a class="spoiler">' + p + '</a><span class="spoiler-content">'
+            } else {
+                return '<a class="spoiler">Spoiler</a><span class="spoiler-content">'
+            }
+        }).replace(end_tag,'</span>')
+    }
+
+    align(text) {
+        var rstart_tag = new RegExp('<ralign>', 'g');
+        var rend_tag = new RegExp('</ralign>', 'g');
+        return text.replace(rstart_tag, '<div class="ralign">')
+            .replace(rend_tag,'</div>');
     }
 
     render() {
         return (
-            <div className={'md ' + this.props.className} dangerouslySetInnerHTML={{__html: marked(this.props.markdown)}} />
+            <div className={'md ' + this.props.className} dangerouslySetInnerHTML={{__html: marked(this.align(this.spoiler(this.props.markdown)))}} />
         );
     }
 

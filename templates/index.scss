@@ -1,0 +1,791 @@
+/*$primary-color: #C57964;*/
+/*$primary-color: darken(#B5EAD7, 50);*/
+$primary-color: darken(#C7CEEA, 40);
+$secondary-color: white;
+$default-tag-color: #AAA;
+
+:root {
+    --primary-color: #{$primary-color};
+    --secondary-color: #{$secondary-color};
+    --default-tag-color: #{$default-tag-color};
+}
+/******************************************************************************\
+|                                    NAVBAR                                    |
+\******************************************************************************/
+
+/* COLORS */
+$navbar-bg-active-color: $secondary-color;
+$navbar-bg-inactive-color: $primary-color;
+$navbar-text-active-color: $primary-color;
+$navbar-text-inactive-color: $secondary-color;
+$navbar-icon-active-color: $primary-color;
+$navbar-icon-inactive-color: $secondary-color;
+
+/* POSITIONING/SIZING */
+$navbar-icon-size: 2.5rem;
+$navbar-icon-small-size: 2rem;
+$navbar-text-small-size: 0.7rem;
+$navbar-size: 5rem;
+$navbar-small-size: 3.5rem;
+
+/* TRANSITION TIMING */
+$navbar-fast-time: 0.2s;
+$navbar-slow-time: 0.5s;
+
+$card-background-color: $secondary-color;
+$website-background-color: #EEE;
+
+html, body {
+    padding: 0;
+    margin: 0;
+    background: $website-background-color;
+    /*
+    font-family: 'Inconsolata', monospace;
+    */
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: darken($primary-color, 10);
+}
+
+code {
+    font-family: 'Inconsolata', monospace;
+    font-size: 1rem;
+}
+
+.codehilite {
+    padding: 0.5rem;
+    border-radius: 0.2rem;
+    margin: 0.5rem 0 0.5rem 0;
+    overflow: auto;
+
+    pre {
+        margin: 0;
+
+        code {
+            margin: 0.5rem;
+        }
+    }
+}
+
+a {
+    /*color: #22F;*/
+    color: #0074D9;
+}
+
+a:visited {
+    /*color: #73A;*/
+}
+
+a, a:active, a:focus, .paginate, #navbar-title, .collapsible-label {
+    outline: none;
+    text-decoration: none;
+    /* Disable Text Highlighting */
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none;   /* Safari */
+    -khtml-user-select: none;    /* Konqueror HTML */
+    -moz-user-select: none;      /* Old versions of Firefox */
+    -ms-user-select: none;       /* Internet Explorer/Edge */
+    user-select: none;           /* Non-prefixed version, currently
+                                    supported by Chrome, Opera and Firefox */
+}
+
+a:focus, a:hover {
+    text-decoration: underline;
+}
+
+#navbar {
+    background: $navbar-bg-inactive-color;
+    height: $navbar-size;
+    width: 100%;
+    align-items: center;
+    border-bottom: 0.2rem solid lighten($navbar-bg-inactive-color, 10);
+
+    #navbar-content {
+        margin: auto;
+        display: flex;
+        flex-direction: row;
+    }
+
+    #navbar-title {
+        margin: auto 0.5rem auto 1rem;
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: $navbar-text-inactive-color;
+        font-family: 'Inconsolata', monospace;
+    }
+
+
+    .navbar-link {
+        text-decoration: none;
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        flex-basis: 0;
+        align-items: center;
+        transition: background $navbar-fast-time ease, border-color $navbar-fast-time ease;
+        height: $navbar-size;
+        border-bottom: 0.2rem solid lighten($navbar-bg-inactive-color, 10);
+
+        .navbar-icon {
+            display: block;
+            padding-top: 0.75rem;
+            padding-bottom: 0.25rem;
+            min-width: $navbar-icon-size;
+            max-width: $navbar-icon-size;
+            max-height: $navbar-icon-size;
+            min-height: $navbar-icon-size;
+            transition: fill $navbar-slow-time ease;
+            fill: $navbar-icon-inactive-color;
+        }
+
+        .navbar-text {
+            display: block;
+            text-align: center;
+            font-weight: bold;
+            transition: color $navbar-slow-time ease;
+            white-space: nowrap;
+            color: $navbar-text-inactive-color;
+        }
+    }
+
+    .navbar-link:hover, .navbar-link:focus {
+        background: $navbar-bg-active-color;
+        border-bottom: 0.2rem solid $navbar-bg-active-color;
+
+        .navbar-icon {
+            fill: $navbar-icon-active-color;
+            transition: fill $navbar-fast-time ease;
+        }
+
+        .navbar-text {
+            color: $navbar-text-active-color;
+            transition: color $navbar-fast-time ease;
+        }
+    }
+
+    .navbar-link {
+        outline: none;
+    }
+}
+
+#mobile-title {
+    display: none;
+}
+
+#content {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    width: 100%;
+
+    .card {
+        background: $card-background-color;
+        margin-left: auto;
+        margin-right: auto;
+        overflow: hidden;
+
+        img {
+            display: block;
+            max-width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+
+    .header-card-container {
+        width: 100%;
+        text-align: center;
+        background-color: darken($primary-color, 12);
+        font-size: 1.5rem;
+
+        .header-card-text {
+            display: block;
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+            color: $secondary-color;
+        }
+    }
+
+    .card + .card {
+        margin-top: 1rem;
+    }
+
+    .paginate + .card, .card + .paginate {
+        margin-top: 1rem;
+    }
+
+    .paginate-container {
+        height: 2rem;
+        text-align: center;
+
+        .paginate {
+            display: inline-block;
+            height: 1.5rem;
+            padding: 0.25rem;
+            width: 1.5rem;
+            border-radius: 0.1rem;
+        }
+
+        span.paginate {
+            background: darken($primary-color, 20);
+            color: darken($secondary-color, 20);
+        }
+
+        span.paginate-ellipsis {
+            background: none;
+            color: darken($primary-color, 20);
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+        a.paginate {
+            background: $primary-color;
+            color: $secondary-color;
+        }
+
+        a {
+            position: relative;
+        }
+
+        a.paginate-next:hover:after, a.paginate-prev:hover:after {
+            content: "";
+            position: absolute;
+            left: 1rem;
+            right: 1rem;
+            bottom: 0.5rem;
+            border-bottom: 1px solid $secondary-color;
+        }
+
+        .paginate-num {
+            font-weight: bold;
+            vertical-align: top;
+            line-height: 1.5rem;
+        }
+    }
+
+    .card-header {
+        padding-left: 1rem;
+        padding-right: 1rem;
+        margin-bottom: 0.5rem;
+
+        .card-title-container {
+            border-bottom: 1px solid gray;
+
+            .card-title {
+                display: inline-block;
+                padding: 1rem 0rem 0.25rem 0rem;
+                font-weight: bold;
+                margin: 0;
+            }
+
+            .card-title:hover {
+                text-decoration: underline;
+            }
+
+            .card-title-link:focus > .card-title {
+                text-decoration: underline;
+            }
+
+            .card-date-container {
+                margin-bottom: 0.25rem;
+
+                .card-date {
+                    font-size: 0.9rem;
+                    color: gray;
+                }
+            }
+        }
+
+    }
+
+    .card-tag-container {
+        margin-top: 0.25rem;
+
+        .card-tag-icon {
+            max-width: 1.4rem;
+            max-height: 1.4rem;
+            min-width: 1.4rem;
+            min-height: 1.4rem;
+            fill: gray;
+            vertical-align: middle;
+        }
+
+        .card-tag {
+            display: inline-block;
+            margin-bottom: 0.25rem;
+            font-size: 0.8rem;
+            vertical-align: top;
+            padding: 0.2rem 0.5rem 0.2rem 0.5rem;
+            color: $secondary-color;
+            font-weight: bold;
+            border-radius: 0.1rem;
+        }
+    }
+
+    .card > .card-tag-container {
+        padding: 0.5rem;
+    }
+
+    .card-content {
+        padding: 0rem 1rem 1rem 1rem;
+        line-height: 2rem;
+
+        p {
+            margin: 0.5rem 0 0.5rem 0;
+        }
+
+        p + p {
+            padding-top: 0.5rem;
+        }
+
+        h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        h2 {
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+        }
+
+        p + h2 {
+            padding-top: 1.5rem;
+        }
+
+        .figure {
+            text-align: center;
+        }
+        
+    }
+
+    .MathJax {
+        overflow-x: auto;
+        overflow-y: hidden;
+    }
+
+    .footnote-ref {
+        font-weight: bold;
+    }
+
+    .footnoteBackLink {
+        font-weight: bold;
+    }
+
+    .footnotes {
+        padding-top: 1rem;
+
+        ol {
+            margin: 0;
+        }
+
+        li {
+            padding-bottom: 0;
+        }
+    }
+
+    ul {
+        li:before {
+            content: ' ';
+            display: inline-block;
+            height: 1.5rem;
+            width: 1.5rem;
+            vertical-align: -6px; /* Looks better than vertical-align middle */
+            mask: url('/static/media/arrow_right.svg') no-repeat 50% 50%;
+            mask-size: cover;
+            -webkit-mask: url('/static/media/arrow_right.svg') no-repeat 50% 50%;
+            -webkit-mask-size: cover;
+            background-color: darken($primary-color, 10);
+            margin-right: 0.5rem;
+        }
+
+        li {
+            padding-bottom: 0.25rem;
+            text-indent: -2rem;
+            padding-left: 1.5rem;
+        }
+
+    }
+
+    ul {
+        margin: 0.5rem 0 0.25rem 0;
+        padding-left: 0.5rem;
+        list-style: none;
+    }
+
+    .card-revision-container {
+        margin-top: -0.5rem;
+        padding: 0 1rem 1rem 1rem;
+        font-weight: bold;
+
+        .card-revision {
+            padding: 0.25rem;
+            border-radius: 0.1rem;
+        }
+
+        a.card-revision {
+            background: $primary-color;
+            color: $secondary-color;
+        }
+
+        span.card-revision {
+            background: darken($primary-color, 20);
+            color: darken($secondary-color, 20);
+        }
+    }
+
+    .card-read-more {
+        display: block;
+        vertical-align: middle;
+        float: right;
+        padding: 0.25rem;
+        padding-left: 0.5rem;
+        margin-bottom: 1rem;
+        line-height: 1rem;
+        font-weight: bold;
+        color: $secondary-color;
+        background: $primary-color;
+        position: relative;
+
+        svg {
+            vertical-align: middle;
+        }
+    }
+
+    .card-read-more:hover svg, .card-read-more:focus svg {
+        transform: rotate(360deg);
+        transition: transform 0.5s ease;
+    }
+
+    .collapsible-container {
+        width: 100%;
+    }
+
+    .collapsible-label {
+        width: calc(100% - 2rem);
+        display: block;
+        padding: 0.25rem;
+        padding-left: 2.25rem;
+        text-align: center;
+        font-size: 1.5rem;
+        font-weight: bold;
+        background: lighten($primary-color, 5);
+        color: $secondary-color;
+        border-bottom: 1px solid white;
+    }
+
+    .collapsible-label:last-child {
+        border-bottom: none;
+    }
+
+    .collapsible-label:hover .collapsible-icon {
+        transform: rotate(90deg);
+    }
+
+    .collapsible-icon {
+        float: right;
+        margin-right: 0.5rem;
+        min-width: 2rem;
+        max-width: 2rem;
+        min-height: 2rem;
+        max-height: 2rem;
+        transition: transform 0.5s ease;
+    }
+
+    .collapsible-item {
+        display: block;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: darken($primary-color, 20);
+
+        li {
+            font-size: 1rem;
+        }
+    }
+
+    .collapsible-list {
+        display: none;
+        padding: 1rem;
+        margin: 0;
+    }
+
+    .collapsible-checkbox {
+        display: none;
+    }
+
+    .collapsible-checkbox:checked ~ .collapsible-list {
+        display: block;
+    }
+
+    .collapsible-checkbox:checked ~ .collapsible-label > .collapsible-icon {
+        transform: rotate(90deg);
+    }
+
+    .post-navigation {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: $secondary-color;
+        vertical-align: middle;
+        line-height: 2rem;
+
+        svg {
+            vertical-align: top;
+            min-width: 2rem;
+            max-width: 2rem;
+            min-height: 2rem;
+            max-height: 2rem;
+        }
+    }
+
+    .post-navigation-card {
+        background: $primary-color;
+        padding: 0.5rem 0 0.5rem 0;
+    }
+
+    a.newer-post {
+        float: left;
+    }
+
+    span.newer-post, span.older-post {
+        color: darken($secondary-color, 10);
+    }
+
+    span.newer-post {
+        padding-left: 1rem;
+    }
+
+    span.older-post {
+        padding-right: 1rem;
+    }
+
+    .older-post {
+        float: right;
+    }
+
+    a.newer-post:hover svg {
+        transform: rotate(-360deg);
+        transition: transform 0.5s ease;
+    }
+
+    a.older-post:hover svg {
+        transform: rotate(360deg);
+        transition: transform 0.5s ease;
+    }
+}
+
+.about img {
+    float: right;
+    padding-left: 1rem;
+}
+
+// Mobile-ish
+@media only screen and (max-width: 667px) {
+    #navbar {
+        bottom: 0;
+        position: fixed;
+        border-bottom-color: $navbar-bg-inactive-color;
+        z-index: 10000;
+
+        #navbar-title {
+            display: none;
+        }
+
+        .navbar-link {
+            border-top: 0.2rem solid lighten($navbar-bg-inactive-color, 10);
+            border-bottom-color: $navbar-bg-inactive-color;
+        }
+
+        .navbar-link:hover, .navbar-link:focus {
+            border-top: 0.2rem solid $navbar-bg-active-color;
+            border-bottom-color: $navbar-bg-active-color;
+        }
+    }
+
+    #mobile-title {
+        display: block;
+        font-family: 'Inconsolata', monospace;
+        font-size: 1.5rem;
+        background: $primary-color;
+        color: $secondary-color;
+        margin: 0 auto 0 auto;
+        padding: 0.5rem 0 0.5rem 0;
+        text-align: center;
+        border-bottom: 0.2rem solid lighten($primary-color, 10);
+    }
+
+    #content {
+        margin-top: 0.5rem;
+        margin-bottom: $navbar-size + 0.5rem;
+
+        .card {
+            margin: 0.5rem;
+
+            .card-header > .card-title-container .card-title {
+                font-size: 1.4rem;
+            }
+
+            .card-content {
+                font-size: 0.9rem;
+
+                h2 {
+                    font-size: 1.2rem;
+                }
+
+                h3 {
+                    font-size: 1.1rem;
+                }
+
+                ul {
+
+                    li {
+                        vertical-align: middle;
+                        text-indent: -1.7rem;
+                        padding-left: 1.2rem;
+                    }
+
+                    li:before {
+                        content: ' ';
+                        vertical-align: -4px; /* Looks better than vertical-align middle*/
+                        display: inline-block;
+                        height: 1.2rem;
+                        width: 1.2rem;
+                    }
+                }
+            }
+        }
+
+        .card + .card {
+            margin-top: 0;
+        }
+
+        .paginate + .card, .card + .paginate {
+            margin-top: 0.5rem;
+        }
+
+        .post-navigation {
+            font-size: 1.25rem;
+            padding: 0.1rem 0 0.1rem 0;
+            line-height: 1.5rem;
+
+            svg {
+                min-width: 1.5rem;
+                max-width: 1.5rem;
+                min-height: 1.5rem;
+                max-height: 1.5rem;
+            }
+        }
+    }
+
+    code {
+        font-size: 0.9rem;
+    }
+
+    .about img {
+        float: none;
+        padding-left: 0;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media only screen and (max-width: 520px) {
+    #navbar{
+        height: $navbar-small-size;
+
+        .navbar-link {
+            .navbar-icon {
+                padding: 0.25rem 0 0.1rem 0;
+                min-width: $navbar-icon-small-size;
+                max-width: $navbar-icon-small-size;
+                min-height: $navbar-icon-small-size;
+                max-height: $navbar-icon-small-size;
+            }
+
+            .navbar-text {
+                font-size: $navbar-text-small-size;
+            }
+        }
+    }
+
+    #content {
+        margin-bottom: $navbar-small-size + 0.5rem + 0.2rem;
+    }
+}
+
+/* In between mobile / tablet where navbar too big */
+@media only screen and (min-width: 668px) and (max-width: 750px) {
+    #navbar {
+        #navbar-title {
+            font-size: 1.3rem;
+            margin-left: 1rem;
+        }
+
+        .navbar-link {
+
+            .navbar-icon {
+                padding-top: 1rem;
+                padding-bottom: 0.5rem;
+                min-width: $navbar-icon-small-size;
+                max-width: $navbar-icon-small-size;
+                max-height: $navbar-icon-small-size;
+                min-height: $navbar-icon-small-size;
+            }
+
+            .navbar-text {
+                font-size: 0.7rem;
+            }
+        }
+    }
+}
+
+/* In between mobile / tablet where navbar too big */
+@media only screen and (min-width: 668px) and (max-width: 832px) {
+    #navbar {
+        .navbar-link:last-child {
+            margin-right: 1rem;
+        }
+
+        .navbar-link > .navbar-text {
+            font-size: 0.8rem;
+        }
+    }
+
+    #content {
+        .card {
+            margin: 1rem;
+        }
+    }
+}
+
+// Tablet-ish
+@media only screen and (min-width: 668px) and (max-width: 1024px) {
+    #navbar {
+        top: 0;
+
+        #navbar-content {
+            max-width: 800px;
+        }
+    }
+
+    .card {
+        max-width: 800px;
+    }
+}
+
+// Desktop-ish
+@media only screen and (min-width: 1025px) {
+    #navbar {
+        top: 0;
+        #navbar-content {
+            max-width: 1100px;
+        }
+    }
+
+    .card {
+        max-width: 1100px;
+    }
+}

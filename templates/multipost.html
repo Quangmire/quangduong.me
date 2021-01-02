@@ -1,0 +1,24 @@
+{% extends 'navbar_base.html' %}
+
+{% block title %}Tag: {{ tag }}{% endblock title %}
+
+{% import "pagination.html" as pagination %}
+{% import "summary_card.html" as summary_card %}
+
+{% block content %}
+
+    {{ pagination.paginate(path, cur_page, num_pages, min_page, max_page) }}
+
+    <div class='card'>
+        <div class='header-card-container'>
+            <span class='header-card-text'>Posts Tagged: <strong>{{ tag }}</strong></span>
+        </div>
+    </div>
+
+    {% for post in posts %}
+        {{ summary_card.render(post) }}
+    {% endfor %}
+
+    {{ pagination.paginate(path, cur_page, num_pages, min_page, max_page) }}
+
+{% endblock content %}

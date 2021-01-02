@@ -1,0 +1,21 @@
+{% extends 'navbar_base.html' %}
+
+{% block title %}404 - Page Not Found{% endblock title %}
+
+{% block content %}
+<div class='card {{ card_class }}'>
+    <div class='card-header'>
+        <div class='card-title-container'>
+            <h1 class='card-title'>404 - Page Not Found</h1>
+        </div>
+    </div>
+    <div class='card-content'>
+        <p>
+            This page does not exist or wandered to a new home.
+        </p>
+        <p>
+            If you think this is an error, <a href='/contact'>let me know</a> so I can fix it! :D
+        </p>
+    </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,6 @@
+name: website
+dependencies:
+- python>=3.6
+- jinja2
+- markdown2
+- pygments

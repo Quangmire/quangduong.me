@@ -1,0 +1,42 @@
+{% macro paginate(path, cur_page, num_pages, min_page, max_page) %}
+{% if num_pages > 1 %}
+    <div class='paginate-container paginate'>
+        {% if cur_page == 1 %}
+            <span class='paginate-num paginate'>1</span>
+        {% else %}
+            {% if tag is defined %}
+                <a class='paginate-num paginate' href='{{ path }}/1'>1</a>
+            {% else %} <!-- Home Page -->
+                <a class='paginate-num paginate' href='{{ path }}/'>1</a>
+            {% endif %}
+        {% endif %}
+
+        {% if min_page != 2 %}
+            <span class='paginate paginate-ellipsis'><svg style="width:24px;height:24px" viewBox="0 0 24 24">
+                <path fill="currentColor" d="M16,12A2,2 0 0,1 18,10A2,2 0 0,1 20,12A2,2 0 0,1 18,14A2,2 0 0,1 16,12M10,12A2,2 0 0,1 12,10A2,2 0 0,1 14,12A2,2 0 0,1 12,14A2,2 0 0,1 10,12M4,12A2,2 0 0,1 6,10A2,2 0 0,1 8,12A2,2 0 0,1 6,14A2,2 0 0,1 4,12Z" />
+            </svg></span>
+        {% endif %}
+
+        {% for i in range(min_page, max_page) %}
+            {% if i == cur_page %}
+                <span class='paginate-num paginate'>{{ i }}</span>
+            {% else %}
+                <a class='paginate-num paginate' href='{{ path }}/{{ i }}'>{{ i }}</a>
+            {% endif %}
+        {% endfor %}
+
+        {% if max_page != num_pages %}
+            <span class='paginate paginate-ellipsis'><svg style="width:24px;height:24px" viewBox="0 0 24 24">
+                <path fill="currentColor" d="M16,12A2,2 0 0,1 18,10A2,2 0 0,1 20,12A2,2 0 0,1 18,14A2,2 0 0,1 16,12M10,12A2,2 0 0,1 12,10A2,2 0 0,1 14,12A2,2 0 0,1 12,14A2,2 0 0,1 10,12M4,12A2,2 0 0,1 6,10A2,2 0 0,1 8,12A2,2 0 0,1 6,14A2,2 0 0,1 4,12Z" />
+            </svg></span>
+        {% endif %}
+
+        {% if cur_page == num_pages %}
+            <span class='paginate-num paginate'>{{ num_pages }}</span>
+        {% else %}
+            <a class='paginate-num paginate' href='{{ path }}/{{ num_pages }}'>{{ num_pages }}</a>
+        {% endif %}
+    </div>
+{% endif %}
+{% endmacro %}
+

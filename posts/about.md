@@ -10,9 +10,9 @@
     ]
 }
 
-![profile pic](/static/media/profile.png)
-
 ## BIO
+
+![profile pic](/static/media/profile.png)
 
 I'm a first year CS Ph.D student at UT Austin starting in the Fall of 2020. My
 hobbies include reading anything from high fantasy to romance, belting out songs

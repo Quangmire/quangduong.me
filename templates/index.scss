@@ -578,7 +578,8 @@ a:focus, a:hover {
 
 .about img {
     float: right;
-    padding-left: 1rem;
+    border-radius: 1rem;
+    width: 256px;
 }
 
 // Mobile-ish
@@ -685,7 +686,6 @@ a:focus, a:hover {
 
     .about img {
         float: none;
-        padding-left: 0;
         display: block;
         margin-left: auto;
         margin-right: auto;

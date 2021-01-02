@@ -10,20 +10,19 @@ from process_markdown import process_markdown, fix_pre_code_indent
 from process_tags import process_tags
 from utils import get_env, calc_min_max_page, paginate
 
-def clean(output, static):
+def clean(output):
     # Remove all old files
     if os.path.exists(output):
-        shutil.rmtree(output)
+        for fn in os.listdir(output):
+            path = os.path.join(output, fn)
+            if os.path.isdir(path):
+                shutil.rmtree(path)
+            else:
+                os.remove(path)
 
-    os.makedirs(output)
+    os.makedirs(output, exist_ok=True)
 
-    '''
-    # Symlink static directory in
-    os.symlink(os.path.relpath(static, start=output), os.path.join(output, 'static'),
-            target_is_directory=True)
-    '''
-    shutil.copytree(src = static, dst = os.path.join(output, 'static'))
-    shutil.copyfile(src = 'CNAME', dst = os.path.join(output, 'CNAME'))
+    shutil.copyfile(src='CNAME', dst=os.path.join(output, 'CNAME'))
     with open(os.path.join(output, '.nojekyll'), 'w'):
         pass
 
@@ -203,7 +202,7 @@ def compile_sass(sass_file, output_file):
             omit_source_map_url=True)[0], file=f)
 
 def build(args):
-    clean(args.output, args.static)
+    clean(args.output)
 
     env = get_env(args.templates)
 
@@ -236,6 +235,8 @@ def build(args):
 
     compile_sass(os.path.join(args.templates, 'index.scss'),
                  os.path.join(args.static, 'index.css'))
+
+    shutil.copytree(src = args.static, dst = os.path.join(args.output, 'static'))
 
     with open(os.path.join(args.output, '404.html'), 'w') as f:
         print(page_not_found_template.render(), file=f)

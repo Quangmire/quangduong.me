@@ -6,8 +6,6 @@
         <meta charset='utf-8'>
         <meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no'>
 
-        <link rel='shortcut icon' href='/static/favicon.ico'>
-
         <!-- Mathjax -->
         <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js"></script>
         <script>
@@ -18,9 +16,18 @@
             };
         </script>
 
-        <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@700&family=Montserrat:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-        <link rel='stylesheet' href='/static/pygments_monokai.css'>
         <link rel='stylesheet' href='/static/index.css'>
+
+        <!-- Async -->
+        <link rel='shortcut icon' href='/static/favicon.ico' media="print" onload="this.media='all'">
+        <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@700&family=Montserrat:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+        <link rel='stylesheet' href='/static/pygments_monokai.css' media="print" onload="this.media='all'">
+
+        <noscript>
+            <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@700&family=Montserrat:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+            <link rel='stylesheet' href='/static/pygments_monokai.css'>
+            <link rel='shortcut icon' href='/static/favicon.ico'>
+        </noscript>
     </head>
 
     <body>

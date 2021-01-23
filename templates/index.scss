@@ -50,6 +50,20 @@ h1, h2, h3, h4, h5, h6 {
     color: darken($primary-color, 10);
 }
 
+.katex-display > .katex {
+    display: inline-block;
+    white-space: nowrap;
+    max-width: 100%;
+    overflow-x: auto;
+    text-align: initial;
+}
+.katex {
+    font: normal 1.21em KaTeX_Main, Times New Roman, serif;
+    line-height: 1.2;
+    white-space: normal;
+    text-indent: 0;
+}
+
 code {
     font-family: 'Inconsolata', monospace;
     font-size: 1rem;

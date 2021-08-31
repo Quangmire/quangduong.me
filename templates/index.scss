@@ -39,10 +39,7 @@ html, body {
     padding: 0;
     margin: 0;
     background: $website-background-color;
-    /*
-    font-family: 'Inconsolata', monospace;
-    */
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Montserrat', 'DejaVu Sans', 'Verdana', sans-serif;
     font-size: 16px;
 }
 
@@ -56,6 +53,8 @@ h1, h2, h3, h4, h5, h6 {
     max-width: 100%;
     overflow-x: auto;
     text-align: initial;
+    overflow-y: hidden;
+    padding: 1px;
 }
 .katex {
     font: normal 1.21em KaTeX_Main, Times New Roman, serif;

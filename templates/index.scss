@@ -1,22 +1,15 @@
-/*$primary-color: #C57964;*/
-/*$primary-color: darken(#B5EAD7, 50);*/
 $primary-color: #2E5266;
 $secondary-color: #6E8898;
 $tertiary-color: #9FB1BC;
 $quaternary-color: #D3D0CB;
-//$quinary-color: #F39C6B;
-//$quinary-color: #E94F37;
 $quinary-color: #F04045;
 $default-tag-color: #AAA;
 
-//$min10-primary: $tertiary-color;
 $min10-primary: lighten($primary-color, 2.5);
 $min5-primary: $secondary-color;
-//$zero-primary: lighten($primary-color, 2.5);
 $zero-primary: darken($primary-color, 7.5);
 $plus10-primary: darken($primary-color, 11);
 $plus20-primary: darken($primary-color, 17.5);
-//$plus10-primary: #2A2D43;
 
 $min10-secondary: lighten($quaternary-color, 20);
 $zero-secondary: lighten($quaternary-color, 10);
@@ -56,8 +49,6 @@ $navbar-small-size: 3.5rem;
 $navbar-fast-time: 0.2s;
 $navbar-slow-time: 0.5s;
 
-//$card-background-color: darken(white, 3);
-//$website-background-color: $plus20-secondary;
 $card-background-color: #EFEFEF;
 $website-background-color: #D8D8D8;
 $card-shadow-color: darken($website-background-color, 20);
@@ -72,7 +63,6 @@ html, body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    //color: $plus20-primary;
     color: $darker-highlight-color;
 }
 
@@ -113,14 +103,8 @@ code {
 }
 
 a {
-    /*color: #22F;*/
-    //color: #0074D9;
     color: $darker-highlight-color;
     font-weight: bold;
-}
-
-a:visited {
-    /*color: #73A;*/
 }
 
 a, a:active, a:focus, .paginate, #navbar-title, .collapsible-label {
@@ -154,7 +138,6 @@ a:focus, a:hover {
     }
 
     #navbar-title {
-        // margin: auto 0.5rem auto 1rem;
         font-size: 1.5rem;
         font-weight: bold;
         border-bottom: 4px solid $navbar-border-color;
@@ -506,7 +489,6 @@ a:focus, a:hover {
         font-weight: bold;
         color: $zero-secondary;
         background: $darker-highlight-color;
-        //background: $zero-primary;
         position: relative;
         box-shadow: 2px 2px $shadow-in-card-color;
 
@@ -534,7 +516,6 @@ a:focus, a:hover {
         font-weight: bold;
         background: $min5-primary;
         color: $zero-secondary;
-        //border-bottom: 1px solid white;
     }
 
     .collapsible-label:last-child {

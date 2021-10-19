@@ -165,7 +165,7 @@ behavior. In order to resolve this, we use the standard discretization via the
 **Marker-and-Cell grid** popularized in Harlow and Welch in 1965. [^macgrid]
 
 ![mac grid](/static/media/notes/eulerian_fluid_sim/macgrid.png)
-[#figure <strong>Figure @macgrid</strong>: MAC Grid (from Bridson's notes)]
+[#figure <strong>Figure&nbsp;@macgrid</strong>: MAC Grid (from Bridson's notes)]
 
 Notice how in Figure [@macgrid], that the velocity values are placed on the
 edges of the cells and the pressure values are placed in the center. By placing

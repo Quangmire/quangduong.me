@@ -1,10 +1,10 @@
 class Tag:
 
     TAGS = {
-        'about': 'var(--primary-color)',
-        'blog': 'var(--primary-color)',
-        'notes': 'var(--primary-color)',
-        'projects': 'var(--primary-color)',
+        'about': 'var(--tag-color)',
+        'blog': 'var(--tag-color)',
+        'notes': 'var(--tag-color)',
+        'projects': 'var(--tag-color)',
     }
 
     DEFAULT_COLOR = 'var(--default-tag-color)'

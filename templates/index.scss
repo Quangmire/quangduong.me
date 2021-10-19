@@ -1,25 +1,49 @@
 /*$primary-color: #C57964;*/
 /*$primary-color: darken(#B5EAD7, 50);*/
-$primary-color: darken(#C7CEEA, 40);
-$secondary-color: white;
+$primary-color: #2E5266;
+$secondary-color: #6E8898;
+$tertiary-color: #9FB1BC;
+$quaternary-color: #D3D0CB;
+//$quinary-color: #F39C6B;
+//$quinary-color: #E94F37;
+$quinary-color: #F04045;
 $default-tag-color: #AAA;
 
+//$min10-primary: $tertiary-color;
+$min10-primary: lighten($primary-color, 2.5);
+$min5-primary: $secondary-color;
+//$zero-primary: lighten($primary-color, 2.5);
+$zero-primary: darken($primary-color, 7.5);
+$plus10-primary: darken($primary-color, 11);
+$plus20-primary: darken($primary-color, 17.5);
+//$plus10-primary: #2A2D43;
+
+$min10-secondary: lighten($quaternary-color, 20);
+$zero-secondary: lighten($quaternary-color, 10);
+$plus10-secondary: $zero-secondary;
+$plus20-secondary: darken($zero-secondary, 10);
+
+$highlight-color: $quinary-color;
+$darker-highlight-color: darken($highlight-color, 12.5);
+
 :root {
-    --primary-color: #{$primary-color};
-    --secondary-color: #{$secondary-color};
+    --primary-color: #{$zero-primary};
+    --secondary-color: #{$zero-secondary};
     --default-tag-color: #{$default-tag-color};
+    --tag-color: #{$darker-highlight-color};
 }
 /******************************************************************************\
 |                                    NAVBAR                                    |
 \******************************************************************************/
 
 /* COLORS */
-$navbar-bg-active-color: $secondary-color;
-$navbar-bg-inactive-color: $primary-color;
-$navbar-text-active-color: $primary-color;
-$navbar-text-inactive-color: $secondary-color;
-$navbar-icon-active-color: $primary-color;
-$navbar-icon-inactive-color: $secondary-color;
+$navbar-bg-active-color: $zero-secondary;
+$navbar-bg-inactive-color: $zero-primary;
+$navbar-text-active-color: $highlight-color;
+$navbar-text-inactive-color: $zero-secondary;
+$navbar-icon-active-color: $highlight-color;
+$navbar-icon-inactive-color: $zero-secondary;
+$navbar-border-color: $plus20-primary;
 
 /* POSITIONING/SIZING */
 $navbar-icon-size: 2.5rem;
@@ -32,8 +56,12 @@ $navbar-small-size: 3.5rem;
 $navbar-fast-time: 0.2s;
 $navbar-slow-time: 0.5s;
 
-$card-background-color: $secondary-color;
-$website-background-color: #EEE;
+//$card-background-color: darken(white, 3);
+//$website-background-color: $plus20-secondary;
+$card-background-color: #EFEFEF;
+$website-background-color: #D8D8D8;
+$card-shadow-color: darken($website-background-color, 20);
+$shadow-in-card-color: darken($card-background-color, 20);
 
 html, body {
     padding: 0;
@@ -44,7 +72,8 @@ html, body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    color: darken($primary-color, 10);
+    //color: $plus20-primary;
+    color: $darker-highlight-color;
 }
 
 .katex-display > .katex {
@@ -85,7 +114,9 @@ code {
 
 a {
     /*color: #22F;*/
-    color: #0074D9;
+    //color: #0074D9;
+    color: $darker-highlight-color;
+    font-weight: bold;
 }
 
 a:visited {
@@ -114,7 +145,7 @@ a:focus, a:hover {
     height: $navbar-size;
     width: 100%;
     align-items: center;
-    border-bottom: 0.2rem solid lighten($navbar-bg-inactive-color, 10);
+    border-bottom: 4px solid $navbar-border-color;
 
     #navbar-content {
         margin: auto;
@@ -123,13 +154,26 @@ a:focus, a:hover {
     }
 
     #navbar-title {
-        margin: auto 0.5rem auto 1rem;
+        // margin: auto 0.5rem auto 1rem;
         font-size: 1.5rem;
         font-weight: bold;
+        border-bottom: 4px solid $navbar-border-color;
         color: $navbar-text-inactive-color;
         font-family: 'Inconsolata', monospace;
+        transition: background $navbar-fast-time ease, border-color $navbar-fast-time ease;
+        height: $navbar-size;
+        display: flex;
+        align-items: center;
+        padding-left: 1rem;
+        padding-right: 1rem;
     }
 
+    #navbar-title:hover {
+        color: $highlight-color;
+        background: $navbar-bg-active-color;
+        border-bottom: 4px solid $highlight-color;
+        transition: color $navbar-slow-time ease;
+    }
 
     .navbar-link {
         text-decoration: none;
@@ -140,7 +184,7 @@ a:focus, a:hover {
         align-items: center;
         transition: background $navbar-fast-time ease, border-color $navbar-fast-time ease;
         height: $navbar-size;
-        border-bottom: 0.2rem solid lighten($navbar-bg-inactive-color, 10);
+        border-bottom: 4px solid $navbar-border-color;
 
         .navbar-icon {
             display: block;
@@ -166,7 +210,7 @@ a:focus, a:hover {
 
     .navbar-link:hover, .navbar-link:focus {
         background: $navbar-bg-active-color;
-        border-bottom: 0.2rem solid $navbar-bg-active-color;
+        border-bottom: 4px solid $highlight-color;
 
         .navbar-icon {
             fill: $navbar-icon-active-color;
@@ -198,6 +242,7 @@ a:focus, a:hover {
         margin-left: auto;
         margin-right: auto;
         overflow: hidden;
+        box-shadow: 4px 4px $card-shadow-color;
 
         img {
             display: block;
@@ -210,14 +255,15 @@ a:focus, a:hover {
     .header-card-container {
         width: 100%;
         text-align: center;
-        background-color: darken($primary-color, 12);
+        background-color: $plus10-primary;
         font-size: 1.5rem;
 
         .header-card-text {
             display: block;
             padding-top: 0.5rem;
             padding-bottom: 0.5rem;
-            color: $secondary-color;
+            color: $zero-secondary;
+            font-weight: bold;
         }
     }
 
@@ -242,20 +288,20 @@ a:focus, a:hover {
         }
 
         span.paginate {
-            background: darken($primary-color, 20);
-            color: darken($secondary-color, 20);
+            background: $plus20-primary;
+            color: $plus20-secondary;
         }
 
         span.paginate-ellipsis {
             background: none;
-            color: darken($primary-color, 20);
+            color: $plus20-primary;
             padding-left: 0;
             padding-right: 0;
         }
 
         a.paginate {
-            background: $primary-color;
-            color: $secondary-color;
+            background: $zero-primary;
+            color: $zero-secondary;
         }
 
         a {
@@ -268,7 +314,7 @@ a:focus, a:hover {
             left: 1rem;
             right: 1rem;
             bottom: 0.5rem;
-            border-bottom: 1px solid $secondary-color;
+            border-bottom: 1px solid $zero-secondary;
         }
 
         .paginate-num {
@@ -331,9 +377,10 @@ a:focus, a:hover {
             font-size: 0.8rem;
             vertical-align: top;
             padding: 0.2rem 0.5rem 0.2rem 0.5rem;
-            color: $secondary-color;
+            color: $zero-secondary;
             font-weight: bold;
             border-radius: 0.1rem;
+            box-shadow: 2px 2px $shadow-in-card-color;
         }
     }
 
@@ -408,7 +455,7 @@ a:focus, a:hover {
             mask-size: cover;
             -webkit-mask: url('/static/media/arrow_right.svg') no-repeat 50% 50%;
             -webkit-mask-size: cover;
-            background-color: darken($primary-color, 10);
+            background-color: $plus10-primary;
             margin-right: 0.5rem;
         }
 
@@ -437,18 +484,19 @@ a:focus, a:hover {
         }
 
         a.card-revision {
-            background: $primary-color;
-            color: $secondary-color;
+            background: $zero-primary;
+            color: $zero-secondary;
         }
 
         span.card-revision {
-            background: darken($primary-color, 20);
-            color: darken($secondary-color, 20);
+            background: $plus20-primary;
+            color: $plus20-secondary;
         }
     }
 
     .card-read-more {
-        display: block;
+        display: flex;
+        align-items: center;
         vertical-align: middle;
         float: right;
         padding: 0.25rem;
@@ -456,9 +504,11 @@ a:focus, a:hover {
         margin-bottom: 1rem;
         line-height: 1rem;
         font-weight: bold;
-        color: $secondary-color;
-        background: $primary-color;
+        color: $zero-secondary;
+        background: $darker-highlight-color;
+        //background: $zero-primary;
         position: relative;
+        box-shadow: 2px 2px $shadow-in-card-color;
 
         svg {
             vertical-align: middle;
@@ -482,9 +532,9 @@ a:focus, a:hover {
         text-align: center;
         font-size: 1.5rem;
         font-weight: bold;
-        background: lighten($primary-color, 5);
-        color: $secondary-color;
-        border-bottom: 1px solid white;
+        background: $min5-primary;
+        color: $zero-secondary;
+        //border-bottom: 1px solid white;
     }
 
     .collapsible-label:last-child {
@@ -512,7 +562,7 @@ a:focus, a:hover {
         margin: 0;
         font-size: 1.5rem;
         font-weight: bold;
-        color: darken($primary-color, 20);
+        color: $plus20-primary;
 
         li {
             font-size: 1rem;
@@ -540,7 +590,7 @@ a:focus, a:hover {
     .post-navigation {
         font-size: 1.5rem;
         font-weight: bold;
-        color: $secondary-color;
+        color: $zero-secondary;
         vertical-align: middle;
         line-height: 2rem;
 
@@ -554,7 +604,7 @@ a:focus, a:hover {
     }
 
     .post-navigation-card {
-        background: $primary-color;
+        background: $plus10-primary;
         padding: 0.5rem 0 0.5rem 0;
     }
 
@@ -563,7 +613,7 @@ a:focus, a:hover {
     }
 
     span.newer-post, span.older-post {
-        color: darken($secondary-color, 10);
+        color: $plus10-secondary;
     }
 
     span.newer-post {
@@ -608,12 +658,12 @@ a:focus, a:hover {
         }
 
         .navbar-link {
-            border-top: 0.2rem solid lighten($navbar-bg-inactive-color, 10);
+            border-top: 4px solid $min10-primary;
             border-bottom-color: $navbar-bg-inactive-color;
         }
 
         .navbar-link:hover, .navbar-link:focus {
-            border-top: 0.2rem solid $navbar-bg-active-color;
+            border-top: 4px solid $highlight-color;
             border-bottom-color: $navbar-bg-active-color;
         }
     }
@@ -622,17 +672,17 @@ a:focus, a:hover {
         display: block;
         font-family: 'Inconsolata', monospace;
         font-size: 1.5rem;
-        background: $primary-color;
-        color: $secondary-color;
+        background: $zero-primary;
+        color: $zero-secondary;
         margin: 0 auto 0 auto;
         padding: 0.5rem 0 0.5rem 0;
         text-align: center;
-        border-bottom: 0.2rem solid lighten($primary-color, 10);
+        border-bottom: 4px solid $navbar-border-color;
     }
 
     #content {
         margin-top: 0.5rem;
-        margin-bottom: $navbar-size + 0.5rem;
+        margin-bottom: $navbar-size + 1rem;
 
         .card {
             margin: 0.5rem;

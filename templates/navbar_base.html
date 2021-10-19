@@ -3,12 +3,12 @@
 {% block title %}{{ title }}{% endblock title %}
 
 {% block body %}
-{% filter indent(width=8, indentfirst=True) %}
+{% filter indent(width=8, first=True) %}
 {% include 'navbar.html' %}
 {% endfilter %}
 
 <div id='content'>
-    {% filter indent(width=12, indentfirst=True) %}
+    {% filter indent(width=12, first=True) %}
     {% block content %}
     {% endblock content %}
     {% endfilter %}

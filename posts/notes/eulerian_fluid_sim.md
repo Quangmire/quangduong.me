@@ -7,7 +7,7 @@
     "card_class": "notes",
     "summary": [
         "Brief notes about the basics of Eulerian Fluid Simulation distilled",
-        "from Robert Bridon's notes and textbook"
+        "from Robert Bridson's notes and textbook"
     ]
 }
 

@@ -6,12 +6,10 @@ $quinary-color: #F04045;
 $default-tag-color: #AAA;
 
 $min10-primary: lighten($primary-color, 2.5);
-$min5-primary: $secondary-color;
 $zero-primary: darken($primary-color, 7.5);
 $plus10-primary: darken($primary-color, 11);
 $plus20-primary: darken($primary-color, 17.5);
 
-$min10-secondary: lighten($quaternary-color, 20);
 $zero-secondary: lighten($quaternary-color, 10);
 $plus10-secondary: $zero-secondary;
 $plus20-secondary: darken($zero-secondary, 10);
@@ -522,7 +520,7 @@ a:focus, a:hover {
         text-align: center;
         font-size: 1.5rem;
         font-weight: bold;
-        background: $min5-primary;
+        background: $plus10-primary;
         color: $zero-secondary;
     }
 

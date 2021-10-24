@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-convert -background none icon.svg -define icon:auto-resize public/favicon.ico
+convert -background none icon.svg -define icon:auto-resize static/favicon.ico
+exit
 i=0
 icons=""
 for size in $(identify public/favicon.ico | awk '{print $3}'); do

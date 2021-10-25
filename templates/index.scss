@@ -65,6 +65,14 @@ h1, h2, h3, h4, h5, h6 {
     color: $darker-highlight-color;
 }
 
+._404 {
+    text-align: center;
+}
+
+._404 img {
+    margin-top: 1rem;
+}
+
 .katex-display > .katex {
     display: inline-block;
     white-space: nowrap;
@@ -106,7 +114,7 @@ a {
     font-weight: bold;
 }
 
-a, a:active, a:focus, .paginate, #navbar-title, .collapsible-label {
+a, a:active, .paginate, #navbar-title, .collapsible-label {
     outline: none;
     text-decoration: none;
     /* Disable Text Highlighting */
@@ -150,7 +158,7 @@ a:focus, a:hover {
         padding-right: 1rem;
     }
 
-    #navbar-title:hover {
+    #navbar-title:hover, #navbar-title:focus {
         color: $highlight-color;
         background: $navbar-bg-active-color;
         border-bottom: 4px solid $highlight-color;
@@ -321,7 +329,11 @@ a:focus, a:hover {
                 margin: 0;
             }
 
-            .card-title-link:focus, .card-title-link:hover > .card-title {
+            .card-title-link:focus > .card-title {
+                text-decoration: underline;
+            }
+
+            .card-title-link:hover > .card-title {
                 text-decoration: underline;
             }
 

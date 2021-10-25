@@ -239,7 +239,8 @@ def build(args):
                  os.path.join(args.static, 'index.css'))
 
     shutil.copytree(src = args.static, dst = os.path.join(args.output, 'static'))
-    shutil.copyfile(src = 'favicon.ico', dst = os.path.join(args.output, 'favicon.ico'))
+    for fn in os.listdir('favicon'):
+        shutil.copy2(src = os.path.join('favicon', fn), dst = os.path.join(args.output, fn))
 
     with open(os.path.join(args.output, '404.html'), 'w') as f:
         print(page_not_found_template.render(), file=f)

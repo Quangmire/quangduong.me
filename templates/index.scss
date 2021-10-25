@@ -3,7 +3,6 @@ $secondary-color: #6E8898;
 $tertiary-color: #9FB1BC;
 $quaternary-color: #D3D0CB;
 $quinary-color: #F04045;
-$default-tag-color: #AAA;
 
 $min10-primary: lighten($primary-color, 2.5);
 $zero-primary: darken($primary-color, 7.5);
@@ -16,6 +15,8 @@ $plus20-secondary: darken($zero-secondary, 10);
 
 $highlight-color: $quinary-color;
 $darker-highlight-color: darken($highlight-color, 12.5);
+
+$default-tag-color: $plus10-primary;
 
 :root {
     --primary-color: #{$zero-primary};
@@ -329,7 +330,7 @@ a:focus, a:hover {
 
                 .card-date {
                     font-size: 0.9rem;
-                    color: gray;
+                    font-style: italic;
                 }
             }
         }
@@ -354,7 +355,7 @@ a:focus, a:hover {
             font-size: 0.8rem;
             vertical-align: top;
             padding: 0.2rem 0.5rem 0.2rem 0.5rem;
-            color: $zero-secondary;
+            color: white;
             font-weight: bold;
             border-radius: 0.1rem;
             box-shadow: 2px 2px $shadow-in-card-color;
@@ -489,7 +490,7 @@ a:focus, a:hover {
         margin-bottom: 1rem;
         line-height: 1rem;
         font-weight: bold;
-        color: $zero-secondary;
+        color: white;
         background: $darker-highlight-color;
         position: relative;
         box-shadow: 2px 2px $shadow-in-card-color;

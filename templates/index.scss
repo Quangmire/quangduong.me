@@ -320,11 +320,7 @@ a:focus, a:hover {
                 margin: 0;
             }
 
-            .card-title:hover {
-                text-decoration: underline;
-            }
-
-            .card-title-link:focus > .card-title {
+            .card-title-link:focus, .card-title-link:hover > .card-title {
                 text-decoration: underline;
             }
 

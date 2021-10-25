@@ -38,6 +38,8 @@ def read_data(output, posts):
             metadata['content'] = html
             metadata['card_tags'] = process_tags(metadata['card_tags'])
             metadata['summary'] = ' '.join(metadata['summary'])
+            if '\\\\(' in html or '$$' in html:
+                metadata['needs_latex'] = True
 
             output_path = os.path.join(output, metadata['path'])
 

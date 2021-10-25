@@ -130,7 +130,8 @@ def write_data_by_tag(output, tag, data, template, num_cards):
 
             html = template.render(posts=posts, cur_page=cur_page,
                     num_pages=num_pages, min_page=min_page, max_page=max_page,
-                    path=os.path.join('/tag', tag), tag=tag.upper())
+                    path=os.path.join('/tag', tag), tag=tag.upper(),
+                    summary='All posts tagged [' + tag.upper() + ']')
             print(html, file=f)
 
 def group_by_year_month(sorted_data):
@@ -169,7 +170,8 @@ def write_archive(output, template, newest_revision, data_by_tag):
     tags = sorted(tags, key=lambda tag: -tag.num)
 
     with open(output_path, 'w') as f:
-        html = template.render(year_month_data=year_month_data, tags=tags)
+        html = template.render(year_month_data=year_month_data, tags=tags,
+                summary='Archive of all posts on selfdeprecated.dev by Quang Duong')
         print(html, file=f)
 
 def write_home(output, template, newest_revision, num_cards):
@@ -195,7 +197,7 @@ def write_home(output, template, newest_revision, num_cards):
 
             html = template.render(posts=posts, cur_page=cur_page,
                     num_pages=num_pages, min_page=min_page, max_page=max_page,
-                    path='')
+                    path='', summary='Professional blog by Quang Duong about CS/ML/Comp Arch research and topics :)')
             print(html, file=f)
 
 def compile_sass(sass_file, output_file):

@@ -90,7 +90,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 code {
-    font-family: 'Inconsolata', monospace;
+    font-family: 'Fira Code', monospace;
     font-size: 1rem;
 }
 
@@ -149,7 +149,7 @@ a:focus, a:hover {
         font-weight: bold;
         border-bottom: 4px solid $navbar-border-color;
         color: $navbar-text-inactive-color;
-        font-family: 'Inconsolata', monospace;
+        font-family: 'Fira Code', monospace;
         transition: background $navbar-fast-time ease, border-color $navbar-fast-time ease;
         height: $navbar-size;
         display: flex;
@@ -387,11 +387,7 @@ a:focus, a:hover {
         }
 
         p {
-            margin: 0.5rem 0 0.5rem 0;
-        }
-
-        p + p {
-            padding-top: 0.5rem;
+            margin: 0.5rem 0 0 0;
         }
 
         h2, h3, h4, h5, h6 {
@@ -408,7 +404,7 @@ a:focus, a:hover {
         }
 
         p + h2 {
-            padding-top: 1.5rem;
+            padding-top: 1rem;
         }
 
         .figure {
@@ -643,7 +639,7 @@ a:focus, a:hover {
 }
 
 // Mobile-ish
-@media only screen and (max-width: 667px) {
+@media only screen and (max-width: 832px) {
     #navbar {
         bottom: 0;
         position: fixed;
@@ -667,7 +663,7 @@ a:focus, a:hover {
 
     #mobile-title {
         display: block;
-        font-family: 'Inconsolata', monospace;
+        font-family: 'Fira Code', monospace;
         font-size: 1.5rem;
         background: $zero-primary;
         color: $zero-secondary;
@@ -777,15 +773,13 @@ a:focus, a:hover {
 }
 
 /* In between mobile / tablet where navbar too big */
-@media only screen and (min-width: 668px) and (max-width: 750px) {
+@media only screen and (min-width: 833px) and (max-width: 969px) {
     #navbar {
         #navbar-title {
             font-size: 1.3rem;
-            margin-left: 1rem;
         }
 
         .navbar-link {
-
             .navbar-icon {
                 padding-top: 1rem;
                 padding-bottom: 0.5rem;
@@ -796,50 +790,32 @@ a:focus, a:hover {
             }
 
             .navbar-text {
-                font-size: 0.7rem;
+                font-size: 0.9rem;
             }
         }
     }
 }
 
-/* In between mobile / tablet where navbar too big */
-@media only screen and (min-width: 668px) and (max-width: 832px) {
+// Tablet-ish
+@media only screen and (min-width: 833px) and (max-width: 1148px) {
     #navbar {
-        .navbar-link:last-child {
+        #navbar-content {
+            margin-left: 1rem;
             margin-right: 1rem;
         }
-
-        .navbar-link > .navbar-text {
-            font-size: 0.8rem;
-        }
     }
 
-    #content {
-        .card {
-            margin: 1rem;
-        }
-    }
-}
-
-// Tablet-ish
-@media only screen and (min-width: 668px) and (max-width: 1024px) {
-    #navbar {
-        top: 0;
-
-        #navbar-content {
-            max-width: 800px;
-        }
-    }
-
-    .card {
-        max-width: 800px;
+    #content .card {
+        margin-left: 1rem;
+        margin-right: 1rem;
     }
 }
 
 // Desktop-ish
-@media only screen and (min-width: 1025px) {
+@media only screen and (min-width: 1149px) {
     #navbar {
         top: 0;
+
         #navbar-content {
             max-width: 1100px;
         }

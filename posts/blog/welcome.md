@@ -2,7 +2,7 @@
     "title": "Welcome",
     "path": "blog/welcome",
     "card_title": "Hello there, welcome to my blog!",
-    "card_date": "May 22, 2020 | 1:09 AM",
+    "card_date": "October 27, 2021 | 1:51 AM",
     "card_tags": ["blog", "first-post"],
     "card_class": "blog",
     "summary": [
@@ -22,11 +22,11 @@ to organize my thoughts, but feel free to come along for the ride.
 
 ## In Regards to this Website
 
-By no means is this website completed in terms of design. This is the fourth or
-fifth incarnation at this point and it suffers constant updates with my changing
-tastes. Despite the number of rewrites, I am completely certain this website is
-not free of bugs so feel free to send any error reports my way as they are
-greatly appreciated.
+By no means is this website completed in terms of design. This is the fifth or
+sixth incarnation at this point and it suffers constant updates with my changing
+tastes. I've switched over to static website generation for simplicity and
+removed almost all of the JavaScript to minimize bloat (other than KaTeX for
+math rendering until I figure out how to statically generate figures).
 
 ## Final Thoughts
 

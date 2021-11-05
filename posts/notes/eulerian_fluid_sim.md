@@ -2,7 +2,7 @@
     "title": "Eulerian Fluid Simulation [Part 1]",
     "path": "notes/eulerian_fluid_sim_p1",
     "card_title": "Eulerian Fluid Simulation [Part 1]",
-    "card_date": "May 25, 2020 | 7:11 PM",
+    "card_date": "October 25, 2021 | 7:11 PM",
     "card_tags": ["notes"],
     "card_class": "notes",
     "summary": [

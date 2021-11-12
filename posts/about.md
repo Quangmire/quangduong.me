@@ -38,4 +38,4 @@ And outside of research, I generally dabble in:
 
 ## CURRICULUM VITAE
 
-Viewable [here](/static/documents/quang_duong_cv.pdf). Last updated October 22, 2021.
+Viewable [here](/static/documents/quang_duong_cv.pdf). Last updated November 12, 2021.

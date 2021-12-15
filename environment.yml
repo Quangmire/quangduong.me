@@ -7,3 +7,4 @@ dependencies:
 - markdown2
 - pygments
 - libsass
+- pyyaml

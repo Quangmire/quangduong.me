@@ -1,14 +1,14 @@
-{
-    "title": "About Me",
-    "path": "about",
-    "card_title": "About Me: Quang Duong",
-    "card_date": "October 22, 2021 | 1:16 AM",
-    "card_tags": ["about"],
-    "card_class": "about",
-    "summary": [
-        "More in-depth bio about myself, my interests, and my work history."
-    ]
-}
+title: "About Me"
+path: "about"
+card_title: "About Me: Quang Duong"
+card_date: "October 22, 2021 | 1:16 AM"
+card_tags:
+- "about"
+card_class: "about"
+summary: >
+  More in-depth bio about myself, my interests, and my work history.
+
+---
 
 ![profile pic](/static/media/profile.png)
 

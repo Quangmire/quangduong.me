@@ -1,5 +1,5 @@
 import markdown2 as md
-import json
+import yaml
 
 # Currently assumes max of one of either <pre> or </pre> on a line
 # Should hold so long as none of the code blocks are html with pre inside
@@ -28,12 +28,12 @@ def process_markdown(file_name):
         lines = f.readlines()
     metadata_end = 0
     for i in range(len(lines)):
-        if lines[i].strip() == '}':
-            metadata_end = i + 1
+        if lines[i].strip() == '---':
+            metadata_end = i
             break
-    metadata = json.loads(''.join(lines[:metadata_end]))
-    metadata['markdown'] = ''.join(lines[metadata_end:])
-    html = md.markdown(''.join(lines[metadata_end:]),
+    metadata = yaml.load(''.join(lines[:metadata_end]), Loader=yaml.Loader)
+    metadata['markdown'] = ''.join(lines[metadata_end + 1:])
+    html = md.markdown(''.join(lines[metadata_end + 1:]),
             extras=['fenced-code-blocks', 'footnotes', 'code-friendly',
                     'header-ids', 'numbering'],
             footnote_title="Jump back to footnote %d in the text.",

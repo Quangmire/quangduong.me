@@ -1,15 +1,16 @@
-{
-    "title": "Welcome",
-    "path": "blog/welcome",
-    "card_title": "Hello there, welcome to my blog!",
-    "card_date": "October 27, 2021 | 1:51 AM",
-    "card_tags": ["blog", "first-post"],
-    "card_class": "blog",
-    "summary": [
-        "Greetings Internet wanderer. This is a brief introduction to this",
-        "blog and its purpose as well as an introduction to your's truly. :)"
-    ]
-}
+title: "Welcome"
+path: "blog/welcome"
+card_title: "Hello there, welcome to my blog!"
+card_date: "October 27, 2021 | 1:51 AM"
+card_tags:
+- "blog"
+- "first-post"
+card_class: "blog"
+summary: >
+  Greetings Internet wanderer. This is a brief introduction to this blog and its
+  purpose as well as an introduction to your's truly. :)
+
+---
 
 ## Salutations Intrepid Explorer
 

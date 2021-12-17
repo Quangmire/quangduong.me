@@ -1,12 +1,15 @@
-title: "Eulerian Fluid Simulation [Part 1]"
+title: "Eulerian Fluid Simulation Notes [Part 1]"
 path: "notes/eulerian_fluid_sim_p1"
 card_title: "Eulerian Fluid Simulation [Part 1]"
 card_date: "October 25, 2021 | 7:11 PM"
 card_tags:
-- "notes"
+- "note"
+- "fluid simulation"
+- "physical simulation"
+- "computer graphics"
 card_class: "notes"
 summary: >
-  Brief notes about the basics of Eulerian Fluid Simulation distilled" from
+  Brief notes about the basics of Eulerian Fluid Simulation distilled from
   Robert Bridson's notes and textbook
 
 ---

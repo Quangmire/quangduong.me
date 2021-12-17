@@ -37,7 +37,7 @@ def read_data(output, posts):
             html, metadata = process_markdown(file_path)
             metadata['content'] = html
             metadata['card_tags'] = process_tags(metadata['card_tags'])
-            metadata['summary'] = ' '.join(metadata['summary'])
+            metadata['summary'] = metadata['summary']
             metadata['path'] += '/'
             if '\\\\(' in html or '$$' in html:
                 metadata['needs_latex'] = True
@@ -131,7 +131,9 @@ def write_data_by_tag(output, tag, data, template, num_cards):
             html = template.render(posts=posts, cur_page=cur_page,
                     num_pages=num_pages, min_page=min_page, max_page=max_page,
                     path=os.path.join('/tag', tag), tag=tag.upper(),
-                    summary='All posts tagged [' + tag.upper() + ']')
+                    summary='All posts tagged [' + tag.upper() + ']',
+                    header_card='Posts Tagged as [' + tag.upper() + ']',
+                    page_title='[' + tag.upper() + '] Posts')
             print(html, file=f)
 
 def group_by_year_month(sorted_data):
@@ -197,7 +199,8 @@ def write_home(output, template, newest_revision, num_cards):
 
             html = template.render(posts=posts, cur_page=cur_page,
                     num_pages=num_pages, min_page=min_page, max_page=max_page,
-                    path='', summary='Professional blog by Quang Duong about CS/ML/Comp Arch research and topics :)')
+                    path='', summary='Professional blog by Quang Duong about CS/ML/Comp Arch research and topics :)',
+                    header_card='All Posts', page_title='Self-Deprecated Dev Blog')
             print(html, file=f)
 
 def compile_sass(sass_file, output_file):
@@ -214,7 +217,6 @@ def build(args):
     post_template = env.get_template('post.html')
     multipost_template = env.get_template('multipost.html')
     archive_template = env.get_template('archive.html')
-    home_template = env.get_template('home.html')
     page_not_found_template = env.get_template('404.html')
 
     data, newest_revision = read_data(args.output, args.posts)
@@ -236,7 +238,7 @@ def build(args):
             multipost_template, args.num_cards)
 
     write_archive(args.output, archive_template, newest_revision, data_by_tag)
-    write_home(args.output, home_template, newest_revision, args.num_cards)
+    write_home(args.output, multipost_template, newest_revision, args.num_cards)
 
     compile_sass(os.path.join(args.templates, 'index.scss'),
                  os.path.join(args.static, 'index.css'))

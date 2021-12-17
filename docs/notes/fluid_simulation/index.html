@@ -13,11 +13,12 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@700&display=swap">
         <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-        <title>[PROJECTS] Posts</title>
+        <title>Fluid Simulation Series</title>
 
         <meta charset='utf-8'>
         <meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no'>
-        <meta name='description' content='All posts tagged [PROJECTS]'>
+        <meta name='description' content='A series of notes on different methods and approaches to fluid simulations ranging from Eulerian to Lagrangian to neural approximations. The goal is to demystify how these approaches work and make information about them more accessible.
+'>
 
 
         <!-- Async -->
@@ -96,44 +97,59 @@
         </nav>
         <a id='mobile-title' href='/'>&lt; SELF-DEPRECATED DEV /&gt;</a>
 <div id='content'>
-            
-                <div class='card'>
-                    <div class='header-card-container'>
-                        <span class='header-card-text'>Posts Tagged as [PROJECTS]</strong></span>
-                    </div>
-                </div>
-
-                
-
-                        <div class='card projects'>
-                    <div class='card-header'>
-                        <div class='card-title-container'>
-                            <a class='card-title-link' href='/project/voyager/'><h1 class='card-title'>Voyager Implementation</h1></a>
-                            <div class='card-date-container'>
-                                <span class='card-date'>Last Updated October 27, 2021 | 7:11 PM</span>
-                            </div>
-                        </div>
-                        <div class='card-tag-container'>
-                                    <svg class='card-tag-icon' style='width:24px;height:24px' viewBox='0 0 24 24'>
-                                        <path d='M21.4 11.6L12.4 2.6C12 2.2 11.5 2 11 2H4C2.9 2 2 2.9 2 4V11C2 11.5 2.2 12 2.6 12.4L11.6 21.4C12 21.8 12.5 22 13 22C13.5 22 14 21.8 14.4 21.4L21.4 14.4C21.8 14 22 13.5 22 13C22 12.5 21.8 12 21.4 11.6M13 20L4 11V4H11L20 13M6.5 5C7.3 5 8 5.7 8 6.5S7.3 8 6.5 8 5 7.3 5 6.5 5.7 5 6.5 5M10.1 8.9L11.5 7.5L17 13L15.6 14.4L10.1 8.9M7.6 11.4L9 10L13 14L11.6 15.4L7.6 11.4Z' />
-                                    </svg>
-                                <a class='card-tag' style='background: var(--tag-color)' href='/tag/projects/1'>PROJECTS</a>
-                                <a class='card-tag' style='background: var(--default-tag-color)' href='/tag/data prefetching/1'>DATA PREFETCHING</a>
-                                <a class='card-tag' style='background: var(--default-tag-color)' href='/tag/machine learning/1'>MACHINE LEARNING</a>
+            <div class='card post-navigation-card'>
+                    <a class='newer-post post-navigation' href=/notes/data_prefetching/><svg style="width:24px;height:24px" viewBox="0 0 24 24">
+                        <path fill="currentColor" d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z" />
+                    </svg>Newer Post</a>
+                    <a class='older-post post-navigation' href=/project/voyager/>Older Post<svg style="width:24px;height:24px" viewBox="0 0 24 24">
+                        <path fill="currentColor" d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
+                    </svg></a>
+            </div>
+            <div class='card notes'>
+                <div class='card-header'>
+                    <div class='card-title-container'>
+                        <h1 class='card-title'>Fluid Simulation Series</h1>
+                        <div class='card-date-container'>
+                            <span class='card-date'>Last Updated December 15, 2021 | 1:11 PM</span>
                         </div>
                     </div>
-                    <div class='card-content'>
-                        Official (Re)-Implementation of the Voyager neural data prefetcher
-
-                        <a class='card-read-more' href='/project/voyager/'><span>Continue Reading</span><svg style="width:24px;height:24px" viewBox="0 0 24 24">
-                            <path fill="currentColor" d="M5.59,7.41L7,6L13,12L7,18L5.59,16.59L10.17,12L5.59,7.41M11.59,7.41L13,6L19,12L13,18L11.59,16.59L16.17,12L11.59,7.41Z" />
-                        </svg></a>
+                    <div class='card-tag-container'>
+                                <svg class='card-tag-icon' style='width:24px;height:24px' viewBox='0 0 24 24'>
+                                    <path d='M21.4 11.6L12.4 2.6C12 2.2 11.5 2 11 2H4C2.9 2 2 2.9 2 4V11C2 11.5 2.2 12 2.6 12.4L11.6 21.4C12 21.8 12.5 22 13 22C13.5 22 14 21.8 14.4 21.4L21.4 14.4C21.8 14 22 13.5 22 13C22 12.5 21.8 12 21.4 11.6M13 20L4 11V4H11L20 13M6.5 5C7.3 5 8 5.7 8 6.5S7.3 8 6.5 8 5 7.3 5 6.5 5.7 5 6.5 5M10.1 8.9L11.5 7.5L17 13L15.6 14.4L10.1 8.9M7.6 11.4L9 10L13 14L11.6 15.4L7.6 11.4Z' />
+                                </svg>
+                            <a class='card-tag' style='background: var(--tag-color)' href='/tag/notes/1'>NOTES</a>
+                            <a class='card-tag' style='background: var(--default-tag-color)' href='/tag/fluid simulation/1'>FLUID SIMULATION</a>
+                            <a class='card-tag' style='background: var(--default-tag-color)' href='/tag/physical simulation/1'>PHYSICAL SIMULATION</a>
+                            <a class='card-tag' style='background: var(--default-tag-color)' href='/tag/computer graphics/1'>COMPUTER GRAPHICS</a>
                     </div>
                 </div>
+                <div class='card-content'>
+                    <p>This series details my notes on different methods and approaches to fluid
+            simulation from Eulerian to Lagrangian to neural approximations. It's currently
+            a WIP, but there's definitely more to come.</p>
 
+            <h2 id="eulerian-fluid-simulation">Eulerian Fluid Simulation</h2>
 
-                
+            <p>Eulerian fluid simulations divide the simulated space into discrete grid cells
+            at which we keep track of various fluid properties such as velocity, pressure,
+            temperature and so forth. The grid cells do not need be uniform and a large body
+            of research focuses on subdividing the grid adaptively as needed to get the
+            desired level of detail without losing performance.</p>
 
+            <ul>
+            <li><a href="notes/eulerian_fluid_sim_p1">Part 1: Basics and Theory of Eulerian Fluid Simulation</a></li>
+            </ul>
+
+            <h2 id="lagrangian-fluid-simulation">Lagrangian Fluid Simulation</h2>
+
+            <p>TBD</p>
+
+            <h2 id="real-time-fluid-simulation">Real-Time Fluid Simulation</h2>
+
+            <p>TBD</p>
+
+                </div>
+            </div>
 </div>
 
     </body>

@@ -15,14 +15,14 @@ $plus20-secondary: darken($zero-secondary, 10);
 
 $highlight-color: $quinary-color;
 $darker-highlight-color: darken($highlight-color, 12.5);
+$darkest-highlight-color: darken($highlight-color, 30);
 
 $default-tag-color: $plus10-primary;
+$primary-tag-color: $darker-highlight-color;
 
 :root {
     --primary-color: #{$zero-primary};
     --secondary-color: #{$zero-secondary};
-    --default-tag-color: #{$default-tag-color};
-    --tag-color: #{$darker-highlight-color};
 }
 /******************************************************************************\
 |                                    NAVBAR                                    |
@@ -45,8 +45,8 @@ $navbar-size: 5rem;
 $navbar-small-size: 3.5rem;
 
 /* TRANSITION TIMING */
-$navbar-fast-time: 0.0s;
-$navbar-slow-time: 0.0s;
+$fast-time: 0.2s;
+$slow-time: 0.5s;
 
 $card-background-color: #EFEFEF;
 $website-background-color: #D8D8D8;
@@ -150,7 +150,7 @@ a:focus, a:hover {
         border-bottom: 4px solid $navbar-border-color;
         color: $navbar-text-inactive-color;
         font-family: 'Fira Code', monospace;
-        transition: background $navbar-fast-time ease, border-color $navbar-fast-time ease;
+        transition: background $slow-time ease, color $slow-time ease, border-color $slow-time ease;
         height: $navbar-size;
         display: flex;
         align-items: center;
@@ -162,7 +162,7 @@ a:focus, a:hover {
         color: $highlight-color;
         background: $navbar-bg-active-color;
         border-bottom: 4px solid $highlight-color;
-        transition: color $navbar-slow-time ease;
+        transition: background $fast-time ease, color $fast-time ease, border-color $fast-time;
     }
 
     .navbar-link {
@@ -172,7 +172,7 @@ a:focus, a:hover {
         flex-grow: 1;
         flex-basis: 0;
         align-items: center;
-        transition: background $navbar-fast-time ease, border-color $navbar-fast-time ease;
+        transition: background $slow-time ease, color $slow-time ease, border-color $slow-time ease;
         height: $navbar-size;
         border-bottom: 4px solid $navbar-border-color;
 
@@ -184,7 +184,7 @@ a:focus, a:hover {
             max-width: $navbar-icon-size;
             max-height: $navbar-icon-size;
             min-height: $navbar-icon-size;
-            transition: fill $navbar-slow-time ease;
+            transition: fill $slow-time ease;
             fill: $navbar-icon-inactive-color;
         }
 
@@ -192,7 +192,7 @@ a:focus, a:hover {
             display: block;
             text-align: center;
             font-weight: bold;
-            transition: color $navbar-slow-time ease;
+            transition: color $slow-time ease;
             white-space: nowrap;
             color: $navbar-text-inactive-color;
         }
@@ -201,15 +201,16 @@ a:focus, a:hover {
     .navbar-link:hover, .navbar-link:focus {
         background: $navbar-bg-active-color;
         border-bottom: 4px solid $highlight-color;
+        transition: background $fast-time ease, border-color $fast-time ease;
 
         .navbar-icon {
             fill: $navbar-icon-active-color;
-            transition: fill $navbar-fast-time ease;
+            transition: fill $fast-time ease;
         }
 
         .navbar-text {
             color: $navbar-text-active-color;
-            transition: color $navbar-fast-time ease;
+            transition: color $fast-time ease;
         }
     }
 
@@ -266,45 +267,61 @@ a:focus, a:hover {
     }
 
     .paginate-container {
+        width: 100%;
+        display: flex;
         height: 2rem;
         text-align: center;
+        background: $plus10-primary;
+
+        .paginate:first-child {
+            border-left: none;
+        }
 
         .paginate {
+            flex: 1;
             display: inline-block;
             height: 1.5rem;
             padding: 0.25rem;
             width: 1.5rem;
-            border-radius: 0.1rem;
+            border-left: 2px solid white;
         }
 
         span.paginate {
-            background: $plus20-primary;
-            color: $plus20-secondary;
+            background: $darkest-highlight-color;
+            color: $zero-secondary;
         }
 
         span.paginate-ellipsis {
-            background: none;
-            color: $plus20-primary;
+            background: $darkest-highlight-color;
+            color: $zero-secondary;
             padding-left: 0;
             padding-right: 0;
         }
 
         a.paginate {
-            background: $zero-primary;
+            background: $darker-highlight-color;
             color: $zero-secondary;
+            transition: background $slow-time ease, color $slow-time ease;
         }
 
         a {
             position: relative;
         }
 
-        a.paginate-next:hover:after, a.paginate-prev:hover:after {
-            content: "";
-            position: absolute;
-            left: 1rem;
-            right: 1rem;
-            bottom: 0.5rem;
-            border-bottom: 1px solid $zero-secondary;
+        a:hover, a:focus {
+            background: white;
+            color: $darker-highlight-color;
+            transition: background $fast-time ease, color $fast-time ease;
+
+            svg {
+                transform: rotate(360deg);
+                transition: transform $slow-time ease;
+            }
+        }
+
+        span.paginate-num {
+            background: white;
+            color: $darker-highlight-color;
         }
 
         .paginate-num {
@@ -371,6 +388,28 @@ a:focus, a:hover {
             font-weight: bold;
             border-radius: 0.1rem;
             box-shadow: 2px 2px $shadow-in-card-color;
+        }
+
+        .default-tag {
+            background: $default-tag-color;
+            transition: background $slow-time ease, color $slow-time ease;
+        }
+
+        .primary-tag {
+            background: $primary-tag-color;
+            transition: background $slow-time ease, color $slow-time ease;
+        }
+
+        .default-tag:hover, .default-tag:focus {
+            background: white;
+            color: $default-tag-color;
+            transition: background $fast-time ease, color $fast-time ease;
+        }
+
+        .primary-tag:hover, .primary-tag:focus {
+            background: white;
+            color: $primary-tag-color;
+            transition: background $fast-time ease, color $fast-time ease;
         }
     }
 
@@ -502,15 +541,22 @@ a:focus, a:hover {
         background: $darker-highlight-color;
         position: relative;
         box-shadow: 2px 2px $shadow-in-card-color;
+        transform: background $slow-time ease;
 
         svg {
             vertical-align: middle;
         }
     }
 
-    .card-read-more:hover svg, .card-read-more:focus svg {
-        transform: rotate(360deg);
-        transition: transform 0.5s ease;
+    .card-read-more:hover, .card-read-more:focus {
+        background: white;
+        color: $darker-highlight-color;
+        transition: background $fast-time ease, color $fast-time ease;
+
+        svg {
+            transform: rotate(360deg);
+            transition: transform $slow-time ease;
+        }
     }
 
     .collapsible-container {
@@ -535,6 +581,7 @@ a:focus, a:hover {
 
     .collapsible-label:hover .collapsible-icon {
         transform: rotate(90deg);
+        transition: transform $slow-time ease;
     }
 
     .collapsible-icon {
@@ -577,6 +624,7 @@ a:focus, a:hover {
 
     .collapsible-checkbox:checked ~ .collapsible-label > .collapsible-icon {
         transform: rotate(90deg);
+        transition: transform $slow-time ease;
     }
 
     .post-navigation {
@@ -622,12 +670,12 @@ a:focus, a:hover {
 
     a.newer-post:hover svg {
         transform: rotate(-360deg);
-        transition: transform 0.5s ease;
+        transition: transform $slow-time ease;
     }
 
     a.older-post:hover svg {
         transform: rotate(360deg);
-        transition: transform 0.5s ease;
+        transition: transform $slow-time ease;
     }
 }
 
@@ -749,6 +797,10 @@ a:focus, a:hover {
 }
 
 @media only screen and (max-width: 520px) {
+    .paginate-container {
+        font-size: $navbar-text-small-size;
+    }
+
     #navbar{
         height: $navbar-small-size;
 
@@ -774,6 +826,10 @@ a:focus, a:hover {
 
 /* In between mobile / tablet where navbar too big */
 @media only screen and (min-width: 833px) and (max-width: 969px) {
+    .paginate-container {
+        font-size: 0.9rem;
+    }
+
     #navbar {
         #navbar-title {
             font-size: 1.3rem;

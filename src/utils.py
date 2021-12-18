@@ -8,19 +8,18 @@ def get_env(templates):
         trim_blocks=True,
     )
 
-def calc_min_max_page(cur_page, num_pages):
-    min_page = max(0, cur_page - 3)
-    max_page = min(num_pages, cur_page + 2)
-
-    if cur_page < 4:
-        min_page += 1
-        max_page = min(num_pages, cur_page + (5 - cur_page))
-
-    if cur_page > num_pages - 3:
-        max_page -= 1
-        min_page = max(0, cur_page - (5 - (num_pages - cur_page)))
-
-    return (min_page, max_page)
+def compute_current_pagination(cur_page, num_pages):
+    start_page = max(1, cur_page - 2)
+    if start_page + 4 > num_pages and num_pages - 4 >= 1:
+        start_page = num_pages - 4
+    pages = []
+    if start_page != 1:
+        pages.append('.')
+    for page in range(start_page, min(start_page + 5, num_pages + 1)):
+        pages.append(page)
+    if pages[-1] != num_pages:
+        pages.append('.')
+    return pages
 
 def paginate(iterable, n):
     ret = []
@@ -31,4 +30,3 @@ def paginate(iterable, n):
             ret = []
     if ret:
         yield ret
-

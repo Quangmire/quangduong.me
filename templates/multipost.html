@@ -13,12 +13,12 @@
         </div>
     </div>
 
-    {{ pagination.paginate(path, cur_page, num_pages, min_page, max_page) }}
+    {{ pagination.paginate(path, cur_page, num_pages, pages) }}
 
     {% for post in posts %}
         {{ summary_card.render(post) }}
     {% endfor %}
 
-    {{ pagination.paginate(path, cur_page, num_pages, min_page, max_page) }}
+    {{ pagination.paginate(path, cur_page, num_pages, pages) }}
 
 {% endblock content %}

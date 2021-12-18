@@ -8,7 +8,7 @@ import sass
 
 from process_markdown import process_markdown, fix_pre_code_indent
 from process_tags import process_tags
-from utils import get_env, calc_min_max_page, paginate
+from utils import get_env, compute_current_pagination, paginate
 
 def clean(output):
     # Remove all old files
@@ -126,10 +126,10 @@ def write_data_by_tag(output, tag, data, template, num_cards):
         with open(output_path, 'w') as f:
             cur_page = i + 1
             num_pages = len(paginated_data)
-            min_page, max_page = calc_min_max_page(cur_page, num_pages)
+            pages = compute_current_pagination(cur_page, num_pages)
 
             html = template.render(posts=posts, cur_page=cur_page,
-                    num_pages=num_pages, min_page=min_page, max_page=max_page,
+                    num_pages=num_pages, pages=pages,
                     path=os.path.join('/tag', tag), tag=tag.upper(),
                     summary='All posts tagged [' + tag.upper() + ']',
                     header_card='Posts Tagged as [' + tag.upper() + ']',
@@ -194,11 +194,10 @@ def write_home(output, template, newest_revision, num_cards):
         with open(output_path, 'w') as f:
             cur_page = i + 1
             num_pages = len(paginated_data)
-            min_page = max(2, cur_page - 2)
-            max_page = min(num_pages, cur_page + 3)
+            pages = compute_current_pagination(cur_page, num_pages)
 
             html = template.render(posts=posts, cur_page=cur_page,
-                    num_pages=num_pages, min_page=min_page, max_page=max_page,
+                    num_pages=num_pages, pages=pages,
                     path='', summary='Professional blog by Quang Duong about CS/ML/Comp Arch research and topics :)',
                     header_card='All Posts', page_title='Self-Deprecated Dev Blog')
             print(html, file=f)

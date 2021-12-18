@@ -42,8 +42,8 @@ where needed.
 
 For the remainder of this article, we'll be focusing on the Eulerian approach
 for incompressible fluids. This article can be seen as my abridged version of
-Robert Bridson's notes / textbook [^bridson] and draws some intuition and
-ideas from Foster and Metaxas. [^metaxas]
+Robert Bridson's notes / textbook[^bridson] and draws some intuition and
+ideas from Foster and Metaxas.[^metaxas]
 
 ## Notation
 
@@ -63,8 +63,8 @@ The first question we can ask ourselves is how do fluids behave? Or more
 importantly, what forces control the behavior of fluids?
 
 - The immediate answer would be **gravity** (as well as any other external
-  forces acting on the fluid) that exerts a downward force on the fluid.
-  [^gravity]
+  forces acting on the fluid) that exerts a downward force on the
+  fluid.[^gravity]
 - We also have **pressure** as fluids gradually move from areas of high pressure
   to areas of low pressure.
 - And lastly, we have **viscosity** which resists deformation of the fluid.
@@ -165,7 +165,7 @@ Notice that in order to calculate the derivative at \\(u_i\\) we use only the
 values of the adjacent values \\(u_{i - 1}\\) and \\(u_{i + 1}\\), but we ignore
 the value at \\(u_i\\). As a result, this can lead to some bizarre artifacts and
 behavior. In order to resolve this, we use the standard discretization via the
-**Marker-and-Cell grid** popularized in Harlow and Welch in 1965. [^macgrid]
+**Marker-and-Cell grid** popularized in Harlow and Welch in 1965.[^macgrid]
 
 ![mac grid](/static/media/notes/eulerian_fluid_sim/macgrid.png)
 [#figure <strong>Figure&nbsp;@macgrid</strong>: MAC Grid (from Bridson's notes)]

@@ -124,10 +124,10 @@
                                 <svg class='card-tag-icon' style='width:24px;height:24px' viewBox='0 0 24 24'>
                                     <path d='M21.4 11.6L12.4 2.6C12 2.2 11.5 2 11 2H4C2.9 2 2 2.9 2 4V11C2 11.5 2.2 12 2.6 12.4L11.6 21.4C12 21.8 12.5 22 13 22C13.5 22 14 21.8 14.4 21.4L21.4 14.4C21.8 14 22 13.5 22 13C22 12.5 21.8 12 21.4 11.6M13 20L4 11V4H11L20 13M6.5 5C7.3 5 8 5.7 8 6.5S7.3 8 6.5 8 5 7.3 5 6.5 5.7 5 6.5 5M10.1 8.9L11.5 7.5L17 13L15.6 14.4L10.1 8.9M7.6 11.4L9 10L13 14L11.6 15.4L7.6 11.4Z' />
                                 </svg>
-                            <a class='card-tag' style='background: var(--default-tag-color)' href='/tag/note/1'>NOTE</a>
-                            <a class='card-tag' style='background: var(--default-tag-color)' href='/tag/fluid simulation/1'>FLUID SIMULATION</a>
-                            <a class='card-tag' style='background: var(--default-tag-color)' href='/tag/physical simulation/1'>PHYSICAL SIMULATION</a>
-                            <a class='card-tag' style='background: var(--default-tag-color)' href='/tag/computer graphics/1'>COMPUTER GRAPHICS</a>
+                            <a class='card-tag primary-tag' href='/tag/note/1'>NOTE</a>
+                            <a class='card-tag default-tag' href='/tag/fluid simulation/1'>FLUID SIMULATION</a>
+                            <a class='card-tag default-tag' href='/tag/physical simulation/1'>PHYSICAL SIMULATION</a>
+                            <a class='card-tag default-tag' href='/tag/computer graphics/1'>COMPUTER GRAPHICS</a>
                     </div>
                 </div>
                 <div class='card-content'>
@@ -159,8 +159,8 @@
 
             <p>For the remainder of this article, we'll be focusing on the Eulerian approach
             for incompressible fluids. This article can be seen as my abridged version of
-            Robert Bridson's notes / textbook <sup class="footnote-ref" id="fnref-bridson"><a href="#fn-bridson">2</a></sup> and draws some intuition and
-            ideas from Foster and Metaxas. <sup class="footnote-ref" id="fnref-metaxas"><a href="#fn-metaxas">3</a></sup></p>
+            Robert Bridson's notes / textbook<sup class="footnote-ref" id="fnref-bridson"><a href="#fn-bridson">2</a></sup> and draws some intuition and
+            ideas from Foster and Metaxas.<sup class="footnote-ref" id="fnref-metaxas"><a href="#fn-metaxas">3</a></sup></p>
 
             <h2 id="notation">Notation</h2>
 
@@ -181,8 +181,8 @@
 
             <ul>
             <li>The immediate answer would be <strong>gravity</strong> (as well as any other external
-            forces acting on the fluid) that exerts a downward force on the fluid.
-            <sup class="footnote-ref" id="fnref-gravity"><a href="#fn-gravity">1</a></sup></li>
+            forces acting on the fluid) that exerts a downward force on the
+            fluid.<sup class="footnote-ref" id="fnref-gravity"><a href="#fn-gravity">1</a></sup></li>
             <li>We also have <strong>pressure</strong> as fluids gradually move from areas of high pressure
             to areas of low pressure.</li>
             <li>And lastly, we have <strong>viscosity</strong> which resists deformation of the fluid.
@@ -286,7 +286,7 @@
             values of the adjacent values \(u_{i - 1}\) and \(u_{i + 1}\), but we ignore
             the value at \(u_i\). As a result, this can lead to some bizarre artifacts and
             behavior. In order to resolve this, we use the standard discretization via the
-            <strong>Marker-and-Cell grid</strong> popularized in Harlow and Welch in 1965. <sup class="footnote-ref" id="fnref-macgrid"><a href="#fn-macgrid">4</a></sup></p>
+            <strong>Marker-and-Cell grid</strong> popularized in Harlow and Welch in 1965.<sup class="footnote-ref" id="fnref-macgrid"><a href="#fn-macgrid">4</a></sup></p>
 
             <p><img src="/static/media/notes/eulerian_fluid_sim/macgrid.png" alt="mac grid" /></p>
 

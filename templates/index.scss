@@ -573,15 +573,22 @@ a:focus, a:hover {
         font-weight: bold;
         background: $plus10-primary;
         color: $zero-secondary;
+        transition: background $slow-time ease, color $slow-time ease;
     }
 
     .collapsible-label:last-child {
         border-bottom: none;
     }
 
-    .collapsible-label:hover .collapsible-icon {
-        transform: rotate(90deg);
-        transition: transform $slow-time ease;
+    .collapsible-label:hover, .collapsible-checkbox:focus ~ .collapsible-label {
+        background: $zero-secondary;
+        color: $plus10-primary;
+        transition: background $fast-time ease, color $fast-time ease;
+
+        .collapsible-icon {
+            transform: rotate(90deg);
+            transition: transform $slow-time ease;
+        }
     }
 
     .collapsible-icon {
@@ -614,8 +621,18 @@ a:focus, a:hover {
         margin: 0;
     }
 
+    /* From https://stackoverflow.com/questions/17979781/how-can-i-hide-a-checkbox-in-html
+       Needed to have something invisible that's focusable
+     */
     .collapsible-checkbox {
-        display: none;
+        border: 0;
+        clip: rect(0 0 0 0);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        width: 1px;
     }
 
     .collapsible-checkbox:checked ~ .collapsible-list {

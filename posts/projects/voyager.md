@@ -1,7 +1,7 @@
 title: "Voyager Neural Data Prefetcher Implementation"
 path: "project/voyager"
 card_title: "Voyager Implementation"
-card_date: "October 27, 2021 | 7:11 PM"
+card_date: "October 27, 2021 | 07:11 PM"
 card_tags:
 - "projects"
 - "data prefetching"

@@ -1,6 +1,6 @@
 {% extends 'navbar_base.html' %}
 
-{% import "pagination.html" as pagination %}
+{% import "paginator.html" as paginator %}
 {% import "summary_card.html" as summary_card %}
 
 {% block title %}{{ page_title }}{% endblock title %}
@@ -13,12 +13,12 @@
         </div>
     </div>
 
-    {{ pagination.paginate(path, cur_page, num_pages, pages) }}
+    {{ paginator::paginate(path=pagination.path, cur_page=pagination.cur_page, num_pages=pagination.num_pages, pages=pagination.pages) }}
 
-    {% for post in posts %}
-        {{ summary_card.render(post) }}
+    {% for summary_card in summary_cards %}
+        {{ summary_card::render(summary_card=summary_card) }}
     {% endfor %}
 
-    {{ pagination.paginate(path, cur_page, num_pages, pages) }}
+    {{ paginator::paginate(path=pagination.path, cur_page=pagination.cur_page, num_pages=pagination.num_pages, pages=pagination.pages) }}
 
 {% endblock content %}

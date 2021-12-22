@@ -2,14 +2,14 @@
 
 {% block content %}
 <div class='card post-navigation-card'>
-    {% if newer_path is defined %}
+    {% if newer_path | length > 0 %}
         <a class='newer-post post-navigation' href=/{{ newer_path }}><svg style="width:24px;height:24px" viewBox="0 0 24 24">
             <path fill="currentColor" d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z" />
         </svg>Newer Post</a>
     {% else %}
         <span class='newer-post post-navigation'>Newest Post</span>
     {% endif %}
-    {% if older_path is defined %}
+    {% if older_path | length > 0 %}
         <a class='older-post post-navigation' href=/{{ older_path }}>Older Post<svg style="width:24px;height:24px" viewBox="0 0 24 24">
             <path fill="currentColor" d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
         </svg></a>
@@ -17,43 +17,27 @@
         <span class='older-post post-navigation'>Oldest Post</span>
     {% endif %}
 </div>
-<div class='card {{ card_class }}'>
+<div class='card {{ class }}'>
     <div class='card-header'>
         <div class='card-title-container'>
-            <h1 class='card-title'>{{ card_title }}</h1>
+            <h1 class='card-title'>{{ title }}</h1>
             <div class='card-date-container'>
-                <span class='card-date'>Last Updated {{ card_date }}</span>
+                <span class='card-date'>Last Updated {{ date }}</span>
             </div>
         </div>
         <div class='card-tag-container'>
-            {% for tag in card_tags %}
+            {% for tag in tags %}
                 {% if loop.first %}
                     <svg class='card-tag-icon' style='width:24px;height:24px' viewBox='0 0 24 24'>
                         <path d='M21.4 11.6L12.4 2.6C12 2.2 11.5 2 11 2H4C2.9 2 2 2.9 2 4V11C2 11.5 2.2 12 2.6 12.4L11.6 21.4C12 21.8 12.5 22 13 22C13.5 22 14 21.8 14.4 21.4L21.4 14.4C21.8 14 22 13.5 22 13C22 12.5 21.8 12 21.4 11.6M13 20L4 11V4H11L20 13M6.5 5C7.3 5 8 5.7 8 6.5S7.3 8 6.5 8 5 7.3 5 6.5 5.7 5 6.5 5M10.1 8.9L11.5 7.5L17 13L15.6 14.4L10.1 8.9M7.6 11.4L9 10L13 14L11.6 15.4L7.6 11.4Z' />
                     </svg>
                 {% endif %}
-                <a class='card-tag {{ tag.tag_class }}' href='/tag/{{ tag.orig_name }}/1'>{{ tag.name }}</a>
+                <a class='card-tag {{ tag.class }}' href='/tag/{{ tag.name }}/1'>{{ tag.name | upper }}</a>
             {% endfor %}
         </div>
     </div>
     <div class='card-content'>
         {{ content|safe }}
     </div>
-    {% if num_revisions > 1 %}
-        <div class='card-revision-container'>
-        {% for i in range(num_revisions) %}
-            {% if i + 1 == revision %}
-                <span class='card-revision'>r{{ i + 1 }}</span>
-            {% elif i + 1 == num_revisions %}
-                <a class='card-revision' href='/{{ path }}/'>r{{ i + 1 }}</a>
-            {% else %}
-                <a class='card-revision' href='/{{ path }}/r{{ i + 1 }}/'>r{{ i + 1 }}</a>
-            {% endif %}
-            {% if not loop.last %}
-                &gt;
-            {% endif %}
-        {% endfor %}
-        </div>
-    {% endif %}
 </div>
 {% endblock content %}

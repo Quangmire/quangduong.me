@@ -7,7 +7,6 @@
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-
             gtag('config', 'UA-42515097-3');
         </script>
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -17,9 +16,10 @@
 
         <meta charset='utf-8'>
         <meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no'>
-        <meta name='description' content='Brief notes about the basics of Eulerian Fluid Simulation distilled from Robert Bridson&#39;s notes and textbook
+        <meta name='description' content='Brief notes about the basics of Eulerian Fluid Simulation distilled from Robert Bridson&#x27;s notes and textbook
 '>
 
+        
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous" media="print" onload="this.media='all'">
 
             <!-- The loading of KaTeX is deferred to speed up page rendering -->
@@ -27,6 +27,7 @@
 
             <!-- To automatically render math in text elements, include the auto-render extension: -->
             <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+        
 
         <!-- Async -->
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" media="print" onload="this.media='all'">
@@ -57,372 +58,311 @@
     </head>
 
     <body>
-        <nav id='navbar'>
-            <nav id='navbar-content'>
-                <a id='navbar-title' href='/'>&lt; SELF-DEPRECATED DEV /&gt;</a>
-                <a class='navbar-link' href='/tag/blog/1'>
-                    <svg class='navbar-icon' viewBox="0 0 24 24">
-                        <path d="M14 2H6C4.9 2 4 2.9 4 4V20C4 21.1 4.9 22 6 22H18C19.1 22 20 21.1 20 20V8L14 2M18 20H6V4H13V9H18V20M10 19L12 15H9V10H15V15L13 19H10" />
-                    </svg>
-                    <span class='navbar-text'>
-                        BLOG
-                    </span>
-                </a>
-                <a class='navbar-link' href='/tag/projects/1'>
-                    <svg class='navbar-icon' viewBox="0 0 24 24">
-                        <path d="M14 2H6C4.89 2 4 2.9 4 4V20C4 21.11 4.89 22 6 22H18C19.11 22 20 21.11 20 20V8L14 2M18 20H6V4H13V9H18V20M9.54 15.65L11.63 17.74L10.35 19L7 15.65L10.35 12.3L11.63 13.56L9.54 15.65M17 15.65L13.65 19L12.38 17.74L14.47 15.65L12.38 13.56L13.65 12.3L17 15.65Z" />
-                    </svg>
-                    <span class='navbar-text'>
-                        PROJECTS
-                    </span>
-                </a>
-                <a class='navbar-link' href='/tag/notes/1'>
-                    <svg class='navbar-icon' viewBox="0 0 24 24">
-                        <path d="M8,12H16V14H8V12M10,20H6V4H13V9H18V12.1L20,10.1V8L14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H10V20M8,18H12.1L13,17.1V16H8V18M20.2,13C20.3,13 20.5,13.1 20.6,13.2L21.9,14.5C22.1,14.7 22.1,15.1 21.9,15.3L20.9,16.3L18.8,14.2L19.8,13.2C19.9,13.1 20,13 20.2,13M20.2,16.9L14.1,23H12V20.9L18.1,14.8L20.2,16.9Z" />
-                    </svg>
-                    <span class='navbar-text'>
-                        NOTES
-                    </span>
-                </a>
-                <a class='navbar-link' href='/about'>
-                    <svg class='navbar-icon' viewBox="0 0 24 24">
-                        <path d="M14 2H6C4.89 2 4 2.9 4 4V20C4 21.11 4.89 22 6 22H18C19.11 22 20 21.11 20 20V8L14 2M18 20H6V4H13V9H18V20M13 13C13 14.1 12.1 15 11 15S9 14.1 9 13 9.9 11 11 11 13 11.9 13 13M15 18V19H7V18C7 16.67 9.67 16 11 16S15 16.67 15 18Z" />
-                    </svg>
-                    <span class='navbar-text'>
-                        ABOUT ME
-                    </span>
-                </a>
-                <a class='navbar-link' href='/archive'>
-                    <svg class='navbar-icon' viewBox="0 0 24 24">
-                        <path d="M14,8H10V6H14V8M20,4V20C20,21.11 19.11,22 18,22H6C4.89,22 4,21.11 4,20V4A2,2 0 0,1 6,2H18C19.11,2 20,2.9 20,4M18,13H6V20H18V13M18,4H6V11H18V4M14,15H10V17H14V15Z" />
-                    </svg>
-                    <span class='navbar-text'>
-                        ARCHIVES
-                    </span>
-                </a>
-            </nav>
-        </nav>
-        <a id='mobile-title' href='/'>&lt; SELF-DEPRECATED DEV /&gt;</a>
+        
+<nav id='navbar'>
+    <nav id='navbar-content'>
+        <a id='navbar-title' href='/'>&lt; SELF-DEPRECATED DEV /&gt;</a>
+        <a class='navbar-link' href='/tag/blog/1'>
+            <svg class='navbar-icon' viewBox="0 0 24 24">
+                <path d="M14 2H6C4.9 2 4 2.9 4 4V20C4 21.1 4.9 22 6 22H18C19.1 22 20 21.1 20 20V8L14 2M18 20H6V4H13V9H18V20M10 19L12 15H9V10H15V15L13 19H10" />
+            </svg>
+            <span class='navbar-text'>
+                BLOG
+            </span>
+        </a>
+        <a class='navbar-link' href='/tag/projects/1'>
+            <svg class='navbar-icon' viewBox="0 0 24 24">
+                <path d="M14 2H6C4.89 2 4 2.9 4 4V20C4 21.11 4.89 22 6 22H18C19.11 22 20 21.11 20 20V8L14 2M18 20H6V4H13V9H18V20M9.54 15.65L11.63 17.74L10.35 19L7 15.65L10.35 12.3L11.63 13.56L9.54 15.65M17 15.65L13.65 19L12.38 17.74L14.47 15.65L12.38 13.56L13.65 12.3L17 15.65Z" />
+            </svg>
+            <span class='navbar-text'>
+                PROJECTS
+            </span>
+        </a>
+        <a class='navbar-link' href='/tag/notes/1'>
+            <svg class='navbar-icon' viewBox="0 0 24 24">
+                <path d="M8,12H16V14H8V12M10,20H6V4H13V9H18V12.1L20,10.1V8L14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H10V20M8,18H12.1L13,17.1V16H8V18M20.2,13C20.3,13 20.5,13.1 20.6,13.2L21.9,14.5C22.1,14.7 22.1,15.1 21.9,15.3L20.9,16.3L18.8,14.2L19.8,13.2C19.9,13.1 20,13 20.2,13M20.2,16.9L14.1,23H12V20.9L18.1,14.8L20.2,16.9Z" />
+            </svg>
+            <span class='navbar-text'>
+                NOTES
+            </span>
+        </a>
+        <a class='navbar-link' href='/about'>
+            <svg class='navbar-icon' viewBox="0 0 24 24">
+                <path d="M14 2H6C4.89 2 4 2.9 4 4V20C4 21.11 4.89 22 6 22H18C19.11 22 20 21.11 20 20V8L14 2M18 20H6V4H13V9H18V20M13 13C13 14.1 12.1 15 11 15S9 14.1 9 13 9.9 11 11 11 13 11.9 13 13M15 18V19H7V18C7 16.67 9.67 16 11 16S15 16.67 15 18Z" />
+            </svg>
+            <span class='navbar-text'>
+                ABOUT ME
+            </span>
+        </a>
+        <a class='navbar-link' href='/archive'>
+            <svg class='navbar-icon' viewBox="0 0 24 24">
+                <path d="M14,8H10V6H14V8M20,4V20C20,21.11 19.11,22 18,22H6C4.89,22 4,21.11 4,20V4A2,2 0 0,1 6,2H18C19.11,2 20,2.9 20,4M18,13H6V20H18V13M18,4H6V11H18V4M14,15H10V17H14V15Z" />
+            </svg>
+            <span class='navbar-text'>
+                ARCHIVES
+            </span>
+        </a>
+    </nav>
+</nav>
+<a id='mobile-title' href='/'>&lt; SELF-DEPRECATED DEV /&gt;</a>
+
+
 <div id='content'>
-            <div class='card post-navigation-card'>
-                    <a class='newer-post post-navigation' href=/blog/welcome/><svg style="width:24px;height:24px" viewBox="0 0 24 24">
-                        <path fill="currentColor" d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z" />
-                    </svg>Newer Post</a>
-                    <a class='older-post post-navigation' href=/about/>Older Post<svg style="width:24px;height:24px" viewBox="0 0 24 24">
-                        <path fill="currentColor" d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
-                    </svg></a>
-            </div>
-            <div class='card notes'>
-                <div class='card-header'>
-                    <div class='card-title-container'>
-                        <h1 class='card-title'>Eulerian Fluid Simulation [Part 1]</h1>
-                        <div class='card-date-container'>
-                            <span class='card-date'>Last Updated October 25, 2021 | 7:11 PM</span>
-                        </div>
-                    </div>
-                    <div class='card-tag-container'>
-                                <svg class='card-tag-icon' style='width:24px;height:24px' viewBox='0 0 24 24'>
-                                    <path d='M21.4 11.6L12.4 2.6C12 2.2 11.5 2 11 2H4C2.9 2 2 2.9 2 4V11C2 11.5 2.2 12 2.6 12.4L11.6 21.4C12 21.8 12.5 22 13 22C13.5 22 14 21.8 14.4 21.4L21.4 14.4C21.8 14 22 13.5 22 13C22 12.5 21.8 12 21.4 11.6M13 20L4 11V4H11L20 13M6.5 5C7.3 5 8 5.7 8 6.5S7.3 8 6.5 8 5 7.3 5 6.5 5.7 5 6.5 5M10.1 8.9L11.5 7.5L17 13L15.6 14.4L10.1 8.9M7.6 11.4L9 10L13 14L11.6 15.4L7.6 11.4Z' />
-                                </svg>
-                            <a class='card-tag primary-tag' href='/tag/note/1'>NOTE</a>
-                            <a class='card-tag default-tag' href='/tag/fluid simulation/1'>FLUID SIMULATION</a>
-                            <a class='card-tag default-tag' href='/tag/physical simulation/1'>PHYSICAL SIMULATION</a>
-                            <a class='card-tag default-tag' href='/tag/computer graphics/1'>COMPUTER GRAPHICS</a>
-                    </div>
-                </div>
-                <div class='card-content'>
-                    <h2 id="eulerian-vs-lagrangian-fluid-simulation">Eulerian vs Lagrangian Fluid Simulation</h2>
-
-            <p>There are two main schools of thought for simulating fluids. The <strong>Lagrangian
-            approach</strong> simulates a large number of particles to approximate fluid molecules
-            whereas the <strong>Eulerian approach</strong> divides the simulation space into grid cells
-            at which we keep track of different fluid properties such as velocity, pressure,
-            and temperature.</p>
-
-            <p>The Lagrangian approach can easily simulate small-scale effects since it
-            measures properties of the fluid at each individual particle. To mimic this
-            level of detail, the Eulerian approach would need to increase the resolution of
-            the grid as fluid effects smaller than the size of a grid cell cannot be
-            accurately represented.</p>
-
-            <p>In contrast, the Eulerian approach can simulate large-scale effects
-            significantly faster as it only needs to maintain the one value per property in
-            each grid cell whereas the Lagrangian approach would need to simulate a large
-            quantity of particles to fill the each grid cell in order to produce the same
-            effect.</p>
-
-            <p>As a midground, there are <strong>hybrid models</strong> that use Eulerian grids overall with
-            Lagrangian particles near the surface where there many small-scale fluid
-            effects. Alternatively, non-uniform adaptively sampled grids can similarly
-            reduce the computational workload while maintaining high levels of resolution
-            where needed.</p>
-
-            <p>For the remainder of this article, we'll be focusing on the Eulerian approach
-            for incompressible fluids. This article can be seen as my abridged version of
-            Robert Bridson's notes / textbook<sup class="footnote-ref" id="fnref-bridson"><a href="#fn-bridson">2</a></sup> and draws some intuition and
-            ideas from Foster and Metaxas.<sup class="footnote-ref" id="fnref-metaxas"><a href="#fn-metaxas">3</a></sup></p>
-
-            <h2 id="notation">Notation</h2>
-
-            <p>Following the standard notation of fluid simulation texts and literature, we
-            denote velocity to be the vector \(\vec{u} = (u, v, w)\) whose components
-            correspond to the velocity components in the \(x, y, z\) directions
-            respectively. Pressure will be denoted as \(p\) and we'll denote any other
-            quantity we keep track of in the grid as \(q\).</p>
-
-            <p>We also define \(\rho\) to be the density of the fluid, \(\eta\) to be the
-            dynamic viscosity coefficient and \(\nu = \frac{\eta}{\rho}\) to be the
-            kinematic viscosity.</p>
-
-            <h2 id="behavior-of-fluid">Behavior of Fluid</h2>
-
-            <p>The first question we can ask ourselves is how do fluids behave? Or more
-            importantly, what forces control the behavior of fluids?</p>
-
-            <ul>
-            <li>The immediate answer would be <strong>gravity</strong> (as well as any other external
-            forces acting on the fluid) that exerts a downward force on the
-            fluid.<sup class="footnote-ref" id="fnref-gravity"><a href="#fn-gravity">1</a></sup></li>
-            <li>We also have <strong>pressure</strong> as fluids gradually move from areas of high pressure
-            to areas of low pressure.</li>
-            <li>And lastly, we have <strong>viscosity</strong> which resists deformation of the fluid.
-            Notice that if fluid moves uniformly locally, then that local region would not
-            have any deformation. Therefore, viscosity can be seen as a "force" that
-            resists non-uniform local movement.</li>
-            </ul>
-
-            <h2 id="material-derivative">Material Derivative</h2>
-
-            <p>Given that we're measuring quantities on the grid, we need to know how they
-            change in order to update their values. Namely, the question we want to answer
-            is what is the rate of change of a fluid property at a given location over time?</p>
-
-            <p>Naively, we would think that this would simply be the time derivative of the
-            fluid property, but this does not account for fluid movement. Imagine that at a
-            grid point \(x\), we have some fluid particles \(f^0\). After we advance one
-            time step in the simulation, barring zero velocity at \(x\), those fluid
-            particles should have moved to a new location and other fluid particles
-            \(f^1\) may have taken its place at \(x\). As a result, the value of the
-            measured fluid property at \(x\) is now that of the particles \(f^1\).</p>
-
-            <p>Combining both the time derivative of the property and the fluid flow, we obtain
-            the <strong>material derivative</strong>, denoted with a capital D, which is defined as
-            follows for a property \(q\) :</p>
-
-            <p>$$\frac{Dq}{Dt} = \frac{\partial q}{\partial t}
-                + u \frac{\partial q}{\partial x}
-                + v \frac{\partial q}{\partial y}
-                + w \frac{\partial q}{\partial z}$$</p>
-
-            <p>By multiplying the spatial derivatives of \(q\) with the fluid velocity, we
-            additional account for how \(q\) changes as fluid moves through the velocity
-            field \(\vec{u}\). We can also write this more succinctly as:</p>
-
-            <p>$$\frac{Dq}{Dt} = \frac{\partial q}{\partial t} + \vec{u} \cdot \nabla q$$</p>
-
-            <h2 id="putting-everything-together">Putting Everything Together</h2>
-
-            <p>Viewing the material derivative of velocity as acceleration, we want to see how
-            it's affected by the three "forces" we described earlier so that we can update
-            the velocity field every step.</p>
-
-            <ul>
-            <li>In the case of gravity, we accelerate the \(y\) component of \(\vec{u}\)
-            by the gravitational constant \(g\) as per usual.</li>
-            <li>For pressure, we want to have an acceleration applied to \(\vec{u}\) that
-            pushes it towards lower pressure regions. Looking a particular point, we have
-            that the gradient of the pressure yields the direction of steepest ascent. In
-            order to get desired descent direction, we simply have to negate it.</li>
-            <li>For viscosity, we want to resist large differences in velocity in local
-            regions. The <strong>Laplacian operator</strong>, \(\nabla^2\), does exactly that when
-            applied to the velocity field. See
-            <a href="#appendix-the-laplacian-operator">the appendix section</a> for intuition and
-            review of the Laplacian operator.</li>
-            </ul>
-
-            <p>To convert the pressure and viscosity into a force, we integrate these values
-            over the volume and the gravitational force is the usual, \(mg\). Putting
-            everything together, we have:</p>
-
-            <p>$$m\frac{D\vec{u}}{Dt} = - V \, \nabla p + mg + \eta V \, \nabla^2 \vec{u}$$</p>
-
-            <p>Dividing by volume and then by density, we are left with the first of the
-            <strong>Navier-Stokes equations</strong>:</p>
-
-            <p>$$\frac{D\vec{u}}{Dt} = - \frac{1}{\rho} \nabla p + g + \nu \nabla^2 \vec{u}$$</p>
-
-            <h2 id="incompressibility">Incompressibility</h2>
-
-            <p>The second of the Navier-Stokes equations deals with the <strong>incompressibility</strong>
-            constraint of fluids. Namely, we want to preserve the volume as we simulate it.
-            This boils down to wanting the amount of fluid that enters a given region to be
-            equal to the amount of fluid that leaves it.</p>
-
-            <p>Recalling calculus, this is equivalent to wanting the integral of the normal
-            component of the velocity over the boundary of any given region \(\Omega\) to
-            be zero:</p>
-
-            <p>$$\iint_{\partial\Omega}\vec{u}\cdot\hat{n} = 0$$</p>
-
-            <p>Using the fundamental theorem of calculus we have that:</p>
-
-            <p>$$\iiint_\Omega\nabla\cdot\vec{u} = 0$$</p>
-
-            <p>Since this has to hold for any region \(\Omega\), we have that:</p>
-
-            <p>$$\nabla\cdot\vec{u} = 0$$</p>
-
-            <h2 id="mac-grid">MAC Grid</h2>
-
-            <p>Imagine first that we put the velocity values in the center of the grid cells
-            and approximate the derivative with central differencing. Central differencing
-            is preferred over forwards or backwards differencing because it doesn't have a
-            left or right bias and the error term is \(O(n^2)\) rather than \(O(n)\).
-            However, it comes with a small problem:</p>
-
-            <p>$$u_i' \approx \frac{u_{i + 1} - u_{i - 1}}{2\Delta x}$$</p>
-
-            <p>Notice that in order to calculate the derivative at \(u_i\) we use only the
-            values of the adjacent values \(u_{i - 1}\) and \(u_{i + 1}\), but we ignore
-            the value at \(u_i\). As a result, this can lead to some bizarre artifacts and
-            behavior. In order to resolve this, we use the standard discretization via the
-            <strong>Marker-and-Cell grid</strong> popularized in Harlow and Welch in 1965.<sup class="footnote-ref" id="fnref-macgrid"><a href="#fn-macgrid">4</a></sup></p>
-
-            <p><img src="/static/media/notes/eulerian_fluid_sim/macgrid.png" alt="mac grid" /></p>
-
-            <figcaption class="figure" id="counter-ref-macgrid"><strong>Figure&nbsp;1</strong>: MAC Grid (from Bridson's notes)</figcaption>
-
-            <p>Notice how in Figure <a class="figure" href="#counter-ref-macgrid">1</a>, that the velocity values are placed on the
-            edges of the cells and the pressure values are placed in the center. By placing
-            the velocity values at the edges (denoted by the \(u_{i - \frac{1}{2}}\) for
-            the left edge and \(u_{i + \frac{1}{2}}\) for the right edge), we no longer
-            have the issue from before when taking the derivative at the center of the cell.
-            Namely:</p>
-
-            <p>$$u_i' \approx \frac{u_{i + \frac{1}{2}} - u_{i - \frac{1}{2}}}{\Delta x}$$</p>
-
-            <p>Notice how this does not have any missing values in between (as there we are not
-            keeping track of the value in the cell center, \(u_i\)). Should we want the
-            velocity at that location, we can simply interpolate the edge values.</p>
-
-            <p>When we compute the pressure gradient to update the velocity values, notice
-            that we can easily use central differencing at the edges since the pressure
-            values are kept at the cell centers.</p>
-
-            <h3 id="grid-cells">Grid Cells</h3>
-
-            <p>For the sake of simplicity, we'll categorize each of the cells as <strong>solid</strong>,
-            <strong>empty</strong>/<strong>air</strong>, or <strong>fluid</strong>. This limits us to having solids that perfectly
-            align with the grid cells and that all walls and boundaries perfectly align with
-            the axes.</p>
-
-            <h2 id="boundary-conditions">Boundary Conditions</h2>
-
-            <p>As with every set of differential equations, Eulerian fluid simulation has
-            several boundary conditions to consider, but the two basic requirements are the
-            boundary between fluid and air and the boundary between fluid and solids.</p>
-
-            <h3 id="fluid-air-boundary">Fluid-Air Boundary</h3>
-
-            <p>The boundary between fluid and air represents atmospheric effects as well as any
-            forces that result from wind or pressure differences. In general, air pressure
-            is so small that it has a negligible effect and we can just ignore it.</p>
-
-            <h3 id="fluid-solid-boundary-normal-component">Fluid-Solid Boundary (Normal Component)</h3>
-
-            <p>For the boundary between fluid and solids, we first look at the normal component
-            of the velocity field. For the 2D case, if the fluid is to the right or the left
-            of the solid, we're looking at the \(x\) component of the velocity vector. If
-            the fluid is above or below the solid, we're looking at the \(y\) component of
-            the velocity vector.</p>
-
-            <p>Since we don't want the fluid to enter the solid cells, we want the relative
-            normal velocity between the fluid and solid to be zero. Notice that we're
-            dealing with the relative velocity because if the solid is moving, the fluid
-            velocity of the fluid at their boundary can move up to the solid's velocity
-            without entering the solid cell.</p>
-
-            <p>Of course, if the solid is stationary, then we set the normal velocity to be
-            zero.</p>
-
-            <h3 id="fluid-solid-boundary-tangential-component">Fluid-Solid Boundary (Tangential Component)</h3>
-
-            <p>In addition, there is also the tangential component of the fluid velocity with
-            respect to the solid. In the 2D case, it's the non-normal direction and in the
-            3D case, it's both of the non-normal directions.</p>
-
-            <p>If we leave the tangential component alone, collisions will still not occur, and
-            the fluid can freely travel along the side of the solids. This is called a
-            <strong>free-slip boundary</strong>.</p>
-
-            <p>If we set the tangential component to zero, the fluid will completely halt upon
-            collision and this is called a <strong>no-slip boundary</strong>.</p>
-
-            <p>If the boundary is set to be between the free-slip and the no-slip boundary,
-            this is effectively the same as having a solid that's kind of sticky or one that
-            applies a friction force on the fluid that slows it down as it travels against
-            it.</p>
-
-            <h2 id="appendix-the-laplacian-operator">Appendix: The Laplacian Operator</h2>
-
-            <p>The Laplacian operator is typically written as \(\nabla^2\), but it is
-            equivalently defined as the divergence of the gradient, \(\nabla^2 f = \nabla
-            \cdot \nabla f\). It effectively computes how much a value varies from the
-            average value within a small neighborhood.</p>
-
-            <p>A simple way to understand what the Laplacian does is to look at its discrete
-            estimate:</p>
-
-            <p>$$\nabla^2 f(x, y) \approx \frac{f(x - h, y) + f(x + h, y) + f(x, y - h) + f(x, y + h) - 4 f(x, y)}{h^2}$$</p>
-
-            <p>Notice that when \(f(x, y)\) is more positive than its neighbors, the
-            Laplacian is a negative value and when it is more negative than its neighbors,
-            the Laplacian is a positive value. When it is close to its neighbors, the
-            Laplacian is then close to zero.</p>
-
-            <p>From this we can see that whenever the value at a given point is far away from
-            its neighbors, then the Laplacian at that point pushes it towards the average
-            value. As a result, this intuitively makes sense that it corresponds with the
-            viscosity when applied to the velocity field as it would nudge velocity values
-            towards the local average to increase local uniformity and therefore resist
-            deformation.</p>
-
-            <h2 id="next-time">Next Time</h2>
-
-            <p>In the next article in this series, we'll discuss how to update the state, solve
-            constraints, and render the fluid.</p>
-
-            <div class="footnotes">
-            <hr />
-            <ol>
-            <li id="fn-gravity">
-            <p>Granted for gas simulations we can drop gravity&#160;<a href="#fnref-gravity" class="footnoteBackLink" title="Jump back to footnote 1 in the text.">&#8617;</a></p>
-            </li>
-
-            <li id="fn-bridson">
-            <p>Robert Bridson's
-            <a href="https://www.cs.ubc.ca/~rbridson/fluidsimulation/fluids_notes.pdf">notes</a>
-            from an old SIGGRAPH conference.&#160;<a href="#fnref-bridson" class="footnoteBackLink" title="Jump back to footnote 2 in the text.">&#8617;</a></p>
-            </li>
-
-            <li id="fn-metaxas">
-            <p>Foster and Metaxas wrote
-            <a href="http://www.cbim.rutgers.edu/dmdocuments/gmip96%20Foster.pdf">this foundational paper</a>
-            in fluid simulation&#160;<a href="#fnref-metaxas" class="footnoteBackLink" title="Jump back to footnote 3 in the text.">&#8617;</a></p>
-            </li>
-
-            <li id="fn-macgrid">
-            <p>"Numerical calculation of time-dependent viscous incompressible flow
-            of fluid with a free surface". Can be read
-            <a href="https://www.cs.rpi.edu/~cutler/classes/advancedgraphics/S10/papers/harlow_welch.pdf">here</a>
-            in terrible imaged quality&#160;<a href="#fnref-macgrid" class="footnoteBackLink" title="Jump back to footnote 4 in the text.">&#8617;</a></p>
-            </li>
-            </ol>
-            </div>
-
-                </div>
-            </div>
+    
+<div class='card post-navigation-card'>
+    
+        <a class='newer-post post-navigation' href=/blog&#x2F;welcome&#x2F;><svg style="width:24px;height:24px" viewBox="0 0 24 24">
+            <path fill="currentColor" d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z" />
+        </svg>Newer Post</a>
+    
+    
+        <a class='older-post post-navigation' href=/about&#x2F;>Older Post<svg style="width:24px;height:24px" viewBox="0 0 24 24">
+            <path fill="currentColor" d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
+        </svg></a>
+    
 </div>
+<div class='card notes'>
+    <div class='card-header'>
+        <div class='card-title-container'>
+            <h1 class='card-title'>Eulerian Fluid Simulation [Part 1]</h1>
+            <div class='card-date-container'>
+                <span class='card-date'>Last Updated October 25, 2021 | 07:11 PM</span>
+            </div>
+        </div>
+        <div class='card-tag-container'>
+            
+                
+                    <svg class='card-tag-icon' style='width:24px;height:24px' viewBox='0 0 24 24'>
+                        <path d='M21.4 11.6L12.4 2.6C12 2.2 11.5 2 11 2H4C2.9 2 2 2.9 2 4V11C2 11.5 2.2 12 2.6 12.4L11.6 21.4C12 21.8 12.5 22 13 22C13.5 22 14 21.8 14.4 21.4L21.4 14.4C21.8 14 22 13.5 22 13C22 12.5 21.8 12 21.4 11.6M13 20L4 11V4H11L20 13M6.5 5C7.3 5 8 5.7 8 6.5S7.3 8 6.5 8 5 7.3 5 6.5 5.7 5 6.5 5M10.1 8.9L11.5 7.5L17 13L15.6 14.4L10.1 8.9M7.6 11.4L9 10L13 14L11.6 15.4L7.6 11.4Z' />
+                    </svg>
+                
+                <a class='card-tag primary-tag' href='/tag/note/1'>NOTE</a>
+            
+                
+                <a class='card-tag default-tag' href='/tag/fluid simulation/1'>FLUID SIMULATION</a>
+            
+                
+                <a class='card-tag default-tag' href='/tag/physical simulation/1'>PHYSICAL SIMULATION</a>
+            
+                
+                <a class='card-tag default-tag' href='/tag/computer graphics/1'>COMPUTER GRAPHICS</a>
+            
+        </div>
+    </div>
+    <div class='card-content'>
+        <h2>Eulerian vs Lagrangian Fluid Simulation</h2>
+<p>There are two main schools of thought for simulating fluids. The <strong>Lagrangian
+approach</strong> simulates a large number of particles to approximate fluid molecules
+whereas the <strong>Eulerian approach</strong> divides the simulation space into grid cells
+at which we keep track of different fluid properties such as velocity, pressure,
+and temperature.</p>
+<p>The Lagrangian approach can easily simulate small-scale effects since it
+measures properties of the fluid at each individual particle. To mimic this
+level of detail, the Eulerian approach would need to increase the resolution of
+the grid as fluid effects smaller than the size of a grid cell cannot be
+accurately represented.</p>
+<p>In contrast, the Eulerian approach can simulate large-scale effects
+significantly faster as it only needs to maintain the one value per property in
+each grid cell whereas the Lagrangian approach would need to simulate a large
+quantity of particles to fill the each grid cell in order to produce the same
+effect.</p>
+<p>As a midground, there are <strong>hybrid models</strong> that use Eulerian grids overall with
+Lagrangian particles near the surface where there many small-scale fluid
+effects. Alternatively, non-uniform adaptively sampled grids can similarly
+reduce the computational workload while maintaining high levels of resolution
+where needed.</p>
+<p>For the remainder of this article, we'll be focusing on the Eulerian approach
+for incompressible fluids. This article can be seen as my abridged version of
+Robert Bridson's notes / textbook<sup class="footnote-reference"><a href="#bridson">1</a></sup> and draws some intuition and
+ideas from Foster and Metaxas.<sup class="footnote-reference"><a href="#metaxas">2</a></sup></p>
+<h2>Notation</h2>
+<p>Following the standard notation of fluid simulation texts and literature, we
+denote velocity to be the vector \(\vec{u} = (u, v, w)\) whose components
+correspond to the velocity components in the \(x, y, z\) directions
+respectively. Pressure will be denoted as \(p\) and we'll denote any other
+quantity we keep track of in the grid as \(q\).</p>
+<p>We also define \(\rho\) to be the density of the fluid, \(\eta\) to be the
+dynamic viscosity coefficient and \(\nu = \frac{\eta}{\rho}\) to be the
+kinematic viscosity.</p>
+<h2>Behavior of Fluid</h2>
+<p>The first question we can ask ourselves is how do fluids behave? Or more
+importantly, what forces control the behavior of fluids?</p>
+<ul>
+<li>The immediate answer would be <strong>gravity</strong> (as well as any other external
+forces acting on the fluid) that exerts a downward force on the
+fluid.<sup class="footnote-reference"><a href="#gravity">3</a></sup></li>
+<li>We also have <strong>pressure</strong> as fluids gradually move from areas of high pressure
+to areas of low pressure.</li>
+<li>And lastly, we have <strong>viscosity</strong> which resists deformation of the fluid.
+Notice that if fluid moves uniformly locally, then that local region would not
+have any deformation. Therefore, viscosity can be seen as a &quot;force&quot; that
+resists non-uniform local movement.</li>
+</ul>
+<h2>Material Derivative</h2>
+<p>Given that we're measuring quantities on the grid, we need to know how they
+change in order to update their values. Namely, the question we want to answer
+is what is the rate of change of a fluid property at a given location over time?</p>
+<p>Naively, we would think that this would simply be the time derivative of the
+fluid property, but this does not account for fluid movement. Imagine that at a
+grid point \(x\), we have some fluid particles \(f^0\). After we advance one
+time step in the simulation, barring zero velocity at \(x\), those fluid
+particles should have moved to a new location and other fluid particles
+\(f^1\) may have taken its place at \(x\). As a result, the value of the
+measured fluid property at \(x\) is now that of the particles \(f^1\).</p>
+<p>Combining both the time derivative of the property and the fluid flow, we obtain
+the <strong>material derivative</strong>, denoted with a capital D, which is defined as
+follows for a property \(q\) :</p>
+<p>$$\frac{Dq}{Dt} = \frac{\partial q}{\partial t}
++ u \frac{\partial q}{\partial x}
++ v \frac{\partial q}{\partial y}
++ w \frac{\partial q}{\partial z}$$</p>
+<p>By multiplying the spatial derivatives of \(q\) with the fluid velocity, we
+additional account for how \(q\) changes as fluid moves through the velocity
+field \(\vec{u}\). We can also write this more succinctly as:</p>
+<p>$$\frac{Dq}{Dt} = \frac{\partial q}{\partial t} + \vec{u} \cdot \nabla q$$</p>
+<h2>Putting Everything Together</h2>
+<p>Viewing the material derivative of velocity as acceleration, we want to see how
+it's affected by the three &quot;forces&quot; we described earlier so that we can update
+the velocity field every step.</p>
+<ul>
+<li>In the case of gravity, we accelerate the \(y\) component of \(\vec{u}\)
+by the gravitational constant \(g\) as per usual.</li>
+<li>For pressure, we want to have an acceleration applied to \(\vec{u}\) that
+pushes it towards lower pressure regions. Looking a particular point, we have
+that the gradient of the pressure yields the direction of steepest ascent. In
+order to get desired descent direction, we simply have to negate it.</li>
+<li>For viscosity, we want to resist large differences in velocity in local
+regions. The <strong>Laplacian operator</strong>, \(\nabla^2\), does exactly that when
+applied to the velocity field. See
+<a href="#appendix-the-laplacian-operator">the appendix section</a> for intuition and
+review of the Laplacian operator.</li>
+</ul>
+<p>To convert the pressure and viscosity into a force, we integrate these values
+over the volume and the gravitational force is the usual, \(mg\). Putting
+everything together, we have:</p>
+<p>$$m\frac{D\vec{u}}{Dt} = - V , \nabla p + mg + \eta V , \nabla^2 \vec{u}$$</p>
+<p>Dividing by volume and then by density, we are left with the first of the
+<strong>Navier-Stokes equations</strong>:</p>
+<p>$$\frac{D\vec{u}}{Dt} = - \frac{1}{\rho} \nabla p + g + \nu \nabla^2 \vec{u}$$</p>
+<h2>Incompressibility</h2>
+<p>The second of the Navier-Stokes equations deals with the <strong>incompressibility</strong>
+constraint of fluids. Namely, we want to preserve the volume as we simulate it.
+This boils down to wanting the amount of fluid that enters a given region to be
+equal to the amount of fluid that leaves it.</p>
+<p>Recalling calculus, this is equivalent to wanting the integral of the normal
+component of the velocity over the boundary of any given region \(\Omega\) to
+be zero:</p>
+<p>$$\iint_{\partial\Omega}\vec{u}\cdot\hat{n} = 0$$</p>
+<p>Using the fundamental theorem of calculus we have that:</p>
+<p>$$\iiint_\Omega\nabla\cdot\vec{u} = 0$$</p>
+<p>Since this has to hold for any region \(\Omega\), we have that:</p>
+<p>$$\nabla\cdot\vec{u} = 0$$</p>
+<h2>MAC Grid</h2>
+<p>Imagine first that we put the velocity values in the center of the grid cells
+and approximate the derivative with central differencing. Central differencing
+is preferred over forwards or backwards differencing because it doesn't have a
+left or right bias and the error term is \(O(n^2)\) rather than \(O(n)\).
+However, it comes with a small problem:</p>
+<p>$$u_i' \approx \frac{u_{i + 1} - u_{i - 1}}{2\Delta x}$$</p>
+<p>Notice that in order to calculate the derivative at \(u_i\) we use only the
+values of the adjacent values \(u_{i - 1}\) and \(u_{i + 1}\), but we ignore
+the value at \(u_i\). As a result, this can lead to some bizarre artifacts and
+behavior. In order to resolve this, we use the standard discretization via the
+<strong>Marker-and-Cell grid</strong> popularized in Harlow and Welch in 1965.<sup class="footnote-reference"><a href="#macgrid">4</a></sup></p>
+<p><img src="/static/media/notes/eulerian_fluid_sim/macgrid.png" alt="mac grid" />
+[#figure <strong>Figure @macgrid</strong>: MAC Grid (from Bridson's notes)]</p>
+<p>Notice how in Figure [@macgrid], that the velocity values are placed on the
+edges of the cells and the pressure values are placed in the center. By placing
+the velocity values at the edges (denoted by the \(u_{i - \frac{1}{2}}\) for
+the left edge and \(u_{i + \frac{1}{2}}\) for the right edge), we no longer
+have the issue from before when taking the derivative at the center of the cell.
+Namely:</p>
+<p>$$u_i' \approx \frac{u_{i + \frac{1}{2}} - u_{i - \frac{1}{2}}}{\Delta x}$$</p>
+<p>Notice how this does not have any missing values in between (as there we are not
+keeping track of the value in the cell center, \(u_i\)). Should we want the
+velocity at that location, we can simply interpolate the edge values.</p>
+<p>When we compute the pressure gradient to update the velocity values, notice
+that we can easily use central differencing at the edges since the pressure
+values are kept at the cell centers.</p>
+<h3>Grid Cells</h3>
+<p>For the sake of simplicity, we'll categorize each of the cells as <strong>solid</strong>,
+<strong>empty</strong>/<strong>air</strong>, or <strong>fluid</strong>. This limits us to having solids that perfectly
+align with the grid cells and that all walls and boundaries perfectly align with
+the axes.</p>
+<h2>Boundary Conditions</h2>
+<p>As with every set of differential equations, Eulerian fluid simulation has
+several boundary conditions to consider, but the two basic requirements are the
+boundary between fluid and air and the boundary between fluid and solids.</p>
+<h3>Fluid-Air Boundary</h3>
+<p>The boundary between fluid and air represents atmospheric effects as well as any
+forces that result from wind or pressure differences. In general, air pressure
+is so small that it has a negligible effect and we can just ignore it.</p>
+<h3>Fluid-Solid Boundary (Normal Component)</h3>
+<p>For the boundary between fluid and solids, we first look at the normal component
+of the velocity field. For the 2D case, if the fluid is to the right or the left
+of the solid, we're looking at the \(x\) component of the velocity vector. If
+the fluid is above or below the solid, we're looking at the \(y\) component of
+the velocity vector.</p>
+<p>Since we don't want the fluid to enter the solid cells, we want the relative
+normal velocity between the fluid and solid to be zero. Notice that we're
+dealing with the relative velocity because if the solid is moving, the fluid
+velocity of the fluid at their boundary can move up to the solid's velocity
+without entering the solid cell.</p>
+<p>Of course, if the solid is stationary, then we set the normal velocity to be
+zero.</p>
+<h3>Fluid-Solid Boundary (Tangential Component)</h3>
+<p>In addition, there is also the tangential component of the fluid velocity with
+respect to the solid. In the 2D case, it's the non-normal direction and in the
+3D case, it's both of the non-normal directions.</p>
+<p>If we leave the tangential component alone, collisions will still not occur, and
+the fluid can freely travel along the side of the solids. This is called a
+<strong>free-slip boundary</strong>.</p>
+<p>If we set the tangential component to zero, the fluid will completely halt upon
+collision and this is called a <strong>no-slip boundary</strong>.</p>
+<p>If the boundary is set to be between the free-slip and the no-slip boundary,
+this is effectively the same as having a solid that's kind of sticky or one that
+applies a friction force on the fluid that slows it down as it travels against
+it.</p>
+<h2>Appendix: The Laplacian Operator</h2>
+<p>The Laplacian operator is typically written as \(\nabla^2\), but it is
+equivalently defined as the divergence of the gradient, \(\nabla^2 f = \nabla
+\cdot \nabla f\). It effectively computes how much a value varies from the
+average value within a small neighborhood.</p>
+<p>A simple way to understand what the Laplacian does is to look at its discrete
+estimate:</p>
+<p>$$\nabla^2 f(x, y) \approx \frac{f(x - h, y) + f(x + h, y) + f(x, y - h) + f(x, y + h) - 4 f(x, y)}{h^2}$$</p>
+<p>Notice that when \(f(x, y)\) is more positive than its neighbors, the
+Laplacian is a negative value and when it is more negative than its neighbors,
+the Laplacian is a positive value. When it is close to its neighbors, the
+Laplacian is then close to zero.</p>
+<p>From this we can see that whenever the value at a given point is far away from
+its neighbors, then the Laplacian at that point pushes it towards the average
+value. As a result, this intuitively makes sense that it corresponds with the
+viscosity when applied to the velocity field as it would nudge velocity values
+towards the local average to increase local uniformity and therefore resist
+deformation.</p>
+<h2>Next Time</h2>
+<p>In the next article in this series, we'll discuss how to update the state, solve
+constraints, and render the fluid.</p>
+<div class="footnote-definition" id="bridson"><sup class="footnote-definition-label">1</sup>
+<p>Robert Bridson's
+<a href="https://www.cs.ubc.ca/%7Erbridson/fluidsimulation/fluids_notes.pdf">notes</a>
+from an old SIGGRAPH conference.
+<sup class="footnote-reference"><a href="#metaxas">2</a></sup>: Foster and Metaxas wrote
+<a href="http://www.cbim.rutgers.edu/dmdocuments/gmip96%20Foster.pdf">this foundational paper</a>
+in fluid simulation
+<sup class="footnote-reference"><a href="#gravity">3</a></sup>: Granted for gas simulations we can drop gravity
+<sup class="footnote-reference"><a href="#macgrid">4</a></sup>: &quot;Numerical calculation of time-dependent viscous incompressible flow
+of fluid with a free surface&quot;. Can be read
+<a href="https://www.cs.rpi.edu/%7Ecutler/classes/advancedgraphics/S10/papers/harlow_welch.pdf">here</a>
+in terrible imaged quality</p>
+</div>
+
+    </div>
+</div>
+
+</div>
+
 
     </body>
 </html>

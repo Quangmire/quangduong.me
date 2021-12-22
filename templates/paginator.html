@@ -9,7 +9,7 @@
                     <path fill="currentColor" d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z" />
                 </svg></span>
             {%- else -%}
-                {%- if tag is defined -%}
+                {%- if pagination.tag | length > 0 -%}
                     <a class='paginate' href='{{ path }}/1'><svg style="width:24px;height:24px" viewBox="0 0 24 24">
                         <path fill="currentColor" d="M18.41,7.41L17,6L11,12L17,18L18.41,16.59L13.83,12L18.41,7.41M12.41,7.41L11,6L5,12L11,18L12.41,16.59L7.83,12L12.41,7.41Z" />
                     </svg></a><a class='paginate' href='{{ path }}/{{ cur_page - 1 }}'><svg style="width:24px;height:24px" viewBox="0 0 24 24">
@@ -33,7 +33,7 @@
             {%- endif -%}
 
             {% for page in pages -%}
-                {%- if page == '.' -%}
+                {%- if page == 0 -%}
                     <span class='paginate paginate-ellipsis'><svg style="width:24px;height:24px" viewBox="0 0 24 24">
                         <path fill="currentColor" d="M16,12A2,2 0 0,1 18,10A2,2 0 0,1 20,12A2,2 0 0,1 18,14A2,2 0 0,1 16,12M10,12A2,2 0 0,1 12,10A2,2 0 0,1 14,12A2,2 0 0,1 12,14A2,2 0 0,1 10,12M4,12A2,2 0 0,1 6,10A2,2 0 0,1 8,12A2,2 0 0,1 6,14A2,2 0 0,1 4,12Z" />
                     </svg></span>

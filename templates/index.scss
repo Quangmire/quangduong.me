@@ -506,27 +506,6 @@ a:focus, a:hover {
         list-style: none;
     }
 
-    .card-revision-container {
-        margin-top: -0.5rem;
-        padding: 0 1rem 1rem 1rem;
-        font-weight: bold;
-
-        .card-revision {
-            padding: 0.25rem;
-            border-radius: 0.1rem;
-        }
-
-        a.card-revision {
-            background: $zero-primary;
-            color: $zero-secondary;
-        }
-
-        span.card-revision {
-            background: $plus20-primary;
-            color: $plus20-secondary;
-        }
-    }
-
     .card-read-more {
         display: flex;
         align-items: center;

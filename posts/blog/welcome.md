@@ -1,7 +1,7 @@
 title: "Welcome"
 path: "blog/welcome"
 card_title: "Hello there, welcome to my blog!"
-card_date: "October 27, 2021 | 1:51 AM"
+card_date: "October 27, 2021 | 01:51 AM"
 card_tags:
 - "blog"
 - "first-post"

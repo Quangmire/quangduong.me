@@ -150,7 +150,7 @@
         </div>
     </div>
     <div class='card-content'>
-        <h2>Eulerian vs Lagrangian Fluid Simulation</h2>
+        <h2 id="eulerian-vs-lagrangian-fluid-simulation">Eulerian vs Lagrangian Fluid Simulation</h2>
 <p>There are two main schools of thought for simulating fluids. The <strong>Lagrangian
 approach</strong> simulates a large number of particles to approximate fluid molecules
 whereas the <strong>Eulerian approach</strong> divides the simulation space into grid cells
@@ -173,9 +173,9 @@ reduce the computational workload while maintaining high levels of resolution
 where needed.</p>
 <p>For the remainder of this article, we'll be focusing on the Eulerian approach
 for incompressible fluids. This article can be seen as my abridged version of
-Robert Bridson's notes / textbook<sup class="footnote-reference"><a href="#bridson">1</a></sup> and draws some intuition and
-ideas from Foster and Metaxas.<sup class="footnote-reference"><a href="#metaxas">2</a></sup></p>
-<h2>Notation</h2>
+Robert Bridson's notes / textbook<sup class="footnote-reference" id="bridson-fn"><a href="#bridson-fn-def">1</a></sup> and draws some intuition and
+ideas from Foster and Metaxas.<sup class="footnote-reference" id="metaxas-fn"><a href="#metaxas-fn-def">2</a></sup></p>
+<h2 id="notation">Notation</h2>
 <p>Following the standard notation of fluid simulation texts and literature, we
 denote velocity to be the vector \(\vec{u} = (u, v, w)\) whose components
 correspond to the velocity components in the \(x, y, z\) directions
@@ -184,13 +184,13 @@ quantity we keep track of in the grid as \(q\).</p>
 <p>We also define \(\rho\) to be the density of the fluid, \(\eta\) to be the
 dynamic viscosity coefficient and \(\nu = \frac{\eta}{\rho}\) to be the
 kinematic viscosity.</p>
-<h2>Behavior of Fluid</h2>
+<h2 id="behavior-of-fluid">Behavior of Fluid</h2>
 <p>The first question we can ask ourselves is how do fluids behave? Or more
 importantly, what forces control the behavior of fluids?</p>
 <ul>
 <li>The immediate answer would be <strong>gravity</strong> (as well as any other external
 forces acting on the fluid) that exerts a downward force on the
-fluid.<sup class="footnote-reference"><a href="#gravity">3</a></sup></li>
+fluid.<sup class="footnote-reference" id="gravity-fn"><a href="#gravity-fn-def">3</a></sup></li>
 <li>We also have <strong>pressure</strong> as fluids gradually move from areas of high pressure
 to areas of low pressure.</li>
 <li>And lastly, we have <strong>viscosity</strong> which resists deformation of the fluid.
@@ -198,7 +198,7 @@ Notice that if fluid moves uniformly locally, then that local region would not
 have any deformation. Therefore, viscosity can be seen as a &quot;force&quot; that
 resists non-uniform local movement.</li>
 </ul>
-<h2>Material Derivative</h2>
+<h2 id="material-derivative">Material Derivative</h2>
 <p>Given that we're measuring quantities on the grid, we need to know how they
 change in order to update their values. Namely, the question we want to answer
 is what is the rate of change of a fluid property at a given location over time?</p>
@@ -220,7 +220,7 @@ follows for a property \(q\) :</p>
 additional account for how \(q\) changes as fluid moves through the velocity
 field \(\vec{u}\). We can also write this more succinctly as:</p>
 <p>$$\frac{Dq}{Dt} = \frac{\partial q}{\partial t} + \vec{u} \cdot \nabla q$$</p>
-<h2>Putting Everything Together</h2>
+<h2 id="putting-everything-together">Putting Everything Together</h2>
 <p>Viewing the material derivative of velocity as acceleration, we want to see how
 it's affected by the three &quot;forces&quot; we described earlier so that we can update
 the velocity field every step.</p>
@@ -244,7 +244,7 @@ everything together, we have:</p>
 <p>Dividing by volume and then by density, we are left with the first of the
 <strong>Navier-Stokes equations</strong>:</p>
 <p>$$\frac{D\vec{u}}{Dt} = - \frac{1}{\rho} \nabla p + g + \nu \nabla^2 \vec{u}$$</p>
-<h2>Incompressibility</h2>
+<h2 id="incompressibility">Incompressibility</h2>
 <p>The second of the Navier-Stokes equations deals with the <strong>incompressibility</strong>
 constraint of fluids. Namely, we want to preserve the volume as we simulate it.
 This boils down to wanting the amount of fluid that enters a given region to be
@@ -257,7 +257,7 @@ be zero:</p>
 <p>$$\iiint_\Omega\nabla\cdot\vec{u} = 0$$</p>
 <p>Since this has to hold for any region \(\Omega\), we have that:</p>
 <p>$$\nabla\cdot\vec{u} = 0$$</p>
-<h2>MAC Grid</h2>
+<h2 id="mac-grid">MAC Grid</h2>
 <p>Imagine first that we put the velocity values in the center of the grid cells
 and approximate the derivative with central differencing. Central differencing
 is preferred over forwards or backwards differencing because it doesn't have a
@@ -268,10 +268,9 @@ However, it comes with a small problem:</p>
 values of the adjacent values \(u_{i - 1}\) and \(u_{i + 1}\), but we ignore
 the value at \(u_i\). As a result, this can lead to some bizarre artifacts and
 behavior. In order to resolve this, we use the standard discretization via the
-<strong>Marker-and-Cell grid</strong> popularized in Harlow and Welch in 1965.<sup class="footnote-reference"><a href="#macgrid">4</a></sup></p>
-<p><img src="/static/media/notes/eulerian_fluid_sim/macgrid.png" alt="mac grid" />
-[#figure <strong>Figure @macgrid</strong>: MAC Grid (from Bridson's notes)]</p>
-<p>Notice how in Figure [@macgrid], that the velocity values are placed on the
+<strong>Marker-and-Cell grid</strong> popularized in Harlow and Welch in 1965.<sup class="footnote-reference" id="macgrid-fn"><a href="#macgrid-fn-def">4</a></sup></p>
+<p><img src="/static/media/notes/eulerian_fluid_sim/macgrid.png" alt="MAC Grid (from Bridson's notes)" /><figcaption id="fig_macgrid" class="figure"><strong>Figure 1</strong>:MAC Grid (from Bridson's notes)</figcaption></p>
+<p>Notice how in Figure <a href="#fig_macgrid">1</a>, that the velocity values are placed on the
 edges of the cells and the pressure values are placed in the center. By placing
 the velocity values at the edges (denoted by the \(u_{i - \frac{1}{2}}\) for
 the left edge and \(u_{i + \frac{1}{2}}\) for the right edge), we no longer
@@ -284,20 +283,20 @@ velocity at that location, we can simply interpolate the edge values.</p>
 <p>When we compute the pressure gradient to update the velocity values, notice
 that we can easily use central differencing at the edges since the pressure
 values are kept at the cell centers.</p>
-<h3>Grid Cells</h3>
+<h3 id="grid-cells">Grid Cells</h3>
 <p>For the sake of simplicity, we'll categorize each of the cells as <strong>solid</strong>,
 <strong>empty</strong>/<strong>air</strong>, or <strong>fluid</strong>. This limits us to having solids that perfectly
 align with the grid cells and that all walls and boundaries perfectly align with
 the axes.</p>
-<h2>Boundary Conditions</h2>
+<h2 id="boundary-conditions">Boundary Conditions</h2>
 <p>As with every set of differential equations, Eulerian fluid simulation has
 several boundary conditions to consider, but the two basic requirements are the
 boundary between fluid and air and the boundary between fluid and solids.</p>
-<h3>Fluid-Air Boundary</h3>
+<h3 id="fluid-air-boundary">Fluid-Air Boundary</h3>
 <p>The boundary between fluid and air represents atmospheric effects as well as any
 forces that result from wind or pressure differences. In general, air pressure
 is so small that it has a negligible effect and we can just ignore it.</p>
-<h3>Fluid-Solid Boundary (Normal Component)</h3>
+<h3 id="fluid-solid-boundary-normal-component">Fluid-Solid Boundary (Normal Component)</h3>
 <p>For the boundary between fluid and solids, we first look at the normal component
 of the velocity field. For the 2D case, if the fluid is to the right or the left
 of the solid, we're looking at the \(x\) component of the velocity vector. If
@@ -310,7 +309,7 @@ velocity of the fluid at their boundary can move up to the solid's velocity
 without entering the solid cell.</p>
 <p>Of course, if the solid is stationary, then we set the normal velocity to be
 zero.</p>
-<h3>Fluid-Solid Boundary (Tangential Component)</h3>
+<h3 id="fluid-solid-boundary-tangential-component">Fluid-Solid Boundary (Tangential Component)</h3>
 <p>In addition, there is also the tangential component of the fluid velocity with
 respect to the solid. In the 2D case, it's the non-normal direction and in the
 3D case, it's both of the non-normal directions.</p>
@@ -323,7 +322,7 @@ collision and this is called a <strong>no-slip boundary</strong>.</p>
 this is effectively the same as having a solid that's kind of sticky or one that
 applies a friction force on the fluid that slows it down as it travels against
 it.</p>
-<h2>Appendix: The Laplacian Operator</h2>
+<h2 id="appendix-the-laplacian-operator">Appendix: The Laplacian Operator</h2>
 <p>The Laplacian operator is typically written as \(\nabla^2\), but it is
 equivalently defined as the divergence of the gradient, \(\nabla^2 f = \nabla
 \cdot \nabla f\). It effectively computes how much a value varies from the
@@ -341,23 +340,21 @@ value. As a result, this intuitively makes sense that it corresponds with the
 viscosity when applied to the velocity field as it would nudge velocity values
 towards the local average to increase local uniformity and therefore resist
 deformation.</p>
-<h2>Next Time</h2>
+<h2 id="next-time">Next Time</h2>
 <p>In the next article in this series, we'll discuss how to update the state, solve
 constraints, and render the fluid.</p>
-<div class="footnote-definition" id="bridson"><sup class="footnote-definition-label">1</sup>
-<p>Robert Bridson's
+<div class="footnotes"><hr><ol>
+<li class="footnote-definition" id="bridson-fn-def"> Robert Bridson's
 <a href="https://www.cs.ubc.ca/%7Erbridson/fluidsimulation/fluids_notes.pdf">notes</a>
-from an old SIGGRAPH conference.
-<sup class="footnote-reference"><a href="#metaxas">2</a></sup>: Foster and Metaxas wrote
+from an old SIGGRAPH conference. <a href="#bridson-fn">↩</a>
+<li class="footnote-definition" id="metaxas-fn-def"> Foster and Metaxas wrote
 <a href="http://www.cbim.rutgers.edu/dmdocuments/gmip96%20Foster.pdf">this foundational paper</a>
-in fluid simulation
-<sup class="footnote-reference"><a href="#gravity">3</a></sup>: Granted for gas simulations we can drop gravity
-<sup class="footnote-reference"><a href="#macgrid">4</a></sup>: &quot;Numerical calculation of time-dependent viscous incompressible flow
+in fluid simulation <a href="#metaxas-fn">↩</a>
+<li class="footnote-definition" id="gravity-fn-def"> Granted for gas simulations we can drop gravity <a href="#gravity-fn">↩</a>
+<li class="footnote-definition" id="macgrid-fn-def"> &quot;Numerical calculation of time-dependent viscous incompressible flow
 of fluid with a free surface&quot;. Can be read
 <a href="https://www.cs.rpi.edu/%7Ecutler/classes/advancedgraphics/S10/papers/harlow_welch.pdf">here</a>
-in terrible imaged quality</p>
-</div>
-
+in terrible imaged quality <a href="#macgrid-fn">↩</a>
     </div>
 </div>
 

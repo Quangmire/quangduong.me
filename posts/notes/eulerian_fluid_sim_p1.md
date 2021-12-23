@@ -167,10 +167,9 @@ the value at \\(u_i\\). As a result, this can lead to some bizarre artifacts and
 behavior. In order to resolve this, we use the standard discretization via the
 **Marker-and-Cell grid** popularized in Harlow and Welch in 1965.[^macgrid]
 
-![mac grid](/static/media/notes/eulerian_fluid_sim/macgrid.png)
-[#figure <strong>Figure&nbsp;@macgrid</strong>: MAC Grid (from Bridson's notes)]
+![fig_macgrid||MAC Grid (from Bridson's notes)](/static/media/notes/eulerian_fluid_sim/macgrid.png)
 
-Notice how in Figure [@macgrid], that the velocity values are placed on the
+Notice how in Figure [fig_macgrid](#fig_macgrid), that the velocity values are placed on the
 edges of the cells and the pressure values are placed in the center. By placing
 the velocity values at the edges (denoted by the \\(u_{i - \frac{1}{2}}\\) for
 the left edge and \\(u_{i + \frac{1}{2}}\\) for the right edge), we no longer
@@ -273,10 +272,13 @@ constraints, and render the fluid.
 [^bridson]: Robert Bridson's
     [notes](https://www.cs.ubc.ca/~rbridson/fluidsimulation/fluids_notes.pdf)
     from an old SIGGRAPH conference.
+
 [^metaxas]: Foster and Metaxas wrote
     [this foundational paper](http://www.cbim.rutgers.edu/dmdocuments/gmip96%20Foster.pdf)
     in fluid simulation
+
 [^gravity]: Granted for gas simulations we can drop gravity
+
 [^macgrid]: "Numerical calculation of time-dependent viscous incompressible flow
     of fluid with a free surface". Can be read
     [here](https://www.cs.rpi.edu/~cutler/classes/advancedgraphics/S10/papers/harlow_welch.pdf)

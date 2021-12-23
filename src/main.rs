@@ -10,11 +10,13 @@ use tera::{Tera, Context};
 use fs_extra::dir::{copy as dir_copy, CopyOptions};
 use grass;
 use walkdir::WalkDir;
-use pulldown_cmark::{Parser, Options, html};
+//use pulldown_cmark::{Parser, Options, html};
+use pulldown_cmark::{Parser, Options};
 use serde_yaml::from_str;
 
 mod cli;
 mod context;
+mod html;
 use cli::{CLIArgs,parse_args};
 use context::{PostMetaData, PostData, page_not_found, generate_post, generate_multipost, generate_archive};
 

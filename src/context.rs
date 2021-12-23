@@ -47,7 +47,7 @@ pub struct Base {
 }
 
 #[derive(Serialize)]
-pub struct Post {
+pub struct Post<'a> {
     base: Base,
     tags: Vec<Tag>,
     title: String,
@@ -55,7 +55,7 @@ pub struct Post {
     class: String,
     newer_path: String,
     older_path: String,
-    content: String,
+    content: &'a str,
 }
 
 #[derive(Serialize)]
@@ -151,7 +151,7 @@ pub fn generate_post(post: &PostData, older_post: Option<String>, newer_post: Op
             Some(s) => s,
             None => "".to_string(),
         },
-        content: post.html.clone(),
+        content: &post.html,
     }
 }
 

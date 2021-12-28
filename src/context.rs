@@ -24,133 +24,127 @@ pub struct PostData {
 }
 
 #[derive(Serialize)]
-pub struct Tag {
-    class: String,
-    name: String,
+pub struct Tag<'a> {
+    class: &'a str,
+    name: &'a str,
 }
 
 #[derive(Serialize)]
-pub struct ArchiveTag {
-    class: String,
-    name: String,
+pub struct ArchiveTag<'a> {
+    class: &'a str,
+    name: &'a str,
     num: usize,
 }
 
 #[derive(Serialize)]
-pub struct Base {
+pub struct Base<'a> {
     // base.html
-    summary: String,
+    summary: &'a str,
     needs_latex: bool,
 
     // navbar_base.html
-    title: String,
+    title: &'a str,
 }
 
 #[derive(Serialize)]
 pub struct Post<'a> {
-    base: Base,
-    tags: Vec<Tag>,
-    title: String,
-    date: String,
-    class: String,
-    newer_path: String,
-    older_path: String,
+    base: Base<'a>,
+    tags: Vec<Tag<'a>>,
+    title: &'a str,
+    date: &'a str,
+    class: &'a str,
+    newer_path: &'a str,
+    older_path: &'a str,
     content: &'a str,
 }
 
 #[derive(Serialize)]
-pub struct Pagination {
-    path: String,
-    tag: String,
+pub struct Pagination<'a> {
+    path: &'a str,
+    tag: &'a str,
     cur_page: usize,
     pages: Vec<usize>,
     num_pages: usize,
 }
 
 #[derive(Serialize)]
-pub struct SummaryCard {
-    path: String,
-    title: String,
-    date: String,
-    tags: Vec<Tag>,
-    summary: String,
+pub struct SummaryCard<'a> {
+    path: &'a str,
+    title: &'a str,
+    date: &'a str,
+    tags: Vec<Tag<'a>>,
+    summary: &'a str,
 }
 
 #[derive(Serialize)]
-pub struct MultiPost {
-    base: Base,
-    pagination: Pagination,
-    summary_cards: Vec<SummaryCard>,
-    page_title: String,
-    header_card: String,
+pub struct MultiPost<'a> {
+    base: Base<'a>,
+    pagination: Pagination<'a>,
+    summary_cards: Vec<SummaryCard<'a>>,
+    page_title: &'a str,
+    header_card: &'a str,
 }
 
 #[derive(Serialize)]
-pub struct ArchivePost {
-    title: String,
-    path: String,
-    year: String,
-    month: String,
+pub struct ArchivePost<'a> {
+    title: &'a str,
+    path: &'a str,
+    year: &'a str,
+    month: &'a str,
 }
 
 #[derive(Serialize)]
-pub struct Archive {
-    base: Base,
-    tags: Vec<ArchiveTag>,
-    posts: Vec<ArchivePost>,
+pub struct Archive<'a> {
+    base: Base<'a>,
+    tags: Vec<ArchiveTag<'a>>,
+    posts: Vec<ArchivePost<'a>>,
 }
 
 #[derive(Serialize)]
-pub struct PageNotFound {
-    base: Base
+pub struct PageNotFound<'a> {
+    base: Base<'a>
 }
 
 fn is_primary(tag: &str) -> bool {
     tag == "blog" || tag == "projects" || tag == "notes" || tag == "note" || tag == "about"
 }
 
-fn tag_class(tag: &str) -> String {
+fn tag_class(tag: &str) -> &str {
     if is_primary(tag) {
-        String::from("primary-tag")
+        "primary-tag"
     } else {
-        String::from("default-tag")
+        "default-tag"
     }
 }
 
-pub fn page_not_found() -> PageNotFound {
+pub fn page_not_found<'a>() -> PageNotFound<'a> {
     PageNotFound {
         base: Base {
-            summary: "404 - Page Not Found".to_string(),
+            summary: "404 - Page Not Found",
             needs_latex: false,
-            title: "".to_string(),
+            title: "",
         }
     }
 }
 
-pub fn generate_post(post: &PostData, older_post: Option<String>, newer_post: Option<String>) -> Post {
+pub fn generate_post<'a>(post: &'a PostData, older_post: &'a str, newer_post: &'a str) -> Post<'a> {
     Post {
         base: Base {
-            summary: post.metadata.summary.clone(),
-            needs_latex: post.needs_latex.clone(),
-            title: post.metadata.title.clone(),
+            summary: &post.metadata.summary,
+            needs_latex: post.needs_latex,
+            title: &post.metadata.title,
         },
         tags: post.metadata.card_tags.iter().map(|name| 
             Tag {
                 class: tag_class(name),
-                name: name.to_string(),
+                name: name,
             }
         ).collect(),
-        title: post.metadata.card_title.clone(),
-        class: post.metadata.card_class.clone(),
-        date: post.metadata.card_date.clone(),
-        newer_path: match newer_post {
-            Some(s) => s,
-            None => "".to_string(),
-        },
-        older_path: match older_post {
-            Some(s) => s,
-            None => "".to_string(),
-        },
+        title: &post.metadata.card_title,
+        class: &post.metadata.card_class,
+        date: &post.metadata.card_date,
+        newer_path: newer_post,
+        older_path: older_post,
         content: &post.html,
     }
 }
@@ -196,11 +190,11 @@ fn compute_current_paginate(cur_page: usize, num_pages: usize) -> Vec<usize> {
     pages
 }
 
-pub fn generate_multipost(
-        post_data: &Vec<&PostData>,
-        multipost_summary: String, multipost_title: String, multipost_header: String,
-        pagination_path: String, pagination_tag: String
-        ) -> Vec<MultiPost> {
+pub fn generate_multipost<'a>(
+        post_data: &'a Vec<&PostData>,
+        multipost_summary: &'a str, multipost_title: &'a str, multipost_header: &'a str,
+        pagination_path: &'a str, pagination_tag: &'a str
+        ) -> Vec<MultiPost<'a>> {
     let mut data = Vec::new();
 
     let mut cur_page_num = 1;
@@ -211,33 +205,33 @@ pub fn generate_multipost(
         let end_post = min(start_post + 5, post_data.len());
         data.push(MultiPost {
             base: Base {
-                summary: multipost_summary.clone(),
+                summary: multipost_summary,
                 needs_latex: false,
-                title: multipost_title.clone(),
+                title: multipost_title,
             },
             pagination: Pagination {
-                path: pagination_path.clone(),
-                tag: pagination_tag.clone(),
+                path: pagination_path,
+                tag: pagination_tag,
                 cur_page: cur_page_num,
-                pages: pages.clone(),
+                pages: pages,
                 num_pages: num_pages,
             },
             summary_cards: (start_post..end_post).into_iter().map(|page|
                 SummaryCard {
-                    path: post_data[page].metadata.path.clone(),
-                    title: post_data[page].metadata.card_title.clone(),
-                    date: post_data[page].metadata.card_date.clone(),
+                    path: &post_data[page].metadata.path,
+                    title: &post_data[page].metadata.card_title,
+                    date: &post_data[page].metadata.card_date,
                     tags: post_data[page].metadata.card_tags.iter().map(|name| 
                         Tag {
                             class: tag_class(name),
-                            name: name.to_string(),
+                            name: name,
                         }
                     ).collect(),
-                    summary: post_data[page].metadata.summary.clone(),
+                    summary: &post_data[page].metadata.summary,
                 },
             ).collect(),
-            page_title: multipost_title.clone(),
-            header_card: multipost_header.clone(),
+            page_title: multipost_title,
+            header_card: multipost_header,
         });
         cur_page_num += 1;
     }
@@ -245,7 +239,7 @@ pub fn generate_multipost(
     data
 }
 
-pub fn generate_archive(post_data: &Vec<&PostData>, tag_counts: &HashMap<&String, usize>) -> Archive {
+pub fn generate_archive<'a>(post_data: &'a Vec<&PostData>, tag_counts: &'a HashMap<&String, usize>) -> Archive<'a> {
     let mut tag_counts_vec: Vec<_> = tag_counts.iter().collect();
     tag_counts_vec.sort_by(|(a_tag, a_num), (b_tag, b_num)| {
         let a_primary = is_primary(a_tag);
@@ -264,22 +258,22 @@ pub fn generate_archive(post_data: &Vec<&PostData>, tag_counts: &HashMap<&String
     });
     Archive {
         base: Base {
-            summary: "Archive of all posts on selfdeprecated.dev by Quang Duong".to_string(),
+            summary: "Archive of all posts on selfdeprecated.dev by Quang Duong",
             needs_latex: false,
-            title: "".to_string(),
+            title: "",
         },
         posts: post_data.iter().map(|post|
             ArchivePost {
-                title: post.metadata.card_title.clone(),
-                path: post.metadata.path.clone(),
-                year: post.year.clone(),
-                month: post.month.clone(),
+                title: &post.metadata.card_title,
+                path: &post.metadata.path,
+                year: &post.year,
+                month: &post.month,
             }
         ).collect(),
         tags: tag_counts_vec.iter().map(|(tag, num)|
             ArchiveTag {
                 class: tag_class(tag),
-                name: tag.to_string(),
+                name: tag,
                 num: **num,
             }
         ).collect(),

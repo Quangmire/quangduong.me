@@ -163,17 +163,17 @@ fn build(args: &CLIArgs, post_data: Vec<PostData>) {
             posts_by_tag.get_mut(tag).unwrap().push(&post_data[i]);
             *tag_counts.entry(tag).or_insert(0) += 1;
         }
-        let mut newer_post: Option<String> = None;
-        let mut older_post: Option<String> = None;
+        let mut newer_post: &str = "";
+        let mut older_post: &str = "";
         if i == 0 {
             if post_data.len() - 1 != 0 {
-                older_post = Some(post_data[i + 1].metadata.path.clone());
+                older_post = &post_data[i + 1].metadata.path;
             }
         } else if i == post_data.len() - 1 {
-            newer_post = Some(post_data[i - 1].metadata.path.clone());
+            newer_post = &post_data[i - 1].metadata.path;
         } else {
-            older_post = Some(post_data[i + 1].metadata.path.clone());
-            newer_post = Some(post_data[i - 1].metadata.path.clone());
+            older_post = &post_data[i + 1].metadata.path;
+            newer_post = &post_data[i - 1].metadata.path;
         }
         _render(&tera, "post.html", &Context::from_serialize(
             &generate_post(
@@ -184,13 +184,15 @@ fn build(args: &CLIArgs, post_data: Vec<PostData>) {
     }
 
     for tag in posts_by_tag.keys() {
+        let multipost_summary = format!("All posts tagged [{}]", tag.to_uppercase());
+        let multipost_title = format!("[{}] Posts", tag.to_uppercase());
+        let multipost_header = format!("Posts Tagged as [{}]", tag.to_uppercase());
+        let pagination_path = format!("/tag/{}", tag);
+        let pagination_tag = tag.to_uppercase();
         let multiposts = generate_multipost(
             &posts_by_tag[tag],
-            format!("All posts tagged [{}]", tag.to_uppercase()),
-            format!("[{}] Posts", tag.to_uppercase()),
-            format!("Posts Tagged as [{}]", tag.to_uppercase()),
-            format!("/tag/{}", tag),
-            tag.to_uppercase(),
+            &multipost_summary, &multipost_title, &multipost_header,
+            &pagination_path, &pagination_tag,
         );
         for i in 0..multiposts.len() {
             _render(&tera, "multipost.html",
@@ -199,13 +201,16 @@ fn build(args: &CLIArgs, post_data: Vec<PostData>) {
         }
     }
 
+    let post_data_iter = post_data.iter().collect();
+    let multipost_summary = "Professional blog by Quang Duong about CS/ML/Comp Arch research and topics :)";
+    let multipost_title = "Self-Deprecated Dev Blog";
+    let multipost_header = "All Posts";
+    let pagination_path = "";
+    let pagination_tag = "";
     let multiposts = generate_multipost(
-        &post_data.iter().collect(),
-        "Professional blog by Quang Duong about CS/ML/Comp Arch research and topics :)".to_string(),
-        "Self-Deprecated Dev Blog".to_string(),
-        "All Posts".to_string(),
-        "".to_string(),
-        "".to_string(),
+        &post_data_iter,
+        multipost_summary, multipost_title, multipost_header,
+        pagination_path, pagination_tag,
     );
     for i in 0..multiposts.len() {
         if i == 0 {

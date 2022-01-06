@@ -28,7 +28,7 @@ temperature and so forth. The grid cells do not need be uniform and a large body
 of research focuses on subdividing the grid adaptively as needed to get the
 desired level of detail without losing performance.
 
-- [Part 1: Basics and Theory of Eulerian Fluid Simulation](/notes/eulerian_fluid_sim_p1)
+- [Part 1: Basics and Theory of Eulerian Fluid Simulation](/notes/eulerian_fluid_sim_p1/)
 
 ## Lagrangian Fluid Simulation
 

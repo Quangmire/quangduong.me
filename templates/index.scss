@@ -41,6 +41,7 @@ $navbar-border-color: $plus20-primary;
 $navbar-icon-size: 2.5rem;
 $navbar-icon-small-size: 2rem;
 $navbar-text-small-size: 0.7rem;
+$navbar-text-smaller-size: 0.6rem;
 $navbar-size: 5rem;
 $navbar-small-size: 3.5rem;
 
@@ -817,6 +818,19 @@ a:focus, a:hover {
 
     #content {
         margin-bottom: $navbar-small-size + 0.5rem + 0.2rem;
+    }
+}
+@media only screen and (max-width: 520px) {
+    #mobile-title {
+        font-size: 1.25rem;
+    }
+
+    #navbar{
+        .navbar-link {
+            .navbar-text {
+                font-size: $navbar-text-smaller-size;
+            }
+        }
     }
 }
 

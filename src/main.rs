@@ -69,16 +69,11 @@ fn setup(args: &CLIArgs) {
         Err(e) => panic!("Couldn't copy static directory to output directory: {}", e),
     };
 
-    /*
-    for fn in os.listdir('favicon'):
-        shutil.copy2(src = os.path.join('favicon', fn), dst = os.path.join(args.output, fn))
-    */
     for file in WalkDir::new(&args.favicon_path) {
         let file = file.unwrap();
         if file.file_type().is_dir() {
             continue;
         }
-        // Copy over CNAME file
         match copy(file.path(), args.output_path.join(file.path().file_name().unwrap())) {
             Ok(_) => {},
             Err(e) => panic!("Couldn't copy favicon files to output directory: {}", e),
@@ -129,7 +124,7 @@ fn read_data(args: &CLIArgs) -> Vec<PostData> {
         let mut html = String::new();
         html::push_html(&mut html, parser);
 
-        let datetime = NaiveDateTime::parse_from_str(&metadata.card_date, "%B %d, %Y | %I: %M %p").unwrap();
+        let datetime = NaiveDateTime::parse_from_str(&metadata.card_date, "%b %d %Y %-I:%M%p").unwrap();
 
         post_data.push(
             PostData {
@@ -142,7 +137,7 @@ fn read_data(args: &CLIArgs) -> Vec<PostData> {
         );
     }
 
-    post_data.sort_by_key(|d| Reverse(NaiveDateTime::parse_from_str(&d.metadata.card_date, "%B %d, %Y | %I:%M %p").unwrap()));
+    post_data.sort_by_key(|d| Reverse(NaiveDateTime::parse_from_str(&d.metadata.card_date, "%b %d %Y %-I:%M%p").unwrap()));
 
     post_data
 }
@@ -175,12 +170,27 @@ fn build(args: &CLIArgs, post_data: Vec<PostData>) {
             older_post = &post_data[i + 1].metadata.path;
             newer_post = &post_data[i - 1].metadata.path;
         }
-        _render(&tera, "post.html", &Context::from_serialize(
-            &generate_post(
-                &post_data[i],
-                older_post,
-                newer_post,
-            )).unwrap(), &args.output_path.join(&post_data[i].metadata.path));
+        if post_data[i].metadata.path == "/" {
+            _render(&tera, "post.html", &Context::from_serialize(
+                &generate_post(
+                    &post_data[i],
+                    older_post,
+                    newer_post,
+                )).unwrap(), &args.output_path);
+            _render(&tera, "post.html", &Context::from_serialize(
+                &generate_post(
+                    &post_data[i],
+                    older_post,
+                    newer_post,
+                )).unwrap(), &args.output_path.join("about"));
+        } else {
+            _render(&tera, "post.html", &Context::from_serialize(
+                &generate_post(
+                    &post_data[i],
+                    older_post,
+                    newer_post,
+                )).unwrap(), &args.output_path.join(&post_data[i].metadata.path));
+        }
     }
 
     for tag in posts_by_tag.keys() {
@@ -204,8 +214,8 @@ fn build(args: &CLIArgs, post_data: Vec<PostData>) {
     let post_data_iter = post_data.iter().collect();
     let multipost_summary = "Professional blog by Quang Duong about CS/ML/Comp Arch research and topics :)";
     let multipost_title = "Self-Deprecated Dev Blog";
-    let multipost_header = "All Posts";
-    let pagination_path = "";
+    let multipost_header = "All Blog Posts";
+    let pagination_path = "/blog";
     let pagination_tag = "";
     let multiposts = generate_multipost(
         &post_data_iter,
@@ -213,15 +223,9 @@ fn build(args: &CLIArgs, post_data: Vec<PostData>) {
         pagination_path, pagination_tag,
     );
     for i in 0..multiposts.len() {
-        if i == 0 {
-            _render(&tera, "multipost.html",
-                &Context::from_serialize(&multiposts[i]).unwrap(),
-                &args.output_path.join("index.html"));
-        } else {
-            _render(&tera, "multipost.html",
-                &Context::from_serialize(&multiposts[i]).unwrap(),
-                &args.output_path.join((i + 1).to_string()));
-        }
+        _render(&tera, "multipost.html",
+            &Context::from_serialize(&multiposts[i]).unwrap(),
+            &args.output_path.join("blog").join((i + 1).to_string()));
     }
 
     _render(&tera, "archive.html",

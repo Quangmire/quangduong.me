@@ -1,7 +1,8 @@
 title: "About Me"
-path: "about"
+path: ""
 card_title: "About Me: Quang Duong"
-card_date: "October 22, 2021 | 01:16 AM"
+card_date: "Oct 22 2021 1:16AM"
+last_updated: "Feb 6 2022 8:20PM"
 card_tags:
 - "about"
 card_class: "about"

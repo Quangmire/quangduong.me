@@ -1,7 +1,7 @@
 title: "Fluid Simulation Series"
 path: "notes/fluid_simulation"
 card_title: "Fluid Simulation Series"
-card_date: "December 15, 2021 | 01:11 PM"
+card_date: "Dec 15 2021 1:11AM"
 card_tags:
 - "notes"
 - "fluid simulation"

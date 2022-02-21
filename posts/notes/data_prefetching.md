@@ -1,7 +1,7 @@
 title: "Data Prefetching Series"
 path: "notes/data_prefetching"
 card_title: "Data Prefetching Series"
-card_date: "December 15, 2021 | 01:12 PM"
+card_date: "Dec 15 2021 1:12AM"
 card_tags:
 - "notes"
 - "computer architecture"

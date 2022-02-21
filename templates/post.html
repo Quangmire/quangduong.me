@@ -10,9 +10,15 @@
         <span class='newer-post post-navigation'>Newest Post</span>
     {% endif %}
     {% if older_path | length > 0 %}
-        <a class='older-post post-navigation' href=/{{ older_path }}>Older Post<svg style="width:24px;height:24px" viewBox="0 0 24 24">
-            <path fill="currentColor" d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
-        </svg></a>
+        {% if older_path == "/" %}
+            <a class='older-post post-navigation' href=/>Older Post<svg style="width:24px;height:24px" viewBox="0 0 24 24">
+                <path fill="currentColor" d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
+            </svg></a>
+        {% else %}
+            <a class='older-post post-navigation' href=/{{ older_path }}>Older Post<svg style="width:24px;height:24px" viewBox="0 0 24 24">
+                <path fill="currentColor" d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
+            </svg></a>
+        {% endif %}
     {% else %}
         <span class='older-post post-navigation'>Oldest Post</span>
     {% endif %}
@@ -22,7 +28,10 @@
         <div class='card-title-container'>
             <h1 class='card-title'>{{ title }}</h1>
             <div class='card-date-container'>
-                <span class='card-date'>Last Updated {{ date }}</span>
+                <span class='card-date'>{{ date }}</span>
+                {% if last_updated | length > 0 %}
+                    <span class='card-date'> | Updated {{ last_updated }}</span>
+                {% endif %}
             </div>
         </div>
         <div class='card-tag-container'>

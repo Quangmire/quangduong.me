@@ -146,7 +146,7 @@ a:focus, a:hover {
     }
 
     #navbar-title {
-        font-size: 1.5rem;
+        font-size: 2rem;
         font-weight: bold;
         border-bottom: 4px solid $navbar-border-color;
         color: $navbar-text-inactive-color;
@@ -157,6 +157,10 @@ a:focus, a:hover {
         align-items: center;
         padding-left: 1rem;
         padding-right: 1rem;
+
+        span {
+            padding-top: 4px;
+        }
     }
 
     #navbar-title:hover, #navbar-title:focus {
@@ -683,8 +687,88 @@ a:focus, a:hover {
     padding-left: 0.5rem;
 }
 
+// Desktop-ish
+@media only screen and (min-width: 1148px) {
+    #navbar {
+        top: 0;
+
+        #navbar-content {
+            max-width: 1100px;
+        }
+    }
+
+    .card {
+        max-width: 1100px;
+    }
+}
+
+// Tablet-ish
+@media only screen and (min-width: 732px) and (max-width: 1148px) {
+    #navbar {
+        #navbar-content {
+            margin-left: 1rem;
+            margin-right: 1rem;
+        }
+    }
+
+    #content .card {
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+}
+
+/* In between mobile / tablet where navbar too big */
+@media only screen and (min-width: 732px) and (max-width: 968px) {
+    .paginate-container {
+        font-size: 0.9rem;
+    }
+
+    #navbar {
+        #navbar-title {
+            font-size: 1.6rem;
+        }
+
+        .navbar-link {
+            .navbar-icon {
+                padding-top: 1rem;
+                padding-bottom: 0.5rem;
+                min-width: $navbar-icon-small-size;
+                max-width: $navbar-icon-small-size;
+                max-height: $navbar-icon-small-size;
+                min-height: $navbar-icon-small-size;
+            }
+
+            .navbar-text {
+                font-size: 0.9rem;
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 732px) and (max-width: 832px) {
+    #navbar {
+        #navbar-title {
+            font-size: 1.2rem;
+        }
+        .navbar-link {
+            .navbar-icon {
+                padding-top: 1rem;
+                padding-bottom: 0.5rem;
+                min-width: $navbar-icon-small-size;
+                max-width: $navbar-icon-small-size;
+                max-height: $navbar-icon-small-size;
+                min-height: $navbar-icon-small-size;
+            }
+
+            .navbar-text {
+                font-size: 0.9rem;
+            }
+        }
+    }
+}
+
 // Mobile-ish
-@media only screen and (max-width: 832px) {
+@media only screen and (max-width: 732px) {
     #navbar {
         bottom: 0;
         position: fixed;
@@ -713,7 +797,7 @@ a:focus, a:hover {
         background: $zero-primary;
         color: $zero-secondary;
         margin: 0 auto 0 auto;
-        padding: 0.5rem 0 0.5rem 0;
+        padding: 0.75rem 0 0.5rem 0;
         text-align: center;
         border-bottom: 4px solid $navbar-border-color;
     }
@@ -793,7 +877,7 @@ a:focus, a:hover {
     }
 }
 
-@media only screen and (max-width: 520px) {
+@media only screen and (max-width: 560px) {
     .paginate-container {
         font-size: $navbar-text-small-size;
     }
@@ -818,76 +902,5 @@ a:focus, a:hover {
 
     #content {
         margin-bottom: $navbar-small-size + 0.5rem + 0.2rem;
-    }
-}
-@media only screen and (max-width: 520px) {
-    #mobile-title {
-        font-size: 1.25rem;
-    }
-
-    #navbar{
-        .navbar-link {
-            .navbar-text {
-                font-size: $navbar-text-smaller-size;
-            }
-        }
-    }
-}
-
-/* In between mobile / tablet where navbar too big */
-@media only screen and (min-width: 833px) and (max-width: 969px) {
-    .paginate-container {
-        font-size: 0.9rem;
-    }
-
-    #navbar {
-        #navbar-title {
-            font-size: 1.3rem;
-        }
-
-        .navbar-link {
-            .navbar-icon {
-                padding-top: 1rem;
-                padding-bottom: 0.5rem;
-                min-width: $navbar-icon-small-size;
-                max-width: $navbar-icon-small-size;
-                max-height: $navbar-icon-small-size;
-                min-height: $navbar-icon-small-size;
-            }
-
-            .navbar-text {
-                font-size: 0.9rem;
-            }
-        }
-    }
-}
-
-// Tablet-ish
-@media only screen and (min-width: 833px) and (max-width: 1148px) {
-    #navbar {
-        #navbar-content {
-            margin-left: 1rem;
-            margin-right: 1rem;
-        }
-    }
-
-    #content .card {
-        margin-left: 1rem;
-        margin-right: 1rem;
-    }
-}
-
-// Desktop-ish
-@media only screen and (min-width: 1149px) {
-    #navbar {
-        top: 0;
-
-        #navbar-content {
-            max-width: 1100px;
-        }
-    }
-
-    .card {
-        max-width: 1100px;
     }
 }

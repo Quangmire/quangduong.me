@@ -2,7 +2,11 @@
     <div class='card'>
         <div class='card-header'>
             <div class='card-title-container'>
-                <a class='card-title-link' href='/{{ summary_card.path }}'><h1 class='card-title'>{{ summary_card.title }}</h1></a>
+                {% if summary_card.path == "/" %}
+                    <a class='card-title-link' href='/'><h1 class='card-title'>{{ summary_card.title }}</h1></a>
+                {% else %}
+                    <a class='card-title-link' href='/{{ summary_card.path }}'><h1 class='card-title'>{{ summary_card.title }}</h1></a>
+                {% endif %}
                 <div class='card-date-container'>
                     <span class='card-date'>Last Updated {{ summary_card.date }}</span>
                 </div>

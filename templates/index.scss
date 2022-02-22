@@ -58,7 +58,7 @@ html, body {
     padding: 0;
     margin: 0;
     background: $website-background-color;
-    font-family: 'Verdana', sans-serif;
+    font-family: 'Verdana', 'Geneva', sans-serif;
     font-size: 16px;
 }
 
@@ -91,7 +91,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 code {
-    font-family: 'Fira Code', monospace;
+    font-family: 'Lucida Console', 'monaco', monospace;
     font-size: 1rem;
 }
 
@@ -146,17 +146,17 @@ a:focus, a:hover {
     }
 
     #navbar-title {
-        font-size: 2rem;
+        font-size: 3rem;
         font-weight: bold;
         border-bottom: 4px solid $navbar-border-color;
         color: $navbar-text-inactive-color;
-        font-family: 'Fira Code', monospace;
+        font-family: 'Calibri', 'Arial', sans-serif;
         transition: background $slow-time ease, color $slow-time ease, border-color $slow-time ease;
         height: $navbar-size;
         display: flex;
         align-items: center;
-        padding-left: 1rem;
-        padding-right: 1rem;
+        padding-left: 2rem;
+        padding-right: 2rem;
 
         span {
             padding-top: 4px;
@@ -725,7 +725,7 @@ a:focus, a:hover {
 
     #navbar {
         #navbar-title {
-            font-size: 1.6rem;
+            font-size: 2.75rem;
         }
 
         .navbar-link {
@@ -748,7 +748,7 @@ a:focus, a:hover {
 @media only screen and (min-width: 732px) and (max-width: 832px) {
     #navbar {
         #navbar-title {
-            font-size: 1.2rem;
+            font-size: 2.5rem;
         }
         .navbar-link {
             .navbar-icon {
@@ -792,8 +792,8 @@ a:focus, a:hover {
 
     #mobile-title {
         display: block;
-        font-family: 'Fira Code', monospace;
-        font-size: 1.5rem;
+        font-family: 'Calibri', 'Arial', sans-serif;
+        font-size: 2.5rem;
         background: $zero-primary;
         color: $zero-secondary;
         margin: 0 auto 0 auto;

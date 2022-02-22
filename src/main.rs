@@ -213,8 +213,8 @@ fn build(args: &CLIArgs, post_data: Vec<PostData>) {
 
     let post_data_iter = post_data.iter().collect();
     let multipost_summary = "Professional blog by Quang Duong about CS/ML/Comp Arch research and topics :)";
-    let multipost_title = "Self-Deprecated Dev Blog";
-    let multipost_header = "All Blog Posts";
+    let multipost_title = "Blog Posts";
+    let multipost_header = "Blog Posts";
     let pagination_path = "/blog";
     let pagination_tag = "";
     let multiposts = generate_multipost(

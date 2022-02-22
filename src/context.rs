@@ -264,7 +264,7 @@ pub fn generate_archive<'a>(post_data: &'a Vec<&PostData>, tag_counts: &'a HashM
     });
     Archive {
         base: Base {
-            summary: "Archive of all posts on selfdeprecated.dev by Quang Duong",
+            summary: "Archive of all posts on quangduong.me",
             needs_latex: false,
             title: "",
         },

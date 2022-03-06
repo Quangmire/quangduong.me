@@ -35,10 +35,10 @@ fn clean(args: &CLIArgs) {
 }
 
 fn setup(args: &CLIArgs) {
-    // Copy over CNAME file
-    match copy(&args.cname_path, args.output_path.join("CNAME")) {
+    // Copy over netlify.toml
+    match copy(&args.netlify_toml_path, args.output_path.join("netlify.toml")) {
         Ok(_) => {},
-        Err(e) => panic!("Couldn't copy CNAME to output directory: {}", e),
+        Err(e) => panic!("Couldn't copy netlify.toml to output directory: {}", e),
     };
 
     // Create .nojekyll file for GitHub

@@ -1,0 +1,11 @@
+[[redirects]]
+    from = "https://selfdeprecated.dev/*"
+    to = "https://quangduong.me/:splat"
+    status = 301
+    force = true
+
+[[redirects]]
+    from = "https://www.selfdeprecated.dev/*"
+    to = "https://quangduong.me/:splat"
+    status = 301
+    force = true

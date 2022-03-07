@@ -30,19 +30,23 @@
     </div>
 
     <div class='card'>
-        {% for year, year_posts in posts | group_by(attribute="year") %}
+        {% for year, year_posts in posts | group_by(attribute='year') %}
             <div class='collapsible-container'>
                 <input type='checkbox' id='collapsible-{{ year }}' class='collapsible-checkbox'>
-                <label for='collapsible-{{ year }}' class='collapsible-label'>{{ year }}<svg class='collapsible-icon' style="width:24px;height:24px" viewBox="0 0 24 24">
-                    <path fill="currentColor" d="M5.59,7.41L7,6L13,12L7,18L5.59,16.59L10.17,12L5.59,7.41M11.59,7.41L13,6L19,12L13,18L11.59,16.59L16.17,12L11.59,7.41Z" />
+                <label for='collapsible-{{ year }}' class='collapsible-label'>{{ year }}<svg class='collapsible-icon' style='width:24px;height:24px' viewBox='0 0 24 24'>
+                    <path fill='currentColor' d='M5.59,7.41L7,6L13,12L7,18L5.59,16.59L10.17,12L5.59,7.41M11.59,7.41L13,6L19,12L13,18L11.59,16.59L16.17,12L11.59,7.41Z' />
                 </svg>
                 </label>
                 <div class='collapsible-list'>
-                {% for month, month_posts in posts | group_by(attribute="month") %}
+                {% for month, month_posts in posts | group_by(attribute='month') %}
                     <div class='collapsible-item'>{{ month }}
                         <ul class='archive-posts'>
                             {% for post in month_posts %}
-                                <li><a href='/{{ post.path }}'>{{ post.title }}</a></li>
+                                {% if post.path == '/' %}
+                                    <li><a href='/'>{{ post.title }}</a></li>
+                                {% else %}
+                                    <li><a href='/{{ post.path }}'>{{ post.title }}</a></li>
+                                {% endif %}
                             {% endfor %}
                         </ul>
                     </div>

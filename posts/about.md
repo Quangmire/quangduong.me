@@ -11,7 +11,9 @@ summary: >
 
 ---
 
-<img src="/static/media/profile.png" width="256" height="256" alt="Picture of Quang and his cat Chickadee"/>
+<img src='/static/media/profile.webp' width='256' height='256' alt='Picture of Quang and his cat Chickadee'
+    srcset='/static/media/profile.webp 256w, /static/media/profile_512.webp 512w'
+/>
 
 ## BIO
 
@@ -39,4 +41,4 @@ And outside of research, I generally dabble in:
 
 ## CURRICULUM VITAE
 
-Viewable [here](/static/documents/quang_duong_cv.pdf). Last updated November 12, 2021.
+You can view my [curriculum vitae here](/static/documents/quang_duong_cv.pdf). Last updated November 12, 2021.

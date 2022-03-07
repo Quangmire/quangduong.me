@@ -2,7 +2,7 @@
     <div class='card'>
         <div class='card-header'>
             <div class='card-title-container'>
-                {% if summary_card.path == "/" %}
+                {% if summary_card.path == '/' %}
                     <a class='card-title-link' href='/'><h1 class='card-title'>{{ summary_card.title }}</h1></a>
                 {% else %}
                     <a class='card-title-link' href='/{{ summary_card.path }}'><h1 class='card-title'>{{ summary_card.title }}</h1></a>
@@ -24,9 +24,15 @@
         </div>
         <div class='card-content'>
             {{ summary_card.summary|safe }}
-            <a class='card-read-more' href='/{{ summary_card.path }}'><span>Continue Reading</span><svg style="width:24px;height:24px" viewBox="0 0 24 24">
-                <path fill="currentColor" d="M5.59,7.41L7,6L13,12L7,18L5.59,16.59L10.17,12L5.59,7.41M11.59,7.41L13,6L19,12L13,18L11.59,16.59L16.17,12L11.59,7.41Z" />
+            {% if summary_card.path == '/' %}
+            <a class='card-read-more' href='/'><span>Continue Reading</span><svg style='width:24px;height:24px' viewBox='0 0 24 24'>
+                <path fill='currentColor' d='M5.59,7.41L7,6L13,12L7,18L5.59,16.59L10.17,12L5.59,7.41M11.59,7.41L13,6L19,12L13,18L11.59,16.59L16.17,12L11.59,7.41Z' />
             </svg></a>
+            {% else %}
+            <a class='card-read-more' href='/{{ summary_card.path }}'><span>Continue Reading</span><svg style='width:24px;height:24px' viewBox='0 0 24 24'>
+                <path fill='currentColor' d='M5.59,7.41L7,6L13,12L7,18L5.59,16.59L10.17,12L5.59,7.41M11.59,7.41L13,6L19,12L13,18L11.59,16.59L16.17,12L11.59,7.41Z' />
+            </svg></a>
+            {% endif %}
         </div>
     </div>
 {% endmacro %}

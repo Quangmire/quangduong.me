@@ -167,7 +167,7 @@ the value at \\(u_i\\). As a result, this can lead to some bizarre artifacts and
 behavior. In order to resolve this, we use the standard discretization via the
 **Marker-and-Cell grid** popularized in Harlow and Welch in 1965.[^macgrid]
 
-![fig_macgrid||MAC Grid (from Bridson's notes)](/static/media/notes/eulerian_fluid_sim/macgrid.png)
+![fig_macgrid||MAC Grid (from Bridson's notes)](/static/media/notes/eulerian_fluid_sim/macgrid.webp)
 
 Notice how in Figure [fig_macgrid](#fig_macgrid), that the velocity values are placed on the
 edges of the cells and the pressure values are placed in the center. By placing
@@ -269,8 +269,7 @@ deformation.
 In the next article in this series, we'll discuss how to update the state, solve
 constraints, and render the fluid.
 
-[^bridson]: Robert Bridson's
-    [notes](https://www.cs.ubc.ca/~rbridson/fluidsimulation/fluids_notes.pdf)
+[^bridson]: [Robert Bridson's notes](https://www.cs.ubc.ca/~rbridson/fluidsimulation/fluids_notes.pdf)
     from an old SIGGRAPH conference.
 
 [^metaxas]: Foster and Metaxas wrote
@@ -280,6 +279,5 @@ constraints, and render the fluid.
 [^gravity]: Granted for gas simulations we can drop gravity
 
 [^macgrid]: "Numerical calculation of time-dependent viscous incompressible flow
-    of fluid with a free surface". Can be read
-    [here](https://www.cs.rpi.edu/~cutler/classes/advancedgraphics/S10/papers/harlow_welch.pdf)
+    of fluid with a free surface". [link to the paper](https://www.cs.rpi.edu/~cutler/classes/advancedgraphics/S10/papers/harlow_welch.pdf)
     in terrible imaged quality

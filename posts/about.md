@@ -11,7 +11,7 @@ summary: >
 
 ---
 
-![profile pic](/static/media/profile.png)
+<img src="/static/media/profile.png" width="256" height="256" alt="Picture of Quang and his cat Chickadee"/>
 
 ## BIO
 

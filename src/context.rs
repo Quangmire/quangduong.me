@@ -1,5 +1,4 @@
 use serde::{Serialize, Deserialize};
-use std::cmp::min;
 use std::collections::HashMap;
 use std::cmp::Ordering;
 
@@ -155,19 +154,10 @@ pub fn generate_post<'a>(post: &'a PostData, older_post: &'a str, newer_post: &'
     }
 }
 
-fn paginate(num_pages: usize) -> Vec<usize> {
-    let mut pages = Vec::new();
-    let mut i = 0;
-    while i < num_pages {
-        pages.push(i);
-        i += 5;
-    }
-    pages
-}
-
-fn compute_current_paginate(cur_page: usize, num_pages: usize) -> Vec<usize> {
+fn compute_pages_shown(cur_page: usize, num_pages: usize) -> Vec<usize> {
     let mut pages = Vec::new();
 
+    // Compute start page
     let mut start_page: usize = 1;
     if cur_page > start_page + 2 {
         start_page = cur_page - 2;
@@ -176,19 +166,25 @@ fn compute_current_paginate(cur_page: usize, num_pages: usize) -> Vec<usize> {
         start_page = num_pages - 4;
     }
 
+    // Compute last page
+    let end_page = if start_page + 5 > num_pages + 1 {
+        num_pages + 1
+    } else {
+        start_page + 5
+    };
+
+    // Show ellipse if first page not shown
     if start_page != 1 {
         pages.push(0);
     }
 
-    let mut end_page: usize = start_page + 5;
-    if end_page > num_pages + 1 {
-        end_page = num_pages + 1;
-    }
-
+    // Add intermediate pages
     for page in start_page..end_page {
         pages.push(page);
     }
 
+
+    // Show ellipse if last page not shown
     if pages[pages.len() - 1] != num_pages {
         pages.push(0);
     }
@@ -199,50 +195,45 @@ fn compute_current_paginate(cur_page: usize, num_pages: usize) -> Vec<usize> {
 pub fn generate_multipost<'a>(
         post_data: &'a Vec<&PostData>,
         multipost_summary: &'a str, multipost_title: &'a str, multipost_header: &'a str,
-        pagination_path: &'a str, pagination_tag: &'a str
-        ) -> Vec<MultiPost<'a>> {
-    let mut data = Vec::new();
-
-    let mut cur_page_num = 1;
-    let all_pages = paginate(post_data.len());
-    let num_pages = all_pages.len();
-    for start_post in all_pages {
-        let pages = compute_current_paginate(cur_page_num, num_pages);
-        let end_post = min(start_post + 5, post_data.len());
-        data.push(MultiPost {
-            base: Base {
-                summary: multipost_summary,
-                needs_latex: false,
-                title: multipost_title,
+        pagination_path: &'a str, pagination_tag: &'a str, cur_page: usize, num_pages: usize, posts_per_page: usize,
+        ) -> MultiPost<'a> {
+    let pages = compute_pages_shown(cur_page, num_pages);
+    let start_post = (cur_page - 1) * posts_per_page;
+    let end_post = if start_post + posts_per_page > post_data.len() {
+        post_data.len()   
+    } else {
+        start_post + posts_per_page
+    };
+    MultiPost {
+        base: Base {
+            summary: multipost_summary,
+            needs_latex: false,
+            title: multipost_title,
+        },
+        pagination: Pagination {
+            path: pagination_path,
+            tag: pagination_tag,
+            cur_page: cur_page,
+            pages: pages,
+            num_pages: num_pages,
+        },
+        summary_cards: (start_post..end_post).into_iter().map(|page|
+            SummaryCard {
+                path: &post_data[page].metadata.path,
+                title: &post_data[page].metadata.card_title,
+                date: &post_data[page].metadata.card_date,
+                tags: post_data[page].metadata.card_tags.iter().map(|name| 
+                    Tag {
+                        class: tag_class(name),
+                        name: name,
+                    }
+                ).collect(),
+                summary: &post_data[page].metadata.summary,
             },
-            pagination: Pagination {
-                path: pagination_path,
-                tag: pagination_tag,
-                cur_page: cur_page_num,
-                pages: pages,
-                num_pages: num_pages,
-            },
-            summary_cards: (start_post..end_post).into_iter().map(|page|
-                SummaryCard {
-                    path: &post_data[page].metadata.path,
-                    title: &post_data[page].metadata.card_title,
-                    date: &post_data[page].metadata.card_date,
-                    tags: post_data[page].metadata.card_tags.iter().map(|name| 
-                        Tag {
-                            class: tag_class(name),
-                            name: name,
-                        }
-                    ).collect(),
-                    summary: &post_data[page].metadata.summary,
-                },
-            ).collect(),
-            page_title: multipost_title,
-            header_card: multipost_header,
-        });
-        cur_page_num += 1;
+        ).collect(),
+        page_title: multipost_title,
+        header_card: multipost_header,
     }
-
-    data
 }
 
 pub fn generate_archive<'a>(post_data: &'a Vec<&PostData>, tag_counts: &'a HashMap<&String, usize>) -> Archive<'a> {
@@ -264,7 +255,7 @@ pub fn generate_archive<'a>(post_data: &'a Vec<&PostData>, tag_counts: &'a HashM
     });
     Archive {
         base: Base {
-            summary: "Archive of all posts on quangduong.me",
+            summary: "Archive of all posts on Quang Duong's academic blog about Computer Science, Machine Learning, and Computer Architecture research",
             needs_latex: false,
             title: "",
         },

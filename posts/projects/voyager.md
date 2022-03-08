@@ -1,6 +1,6 @@
 title: "Voyager Neural Data Prefetcher Implementation"
 path: "project/voyager"
-card_title: "Voyager Implementation"
+card_title: "Voyager Neural Data Prefetcher Implementation"
 card_date: "Oct 27 2021 7:11PM"
 card_tags:
 - "projects"
@@ -8,7 +8,8 @@ card_tags:
 - "machine learning"
 card_class: "projects"
 summary: >
-  Official (Re)-Implementation of the Voyager neural data prefetcher
+  Official (Re)-Implementation of the Voyager neural data prefetcher published
+  in ASPLOS 2021
 
 ---
 

@@ -10,7 +10,7 @@ pub struct CLIArgs {
     pub static_path: PathBuf,
     pub favicon_path: PathBuf,
     pub netlify_toml_path: PathBuf,
-    pub num_cards: u64,
+    pub posts_per_page: usize,
 }
 
 pub fn parse_args() -> CLIArgs {
@@ -54,12 +54,12 @@ pub fn parse_args() -> CLIArgs {
             .value_name("PATH")
             .default_value("netlify.toml")
             .help("Path to netlify.toml file"))
-        .arg(Arg::with_name("num-cards")
-            .long("num-cards")
+        .arg(Arg::with_name("posts-per-page")
+            .long("posts-per-page")
             .takes_value(true)
             .value_name("NUM")
             .default_value("5")
-            .help("Number of cards on a page"))
+            .help("Number of posts on a page"))
         .get_matches();
 
     CLIArgs {
@@ -69,6 +69,6 @@ pub fn parse_args() -> CLIArgs {
         static_path: PathBuf::from(matches.value_of("static").unwrap()),
         favicon_path: PathBuf::from(matches.value_of("favicon-path").unwrap()),
         netlify_toml_path: PathBuf::from(matches.value_of("netlify-toml-path").unwrap()),
-        num_cards: matches.value_of("num-cards").unwrap().parse::<u64>().unwrap(),
+        posts_per_page: matches.value_of("posts-per-page").unwrap().parse::<usize>().unwrap(),
     }
 }

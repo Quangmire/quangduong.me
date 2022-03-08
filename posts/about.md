@@ -1,21 +1,20 @@
-title: "About Me"
+title: "Quang Duong | About Me"
 path: ""
-card_title: "About Me"
+card_title: "Quang Duong | About Me"
 card_date: "Oct 22 2021 1:16AM"
 last_updated: "Feb 6 2022 8:20PM"
 card_tags:
 - "about"
 card_class: "about"
 summary: >
-  More in-depth bio about myself, my interests, and my work history.
+  In-depth biography about myself, my work history, and my research interests in
+  the fields of computer science, machine learning, and computer architecture.
 
 ---
 
 <img src='/static/media/profile.webp' width='256' height='256' alt='Picture of Quang and his cat Chickadee'
     srcset='/static/media/profile.webp 256w, /static/media/profile_512.webp 512w'
 />
-
-## BIO
 
 I'm a CS Ph.D student at UT Austin as of Fall 2020. My hobbies include reading
 anything from high fantasy to romance, belting out songs in the shower whenever

@@ -18,7 +18,10 @@ mod cli;
 mod context;
 mod html;
 use cli::{CLIArgs,parse_args};
-use context::{PostMetaData, PostData, page_not_found, generate_post, generate_multipost, generate_archive};
+use context::{
+    PostMetaData, PostData,
+    page_not_found, generate_post, generate_multipost, generate_archive,
+};
 
 fn clean(args: &CLIArgs) {
     if args.output_path.exists() {
@@ -39,12 +42,6 @@ fn setup(args: &CLIArgs) {
     match copy(&args.netlify_toml_path, args.output_path.join("netlify.toml")) {
         Ok(_) => {},
         Err(e) => panic!("Couldn't copy netlify.toml to output directory: {}", e),
-    };
-
-    // Create .nojekyll file for GitHub
-    match File::create(args.output_path.join(".nojekyll")) {
-        Ok(_) => {},
-        Err(e) => panic!("Couldn't create .nojekyll file: {}", e),
     };
 
     // Compile SASS
@@ -194,38 +191,50 @@ fn build(args: &CLIArgs, post_data: Vec<PostData>) {
     }
 
     for tag in posts_by_tag.keys() {
-        let multipost_summary = format!("All posts tagged [{}]", tag.to_uppercase());
-        let multipost_title = format!("[{}] Posts", tag.to_uppercase());
-        let multipost_header = format!("Posts Tagged as [{}]", tag.to_uppercase());
-        let pagination_path = format!("/tag/{}", tag);
-        let pagination_tag = tag.to_uppercase();
-        let multiposts = generate_multipost(
-            &posts_by_tag[tag],
-            &multipost_summary, &multipost_title, &multipost_header,
-            &pagination_path, &pagination_tag,
-        );
-        for i in 0..multiposts.len() {
+        let num_pages = if (posts_by_tag[tag].len() / args.posts_per_page) * args.posts_per_page == posts_by_tag[tag].len() {
+            posts_by_tag[tag].len() / args.posts_per_page
+        } else {
+            posts_by_tag[tag].len() / args.posts_per_page + 1
+        };
+
+        for page in 1..(num_pages + 1) {
+            let pagination_tag = tag.to_uppercase();
+            let multipost_summary = format!("Page {} of all posts tagged [{}] on Quang Duong's academic blog about Computer Science, Machine Learning, and Computer Architecture research", page, &pagination_tag);
+            let multipost_title = format!("All Posts Tagged [{}] | Page {}", &pagination_tag, page);
+            let multipost_header = format!("All Posts Tagged as [{}]", tag.to_uppercase());
+            let pagination_path = format!("/tag/{}", tag);
+
+            let multipost = generate_multipost(
+                &posts_by_tag[tag],
+                &multipost_summary, &multipost_title, &multipost_header,
+                &pagination_path, &pagination_tag, page, num_pages, args.posts_per_page,
+            );
             _render(&tera, "multipost.html",
-                &Context::from_serialize(&multiposts[i]).unwrap(),
-                &args.output_path.join("tag").join(tag).join((i + 1).to_string()));
+                &Context::from_serialize(&multipost).unwrap(),
+                &args.output_path.join("tag").join(tag).join(page.to_string()));
         }
     }
 
-    let post_data_iter = post_data.iter().collect();
-    let multipost_summary = "Professional blog by Quang Duong about CS/ML/Comp Arch research and topics :)";
-    let multipost_title = "Blog Posts";
-    let multipost_header = "Blog Posts";
-    let pagination_path = "/blog";
-    let pagination_tag = "";
-    let multiposts = generate_multipost(
-        &post_data_iter,
-        multipost_summary, multipost_title, multipost_header,
-        pagination_path, pagination_tag,
-    );
-    for i in 0..multiposts.len() {
+    let post_data_iter: Vec<&PostData> = post_data.iter().collect();
+    let num_pages = if (post_data_iter.len() / args.posts_per_page) * args.posts_per_page == post_data_iter.len() {
+        post_data_iter.len() / args.posts_per_page
+    } else {
+        post_data_iter.len() / args.posts_per_page + 1
+    };
+    for page in 1..(num_pages + 1) {
+        let multipost_summary = format!("Page {} of all posts on Quang Duong's academic blog about Computer Science, Machine Learning, and Computer Architecture research", page);
+        let multipost_title = format!("Blog Posts - Page {} | Quang Duong", page);
+        let multipost_header = "All Blog Posts";
+        let pagination_path = "/blog";
+        let pagination_tag = "";
+        let multipost = generate_multipost(
+            &post_data_iter,
+            &multipost_summary, &multipost_title, multipost_header,
+            pagination_path, pagination_tag, page, num_pages, args.posts_per_page,
+        );
         _render(&tera, "multipost.html",
-            &Context::from_serialize(&multiposts[i]).unwrap(),
-            &args.output_path.join("blog").join((i + 1).to_string()));
+            &Context::from_serialize(&multipost).unwrap(),
+            &args.output_path.join("blog").join(page.to_string()));
     }
 
     _render(&tera, "archive.html",

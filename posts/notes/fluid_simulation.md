@@ -1,6 +1,6 @@
-title: "Fluid Simulation Series"
+title: "Notes on Fluid Simulation"
 path: "notes/fluid_simulation"
-card_title: "Fluid Simulation Series"
+card_title: "Notes on Fluid Simulation"
 card_date: "Dec 15 2021 1:11AM"
 card_tags:
 - "notes"

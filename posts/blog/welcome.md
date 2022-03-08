@@ -1,14 +1,15 @@
-title: "Welcome"
+title: "Hello there, Welcome to my Blog!"
 path: "blog/welcome"
-card_title: "Hello there, welcome to my blog!"
+card_title: "Hello there, Welcome to my Blog!"
 card_date: "Oct 27 2021 1:51AM"
 card_tags:
 - "blog"
 - "first-post"
 card_class: "blog"
 summary: >
-  Greetings Internet wanderer. This is a brief introduction to this blog and its
-  purpose as well as an introduction to your's truly. :)
+  Greatings Internet wanderer. This post serves as a brief introduction to my
+  academic blog where I'll be discussing interesting work in machine learning
+  and computer architecture.
 
 ---
 

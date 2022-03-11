@@ -1,7 +1,7 @@
 use std::fs::{File, remove_dir_all, create_dir_all, copy, read_to_string};
 use std::io::prelude::*;
 use std::path::PathBuf;
-use chrono::NaiveDateTime;
+use chrono::{self, NaiveDateTime};
 use std::collections::HashMap;
 
 use std::cmp::Reverse;
@@ -17,11 +17,13 @@ use serde_yaml::from_str;
 mod cli;
 mod context;
 mod html;
+mod sitemap;
 use cli::{CLIArgs,parse_args};
 use context::{
     PostMetaData, PostData,
     page_not_found, generate_post, generate_multipost, generate_archive,
 };
+use sitemap::{SiteMap, SiteMapUpdateFreq};
 
 fn clean(args: &CLIArgs) {
     if args.output_path.exists() {
@@ -122,6 +124,7 @@ fn read_data(args: &CLIArgs) -> Vec<PostData> {
         html::push_html(&mut html, parser);
 
         let datetime = NaiveDateTime::parse_from_str(&metadata.card_date, "%b %d %Y %-I:%M%p").unwrap();
+        let last_updated = metadata.last_updated.clone();
 
         post_data.push(
             PostData {
@@ -130,6 +133,14 @@ fn read_data(args: &CLIArgs) -> Vec<PostData> {
                 needs_latex: full_file_split[1].contains("\\\\(") || full_file_split[1].contains("$$"),
                 year: datetime.format("%Y").to_string(),
                 month: datetime.format("%B").to_string(),
+                last_updated: match last_updated {
+                    Some(last_updated) => {
+                        NaiveDateTime::parse_from_str(&last_updated, "%b %d %Y %-I:%M%p").unwrap()
+                    },
+                    None => {
+                        datetime
+                    },
+                },
             }
         );
     }
@@ -140,6 +151,7 @@ fn read_data(args: &CLIArgs) -> Vec<PostData> {
 }
 
 fn build(args: &CLIArgs, post_data: Vec<PostData>) {
+    let mut sitemap = SiteMap::new();
     let tera = match Tera::new(&args.templates_path.join("*.html").into_os_string().into_string().unwrap()) {
         Ok(t) => t,
         Err(e) => panic!("Error parsing template: {}", e),
@@ -174,12 +186,22 @@ fn build(args: &CLIArgs, post_data: Vec<PostData>) {
                     older_post,
                     newer_post,
                 )).unwrap(), &args.output_path);
+            sitemap.add_entry(
+                "".to_string(),
+                post_data[i].last_updated.clone(),
+                SiteMapUpdateFreq::DAILY
+            );
             _render(&tera, "post.html", &Context::from_serialize(
                 &generate_post(
                     &post_data[i],
                     older_post,
                     newer_post,
                 )).unwrap(), &args.output_path.join("about"));
+            sitemap.add_entry(
+                "about/".to_string(),
+                post_data[i].last_updated.clone(),
+                SiteMapUpdateFreq::DAILY
+            );
         } else {
             _render(&tera, "post.html", &Context::from_serialize(
                 &generate_post(
@@ -187,6 +209,11 @@ fn build(args: &CLIArgs, post_data: Vec<PostData>) {
                     older_post,
                     newer_post,
                 )).unwrap(), &args.output_path.join(&post_data[i].metadata.path));
+            sitemap.add_entry(
+                post_data[i].metadata.path.to_string(),
+                post_data[i].last_updated.clone(),
+                SiteMapUpdateFreq::MONTHLY
+            );
         }
     }
 
@@ -212,6 +239,11 @@ fn build(args: &CLIArgs, post_data: Vec<PostData>) {
             _render(&tera, "multipost.html",
                 &Context::from_serialize(&multipost).unwrap(),
                 &args.output_path.join("tag").join(tag).join(page.to_string()));
+            sitemap.add_entry(
+                format!("tag/{}/{}/", tag, page).to_string(),
+                chrono::offset::Local::now().naive_local(),
+                SiteMapUpdateFreq::WEEKLY
+            );
         }
     }
 
@@ -235,15 +267,27 @@ fn build(args: &CLIArgs, post_data: Vec<PostData>) {
         _render(&tera, "multipost.html",
             &Context::from_serialize(&multipost).unwrap(),
             &args.output_path.join("blog").join(page.to_string()));
+        sitemap.add_entry(
+            format!("blog/{}/", page).to_string(),
+            chrono::offset::Local::now().naive_local(),
+            SiteMapUpdateFreq::WEEKLY
+        );
     }
 
     _render(&tera, "archive.html",
         &Context::from_serialize(&generate_archive(&post_data.iter().collect(), &tag_counts)).unwrap(),
         &args.output_path.join("archive/"));
+    sitemap.add_entry(
+        "archive/".to_string(),
+        chrono::offset::Local::now().naive_local(),
+        SiteMapUpdateFreq::WEEKLY
+    );
 
     _render(&tera, "404.html",
         &Context::from_serialize(&page_not_found()).unwrap(),
         &args.output_path.join("404.html"));
+
+    sitemap.write(args.output_path.join("sitemap.xml"));
 }
 
 fn main() {

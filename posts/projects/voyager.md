@@ -4,8 +4,8 @@ card_title: "Voyager Neural Data Prefetcher Implementation"
 card_date: "Oct 27 2021 7:11PM"
 card_tags:
 - "projects"
-- "data prefetching"
-- "machine learning"
+- "data_prefetching"
+- "machine_learning"
 card_class: "projects"
 summary: >
   Official (Re)-Implementation of the Voyager neural data prefetcher published

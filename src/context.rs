@@ -1,6 +1,7 @@
 use serde::{Serialize, Deserialize};
 use std::collections::HashMap;
 use std::cmp::Ordering;
+use chrono::NaiveDateTime;
 
 #[derive(Serialize, Deserialize, Debug)]
 pub struct PostMetaData {
@@ -21,6 +22,7 @@ pub struct PostData {
     pub needs_latex: bool,
     pub year: String,
     pub month: String,
+    pub last_updated: NaiveDateTime,
 }
 
 #[derive(Serialize)]

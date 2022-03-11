@@ -4,9 +4,9 @@ card_title: "Notes on Data Prefetching"
 card_date: "Dec 15 2021 1:12AM"
 card_tags:
 - "notes"
-- "computer architecture"
-- "data prefetching"
-- "machine learning"
+- "computer_architecture"
+- "data_prefetching"
+- "machine_learning"
 card_class: "notes"
 summary: >
   A series of notes summarizing the different approaches taken in the past

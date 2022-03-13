@@ -151,7 +151,7 @@ fn read_data(args: &CLIArgs) -> Vec<PostData> {
 }
 
 fn build(args: &CLIArgs, post_data: Vec<PostData>) {
-    let mut sitemap = SiteMap::new();
+    let mut sitemap = SiteMap::new(&args.static_files_yaml_path);
     let tera = match Tera::new(&args.templates_path.join("*.html").into_os_string().into_string().unwrap()) {
         Ok(t) => t,
         Err(e) => panic!("Error parsing template: {}", e),

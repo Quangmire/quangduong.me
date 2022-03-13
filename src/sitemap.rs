@@ -3,6 +3,8 @@ use std::path::PathBuf;
 use std::fs::File;
 use std::io::prelude::*;
 use chrono::NaiveDateTime;
+use serde::{Serialize, Deserialize};
+use std::collections::HashMap;
 
 #[derive(Debug)]
 #[allow(dead_code)]
@@ -22,6 +24,13 @@ impl fmt::Display for SiteMapUpdateFreq {
     }
 }
 
+#[derive(Serialize, Deserialize, Debug)]
+struct StaticFilesEntry {
+    url: String,
+    last_mod: String,
+    update_freq: String,
+}
+
 struct SiteMapEntry {
     url: String,
     last_mod: NaiveDateTime,
@@ -29,15 +38,19 @@ struct SiteMapEntry {
 }
 
 pub struct SiteMap {
-    entries: Vec<SiteMapEntry>
+    entries: Vec<SiteMapEntry>,
+    sf_entries: HashMap<String, StaticFilesEntry>,
 }
 
 impl SiteMap {
-    pub fn new() -> SiteMap {
+    pub fn new(static_files_yaml_path: &PathBuf) -> SiteMap {
+        let static_files_yaml = std::fs::File::open(static_files_yaml_path).unwrap();
         SiteMap {
-            entries: Vec::new()
+            entries: Vec::new(),
+            sf_entries: serde_yaml::from_reader(static_files_yaml).unwrap(),
         }
     }
+
     pub fn add_entry(&mut self, url: String, last_mod: NaiveDateTime, update_freq: SiteMapUpdateFreq) {
         self.entries.push(SiteMapEntry {
             url: url,
@@ -60,6 +73,13 @@ impl SiteMap {
             sitemap_file.write_all(format!("    <loc>https://quangduong.me/{}</loc>\n", &entry.url).as_bytes()).unwrap();
             sitemap_file.write_all(format!("    <lastmod>{}</lastmod>\n", &entry.last_mod.format("%Y-%m-%d").to_string()).as_bytes()).unwrap();
             sitemap_file.write_all(format!("    <changefreq>{}</changefreq>\n", &entry.update_freq.to_string()).as_bytes()).unwrap();
+            sitemap_file.write_all(b"  </url>\n").unwrap();
+        }
+        for (_, entry) in self.sf_entries.iter() {
+            sitemap_file.write_all(b"  <url>\n").unwrap();
+            sitemap_file.write_all(format!("    <loc>https://quangduong.me/{}</loc>\n", &entry.url).as_bytes()).unwrap();
+            sitemap_file.write_all(format!("    <lastmod>{}</lastmod>\n", &entry.last_mod).as_bytes()).unwrap();
+            sitemap_file.write_all(format!("    <changefreq>{}</changefreq>\n", &entry.update_freq).as_bytes()).unwrap();
             sitemap_file.write_all(b"  </url>\n").unwrap();
         }
         sitemap_file.write_all(b"</urlset>\n").unwrap();

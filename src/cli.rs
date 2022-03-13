@@ -10,6 +10,7 @@ pub struct CLIArgs {
     pub static_path: PathBuf,
     pub favicon_path: PathBuf,
     pub netlify_toml_path: PathBuf,
+    pub static_files_yaml_path: PathBuf,
     pub posts_per_page: usize,
 }
 
@@ -54,6 +55,12 @@ pub fn parse_args() -> CLIArgs {
             .value_name("PATH")
             .default_value("netlify.toml")
             .help("Path to netlify.toml file"))
+        .arg(Arg::with_name("static-files-yaml-path")
+            .long("static-files-yaml-path")
+            .takes_value(true)
+            .value_name("PATH")
+            .default_value("static_files.yaml")
+            .help("Path to static_files.yaml file"))
         .arg(Arg::with_name("posts-per-page")
             .long("posts-per-page")
             .takes_value(true)
@@ -69,6 +76,7 @@ pub fn parse_args() -> CLIArgs {
         static_path: PathBuf::from(matches.value_of("static").unwrap()),
         favicon_path: PathBuf::from(matches.value_of("favicon-path").unwrap()),
         netlify_toml_path: PathBuf::from(matches.value_of("netlify-toml-path").unwrap()),
+        static_files_yaml_path: PathBuf::from(matches.value_of("static-files-yaml-path").unwrap()),
         posts_per_page: matches.value_of("posts-per-page").unwrap().parse::<usize>().unwrap(),
     }
 }

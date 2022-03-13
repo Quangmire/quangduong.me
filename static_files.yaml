@@ -1,0 +1,8 @@
+cv.pdf:
+    url: "static/documents/quang_duong_cv.pdf"
+    last_mod: "2021-11-12"
+    update_freq: "monthly"
+profile.png:
+    url: "static/media/profile.webp"
+    last_mod: "2022-03-10"
+    update_freq: "yearly"

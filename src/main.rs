@@ -147,6 +147,18 @@ fn read_data(args: &CLIArgs) -> Vec<PostData> {
 
     post_data.sort_by_key(|d| Reverse(NaiveDateTime::parse_from_str(&d.metadata.card_date, "%b %d %Y %-I:%M%p").unwrap()));
 
+    for post in post_data.iter_mut() {
+        post.metadata.card_date = NaiveDateTime::parse_from_str(&post.metadata.card_date, "%b %d %Y %-I:%M%p").unwrap().format("%b %d %Y").to_string();
+        post.metadata.last_updated = match &post.metadata.last_updated {
+            Some(v) => {
+                Some(NaiveDateTime::parse_from_str(&v, "%b %d %Y %-I:%M%p").unwrap().format("%b %d %Y").to_string())
+            },
+            None => {
+                None
+            }
+        }
+    }
+
     post_data
 }
 

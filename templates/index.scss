@@ -263,11 +263,7 @@ a:focus, a:hover {
         }
     }
 
-    .card + .card {
-        margin-top: 1rem;
-    }
-
-    .paginate + .card, .card + .paginate {
+    .card + .card, .paginate + .card, .card + .paginate {
         margin-top: 1rem;
     }
 

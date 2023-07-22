@@ -28,9 +28,9 @@
         <div class='card-title-container'>
             <h1 class='card-title'>{{ title }}</h1>
             <div class='card-date-container'>
-                <span class='card-date'>{{ date }}</span>
+                <span class='card-date'>Published {{ date }}</span>
                 {% if last_updated | length > 0 %}
-                    <span class='card-date'> | Updated {{ last_updated }}</span>
+                    <span class='card-date'> | Last Updated {{ last_updated }}</span>
                 {% endif %}
             </div>
         </div>

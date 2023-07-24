@@ -15,8 +15,8 @@ $plus20-secondary: darken($zero-secondary, 10);
 
 $lighter-highlight-color: lighten($quinary-color, 10);
 $highlight-color: $quinary-color;
-$darker-highlight-color: darken($highlight-color, 15);
-$darkest-highlight-color: darken($highlight-color, 30);
+$darker-highlight-color: darken($highlight-color, 22);
+$darkest-highlight-color: darken($highlight-color, 40);
 
 $default-tag-color: $plus10-primary;
 $primary-tag-color: $darker-highlight-color;

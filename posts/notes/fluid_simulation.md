@@ -4,9 +4,9 @@ card_title: "Notes on Fluid Simulation"
 card_date: "Dec 15 2021 1:11AM"
 card_tags:
 - "notes"
-- "fluid_simulation"
-- "physical_simulation"
-- "computer_graphics"
+- "fluid simulation"
+- "physical simulation"
+- "computer graphics"
 card_class: "notes"
 summary: >
   A series of notes on different methods and approaches to fluid simulations

@@ -1,38 +1,10 @@
+{% import 'card_header.html' as card_header %}
+
 {% macro render(summary_card) %}
     <div class='card'>
-        <div class='card-header'>
-            <div class='card-title-container'>
-                {% if summary_card.path == '/' %}
-                    <a class='card-title-link' href='/'><h1 class='card-title'>{{ summary_card.title }}</h1></a>
-                {% else %}
-                    <a class='card-title-link' href='/{{ summary_card.path }}'><h1 class='card-title'>{{ summary_card.title }}</h1></a>
-                {% endif %}
-                <div class='card-date-container'>
-                    <span class='card-date'>Last Updated {{ summary_card.date }}</span>
-                </div>
-            </div>
-            <div class='card-tag-container'>
-                {% for tag in summary_card.tags %}
-                    {% if loop.first %}
-                        <svg class='card-tag-icon' style='width:24px;height:24px' viewBox='0 0 24 24'>
-                            <path d='M21.4 11.6L12.4 2.6C12 2.2 11.5 2 11 2H4C2.9 2 2 2.9 2 4V11C2 11.5 2.2 12 2.6 12.4L11.6 21.4C12 21.8 12.5 22 13 22C13.5 22 14 21.8 14.4 21.4L21.4 14.4C21.8 14 22 13.5 22 13C22 12.5 21.8 12 21.4 11.6M13 20L4 11V4H11L20 13M6.5 5C7.3 5 8 5.7 8 6.5S7.3 8 6.5 8 5 7.3 5 6.5 5.7 5 6.5 5M10.1 8.9L11.5 7.5L17 13L15.6 14.4L10.1 8.9M7.6 11.4L9 10L13 14L11.6 15.4L7.6 11.4Z' />
-                        </svg>
-                    {% endif %}
-                    <a class='card-tag {{ tag.class }}' href='/tag/{{ tag.name }}/1/'>{{ tag.name | upper }}</a>
-                {% endfor %}
-            </div>
-        </div>
+        {{ card_header::render(header=summary_card.header) }}
         <div class='card-content'>
             {{ summary_card.summary|safe }}
-            {% if summary_card.path == '/' %}
-            <a class='card-read-more' href='/'><span>Continue Reading</span><svg style='width:24px;height:24px' viewBox='0 0 24 24'>
-                <path fill='currentColor' d='M5.59,7.41L7,6L13,12L7,18L5.59,16.59L10.17,12L5.59,7.41M11.59,7.41L13,6L19,12L13,18L11.59,16.59L16.17,12L11.59,7.41Z' />
-            </svg></a>
-            {% else %}
-            <a class='card-read-more' href='/{{ summary_card.path }}'><span>Continue Reading</span><svg style='width:24px;height:24px' viewBox='0 0 24 24'>
-                <path fill='currentColor' d='M5.59,7.41L7,6L13,12L7,18L5.59,16.59L10.17,12L5.59,7.41M11.59,7.41L13,6L19,12L13,18L11.59,16.59L16.17,12L11.59,7.41Z' />
-            </svg></a>
-            {% endif %}
         </div>
     </div>
 {% endmacro %}

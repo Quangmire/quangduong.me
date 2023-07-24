@@ -1,19 +1,32 @@
+// $primary-color: #2E5266;
+// $primary-color: lighten(#2E5077, 10); // YlnMn Blue
 $primary-color: lighten(#2E5077, 2.5); // YlnMn Blue
-$secondary-color: #6E8898;
+// $secondary-color: #6E8898;
+// $quinary-color: lighten(#D80032, 10); // Crimson
+// $quinary-color: lighten(#D5573B, 10); // Jasper
+// $quinary-color: #EFA48B; // Atomic Tangerine
+// $quinary-color: #96ADC8; // Powder Blue
+// $quinary-color: #E4572E; // Flame
+$quinary-color: lighten(#77AF9C, 2.5); // Cambridge Blue
+// $quinary-color: lighten(#0E9594, 20); // Dark Cyan
+// $quinary-color: #B0CA87; // Olivine
+// $quinary-color: darken(#B0CA87, 5); // Olivine
+// $quinary-color: #7EBCE6; // Maya Blue
+// $quinary-color: #92B4F4; // Jordy Blue
+// $quinary-color: #AED4F9; // Uranium Blue
 $tertiary-color: #9FB1BC;
 $quaternary-color: #D3D0CB;
-$quinary-color: lighten(#77AF9C, 2.5); // Cambridge Blue
+// $quinary-color: #F04045;
 
 $min10-primary: lighten($primary-color, 2.5);
 $zero-primary: darken($primary-color, 7.5);
 $plus10-primary: darken($primary-color, 11);
-$plus20-primary: darken($primary-color, 20);
+$plus20-primary: darken($primary-color, 17.5);
 
 $zero-secondary: lighten($quaternary-color, 10);
 $plus10-secondary: $zero-secondary;
 $plus20-secondary: darken($zero-secondary, 10);
 
-$lighter-highlight-color: lighten($quinary-color, 10);
 $highlight-color: $quinary-color;
 $darker-highlight-color: darken($highlight-color, 15);
 $darkest-highlight-color: darken($highlight-color, 30);
@@ -39,30 +52,21 @@ $navbar-icon-inactive-color: $zero-secondary;
 $navbar-border-color: $plus20-primary;
 
 /* POSITIONING/SIZING */
-$navbar-icon-size: 2.25rem;
+$navbar-icon-size: 2.5rem;
 $navbar-icon-small-size: 2rem;
-$navbar-text-small-size: 0.8rem;
+$navbar-text-small-size: 0.7rem;
 $navbar-text-smaller-size: 0.6rem;
 $navbar-size: 5rem;
 $navbar-small-size: 3.5rem;
-
-$card-border-radius: 0.5rem;
-$smaller-card-border-radius: 0.25rem;
 
 /* TRANSITION TIMING */
 $fast-time: 0.2s;
 $slow-time: 0.5s;
 
-$card-background-color: lighten(#EFEFEF, 1);
-$card-content-background-color: $card-background-color;
-// $card-metadata-background-color: darken(#EFEFEF, 7);
-$card-metadata-background-color: darken(#EAEFF1, 7);
-// $card-metadata-background-color: lighten(#7EBCE6, 27.5); // Maya Blue
-$website-background-color: darken(#D8D8D8, 2.5);
+$card-background-color: #EFEFEF;
+$website-background-color: #D8D8D8;
 $card-shadow-color: darken($website-background-color, 20);
 $shadow-in-card-color: darken($card-background-color, 20);
-$highlight-in-card-color: lighten($card-background-color, 5);
-$card-tag-icon-color: darken($card-metadata-background-color, 55);
 
 html, body {
     padding: 0;
@@ -74,6 +78,14 @@ html, body {
 
 h1, h2, h3, h4, h5, h6 {
     color: $darker-highlight-color;
+}
+
+._404 {
+    text-align: center;
+}
+
+._404 img {
+    margin-top: 1rem;
 }
 
 .katex-display > .katex {
@@ -97,15 +109,19 @@ code {
     font-size: 1rem;
 }
 
-pre {
-    border-radius: $card-border-radius;
-}
-
-.highlight {
-    display: inline-block;
+.codehilite {
+    padding: 0.5rem;
+    border-radius: 0.2rem;
+    margin: 0.5rem 0 0.5rem 0;
     overflow: auto;
-    line-height: 1.5rem;
-    margin: 0.5rem 0.5rem 0 0.5rem;
+
+    pre {
+        margin: 0;
+
+        code {
+            margin: 0.5rem;
+        }
+    }
 }
 
 a {
@@ -144,7 +160,7 @@ a:focus, a:hover {
     }
 
     #navbar-title {
-        font-size: 2.75rem;
+        font-size: 3rem;
         font-weight: bold;
         border-bottom: 4px solid $navbar-border-color;
         color: $navbar-text-inactive-color;
@@ -153,8 +169,8 @@ a:focus, a:hover {
         height: $navbar-size;
         display: flex;
         align-items: center;
-        padding-left: 1.5rem;
-        padding-right: 1.5rem;
+        padding-left: 2rem;
+        padding-right: 2rem;
 
         span {
             padding-top: 4px;
@@ -178,11 +194,10 @@ a:focus, a:hover {
         transition: background $slow-time ease, color $slow-time ease, border-color $slow-time ease;
         height: $navbar-size;
         border-bottom: 4px solid $navbar-border-color;
-        font-size: 0.9rem;
 
         .navbar-icon {
             display: block;
-            padding-top: 1rem;
+            padding-top: 0.75rem;
             padding-bottom: 0.25rem;
             min-width: $navbar-icon-size;
             max-width: $navbar-icon-size;
@@ -233,7 +248,6 @@ a:focus, a:hover {
     width: 100%;
 
     .card {
-        border-radius: $card-border-radius;
         background: $card-background-color;
         margin-left: auto;
         margin-right: auto;
@@ -249,7 +263,6 @@ a:focus, a:hover {
     }
 
     .header-card-container {
-        border-radius: $card-border-radius;
         width: 100%;
         text-align: center;
         background-color: $plus10-primary;
@@ -269,11 +282,11 @@ a:focus, a:hover {
     }
 
     .paginate-container {
-        border-radius: $card-border-radius;
         width: 100%;
         display: flex;
         height: 2rem;
         text-align: center;
+        background: $plus10-primary;
 
         .paginate:first-child {
             border-left: none;
@@ -334,17 +347,16 @@ a:focus, a:hover {
     }
 
     .card-header {
+        padding-left: 1rem;
+        padding-right: 1rem;
+        margin-bottom: 0.5rem;
 
         .card-title-container {
-            display: flex;
-            flex-wrap: nowrap;
-            align-items: center;
-            justify-content: space-between;
-            padding-right: 0.5rem;
+            border-bottom: 1px solid gray;
 
             .card-title {
                 display: inline-block;
-                padding: 1rem 1rem 1rem 1rem;
+                padding: 1rem 0rem 0.25rem 0rem;
                 font-weight: bold;
                 margin: 0;
             }
@@ -357,59 +369,27 @@ a:focus, a:hover {
                 text-decoration: underline;
             }
 
-            .card-title-metadata {
-                display: flex;
-            }
+            .card-date-container {
+                margin-bottom: 0.25rem;
 
-            .metadata-icon {
-                flex: 3.5rem;
-                padding: 0;
-                margin-left: 0.5rem;
-                min-width: 3rem;
-                min-height: 3rem;
-                max-width: 3rem;
-                max-height: 3rem;
-                fill: $darker-highlight-color;
-                transition: fill $slow-time ease;
-            }
-
-            a:hover .metadata-icon {
-                fill: $lighter-highlight-color;
-                transition: fill $fast-time ease;
-            }
-
-            a:focus .metadata-icon {
-                fill: $lighter-highlight-color;
-                transition: fill $fast-time ease;
-            }
-        }
-
-        .card-metadata {
-            background: $card-metadata-background-color;
-            border-bottom: 2px solid $highlight-in-card-color;
-            border-top: 3px solid $shadow-in-card-color;
-        }
-
-        .card-date-container {
-            padding: 0.35rem 1rem 0rem 1rem;
-
-            .card-date {
-                font-size: 0.9rem;
-                font-style: italic;
+                .card-date {
+                    font-size: 0.9rem;
+                    font-style: italic;
+                }
             }
         }
 
     }
 
     .card-tag-container {
-        padding: 0.5rem 1rem 0 1rem;
+        margin-top: 0.25rem;
 
         .card-tag-icon {
             max-width: 1.4rem;
             max-height: 1.4rem;
             min-width: 1.4rem;
             min-height: 1.4rem;
-            fill: $card-tag-icon-color;
+            fill: gray;
             vertical-align: middle;
         }
 
@@ -421,8 +401,8 @@ a:focus, a:hover {
             padding: 0.2rem 0.5rem 0.2rem 0.5rem;
             color: white;
             font-weight: bold;
-            border-radius: $smaller-card-border-radius;
-            box-shadow: 3px 3px $shadow-in-card-color;
+            border-radius: 0.1rem;
+            box-shadow: 2px 2px $shadow-in-card-color;
         }
 
         .default-tag {
@@ -453,12 +433,10 @@ a:focus, a:hover {
     }
 
     .card-content {
-        margin-top: 3px;
-        padding: calc(0.5rem - 3px) 1rem 0.5rem 1rem;
+        padding: 0rem 1rem 1rem 1rem;
         line-height: 2rem;
-        background: $card-content-background-color;
 
-        h2, h3, h4, h5, h6, p:first-child {
+        p:first-child {
             margin: 0;
         }
 
@@ -466,6 +444,9 @@ a:focus, a:hover {
             margin: 0.5rem 0 0 0;
         }
 
+        h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
 
         h2 {
             padding-top: 0.5rem;
@@ -491,7 +472,11 @@ a:focus, a:hover {
         overflow-y: hidden;
     }
 
-    .footnote-ref, .footenoteBackLink {
+    .footnote-ref {
+        font-weight: bold;
+    }
+
+    .footnoteBackLink {
         font-weight: bold;
     }
 
@@ -508,10 +493,6 @@ a:focus, a:hover {
     }
 
     ul {
-        margin: 0.5rem 0 0.25rem 0;
-        padding-left: 0.5rem;
-        list-style: none;
-
         li:before {
             content: ' ';
             display: inline-block;
@@ -532,6 +513,44 @@ a:focus, a:hover {
             padding-left: 1.5rem;
         }
 
+    }
+
+    ul {
+        margin: 0.5rem 0 0.25rem 0;
+        padding-left: 0.5rem;
+        list-style: none;
+    }
+
+    .card-read-more {
+        display: flex;
+        align-items: center;
+        vertical-align: middle;
+        float: right;
+        padding: 0.25rem;
+        padding-left: 0.5rem;
+        margin-bottom: 1rem;
+        line-height: 1rem;
+        font-weight: bold;
+        color: white;
+        background: $darker-highlight-color;
+        position: relative;
+        box-shadow: 2px 2px $shadow-in-card-color;
+        transform: background $slow-time ease;
+
+        svg {
+            vertical-align: middle;
+        }
+    }
+
+    .card-read-more:hover, .card-read-more:focus {
+        background: white;
+        color: $darker-highlight-color;
+        transition: background $fast-time ease, color $fast-time ease;
+
+        svg {
+            transform: rotate(360deg);
+            transition: transform $slow-time ease;
+        }
     }
 
     .collapsible-container {
@@ -619,21 +638,12 @@ a:focus, a:hover {
         transition: transform $slow-time ease;
     }
 
-    /*
-    span.newest-post, span.oldest-post {
-        background: $plus10-primary;
-    }
-    */
-
-    .newer-post, .older-post {
-        background: $plus10-primary;
-        padding: 0.5rem 0 0.5rem 0;
+    .post-navigation {
         font-size: 1.5rem;
         font-weight: bold;
         color: $zero-secondary;
         vertical-align: middle;
         line-height: 2rem;
-        width: 50%;
 
         svg {
             vertical-align: top;
@@ -644,17 +654,13 @@ a:focus, a:hover {
         }
     }
 
-    a.newer-post:hover, a.older-post:hover {
-        background: $primary-color;
+    .post-navigation-card {
+        background: $plus10-primary;
+        padding: 0.5rem 0 0.5rem 0;
     }
 
-    .newer-post {
+    a.newer-post {
         float: left;
-    }
-
-    .older-post {
-        text-align: right;
-        float: right;
     }
 
     span.newer-post, span.older-post {
@@ -663,12 +669,14 @@ a:focus, a:hover {
 
     span.newer-post {
         padding-left: 1rem;
-        width: calc(50% - 1rem);
     }
 
     span.older-post {
         padding-right: 1rem;
-        width: calc(50% - 1rem);
+    }
+
+    .older-post {
+        float: right;
     }
 
     a.newer-post:hover svg {
@@ -689,7 +697,7 @@ a:focus, a:hover {
 }
 
 // Desktop-ish
-@media only screen and (min-width: 1132px) {
+@media only screen and (min-width: 1148px) {
     #navbar {
         top: 0;
 
@@ -704,7 +712,7 @@ a:focus, a:hover {
 }
 
 // Tablet-ish
-@media only screen and (min-width: 800px) and (max-width: 1132px) {
+@media only screen and (min-width: 732px) and (max-width: 1148px) {
     #navbar {
         #navbar-content {
             margin-left: 1rem;
@@ -718,14 +726,63 @@ a:focus, a:hover {
     }
 }
 
+/* In between mobile / tablet where navbar too big */
+@media only screen and (min-width: 732px) and (max-width: 968px) {
+    .paginate-container {
+        font-size: 0.9rem;
+    }
+
+    #navbar {
+        #navbar-title {
+            font-size: 2.75rem;
+        }
+
+        .navbar-link {
+            .navbar-icon {
+                padding-top: 1rem;
+                padding-bottom: 0.5rem;
+                min-width: $navbar-icon-small-size;
+                max-width: $navbar-icon-small-size;
+                max-height: $navbar-icon-small-size;
+                min-height: $navbar-icon-small-size;
+            }
+
+            .navbar-text {
+                font-size: 0.9rem;
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 732px) and (max-width: 832px) {
+    #navbar {
+        #navbar-title {
+            font-size: 2.5rem;
+        }
+        .navbar-link {
+            .navbar-icon {
+                padding-top: 1rem;
+                padding-bottom: 0.5rem;
+                min-width: $navbar-icon-small-size;
+                max-width: $navbar-icon-small-size;
+                max-height: $navbar-icon-small-size;
+                min-height: $navbar-icon-small-size;
+            }
+
+            .navbar-text {
+                font-size: 0.9rem;
+            }
+        }
+    }
+}
+
 // Mobile-ish
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 732px) {
     #navbar {
         bottom: 0;
         position: fixed;
         border-bottom-color: $navbar-bg-inactive-color;
         z-index: 10000;
-        height: $navbar-small-size;
 
         #navbar-title {
             display: none;
@@ -734,18 +791,6 @@ a:focus, a:hover {
         .navbar-link {
             border-top: 4px solid $min10-primary;
             border-bottom-color: $navbar-bg-inactive-color;
-
-            .navbar-icon {
-                padding: 0.25rem 0 0.1rem 0;
-                min-width: $navbar-icon-small-size;
-                max-width: $navbar-icon-small-size;
-                min-height: $navbar-icon-small-size;
-                max-height: $navbar-icon-small-size;
-            }
-
-            .navbar-text {
-                font-size: $navbar-text-small-size;
-            }
         }
 
         .navbar-link:hover, .navbar-link:focus {
@@ -768,34 +813,17 @@ a:focus, a:hover {
 
     #content {
         margin-top: 0.5rem;
-        margin-bottom: $navbar-small-size + 0.5rem + 0.2rem;
+        margin-bottom: $navbar-size + 1rem;
 
         .card {
             margin: 0.5rem;
 
             .card-header > .card-title-container .card-title {
-                padding: 0.75rem;
                 font-size: 1.4rem;
-            }
-
-            .card-title-container .card-title-metadata .metadata-icon {
-                min-width: 2.5rem;
-                min-height: 2.5rem;
-                max-width: 2.5rem;
-                max-height: 2.5rem;
-            }
-
-            .card-header {
-                .card-date-container, .card-tag-container {
-                    padding-left: 0.75rem;
-                    padding-right: 0.75rem;
-                }
             }
 
             .card-content {
                 font-size: 0.9rem;
-                padding-left: 0.75rem;
-                padding-right: 0.75rem;
 
                 h2 {
                     font-size: 1.2rem;
@@ -834,6 +862,7 @@ a:focus, a:hover {
 
         .post-navigation {
             font-size: 1.25rem;
+            padding: 0.1rem 0 0.1rem 0;
             line-height: 1.5rem;
 
             svg {
@@ -849,18 +878,38 @@ a:focus, a:hover {
         font-size: 0.9rem;
     }
 
-
-}
-
-@media only screen and (max-width: 532px) {
     .about img {
         float: none;
         display: block;
         margin-left: auto;
         margin-right: auto;
     }
+}
 
+@media only screen and (max-width: 560px) {
     .paginate-container {
         font-size: $navbar-text-small-size;
+    }
+
+    #navbar{
+        height: $navbar-small-size;
+
+        .navbar-link {
+            .navbar-icon {
+                padding: 0.25rem 0 0.1rem 0;
+                min-width: $navbar-icon-small-size;
+                max-width: $navbar-icon-small-size;
+                min-height: $navbar-icon-small-size;
+                max-height: $navbar-icon-small-size;
+            }
+
+            .navbar-text {
+                font-size: $navbar-text-small-size;
+            }
+        }
+    }
+
+    #content {
+        margin-bottom: $navbar-small-size + 0.5rem + 0.2rem;
     }
 }

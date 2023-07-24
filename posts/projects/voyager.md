@@ -4,9 +4,10 @@ card_title: "Voyager Neural Data Prefetcher Implementation"
 card_date: "Oct 27 2021 7:11PM"
 card_tags:
 - "projects"
-- "data_prefetching"
-- "machine_learning"
+- "data prefetching"
+- "machine learning"
 card_class: "projects"
+github_link: "https://github.com/Quangmire/Voyager"
 summary: >
   Official (Re)-Implementation of the Voyager neural data prefetcher published
   in ASPLOS 2021

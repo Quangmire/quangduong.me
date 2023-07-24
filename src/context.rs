@@ -9,10 +9,13 @@ pub struct PostMetaData {
     pub path: String,
     pub card_title: String,
     pub card_date: String,
-    pub last_updated: Option<String>,
     pub card_tags: Vec<String>,
     pub card_class: String,
     pub summary: String,
+
+    pub last_updated: Option<String>,
+    pub pdf_link: Option<String>,
+    pub github_link: Option<String>,
 }
 
 #[derive(Debug)]
@@ -49,12 +52,20 @@ pub struct Base<'a> {
 }
 
 #[derive(Serialize)]
-pub struct Post<'a> {
-    base: Base<'a>,
-    tags: Vec<Tag<'a>>,
+pub struct CardHeader<'a> {
     title: &'a str,
     date: &'a str,
     last_updated: &'a str,
+    tags: Vec<Tag<'a>>,
+    path: &'a str,
+    pdf_link: &'a str,
+    github_link: &'a str,
+}
+
+#[derive(Serialize)]
+pub struct Post<'a> {
+    base: Base<'a>,
+    header: CardHeader<'a>,
     class: &'a str,
     newer_path: &'a str,
     older_path: &'a str,
@@ -72,10 +83,7 @@ pub struct Pagination<'a> {
 
 #[derive(Serialize)]
 pub struct SummaryCard<'a> {
-    path: &'a str,
-    title: &'a str,
-    date: &'a str,
-    tags: Vec<Tag<'a>>,
+    header: CardHeader<'a>,
     summary: &'a str,
 }
 
@@ -137,19 +145,30 @@ pub fn generate_post<'a>(post: &'a PostData, older_post: &'a str, newer_post: &'
             needs_latex: post.needs_latex,
             title: &post.metadata.title,
         },
-        tags: post.metadata.card_tags.iter().map(|name| 
-            Tag {
-                class: tag_class(name),
-                name: name,
-            }
-        ).collect(),
-        title: &post.metadata.card_title,
-        class: &post.metadata.card_class,
-        date: &post.metadata.card_date,
-        last_updated: match &post.metadata.last_updated {
-            Some(s) => s,
-            _ => "",
+        header: CardHeader {
+            title: &post.metadata.card_title,
+            date: &post.metadata.card_date,
+            last_updated: match &post.metadata.last_updated {
+                Some(s) => s,
+                _ => "",
+            },
+            tags: post.metadata.card_tags.iter().map(|name| 
+                Tag {
+                    class: tag_class(name),
+                    name: name,
+                }
+            ).collect(),
+            path: "",
+            pdf_link: match &post.metadata.pdf_link {
+                Some(link) => link,
+                None => "",
+            },
+            github_link: match &post.metadata.github_link {
+                Some(link) => link,
+                None => "",
+            },
         },
+        class: &post.metadata.card_class,
         newer_path: newer_post,
         older_path: older_post,
         content: &post.html,
@@ -221,15 +240,29 @@ pub fn generate_multipost<'a>(
         },
         summary_cards: (start_post..end_post).into_iter().map(|page|
             SummaryCard {
-                path: &post_data[page].metadata.path,
-                title: &post_data[page].metadata.card_title,
-                date: &post_data[page].metadata.card_date,
-                tags: post_data[page].metadata.card_tags.iter().map(|name| 
-                    Tag {
-                        class: tag_class(name),
-                        name: name,
-                    }
-                ).collect(),
+                header: CardHeader {
+                    title: &post_data[page].metadata.card_title,
+                    date: &post_data[page].metadata.card_date,
+                    last_updated: match &post_data[page].metadata.last_updated {
+                        Some(s) => s,
+                        _ => "",
+                    },
+                    tags: post_data[page].metadata.card_tags.iter().map(|name| 
+                        Tag {
+                            class: tag_class(name),
+                            name: name,
+                        }
+                    ).collect(),
+                    path: &post_data[page].metadata.path,
+                    pdf_link: match &post_data[page].metadata.pdf_link {
+                        Some(link) => link,
+                        None => "",
+                    },
+                    github_link: match &post_data[page].metadata.github_link {
+                        Some(link) => link,
+                        None => "",
+                    },
+                },
                 summary: &post_data[page].metadata.summary,
             },
         ).collect(),

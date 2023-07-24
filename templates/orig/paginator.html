@@ -1,0 +1,78 @@
+{% macro paginate(path, cur_page, num_pages, pages) %}
+{% if num_pages > 1 %}
+    <div class='card'>
+        <div class='paginate-container paginate'>
+            {%- if cur_page == 1 -%}
+                <span class='paginate'><svg style='width:24px;height:24px' viewBox='0 0 24 24'>
+                    <path fill='currentColor' d='M18.41,7.41L17,6L11,12L17,18L18.41,16.59L13.83,12L18.41,7.41M12.41,7.41L11,6L5,12L11,18L12.41,16.59L7.83,12L12.41,7.41Z' />
+                </svg></span><span class='paginate'><svg style='width:24px;height:24px' viewBox='0 0 24 24'>
+                    <path fill='currentColor' d='M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z' />
+                </svg></span>
+            {%- else -%}
+                {%- if pagination.tag | length > 0 -%}
+                    <a class='paginate' href='{{ path }}/1/' aria-label='Go to first page'><svg role='img' style='width:24px;height:24px' viewBox='0 0 24 24'>
+                        <title>Go to first page</title>
+                        <path fill='currentColor' d='M18.41,7.41L17,6L11,12L17,18L18.41,16.59L13.83,12L18.41,7.41M12.41,7.41L11,6L5,12L11,18L12.41,16.59L7.83,12L12.41,7.41Z' />
+                    </svg></a><a class='paginate' href='{{ path }}/{{ cur_page - 1 }}/' aria-label='Go to previous page'><svg role='img' style='width:24px;height:24px' viewBox='0 0 24 24'>
+                        <title>Go to previous page</title>
+                        <path fill='currentColor' d='M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z' />
+                    </svg></a>
+                {%- else -%} <!-- Blog Page -->
+                    {%- if cur_page == 2 -%}
+                        <a class='paginate' href='{{ path }}/1/' aria-label='Go to first page'><svg role='img' style='width:24px;height:24px' viewBox='0 0 24 24'>
+                            <title>Go to first page</title>
+                            <path fill='currentColor' d='M18.41,7.41L17,6L11,12L17,18L18.41,16.59L13.83,12L18.41,7.41M12.41,7.41L11,6L5,12L11,18L12.41,16.59L7.83,12L12.41,7.41Z' />
+                        </svg></a><a class='paginate' href='{{ path }}/1/' aria-label='Go to previous page'><svg role='img' style='width:24px;height:24px' viewBox='0 0 24 24'>
+                            <title>Go to previous page</title>
+                            <path fill='currentColor' d='M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z' />
+                        </svg></a>
+                    {%- else -%}
+                        <a class='paginate' href='{{ path }}/1/' aria-label='Go to first page'><svg role='img' style='width:24px;height:24px' viewBox='0 0 24 24'>
+                            <title>Go to first page</title>
+                            <path fill='currentColor' d='M18.41,7.41L17,6L11,12L17,18L18.41,16.59L13.83,12L18.41,7.41M12.41,7.41L11,6L5,12L11,18L12.41,16.59L7.83,12L12.41,7.41Z' />
+                        </svg></a><a class='paginate' href='{{ path }}/{{ cur_page - 1 }}/' aria-label='Go to previous page'><svg role='img' style='width:24px;height:24px' viewBox='0 0 24 24'>
+                            <title>Go to previous page</title>
+                            <path fill='currentColor' d='M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z' />
+                        </svg></a>
+                    {%- endif -%}
+                {%- endif -%}
+            {%- endif -%}
+
+            {% for page in pages -%}
+                {%- if page == 0 -%}
+                    <span class='paginate paginate-ellipsis'><svg style='width:24px;height:24px' viewBox='0 0 24 24'>
+                        <path fill='currentColor' d='M16,12A2,2 0 0,1 18,10A2,2 0 0,1 20,12A2,2 0 0,1 18,14A2,2 0 0,1 16,12M10,12A2,2 0 0,1 12,10A2,2 0 0,1 14,12A2,2 0 0,1 12,14A2,2 0 0,1 10,12M4,12A2,2 0 0,1 6,10A2,2 0 0,1 8,12A2,2 0 0,1 6,14A2,2 0 0,1 4,12Z' />
+                    </svg></span>
+                {%- else -%}
+                    {%- if page == cur_page -%}
+                        <span class='paginate-num paginate'>{{ page }}</span>
+                    {%- else -%}
+                        {%- if page == 1 -%}
+                            <a class='paginate-num paginate' href='{{ path }}/1/'>{{ page }}</a>
+                        {%- else -%}
+                            <a class='paginate-num paginate' href='{{ path }}/{{ page }}/'>{{ page }}</a>
+                        {%- endif -%}
+                    {%- endif -%}
+                {%- endif -%}
+            {%- endfor %}
+
+            {%- if cur_page == num_pages -%}
+                <span class='paginate'><svg style='width:24px;height:24px' viewBox='0 0 24 24'>
+                    <path fill='currentColor' d='M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z' />
+                </svg></span><span class='paginate'><svg style='width:24px;height:24px' viewBox='0 0 24 24'>
+                    <path fill='currentColor' d='M5.59,7.41L7,6L13,12L7,18L5.59,16.59L10.17,12L5.59,7.41M11.59,7.41L13,6L19,12L13,18L11.59,16.59L16.17,12L11.59,7.41Z' />
+                </svg></span>
+            {%- else -%}
+                <a class='paginate' href='{{ path }}/{{ cur_page + 1 }}/' aria-label='Go to next page'><svg role='img' style='width:24px;height:24px' viewBox='0 0 24 24'>
+                    <title>Go to next page</title>
+                    <path fill='currentColor' d='M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z' />
+                </svg></a><a class='paginate' href='{{ path }}/{{ num_pages }}/' aria-label='Go to last page'><svg role='img' style='width:24px;height:24px' viewBox='0 0 24 24'>
+                    <title>Go to last page</title>
+                    <path fill='currentColor' d='M5.59,7.41L7,6L13,12L7,18L5.59,16.59L10.17,12L5.59,7.41M11.59,7.41L13,6L19,12L13,18L11.59,16.59L16.17,12L11.59,7.41Z' />
+                </svg></a>
+            {%- endif -%}
+        </div>
+    </div>
+{% endif %}
+{% endmacro %}
+

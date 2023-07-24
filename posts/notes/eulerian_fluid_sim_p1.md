@@ -4,9 +4,9 @@ card_title: "Eulerian Fluid Simulation [Part 1]"
 card_date: "Oct 25 2021 7:11PM"
 card_tags:
 - "notes"
-- "fluid_simulation"
-- "physical_simulation"
-- "computer_graphics"
+- "fluid simulation"
+- "physical simulation"
+- "computer graphics"
 card_class: "notes"
 summary: >
   Brief notes about the basics of Eulerian Fluid Simulation distilled from

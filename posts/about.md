@@ -1,11 +1,12 @@
-title: "Quang Duong | About Me"
+title: "Quang Duong · About Me"
 path: ""
-card_title: "Quang Duong | About Me"
+card_title: "Quang Duong · About Me"
 card_date: "Oct 22 2021 1:16AM"
 last_updated: "Feb 6 2022 8:20PM"
 card_tags:
 - "about"
 card_class: "about"
+pdf_link: "/static/documents/QuangDuongCV.pdf"
 summary: >
   In-depth biography about myself, my work history, and my research interests in
   the fields of computer science, machine learning, and computer architecture.

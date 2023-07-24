@@ -1,13 +1,15 @@
-title: "Notes on Data Prefetching"
-path: "notes/data_prefetching"
-card_title: "Notes on Data Prefetching"
-card_date: "Dec 15 2021 1:12AM"
+title: "Test Page"
+path: "notes/test_page"
+card_title: "Test Page Long Card Title to check for wraps and stuff"
+card_date: "Jul 22 2023 5:12PM"
 card_tags:
 - "notes"
 - "computer architecture"
 - "data prefetching"
 - "machine learning"
 card_class: "notes"
+pdf_link: "blah"
+github_link: "blah 2"
 summary: >
   A series of notes summarizing the different approaches taken in the past
   half-century to perform spatial and temporal data prefetching in CPU caches.
@@ -15,6 +17,18 @@ summary: >
   authors' works.
 
 ---
+
+```Python
+def a(b):
+    b = b + 1
+    return 2 * b
+
+def main():
+    a(a(a(a(5))))
+
+if __name__ == '__main__':
+    main()
+```
 
 This series details my notes on various research papers (some dating back 40+
 years ago) on data prefetching. Some entries will appear in several categories

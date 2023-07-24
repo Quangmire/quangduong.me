@@ -239,7 +239,7 @@ fn build(args: &CLIArgs, post_data: Vec<PostData>) {
         for page in 1..(num_pages + 1) {
             let pagination_tag = tag.to_uppercase();
             let multipost_summary = format!("Page {} of all posts tagged [{}] on Quang Duong's academic blog about Computer Science, Machine Learning, and Computer Architecture research", page, &pagination_tag);
-            let multipost_title = format!("All Posts Tagged [{}] | Page {}", &pagination_tag, page);
+            let multipost_title = format!("All Posts Tagged [{}] · Page {}", &pagination_tag, page);
             let multipost_header = format!("All Posts Tagged as [{}]", tag.to_uppercase());
             let pagination_path = format!("/tag/{}", tag);
 
@@ -250,7 +250,7 @@ fn build(args: &CLIArgs, post_data: Vec<PostData>) {
             );
             _render(&tera, "multipost.html",
                 &Context::from_serialize(&multipost).unwrap(),
-                &args.output_path.join("tag").join(tag).join(page.to_string()));
+                &args.output_path.join("tag").join(tag.replace(" ", "_")).join(page.to_string()));
             sitemap.add_entry(
                 format!("tag/{}/{}/", tag, page).to_string(),
                 chrono::offset::Local::now().naive_local(),
@@ -267,7 +267,7 @@ fn build(args: &CLIArgs, post_data: Vec<PostData>) {
     };
     for page in 1..(num_pages + 1) {
         let multipost_summary = format!("Page {} of all posts on Quang Duong's academic blog about Computer Science, Machine Learning, and Computer Architecture research", page);
-        let multipost_title = format!("Blog Posts - Page {} | Quang Duong", page);
+        let multipost_title = format!("Blog Posts - Page {} · Quang Duong", page);
         let multipost_header = "All Blog Posts";
         let pagination_path = "/blog";
         let pagination_tag = "";

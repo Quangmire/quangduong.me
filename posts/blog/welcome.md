@@ -4,7 +4,7 @@ card_title: "Hello there, Welcome to my Blog!"
 card_date: "Oct 27 2021 1:51AM"
 card_tags:
 - "blog"
-- "first_post"
+- "first post"
 card_class: "blog"
 summary: >
   Greatings Internet wanderer. This post serves as a brief introduction to my

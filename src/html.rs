@@ -30,8 +30,15 @@ use slug::slugify;
 //use pulldown_cmark::escape::{escape_href, escape_html, StrWrite, WriteWrapper};
 use pulldown_cmark::escape::{escape_href, escape_html, StrWrite};
 use pulldown_cmark::Event::*;
-use pulldown_cmark::{Alignment, CodeBlockKind, Event, LinkType, Tag};
+use pulldown_cmark::{Alignment, CodeBlockKind, Event, LinkType, Tag, HeadingLevel};
 use pulldown_cmark::CowStr;
+
+use syntect::parsing::{SyntaxSet, SyntaxReference};
+use syntect::highlighting::{ThemeSet, Theme};
+use syntect::html::{start_highlighted_html_snippet, append_highlighted_html_for_styled_line, IncludeBackground};
+use syntect::easy::HighlightLines;
+use syntect::util::LinesWithEndings;
+use syntect::Error;
 
 enum TableState {
     Head,
@@ -58,7 +65,12 @@ struct HtmlWriter<'a, I, W> {
     figure_link: bool,
     alt_text: bool,
     heading: bool,
-    heading_level: u32,
+    heading_level: HeadingLevel,
+
+    in_code_block: bool,
+    code_lang: String,
+    syntax_set: SyntaxSet,
+    theme: Theme,
 }
 
 impl<'a, I, W> HtmlWriter<'a, I, W>
@@ -81,7 +93,11 @@ where
             figure_link: false,
             alt_text: false,
             heading: false,
-            heading_level: 0,
+            heading_level: HeadingLevel::H1,
+            in_code_block: false,
+            code_lang: String::from(""),
+            syntax_set: SyntaxSet::load_defaults_newlines(),
+            theme: ThemeSet::get_theme("dracula.tmTheme").unwrap(),
         }
     }
 
@@ -102,6 +118,30 @@ where
         Ok(())
     }
 
+    // Modified from syntect
+    pub fn highlighted_html_for_string(
+        s: &str,
+        ss: &SyntaxSet,
+        syntax: &SyntaxReference,
+        theme: &Theme,
+    ) -> Result<String, Error> {
+        let mut highlighter = HighlightLines::new(syntax, theme);
+        let (mut output, bg) = start_highlighted_html_snippet(theme);
+        output.push_str("<code class='highlight'>");
+
+        for line in LinesWithEndings::from(s) {
+            let regions = highlighter.highlight_line(line, ss)?;
+            append_highlighted_html_for_styled_line(
+                &regions[..],
+                IncludeBackground::IfDifferent(bg),
+                &mut output,
+            )?;
+        }
+        output.push_str("</code></pre>\n");
+        Ok(output)
+    }
+
+
     pub fn run(mut self) -> io::Result<()> {
         while let Some(event) = self.iter.next() {
             match event {
@@ -112,29 +152,40 @@ where
                     self.end_tag(tag)?;
                 }
                 Text(text) => {
-                    if self.heading {
-                        if self.end_newline {
-                            self.end_newline = false;
-                            write!(&mut self.writer, "<h{} id=\"{}\">", self.heading_level, slugify(&text))?;
-                        } else {
-                            write!(&mut self.writer, "\n<h{} id=\"{}\">", self.heading_level, slugify(&text))?;
+                    if self.in_code_block {
+                        /*
+                        for s in ss.syntaxes() {
+                            println!("{:?}", &s.name);
+                        }
+                        */
+                        let code_string = Self::highlighted_html_for_string(&text, &self.syntax_set, self.syntax_set.find_syntax_by_name(&self.code_lang).unwrap(), &self.theme).unwrap();
+                        write!(&mut self.writer, "{}", &code_string)?;
+                        self.end_newline = text.ends_with('\n');
+                    } else {
+                        if self.heading {
+                            if self.end_newline {
+                                self.end_newline = false;
+                                write!(&mut self.writer, "<{} id=\"{}\">", self.heading_level, slugify(&text))?;
+                            } else {
+                                write!(&mut self.writer, "\n<{} id=\"{}\">", self.heading_level, slugify(&text))?;
+                            }
+                            escape_html(&mut self.writer, &text)?;
+                            self.end_newline = text.ends_with('\n');
+                            continue;
+                        }
+                        if self.figure_link {
+                            match self.figure_numbers.entry(text.to_string()) {
+                                Occupied(entry) => {
+                                    write!(&mut self.writer, "{}", entry.get())?;
+                                    self.figure_link = false;
+                                    continue;
+                                },
+                                Vacant(_) => {self.figure_link = false},
+                            }
                         }
                         escape_html(&mut self.writer, &text)?;
                         self.end_newline = text.ends_with('\n');
-                        continue;
                     }
-                    if self.figure_link {
-                        match self.figure_numbers.entry(text.to_string()) {
-                            Occupied(entry) => {
-                                write!(&mut self.writer, "{}", entry.get())?;
-                                self.figure_link = false;
-                                continue;
-                            },
-                            Vacant(_) => {self.figure_link = false},
-                        }
-                    }
-                    escape_html(&mut self.writer, &text)?;
-                    self.end_newline = text.ends_with('\n');
                 }
                 Code(text) => {
                     self.write("<code>")?;
@@ -193,7 +244,7 @@ where
                     }
                 }
             }
-            Tag::Heading(level) => {
+            Tag::Heading(level, _, _) => {
                 self.heading = true;
                 self.heading_level = level;
                 self.write("")
@@ -235,6 +286,7 @@ where
                 }
             }
             Tag::CodeBlock(info) => {
+                self.in_code_block = true;
                 if !self.end_newline {
                     self.write_newline()?;
                 }
@@ -242,15 +294,15 @@ where
                     CodeBlockKind::Fenced(info) => {
                         let lang = info.split(' ').next().unwrap();
                         if lang.is_empty() {
-                            self.write("<pre><code>")
-                        } else {
-                            self.write("<pre><code class=\"language-")?;
-                            escape_html(&mut self.writer, lang)?;
-                            self.write("\">")
+                            panic!("Fenced code block without language");
                         }
+                        self.code_lang = String::from(lang);
                     }
-                    CodeBlockKind::Indented => self.write("<pre><code>"),
+                    CodeBlockKind::Indented => {
+                        panic!("Indented code block without language");
+                    }
                 }
+                self.write("")
             }
             Tag::List(Some(1)) => {
                 if self.end_newline {
@@ -360,8 +412,8 @@ where
                     self.write("</p>\n")?;
                 }
             }
-            Tag::Heading(level) => {
-                self.write("</h")?;
+            Tag::Heading(level, _, _) => {
+                self.write("</")?;
                 write!(&mut self.writer, "{}", level)?;
                 self.heading = false;
                 self.write(">\n")?;
@@ -391,7 +443,7 @@ where
                 self.write("</blockquote>\n")?;
             }
             Tag::CodeBlock(_) => {
-                self.write("</code></pre>\n")?;
+                self.in_code_block = false;
             }
             Tag::List(Some(_)) => {
                 self.write("</ol>\n")?;

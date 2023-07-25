@@ -55,9 +55,7 @@ $slow-time: 0.5s;
 
 $card-background-color: #F6F6F6;
 $card-content-background-color: $card-background-color;
-// $card-metadata-background-color: darken(#EFEFEF, 7);
 $card-metadata-background-color: darken(#EAEFF1, 7);
-// $card-metadata-background-color: lighten(#7EBCE6, 27.5); // Maya Blue
 $website-background-color: darken(#D8D8D8, 2.5);
 $card-shadow-color: darken($website-background-color, 20);
 $shadow-in-card-color: darken($card-background-color, 20);
@@ -243,7 +241,7 @@ a:focus, a:hover {
         margin-left: auto;
         margin-right: auto;
         overflow: hidden;
-        box-shadow: 4px 4px $card-shadow-color;
+        filter: drop-shadow(4px 4px 4px $card-shadow-color);
 
         img {
             display: block;
@@ -253,9 +251,12 @@ a:focus, a:hover {
         }
     }
 
-    .header-card-container {
-        border-radius: $card-border-radius;
-        width: 100%;
+    .post-navigation-card {
+        margin-top: 1.2rem;
+    }
+
+    .header-card {
+        margin-top: 1.2rem;
         text-align: center;
         background-color: $plus10-primary;
         font-size: 1.5rem;
@@ -339,6 +340,7 @@ a:focus, a:hover {
     }
 
     .card-header {
+        filter: drop-shadow(0px 2px 1px $highlight-in-card-color);
 
         .card-title-container {
             display: flex;
@@ -367,6 +369,7 @@ a:focus, a:hover {
             }
 
             .metadata-icon {
+                filter: drop-shadow(2px 2px 1px $shadow-in-card-color);
                 flex: 3.5rem;
                 padding: 0;
                 margin-left: 0.5rem;
@@ -391,8 +394,7 @@ a:focus, a:hover {
 
         .card-metadata {
             background: $card-metadata-background-color;
-            border-bottom: 2px solid $highlight-in-card-color;
-            border-top: 3px solid $shadow-in-card-color;
+            filter: drop-shadow(0px -2px 1px $shadow-in-card-color);
         }
 
         .card-date-container {
@@ -410,6 +412,7 @@ a:focus, a:hover {
         padding: 0.5rem 1rem 0 1rem;
 
         .card-tag-icon {
+            filter: drop-shadow(2px 2px 1px $shadow-in-card-color);
             max-width: 1.4rem;
             max-height: 1.4rem;
             min-width: 1.4rem;
@@ -427,7 +430,7 @@ a:focus, a:hover {
             color: white;
             font-weight: bold;
             border-radius: $smaller-card-border-radius;
-            box-shadow: 3px 3px $shadow-in-card-color;
+            filter: drop-shadow(3px 3px 1px $shadow-in-card-color);
         }
 
         .default-tag {

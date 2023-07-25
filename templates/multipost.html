@@ -7,10 +7,8 @@
 
 {% block content %}
 
-    <div class='card'>
-        <div class='header-card-container'>
-            <span class='header-card-text'>{{ header_card }}</strong></span>
-        </div>
+    <div class='card header-card'>
+        <span class='header-card-text'>{{ header_card }}</strong></span>
     </div>
 
     {{ paginator::paginate(path=pagination.path, cur_page=pagination.cur_page, num_pages=pagination.num_pages, pages=pagination.pages) }}

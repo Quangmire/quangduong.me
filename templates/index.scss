@@ -236,6 +236,7 @@ a:focus, a:hover {
     width: 100%;
 
     .card {
+        margin-top: 1.25rem;
         border-radius: $card-border-radius;
         background: $card-background-color;
         margin-left: auto;
@@ -251,27 +252,18 @@ a:focus, a:hover {
         }
     }
 
-    .post-navigation-card {
-        margin-top: 1.2rem;
-    }
-
     .header-card {
-        margin-top: 1.2rem;
         text-align: center;
         background-color: $plus10-primary;
         font-size: 1.5rem;
 
         .header-card-text {
             display: block;
-            padding-top: 0.5rem;
-            padding-bottom: 0.5rem;
+            padding: 0.5rem;
+            padding: 0.5rem;
             color: $zero-secondary;
             font-weight: bold;
         }
-    }
-
-    .card + .card, .paginate + .card, .card + .paginate {
-        margin-top: 1rem;
     }
 
     .paginate-container {
@@ -377,18 +369,35 @@ a:focus, a:hover {
                 min-height: 3rem;
                 max-width: 3rem;
                 max-height: 3rem;
-                fill: $darker-highlight-color;
-                transition: fill $slow-time ease;
+
+                .github {
+                    fill: black;
+                    transition: fill $slow-time ease;
+                }
+
+                .pdf-text-bg, .pdf-text {
+                    transition: fill $slow-time ease;
+                }
             }
 
-            a:hover .metadata-icon {
-                fill: $lighter-highlight-color;
-                transition: fill $fast-time ease;
-            }
+            a:hover, a:focus {
+                .github {
+                    fill: white;
+                    stroke: black;
+                    stroke-width: 1px;
+                    stroke-linejoin: round;
+                    transition: fill $fast-time ease;
+                }
 
-            a:focus .metadata-icon {
-                fill: $lighter-highlight-color;
-                transition: fill $fast-time ease;
+                .pdf-text-bg {
+                    fill: white;
+                    transition: fill $fast-time ease;
+                }
+
+                .pdf-text {
+                    fill: red;
+                    transition: fill $fast-time ease;
+                }
             }
         }
 
@@ -462,7 +471,7 @@ a:focus, a:hover {
 
     .card-content {
         margin-top: 3px;
-        padding: calc(0.5rem - 3px) 1rem 0.5rem 1rem;
+        padding: calc(1rem - 3px) 1rem 1rem 1rem;
         line-height: 2rem;
         background: $card-content-background-color;
 
@@ -782,7 +791,7 @@ a:focus, a:hover {
             margin: 0.5rem;
 
             .card-header > .card-title-container .card-title {
-                padding: 0.75rem;
+                padding: 0.75rem 0.5rem 0.75rem 0.75rem;
                 font-size: 1.4rem;
             }
 
@@ -832,12 +841,8 @@ a:focus, a:hover {
             }
         }
 
-        .card + .card {
-            margin-top: 0;
-        }
-
-        .paginate + .card, .card + .paginate {
-            margin-top: 0.5rem;
+        .card {
+            margin-top: 0.75rem;
         }
 
         .post-navigation {

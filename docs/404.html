@@ -3,7 +3,15 @@
     <head>
         <link rel='stylesheet' href='/static/index.css'>
 
+        <script src="https://cdn.jsdelivr.net/npm/@minimal-analytics/ga4/dist/index.js" async></script>
+        <script>
+            window.minimalAnalytics = {
+                trackingId: 'G-XXXXX', // <-- replace with your GA4 property ID
+                autoTrack: true,
+            };
+        </script>
         <!-- Global site tag (gtag.js) - Google Analytics -->
+        <!--
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-4Y31FF0P78"></script>
         <script>
             window.dataLayer = window.dataLayer || [];
@@ -11,6 +19,7 @@
             gtag('js', new Date());
             gtag('config', 'G-4Y31FF0P78');
         </script>
+        -->
         <title>404 - Page Not Found · Quang Duong</title>
 
         <meta charset='utf-8'>

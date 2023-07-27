@@ -36,42 +36,7 @@
     <changefreq>daily</changefreq>
   </url>
   <url>
-    <loc>https://quangduong.me/tag/first post/1/</loc>
-    <lastmod>2023-07-27</lastmod>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://quangduong.me/tag/fluid simulation/1/</loc>
-    <lastmod>2023-07-27</lastmod>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://quangduong.me/tag/computer graphics/1/</loc>
-    <lastmod>2023-07-27</lastmod>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://quangduong.me/tag/notes/1/</loc>
-    <lastmod>2023-07-27</lastmod>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://quangduong.me/tag/computer architecture/1/</loc>
-    <lastmod>2023-07-27</lastmod>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://quangduong.me/tag/about/1/</loc>
-    <lastmod>2023-07-27</lastmod>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://quangduong.me/tag/data prefetching/1/</loc>
-    <lastmod>2023-07-27</lastmod>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://quangduong.me/tag/physical simulation/1/</loc>
+    <loc>https://quangduong.me/tag/machine learning/1/</loc>
     <lastmod>2023-07-27</lastmod>
     <changefreq>weekly</changefreq>
   </url>
@@ -81,12 +46,47 @@
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://quangduong.me/tag/machine learning/1/</loc>
+    <loc>https://quangduong.me/tag/computer graphics/1/</loc>
+    <lastmod>2023-07-27</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://quangduong.me/tag/first post/1/</loc>
+    <lastmod>2023-07-27</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://quangduong.me/tag/about/1/</loc>
+    <lastmod>2023-07-27</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://quangduong.me/tag/computer architecture/1/</loc>
+    <lastmod>2023-07-27</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://quangduong.me/tag/physical simulation/1/</loc>
+    <lastmod>2023-07-27</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://quangduong.me/tag/data prefetching/1/</loc>
+    <lastmod>2023-07-27</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://quangduong.me/tag/notes/1/</loc>
     <lastmod>2023-07-27</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://quangduong.me/tag/projects/1/</loc>
+    <lastmod>2023-07-27</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://quangduong.me/tag/fluid simulation/1/</loc>
     <lastmod>2023-07-27</lastmod>
     <changefreq>weekly</changefreq>
   </url>
@@ -106,13 +106,13 @@
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://quangduong.me/static/documents/QuangDuongCV.pdf</loc>
-    <lastmod>2022-06-29</lastmod>
-    <changefreq>monthly</changefreq>
-  </url>
-  <url>
     <loc>https://quangduong.me/static/media/profile.webp</loc>
     <lastmod>2022-03-10</lastmod>
     <changefreq>yearly</changefreq>
+  </url>
+  <url>
+    <loc>https://quangduong.me/static/documents/QuangDuongCV.pdf</loc>
+    <lastmod>2022-06-29</lastmod>
+    <changefreq>monthly</changefreq>
   </url>
 </urlset>

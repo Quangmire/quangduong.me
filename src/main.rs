@@ -252,7 +252,7 @@ fn build(args: &CLIArgs, post_data: Vec<PostData>) {
                 &Context::from_serialize(&multipost).unwrap(),
                 &args.output_path.join("tag").join(tag.replace(" ", "_")).join(page.to_string()));
             sitemap.add_entry(
-                format!("tag/{}/{}/", tag, page).to_string(),
+                format!("tag/{}/{}/", tag.replace(" ", "_"), page).to_string(),
                 chrono::offset::Local::now().naive_local(),
                 SiteMapUpdateFreq::WEEKLY
             );

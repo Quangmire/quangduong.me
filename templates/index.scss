@@ -59,6 +59,7 @@ $card-metadata-background-color: darken(#EAEFF1, 7);
 $website-background-color: darken(#D8D8D8, 2.5);
 $card-shadow-color: darken($website-background-color, 20);
 $shadow-in-card-color: darken($card-background-color, 20);
+$shadow-in-metadata-color: darken($card-metadata-background-color, 20);
 $highlight-in-card-color: lighten($card-background-color, 5);
 $card-tag-icon-color: darken($card-metadata-background-color, 55);
 
@@ -250,6 +251,14 @@ a:focus, a:hover {
             margin-left: auto;
             margin-right: auto;
         }
+
+        #publications ~ p {
+            line-height: 1.5rem;
+
+            strong {
+                font-size: 1.15rem;
+            }
+        }
     }
 
     .header-card {
@@ -355,52 +364,7 @@ a:focus, a:hover {
             .card-title-link:hover > .card-title {
                 text-decoration: underline;
             }
-
-            .card-title-metadata {
-                display: flex;
-            }
-
-            .metadata-icon {
-                filter: drop-shadow(2px 2px 1px $shadow-in-card-color);
-                flex: 3.5rem;
-                padding: 0;
-                margin-left: 0.5rem;
-                min-width: 3rem;
-                min-height: 3rem;
-                max-width: 3rem;
-                max-height: 3rem;
-
-                .github {
-                    fill: black;
-                    transition: fill $slow-time ease;
-                }
-
-                .pdf-text-bg, .pdf-text {
-                    transition: fill $slow-time ease;
-                }
-            }
-
-            a:hover, a:focus {
-                .github {
-                    fill: white;
-                    stroke: black;
-                    stroke-width: 1px;
-                    stroke-linejoin: round;
-                    transition: fill $fast-time ease;
-                }
-
-                .pdf-text-bg {
-                    fill: white;
-                    transition: fill $fast-time ease;
-                }
-
-                .pdf-text {
-                    fill: red;
-                    transition: fill $fast-time ease;
-                }
-            }
         }
-
         .card-metadata {
             background: $card-metadata-background-color;
             filter: drop-shadow(0px -2px 1px $shadow-in-card-color);
@@ -417,11 +381,51 @@ a:focus, a:hover {
 
     }
 
+    .card-title-metadata, .quick-links-section {
+        display: flex;
+    }
+
+    .metadata-link {
+        margin-left: 0.5rem;
+    }
+
+    .quick-link {
+        margin-left: 1rem;
+    }
+
+    .metadata-icon, .quick-link-icon {
+        filter: drop-shadow(4px 4px 2px $shadow-in-card-color);
+        flex: 3.5rem;
+        padding: 0;
+        min-width: 3rem;
+        min-height: 3rem;
+        max-width: 3rem;
+        max-height: 3rem;
+
+        .bg, .fg {
+            transition: fill $slow-time ease;
+        }
+    }
+
+    a:hover, a:focus {
+        .metadata-icon, .quick-link-icon {
+            .bg {
+                fill: white;
+                transition: fill $fast-time ease;
+            }
+
+            .fg {
+                fill: #ea5440ff;
+                transition: fill $fast-time ease;
+            }
+        }
+    }
+
     .card-tag-container {
         padding: 0.5rem 1rem 0 1rem;
 
         .card-tag-icon {
-            filter: drop-shadow(2px 2px 1px $shadow-in-card-color);
+            filter: drop-shadow(2px 2px 1px $shadow-in-metadata-color);
             max-width: 1.4rem;
             max-height: 1.4rem;
             min-width: 1.4rem;
@@ -439,7 +443,7 @@ a:focus, a:hover {
             color: white;
             font-weight: bold;
             border-radius: $smaller-card-border-radius;
-            filter: drop-shadow(3px 3px 1px $shadow-in-card-color);
+            filter: drop-shadow(3px 3px 1px $shadow-in-metadata-color);
         }
 
         .default-tag {
@@ -483,6 +487,9 @@ a:focus, a:hover {
             margin: 0.5rem 0 0 0;
         }
 
+        p + p {
+            margin: 1.25rem 0 0 0;
+        }
 
         h2 {
             padding-top: 0.5rem;
@@ -494,7 +501,7 @@ a:focus, a:hover {
         }
 
         p + h2 {
-            padding-top: 1rem;
+            padding-top: 1.25rem;
         }
 
         .figure {
@@ -524,7 +531,7 @@ a:focus, a:hover {
         }
     }
 
-    ul {
+    ul.mdlist {
         margin: 0.5rem 0 0.25rem 0;
         padding-left: 0.5rem;
         list-style: none;
@@ -548,7 +555,82 @@ a:focus, a:hover {
             text-indent: -2rem;
             padding-left: 1.5rem;
         }
+    }
 
+    // Based on https://bootsnipp.com/snippets/xrKXW
+    ul.timeline {
+        list-style-type: none;
+        position: relative;
+        font-family: monospace;
+    }
+
+    ul.timeline > li.timeline-item {
+        margin: 0.25rem 0;
+    }
+
+    ul.timeline > li.timeline-year {
+        margin: 0.5rem 0;
+        font-size: 1.2rem;
+    }
+
+    ul.timeline:before {
+        content: ' ';
+        background: $plus20-secondary;
+        display: inline-block;
+        position: absolute;
+        left: calc(2rem - 1px);
+        width: 2px;
+        top: -0.5rem;
+        height: calc(100% + 1.5rem);
+        z-index: 400;
+    }
+
+    ul.timeline li:before {
+        content: ' ';
+        display: inline-block;
+        position: absolute;
+        border-bottom: 3px solid $plus20-secondary;
+        left: 2rem;
+        height: calc(1rem - 1px);
+        z-index: 400;
+    }
+
+    ul.timeline li.timeline-item:before {
+        width: 1.125rem;
+    }
+
+    ul.timeline li.timeline-year:before {
+        width: 1.625rem;
+    }
+
+    ul.timeline span:before {
+        content: ' ';
+        background: white;
+        display: inline-block;
+        position: relative;
+        border-radius: 4px;
+        border: 3px solid $darker-highlight-color;
+        left: calc(-1rem + 1px);
+        top: 1px;
+        width: 0.5rem;
+        height: 0.5rem;
+        z-index: 401;
+        transform: rotate(45deg);
+    }
+
+    ul.timeline strong:before {
+        content: ' ';
+        background: white;
+        display: inline-block;
+        position: relative;
+        border-radius: 4px;
+        border: 3px solid $highlight-color;
+        left: calc(-1.25rem + 1px);
+        top: calc(0.25rem + 1px);
+        width: 1rem;
+        height: 1rem;
+        z-index: 401;
+        transform: rotate(45deg);
     }
 
     .collapsible-container {
@@ -636,12 +718,6 @@ a:focus, a:hover {
         transition: transform $slow-time ease;
     }
 
-    /*
-    span.newest-post, span.oldest-post {
-        background: $plus10-primary;
-    }
-    */
-
     .newer-post, .older-post {
         background: $plus10-primary;
         padding: 0.5rem 0 0.5rem 0;
@@ -699,10 +775,65 @@ a:focus, a:hover {
     }
 }
 
-.about img {
+#content .about { 
+    h2 {
+        padding-bottom: 0.1rem;
+        display: flex;
+        align-items: center;
+    }
+
+    h2:after {
+        flex-shrink: 10000000;
+        content: '';
+        margin: 0 1rem;
+        width: 100%;
+        height: 0px;
+        outline: 3px dashed $lighter-highlight-color;
+    }
+
+    #publications ~ p, #teaching ~ p, #experience ~ p, #education ~ p {
+        margin-top: 0.75rem;
+    }
+
+    #publications + p, #teaching + p, #experience + p, #education + p {
+        margin-top: 0rem;
+    }
+
+}
+
+#content .about .profile-section {
     float: right;
+    display: flex;
+    flex-direction: row;
+    margin-left: 1rem;
+    padding: 1rem;
+
     border-radius: 1rem;
-    padding-left: 0.5rem;
+    filter: drop-shadow(-2px -2px 1px $shadow-in-card-color);
+    border-bottom: 2px solid $highlight-in-card-color;
+    border-right: 2px solid $highlight-in-card-color;
+    
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box; /* Firefox, other Gecko */
+    box-sizing: border-box; /* Opera/IE 8+ */
+
+    background: $card-metadata-background-color;
+
+    img.profile-image {
+        border-radius: 1rem;
+        filter: drop-shadow(4px 4px 2px $shadow-in-metadata-color);
+    }
+
+    .quick-links-section {
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: space-between;
+
+        .quick-link-icon {
+            filter: drop-shadow(4px 4px 2px $shadow-in-metadata-color);
+            vertical-align: middle;
+        }
+    }
 }
 
 // Desktop-ish
@@ -822,8 +953,7 @@ a:focus, a:hover {
                     font-size: 1.1rem;
                 }
 
-                ul {
-
+                ul.mdlist {
                     li {
                         vertical-align: middle;
                         text-indent: -1.7rem;
@@ -837,6 +967,9 @@ a:focus, a:hover {
                         height: 1.2rem;
                         width: 1.2rem;
                     }
+                }
+                ul.timeline span:before {
+                    top: 2px;
                 }
             }
         }
@@ -861,16 +994,28 @@ a:focus, a:hover {
     code {
         font-size: 0.9rem;
     }
-
-
 }
 
 @media only screen and (max-width: 532px) {
-    .about img {
+    #content .about .profile-section {
         float: none;
         display: block;
         margin-left: auto;
         margin-right: auto;
+        padding: 0.5rem 1rem;
+        text-align: center;
+        max-width: calc(256px + 1.5rem);
+
+        .quick-links-section {
+            flex-direction: row;
+            margin-top: 1rem;
+            justify-content: center;
+            max-width: 256px;
+
+            .quick-link:first-child {
+                margin-left: 0;
+            }
+        }
     }
 
     .paginate-container {

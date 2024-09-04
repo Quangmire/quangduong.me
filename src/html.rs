@@ -322,7 +322,7 @@ where
             }
             Tag::List(None) => {
                 if self.end_newline {
-                    self.write("<ul>\n")
+                    self.write("<ul class='mdlist'>\n")
                 } else {
                     self.write("\n<ul>\n")
                 }

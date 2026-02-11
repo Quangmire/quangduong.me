@@ -1,7 +1,7 @@
 cv.pdf:
     url: "static/documents/QuangDuongCV.pdf"
-    last_mod: "2024-09-04"
-    update_freq: "monthly"
+    last_mod: "2026-02-10"
+    update_freq: "yearly"
 profile.png:
     url: "static/media/profile.webp"
     last_mod: "2022-03-10"
@@ -13,4 +13,12 @@ twilight_paper_isca2024.pdf:
 twilight_presentation_isca2024.pdf:
     url: "static/documents/Twilight_Presentation_ISCA2024.pdf"
     last_mod: "2024-07-10"
+    update_freq: "never"
+streamline_paper_hpca2026.pdf:
+    url: "static/documents/Streamline_Paper_HPCA2026.pdf"
+    last_mod: "2026-02-10"
+    update_freq: "never"
+streamline_presentation_hpca2026.pdf:
+    url: "static/documents/Streamline_Presentation_HPCA2024.pdf"
+    last_mod: "2026-02-10"
     update_freq: "never"

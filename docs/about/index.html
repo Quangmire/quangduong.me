@@ -24,7 +24,7 @@
 
         <meta charset='utf-8'>
         <meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no'>
-        <meta name='description' content='I&#x27;m a CS PhD student under Dr. Calvin Lin at UT Austin studying ML for classic microarchitectural prediction problems (data prefetching, cache replacement, and branch prediction).
+        <meta name='description' content='I&#x27;m a CS PhD student under Calvin Lin at UT Austin studying temporal prefetching and ML for classical microarchitectural prediction problems (data prefetching, cache replacement, and branch prediction).
 '>
 
         
@@ -121,7 +121,7 @@
         <div class='card-metadata'>
             <div class='card-date-container'>
                 
-                    <span class='card-date'>Posted Oct 22 2021 · Last Updated Sep 04 2024</span>
+                    <span class='card-date'>Posted Oct 22 2021 · Last Updated Feb 11 2026</span>
                 
             </div>
             <div class='card-tag-container'>
@@ -179,45 +179,59 @@
         </svg></a>
     </div>
 </div>
-<p>I started my Ph.D in computer science at UT Austin in Fall 2020 as a part of
-the <a href="https://www.cs.utexas.edu/~speedway/">Speedway group</a> lead by <a href="https://cs.utexas.edu/~lin">Dr. Calvin
-Lin</a>. My work applies machine learning techniques
-to classical microarchitectural prediction problems (e.g. data prefetching,
-cache replacement and branch prediction) to distill insights that can guide the
-design of a more practical ML-based predictor or improve existing traditional
-table-and-counter-based predictors.</p>
-<p>In particular, I have applied this methodology to improve neural temporal
-prefetchers in my recent work,
-<a href="/static/documents/Twilight_Paper_ISCA2024.pdf">Twilight</a>, and am continuing to
-look ways to further improve temporal prefetching (both neural and otherwise).
-In addition to this research, I have been exploring techniques to holistically
-manage and throttle multiple prefetchers in a more principled manner. Beyond
-prefetching, I'm generally interested in any microarchitectural and systems
-prediction problems and try to stay up-to-date on contemporary ML research
-(specifically computer vision and natural language processing).</p>
+<p>In 2020, I started my PhD at UT Austin CS as a part of the <a href="https://www.cs.utexas.edu/~speedway/">Speedway
+Group</a> lead by <a href="https://cs.utexas.edu/~lin">Calvin
+Lin</a>.  My research aims to rethink the formulation
+of temporal prefetching to improve the efficiency and performance of both
+neural and non-neural temporal prefetchers.  In addition, I’ve also delved into
+applying machine learning techniques to other classical microarchitectural
+prediction problems (e.g., cache replacement and branch prediction) to distill
+insights that can improve the designs of existing predictors.</p>
+<p>In particular, I have already applied this methodology to improve (1) the
+practicality of neural temporal prefetching (see
+<a href="/static/documents/Twilight_Paper_ISCA2024.pdf">Twilight</a>) and (2) the storage
+efficiency of on-chip temporal prefetching (see
+<a href="/static/documents/Streamline_Paper_HPCA2026.pdf">Streamline</a>).  More recently,
+I've been researching a novel approach that re-examines address correlation
+itself.  Beyond temporal prefetching, I've been exploring techniques to better
+manage the cache hierarchy when it has multiple prefetchers or multiple types
+of data and metadata.</p>
 <p>Pictured above is my mostly black and a smidgeon white munchkin cat, Chickadee.
 He's a senior cat (sitting at 17 years at the time of writing) who's
 inordinately healthy and loves napping, staring blankly at walls for hours, and
 constant physical attention.</p>
 <h2 id="updates">UPDATES</h2>
 <ul class='timeline'>
-    <li class='timeline-item'><span><b>[MAY]</b> Interned on Arm's CPU team</span></li>
-    <li class='timeline-item'><span><b>[MAR]</b> Our paper, <a href='/static/documents/Twilight_Paper_ISCA2024.pdf'>Twilight</a>, was accepted to ISCA</span></li>
+    <li class='timeline-item'><span><b>[FEB]</b> Presented our <a href='/static/documents/Streamline_Paper_HPCA2026.pdf'>Streamline</a> paper at HPCA in Sydney, Australia</span></li>
+    <li class='timeline-year'><strong>2026</strong></li>
+    <li class='timeline-item'><span><b>[NOV]</b> Our <a href='/static/documents/Streamline_Paper_HPCA2026.pdf'>Streamline</a> paper was accepted to HPCA</span></li>
+    <li class='timeline-item'><span><b>[MAY]</b> Started my internship on Arm's CPU team</span></li>
+    <li class='timeline-year'><strong>2025</strong></li>
+    <li class='timeline-item'><span><b>[JUL]</b> Presented our <a href='/static/documents/Twilight_Paper_ISCA2024.pdf'>Twilight</a> paper at ISCA in Buenos Aires, Argentina</span></li>
+    <li class='timeline-item'><span><b>[MAY]</b> Started my internship on Arm's CPU team</span></li>
+    <li class='timeline-item'><span><b>[MAR]</b> Our <a href='/static/documents/Twilight_Paper_ISCA2024.pdf'>Twilight</a> paper was accepted to ISCA</span></li>
     <li class='timeline-year'><strong>2024</strong></li>
-    <li class='timeline-item'><span><b>[MAY]</b> Interned on Arm's CPU team</span></li>
+    <li class='timeline-item'><span><b>[MAY]</b> Started my internship on Arm's CPU team</span></li>
     <li class='timeline-year'><strong>2023</strong></li>
     <li class='timeline-item'><span><b>[AUG]</b> Served as a <a href='https://microarch.org/micro56/'>MICRO 2023</a> artifact evaluator</span></li>
-    <li class='timeline-item'><span><b>[MAY]</b> Interned at Arm Research</span></li>
+    <li class='timeline-item'><span><b>[MAY]</b> Started my internship at Arm Research</span></li>
     <li class='timeline-year'><strong>2022</strong></li>
     <li class='timeline-item'><span><b>[NOV]</b> Served as a <a href='https://ppopp22.sigplan.org/'>PPoPP 2022</a> artifact evaluator</span></li>
     <li class='timeline-item'><span><b>[JUN]</b> Co-organized first <a href='https://sites.google.com/view/mlarchsys/isca-2021/ml-prefetching-competition'>ML Data Prefetching Championship</a> for MLArchSys at ISCA</span></li>
     <li class='timeline-year'><strong>2021</strong></li>
+    <li class='timeline-item'><span><b>[AUG]</b> Started my PhD at UT Austin CS under <a href='https://cs.utexas.edu/~lin'>Calvin Lin</a></span></li>
+    <li class='timeline-year'><strong>2020</strong></li>
 </ul>
 <h2 id="publications">PUBLICATIONS</h2>
+<p><strong>Streamlined On-Chip Temporal Prefetching [HPCA 2026]</strong> <br />
+<u>Quang Duong</u> and <a href="https://cs.utexas.edu/~lin">Calvin Lin</a> <br />
+Paper [<a href="/static/documents/Streamline_Paper_HPCA2026.pdf">PDF</a>] + Presentation [<a href="/static/documents/Streamline_Presentation_HPCA2026.pdf">PDF</a>] + DOI [TBD]</p>
 <p><strong>A New Formulation of Neural Data Prefetching [ISCA 2024]</strong> <br />
-<u>Quang Duong</u>, Akanksha Jain, Calvin Lin <br />
+<u>Quang Duong</u>, <a href="https://cs.utexas.edu/~akanksha">Akanksha Jain</a>, <a href="https://cs.utexas.edu/~lin">Calvin Lin</a> <br />
 Paper [<a href="/static/documents/Twilight_Paper_ISCA2024.pdf">PDF</a>] + Presentation [<a href="/static/documents/Twilight_Presentation_ISCA2024.pdf">PDF</a>] + DOI [<a href="https://doi.org/10.1109/ISCA59077.2024.00088">LINK</a>]</p>
 <h2 id="professional-experience">PROFESSIONAL EXPERIENCE</h2>
+<p><strong>CPU Perf Exploration Intern at Arm [Summer 2025]</strong> <br />
+ML for Front-End Speculation</p>
 <p><strong>CPU Perf Exploration Intern at Arm [Summer 2024]</strong> <br />
 Temporal Prefetching + ML for Fine-Grained Prefetcher Management</p>
 <p><strong>CPU Perf Exploration Intern at Arm [Summer 2023]</strong> <br />
@@ -230,12 +244,12 @@ ML &amp; RL for Ionospheric Weather Modeling</p>
 Genetic Algorithms for Neural Parametric Approximations of 3D Models</p>
 <h2 id="education">EDUCATION</h2>
 <p><strong>Computer Science PhD [Fall 2020 - Present]</strong> <br />
-at UT Austin (advised by <a href="https://cs.utexas.edu/~lin">Dr. Calvin Lin</a>)</p>
+at UT Austin (advised by <a href="https://cs.utexas.edu/~lin">Calvin Lin</a>)</p>
 <p><strong>Math BS &amp; Computer Science BS/MS [Fall 2015 - Spring 2020]</strong> <br />
 at UT Austin with High Honors</p>
 <h2 id="teaching">TEACHING</h2>
 <p><strong>CS 395T: Prediction Mechanisms for Computer Architecture</strong> <br />
-Co-Instructor [Spring 2022, Spring 2023, Spring 2024]</p>
+Co-Instructor [Spring 2022, Spring 2023, Spring 2024, Spring 2025, Spring 2026]</p>
 <p><strong>CS 380P: Parallel Systems</strong> <br />
 Teaching Assistant [Fall 2020, Summer 2021]</p>
 <p><strong>CS 373: Software Engineering</strong> <br />

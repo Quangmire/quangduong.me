@@ -507,7 +507,7 @@ a:focus, a:hover {
         .figure {
             text-align: center;
         }
-        
+
     }
 
     .MathJax {
@@ -775,7 +775,7 @@ a:focus, a:hover {
     }
 }
 
-#content .about { 
+#content .about {
     h2 {
         padding-bottom: 0.1rem;
         display: flex;
@@ -812,7 +812,7 @@ a:focus, a:hover {
     filter: drop-shadow(-2px -2px 1px $shadow-in-card-color);
     border-bottom: 2px solid $highlight-in-card-color;
     border-right: 2px solid $highlight-in-card-color;
-    
+
     -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
     -moz-box-sizing: border-box; /* Firefox, other Gecko */
     box-sizing: border-box; /* Opera/IE 8+ */

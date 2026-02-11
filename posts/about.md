@@ -2,14 +2,14 @@ title: "Quang Duong · About Me"
 path: ""
 card_title: "Quang Duong · About Me"
 card_date: "Oct 22 2021 1:16AM"
-last_updated: "Sep 4 2024 12:20AM"
+last_updated: "Feb 11 2026 12:00PM"
 card_tags:
 - "about"
 card_class: "about"
 summary: >
-  I'm a CS PhD student under Dr. Calvin Lin at UT Austin studying ML for
-  classic microarchitectural prediction problems (data prefetching, cache
-  replacement, and branch prediction).
+  I'm a CS PhD student under Calvin Lin at UT Austin studying temporal
+  prefetching and ML for classical microarchitectural prediction problems (data
+  prefetching, cache replacement, and branch prediction).
 
 ---
 
@@ -55,23 +55,24 @@ summary: >
     </div>
 </div>
 
-I started my Ph.D in computer science at UT Austin in Fall 2020 as a part of
-the [Speedway group](https://www.cs.utexas.edu/~speedway/) lead by [Dr. Calvin
-Lin](https://cs.utexas.edu/~lin). My work applies machine learning techniques
-to classical microarchitectural prediction problems (e.g. data prefetching,
-cache replacement and branch prediction) to distill insights that can guide the
-design of a more practical ML-based predictor or improve existing traditional
-table-and-counter-based predictors.
+In 2020, I started my PhD at UT Austin CS as a part of the [Speedway
+Group](https://www.cs.utexas.edu/~speedway/) lead by [Calvin
+Lin](https://cs.utexas.edu/~lin).  My research aims to rethink the formulation
+of temporal prefetching to improve the efficiency and performance of both
+neural and non-neural temporal prefetchers.  In addition, I’ve also delved into
+applying machine learning techniques to other classical microarchitectural
+prediction problems (e.g., cache replacement and branch prediction) to distill
+insights that can improve the designs of existing predictors.
 
-In particular, I have applied this methodology to improve neural temporal
-prefetchers in my recent work,
-[Twilight](/static/documents/Twilight_Paper_ISCA2024.pdf), and am continuing to
-look ways to further improve temporal prefetching (both neural and otherwise).
-In addition to this research, I have been exploring techniques to holistically
-manage and throttle multiple prefetchers in a more principled manner. Beyond
-prefetching, I'm generally interested in any microarchitectural and systems
-prediction problems and try to stay up-to-date on contemporary ML research
-(specifically computer vision and natural language processing).
+In particular, I have already applied this methodology to improve (1) the
+practicality of neural temporal prefetching (see
+[Twilight](/static/documents/Twilight_Paper_ISCA2024.pdf)) and (2) the storage
+efficiency of on-chip temporal prefetching (see
+[Streamline](/static/documents/Streamline_Paper_HPCA2026.pdf)).  More recently,
+I've been researching a novel approach that re-examines address correlation
+itself.  Beyond temporal prefetching, I've been exploring techniques to better
+manage the cache hierarchy when it has multiple prefetchers or multiple types
+of data and metadata.
 
 Pictured above is my mostly black and a smidgeon white munchkin cat, Chickadee.
 He's a senior cat (sitting at 17 years at the time of writing) who's
@@ -81,26 +82,41 @@ constant physical attention.
 ## UPDATES
 
 <ul class='timeline'>
-    <li class='timeline-item'><span><b>[MAY]</b> Interned on Arm's CPU team</span></li>
-    <li class='timeline-item'><span><b>[MAR]</b> Our paper, <a href='/static/documents/Twilight_Paper_ISCA2024.pdf'>Twilight</a>, was accepted to ISCA</span></li>
+    <li class='timeline-item'><span><b>[FEB]</b> Presented our <a href='/static/documents/Streamline_Paper_HPCA2026.pdf'>Streamline</a> paper at HPCA in Sydney, Australia</span></li>
+    <li class='timeline-year'><strong>2026</strong></li>
+    <li class='timeline-item'><span><b>[NOV]</b> Our <a href='/static/documents/Streamline_Paper_HPCA2026.pdf'>Streamline</a> paper was accepted to HPCA</span></li>
+    <li class='timeline-item'><span><b>[MAY]</b> Started my internship on Arm's CPU team</span></li>
+    <li class='timeline-year'><strong>2025</strong></li>
+    <li class='timeline-item'><span><b>[JUL]</b> Presented our <a href='/static/documents/Twilight_Paper_ISCA2024.pdf'>Twilight</a> paper at ISCA in Buenos Aires, Argentina</span></li>
+    <li class='timeline-item'><span><b>[MAY]</b> Started my internship on Arm's CPU team</span></li>
+    <li class='timeline-item'><span><b>[MAR]</b> Our <a href='/static/documents/Twilight_Paper_ISCA2024.pdf'>Twilight</a> paper was accepted to ISCA</span></li>
     <li class='timeline-year'><strong>2024</strong></li>
-    <li class='timeline-item'><span><b>[MAY]</b> Interned on Arm's CPU team</span></li>
+    <li class='timeline-item'><span><b>[MAY]</b> Started my internship on Arm's CPU team</span></li>
     <li class='timeline-year'><strong>2023</strong></li>
     <li class='timeline-item'><span><b>[AUG]</b> Served as a <a href='https://microarch.org/micro56/'>MICRO 2023</a> artifact evaluator</span></li>
-    <li class='timeline-item'><span><b>[MAY]</b> Interned at Arm Research</span></li>
+    <li class='timeline-item'><span><b>[MAY]</b> Started my internship at Arm Research</span></li>
     <li class='timeline-year'><strong>2022</strong></li>
     <li class='timeline-item'><span><b>[NOV]</b> Served as a <a href='https://ppopp22.sigplan.org/'>PPoPP 2022</a> artifact evaluator</span></li>
     <li class='timeline-item'><span><b>[JUN]</b> Co-organized first <a href='https://sites.google.com/view/mlarchsys/isca-2021/ml-prefetching-competition'>ML Data Prefetching Championship</a> for MLArchSys at ISCA</span></li>
     <li class='timeline-year'><strong>2021</strong></li>
+    <li class='timeline-item'><span><b>[AUG]</b> Started my PhD at UT Austin CS under <a href='https://cs.utexas.edu/~lin'>Calvin Lin</a></span></li>
+    <li class='timeline-year'><strong>2020</strong></li>
 </ul>
 
 ## PUBLICATIONS
 
+**Streamlined On-Chip Temporal Prefetching [HPCA 2026]** <br />
+<u>Quang Duong</u> and [Calvin Lin](https://cs.utexas.edu/~lin) <br />
+Paper [[PDF](/static/documents/Streamline_Paper_HPCA2026.pdf)] + Presentation [[PDF](/static/documents/Streamline_Presentation_HPCA2026.pdf)] + DOI [TBD]
+
 **A New Formulation of Neural Data Prefetching [ISCA 2024]** <br />
-<u>Quang Duong</u>, Akanksha Jain, Calvin Lin <br />
+<u>Quang Duong</u>, [Akanksha Jain](https://cs.utexas.edu/~akanksha), [Calvin Lin](https://cs.utexas.edu/~lin) <br />
 Paper [[PDF](/static/documents/Twilight_Paper_ISCA2024.pdf)] + Presentation [[PDF](/static/documents/Twilight_Presentation_ISCA2024.pdf)] + DOI [[LINK](https://doi.org/10.1109/ISCA59077.2024.00088)]
 
 ## PROFESSIONAL EXPERIENCE
+
+**CPU Perf Exploration Intern at Arm [Summer 2025]** <br />
+ML for Front-End Speculation
 
 **CPU Perf Exploration Intern at Arm [Summer 2024]** <br />
 Temporal Prefetching + ML for Fine-Grained Prefetcher Management
@@ -120,7 +136,7 @@ Genetic Algorithms for Neural Parametric Approximations of 3D Models
 ## EDUCATION
 
 **Computer Science PhD [Fall 2020 - Present]** <br />
-at UT Austin (advised by [Dr. Calvin Lin](https://cs.utexas.edu/~lin))
+at UT Austin (advised by [Calvin Lin](https://cs.utexas.edu/~lin))
 
 **Math BS & Computer Science BS/MS [Fall 2015 - Spring 2020]** <br />
 at UT Austin with High Honors
@@ -128,7 +144,7 @@ at UT Austin with High Honors
 ## TEACHING
 
 **CS 395T: Prediction Mechanisms for Computer Architecture** <br />
-Co-Instructor [Spring 2022, Spring 2023, Spring 2024]
+Co-Instructor [Spring 2022, Spring 2023, Spring 2024, Spring 2025, Spring 2026]
 
 **CS 380P: Parallel Systems** <br />
 Teaching Assistant [Fall 2020, Summer 2021]
@@ -138,91 +154,3 @@ Undergraduate Proctor [Spring 2018]
 
 **CS 309: Computational Intelligence FRI** <br />
 FRI Mentor [Spring 2017]
-
----
-
-My approach to research typically first exchanges the standard table-based
-predictors with a ML-based one and then works backwards by analyzing how the ML
-predictor works to distill insights that can guide the design of a practical
-one.
-
-My research approaches microarchitectural prediction problems (such as data and
-instruction prefetching, cache replacement, and branch prediction) using machine
-learning techniques from both directions.
-
-On one hand, I've replaced classical table-based predictors with ML predictors
-and have done so by reformulating the problem to be more amenable for neural
-approaches.
-
-On the other hand, I extract salient information out of ML predictors to better
-inform the design of practical hardware predictors.
-
-My research focuses on leveraging machine learning techniques to create better
-predictors (both hardware and neural) for microarchitectural prediction tasks
-such as data and instruction prefetching, cache replacement, and branch
-prediction.
-
-My research approaches microarchitectural prediction problems (such as data and
-instruction prefetching, cache replacement, and branch prediction) using machine
-learning techniques from both directions. On one hand, I redefine the existing
-problem definitions and tailor them to being more amenable for neural approaches.
-On the other, I find the
-
-My research tackles classical microarchitectural prediction problems such as
-data and instruction prefetching, cache replacement, and branch prediction using
-machine learning techniques in a principled manner.
-
-My research utilizes machine learning techniques to tackle classical
-microarchitectural prediction problems (such as data and instruction prefetching,
-cache replacement, and branch prediction) while following one key principle.
-Namely, my guiding ideology ...
-Namely, utilizing machine learning when appropriate.
-Namely, decomposing any prediction problem into its component sub-tasks and
-determining for which machine learning is appropriate.
-Namely, to only apply machine learning to the appropriate parts of the problem.
-
-Recently, I tailored the formulation of temporal prefetching to be more amenable
-for neural prefetchers and as a result, achieved higher performance than the
-unconstrained prior state-of-the-art, Voyager, while being several orders of
-magnitude faster and smaller.
-
-I've previously utilized explainable AI techinques to determine which static
-and dynamic branches are most salient in a hard-to-predict branch's history
-
-I've previously worked in using explainable AI techniques such as
-saliency and distillation for hard-to-predict branches to determine which static
-and dynamic branches in their histories
-
-in computer
-architecture prediction tasks. In particular, I'm working on producing
-practical predictors (both hardware and neural) using machine learning
-techniques in saliency, distillation, and explainable AI.
-
-My hobbies include reading anything from high fantasy to romance, belting out
-songs in the shower whenever I'm fully convinced there is no one around to hear
-my caterwauling, and indulging in the world's two highest forms of humor--puns
-and self-deprecation. I can commonly be found ricing my Arch distro,
-entertaining ridiculous research and project ideas, or redesigning this website
-for the umpteenth time as my tastes in aesthetics change.
-
-Pictured on the right is my mostly black and a smidgeon white munchkin cat,
-Chickadee.
-
-## RESEARCH INTERESTS
-
-- Machine Learning for Microarchitectural Prediction Tasks (and in general)
-- Saliency, Distillation, and Explainable AI (XAI)
-
-And outside of research, I generally dabble in:
-
-- Procedural Generation / Graphics / Physical Simulation
-- Security
-
-## CURRICULUM VITAE
-
-You can view my [curriculum vitae here](/static/documents/QuangDuongCV.pdf). Last updated June 29, 2022.
-pdf_link: "/static/documents/QuangDuongCV.pdf"
-
-summary: >
-  In-depth biography about myself, my work history, and my research interests in
-  the fields of computer science, machine learning, and computer architecture.

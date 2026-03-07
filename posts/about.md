@@ -107,7 +107,7 @@ constant physical attention.
 
 **Streamlined On-Chip Temporal Prefetching [HPCA 2026]** <br />
 <u>Quang Duong</u> and [Calvin Lin](https://cs.utexas.edu/~lin) <br />
-Paper [[PDF](/static/documents/Streamline_Paper_HPCA2026.pdf)] + Presentation [[PDF](/static/documents/Streamline_Presentation_HPCA2026.pdf)] + DOI [TBD]
+Paper [[PDF](/static/documents/Streamline_Paper_HPCA2026.pdf)] + Presentation [[PDF](/static/documents/Streamline_Presentation_HPCA2026.pdf)] + DOI [[LINK](https://doi.org/10.1109/HPCA68181.2026.11408470)]
 
 **A New Formulation of Neural Data Prefetching [ISCA 2024]** <br />
 <u>Quang Duong</u>, [Akanksha Jain](https://cs.utexas.edu/~akanksha), [Calvin Lin](https://cs.utexas.edu/~lin) <br />

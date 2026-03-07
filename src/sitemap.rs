@@ -59,7 +59,7 @@ impl SiteMap {
         });
     }
 
-    pub fn write(&self, sitemap_path: PathBuf) {
+    pub fn write(&mut self, sitemap_path: PathBuf) {
         let mut sitemap_file = match File::create(&sitemap_path) {
             Ok(file) => file,
             Err(e) => panic!("Couldn't create file {}: {}", sitemap_path.display(), e),
@@ -68,6 +68,8 @@ impl SiteMap {
         sitemap_file.write_all(b"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n").unwrap();
         sitemap_file.write_all(b"<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">\n").unwrap();
 
+        self.entries.sort_by(|a, b| a.url.cmp(&b.url));
+
         for entry in self.entries.iter() {
             sitemap_file.write_all(b"  <url>\n").unwrap();
             sitemap_file.write_all(format!("    <loc>https://quangduong.me/{}</loc>\n", &entry.url).as_bytes()).unwrap();
@@ -75,7 +77,11 @@ impl SiteMap {
             sitemap_file.write_all(format!("    <changefreq>{}</changefreq>\n", &entry.update_freq.to_string()).as_bytes()).unwrap();
             sitemap_file.write_all(b"  </url>\n").unwrap();
         }
-        for (_, entry) in self.sf_entries.iter() {
+
+        let mut sorted_sf_entries: Vec<(&String, &StaticFilesEntry)> = self.sf_entries.iter().collect();
+        sorted_sf_entries.sort_by(|a, b| a.1.url.cmp(&b.1.url));
+
+        for (_, entry) in sorted_sf_entries.iter() {
             sitemap_file.write_all(b"  <url>\n").unwrap();
             sitemap_file.write_all(format!("    <loc>https://quangduong.me/{}</loc>\n", &entry.url).as_bytes()).unwrap();
             sitemap_file.write_all(format!("    <lastmod>{}</lastmod>\n", &entry.last_mod).as_bytes()).unwrap();
